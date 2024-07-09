@@ -388,17 +388,40 @@
           <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">No</th>
           <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KECAMATAN</th>
           <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KELURAHAN/DESA</th>
-          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Penetapan <br> Lokasi oleh <br> Kepala Daerah</th>
-          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">DED</th>
-          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">RAB</th>
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Minat dari<br>Kepala Daerah</th>
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Penetapan<br>Lokasi oleh<br>Kepala Daerah</th>
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan<br>BPPW</th>
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;"><i>Detail Engineering Design</i><br>(DED)</th>
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Rencana Anggaran Biaya <br> RAB</th>
           <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Bukti <br> legalitas lahan <br> berupa sertifikat lahan</th>
-          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Dokumen <br> justifikasi <br> teknis</th>
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Dokumen <br> justifikasi <br> teknis <br> *untuk rincian <br> menu peningkatan/<br> rehabilitasi IPLT</th>
           <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Materplan/Rencana<br> Induk</th>
           <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Dokumen <br> Lingkungan</th>
           <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat <br> Kesiapan <br> Lembaga Pengelola</th>
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Rencana pengelolaan/<br> business plan IPLT</th>
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Bukti komitmen<br>untuk melaksanaan LLTT</th>
+
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">As Build Drawing<br>IPLT Terbangun<br>*untuk rincian <br> menu peningkatan/ <br> rehabilitasi IPLT</th>
+
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Laporan Audit/<br> Reviu BPKP</th>
+          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Spesifikasi Teknis <br> dan Harga Supplier <br>Truk Tinja</th>
           <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">edit Data</th>
         </tr>
         <tr>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
           <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
           <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
           <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
@@ -426,48 +449,79 @@
            <td><?= $value->nmkec; ?></td>
            <td><?= $value->nmdesa; ?></td>
            <td>
-             <?php if ($value->penetapan_ipltx != '') { ?>
-              <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->penetapan_ipltx; ?>')">
+             <?php if ($value->mintatKepalaDaerah != '') { ?>
+              <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->mintatKepalaDaerah; ?>')">
                 <i class="fa-solid fas fa-file-pdf fa-lg"></i>
               </button>
             <?php } ?>
           </td>
           <td>
-           <?php if ($value->penetapan_ipltx != '') { ?>
-            <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->penetapan_ipltx; ?>')">
+           <?php if ($value->mintatKepalaDaerah != '') { ?>
+            <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->mintatKepalaDaerah; ?>')">
               <i class="fas fa-copy fa-lg"></i>
             </button>
           <?php } ?>
         </td>
+
         <td>
-         <?php if ($value->ded_ipltx != '') { ?>
-          <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->ded_ipltx; ?>')">
+         <?php if ($value->penetapan_ipltx != '') { ?>
+          <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->penetapan_ipltx; ?>')">
             <i class="fa-solid fas fa-file-pdf fa-lg"></i>
           </button>
         <?php } ?>
       </td>
-
       <td>
-       <?php if ($value->ded_ipltx != '') { ?>
-        <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->ded_ipltx; ?>')">
+       <?php if ($value->penetapan_ipltx != '') { ?>
+        <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->penetapan_ipltx; ?>')">
           <i class="fas fa-copy fa-lg"></i>
         </button>
       <?php } ?>
     </td>
 
     <td>
-     <?php if ($value->rab_ipltx != '') { ?>
-      <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->rab_ipltx; ?>')">
+     <?php if ($value->pernyataanBPPW != '') { ?>
+      <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->pernyataanBPPW; ?>')">
         <i class="fa-solid fas fa-file-pdf fa-lg"></i>
       </button>
     <?php } ?>
   </td>
   <td>
-   <?php if ($value->rab_ipltx != '') { ?>
-    <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->rab_ipltx; ?>')">
+   <?php if ($value->pernyataanBPPW != '') { ?>
+    <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->pernyataanBPPW; ?>')">
       <i class="fas fa-copy fa-lg"></i>
     </button>
   <?php } ?>
+</td>
+
+<td>
+ <?php if ($value->ded_ipltx != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->ded_ipltx; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+<td>
+ <?php if ($value->ded_ipltx != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->ded_ipltx; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+<td>
+ <?php if ($value->rab_ipltx != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->rab_ipltx; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->rab_ipltx != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->rab_ipltx; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
 </td>
 <td>
  <?php if ($value->legalitas_ipltx != '') { ?>
@@ -539,6 +593,83 @@
   </button>
 <?php } ?>
 </td>
+
+<td>
+ <?php if ($value->businessPlanIPLT != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->businessPlanIPLT; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->businessPlanIPLT != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->businessPlanIPLT; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+<td>
+ <?php if ($value->buktiKomitmenIPLT != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->buktiKomitmenIPLT; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->buktiKomitmenIPLT != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->buktiKomitmenIPLT; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+
+<td>
+ <?php if ($value->abd != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->abd; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->abd != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->abd; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+<td>
+ <?php if ($value->bpkp != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->bpkp; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->bpkp != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->bpkp; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+<td>
+ <?php if ($value->sTrukTinja != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->sTrukTinja; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->sTrukTinja != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->sTrukTinja; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
 <td class="text-center" style="display: flex; align-items: center;">
   <button class="btn btn-warning btn-icon  d-inline" onclick="editDataIplt('<?= str_replace("'", '',$value->nmkec); ?>', '<?= str_replace("'", '',$value->nmdesa);  ?>', '<?= $value->id; ?>', '<?= $value->kdkec; ?>', '<?= $value->kddesa; ?>')" style="margin-right: 10px;"><i class="fas fa-edit"></i></button>
   <button class="btn btn-danger btn-icon  d-inline" onclick="hapusDataIplt('<?= $value->id; ?>')"><i class="fas fa-trash"></i></button>
@@ -562,15 +693,34 @@
           <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">No</th>
           <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KECAMATAN</th>
           <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KELURAHAN/DESA</th>
-          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">DED</th>
-          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">RAB</th>
+          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;"><i>Detail Engineering Design</i><br>(DED)</th>
+          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Rencana Anggaran Biaya<br>(RAB)</th>
           <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan <br>Kegiatan </th>
           <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Bukti legalitas lahan <br> untuk TPS 3R </th>
           <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Konsep Business Plan <br>pengelolaan TPS 3R <br>pasca konstruksi</th>
-          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Daftar calon <br> penerima manfaat <br> TPS 3R minimal 200 KK</th>
+          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Daftar Calon<br>Penerima Manfaat TPS3R</th>
+          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Berita Acara <br> Kesepakatan Warga</th>
+          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan dan Dukungan <br> Biaya Operasi <br> dan Pemeliharaan</th>
+          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat dukungan <br> Dinas Lingkungan Hidup</th>
+          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Justifikasi Peningkatan/ <br> Rehabilitasi TPS3R <br> (*untuk rincian menu <br> peningkatan/rehabilitasi TPS3R)</th>
+          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">SK Kepala Desa <br> tentang Pembentukan KKP <br> *untuk rincian menu <br> peningkatan/rehabilitasi TPS3R</th>
+          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;"><i>As Build Drawing</i> <br> TPS3R Terbangun</th>
+
           <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Edit Data</th>
         </tr>
         <tr>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+          <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
           <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
           <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
           <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
@@ -677,6 +827,101 @@
   </button>
 <?php } ?>
 </td>
+
+<td>
+ <?php if ($value->ba_warga != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->ba_warga; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->ba_warga != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->ba_warga; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+<td>
+ <?php if ($value->kesepakatan_oprasi_pemeliharan != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->kesepakatan_oprasi_pemeliharan; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->kesepakatan_oprasi_pemeliharan != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->kesepakatan_oprasi_pemeliharan; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+<td>
+ <?php if ($value->surat_dinas_hidup != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->surat_dinas_hidup; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->surat_dinas_hidup != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->surat_dinas_hidup; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+
+<td>
+ <?php if ($value->justifikasi_TPS_peningkatan != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->justifikasi_TPS_peningkatan; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->justifikasi_TPS_peningkatan != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->justifikasi_TPS_peningkatan; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+
+<td>
+ <?php if ($value->sk_desa_kpp != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->sk_desa_kpp; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->sk_desa_kpp != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->sk_desa_kpp; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+
+<td>
+ <?php if ($value->abd != '') { ?>
+  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= $value->abd; ?>')">
+    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+<td>
+ <?php if ($value->abd != '') { ?>
+  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->abd; ?>')">
+    <i class="fas fa-copy fa-lg"></i>
+  </button>
+<?php } ?>
+</td>
+
+
 <td>
   <button class="btn btn-warning btn-icon  d-inline" onclick="editDataPembangunanBaru('<?= str_replace("'", '',$value->nmkec); ?>', '<?= str_replace("'", '',$value->nmdesa);  ?>', '<?= $value->id; ?>', '<?= $value->kdkec; ?>', '<?= $value->kddesa; ?>')" style="margin-right: 10px;"><i class="fas fa-edit"></i></button>
   <button class="btn btn-danger btn-icon  d-inline" onclick="hapusDataPembangunanBaru('<?= $value->id; ?>')"><i class="fas fa-trash"></i></button>
@@ -1346,19 +1591,42 @@
                     <table class="table table-bordered " style="border-color: #a7a7b6;">
                      <thead class="text-center sticky-top align-middle">
                       <tr>
-                        <th rowspan="2"  style="background-color: #5E767E; color: white; font-size: 10px;">No</th>
-                        <th rowspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">KECAMATAN</th>
-                        <th rowspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">KELURAHAN/DESA</th>
-                        <th colspan="2"  style="background-color: #5E767E; color: white; font-size: 10px;">Surat Penetapan <br> Lokasi oleh <br> Kepala Daerah</th>
-                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">DED</th>
-                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">RAB</th>
+                        <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">No</th>
+                        <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KECAMATAN</th>
+                        <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KELURAHAN/DESA</th>
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Minat dari<br>Kepala Daerah</th>
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Penetapan<br>Lokasi oleh<br>Kepala Daerah</th>
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan<br>BPPW</th>
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;"><i>Detail Engineering Design</i><br>(DED)</th>
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Rencana Anggaran Biaya <br> RAB</th>
                         <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Bukti <br> legalitas lahan <br> berupa sertifikat lahan</th>
-                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Dokumen <br> justifikasi <br> teknis</th>
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Dokumen <br> justifikasi <br> teknis <br> *untuk rincian <br> menu peningkatan/<br> rehabilitasi IPLT</th>
                         <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Materplan/Rencana<br> Induk</th>
                         <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Dokumen <br> Lingkungan</th>
-                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Lembaga Pengelola <br> dan Kesiapan Biaya Operasional <br> dan Pemeliharaan</th>
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat <br> Kesiapan <br> Lembaga Pengelola</th>
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Rencana pengelolaan/<br> business plan IPLT</th>
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Bukti komitmen<br>untuk melaksanaan LLTT</th>
+
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">As Build Drawing<br>IPLT Terbangun<br>*untuk rincian <br> menu peningkatan/ <br> rehabilitasi IPLT</th>
+
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Laporan Audit/<br> Reviu BPKP</th>
+                        <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Spesifikasi Teknis <br> dan Harga Supplier <br>Truk Tinja</th>
                       </tr>
                       <tr>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                        <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
                         <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
                         <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
                         <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
@@ -1393,17 +1661,35 @@
                   <table class="table table-bordered " style="border-color: #a7a7b6;">
                    <thead class="text-center sticky-top align-middle">
                     <tr>
-                      <th rowspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">No</th>
-                      <th rowspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">KECAMATAN</th>
-                      <th rowspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">KELURAHAN/DESA</th>
-                      <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">DED</th>
-                      <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">RAB</th>
-                      <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan <br>Kegiatan </th>
-                      <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Bukti legalitas lahan <br> untuk TPS 3R </th>
-                      <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Konsep Business Plan <br>pengelolaan TPS 3R <br>pasca konstruksi</th>
-                      <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Daftar calon <br> penerima manfaat <br> TPS 3R minimal 200 KK</th>
+                      <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">No</th>
+                      <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KECAMATAN</th>
+                      <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KELURAHAN/DESA</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;"><i>Detail Engineering Design</i><br>(DED)</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Rencana Anggaran Biaya<br>(RAB)</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan <br>Kegiatan </th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Bukti legalitas lahan <br> untuk TPS 3R </th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Konsep Business Plan <br>pengelolaan TPS 3R <br>pasca konstruksi</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Daftar Calon<br>Penerima Manfaat TPS3R</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Berita Acara <br> Kesepakatan Warga</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan dan Dukungan <br> Biaya Operasi <br> dan Pemeliharaan</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat dukungan <br> Dinas Lingkungan Hidup</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Justifikasi Peningkatan/ <br> Rehabilitasi TPS3R <br> (*untuk rincian menu <br> peningkatan/rehabilitasi TPS3R)</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">SK Kepala Desa <br> tentang Pembentukan KKP <br> *untuk rincian menu <br> peningkatan/rehabilitasi TPS3R</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;"><i>As Build Drawing</i> <br> TPS3R Terbangun</th>
                     </tr>
                     <tr>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                      <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
                       <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
                       <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
                       <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
@@ -1886,12 +2172,29 @@
             <hr class="mt-2 mb-2">
 
             <div class="mb-3">
+              <div class="form-label">Surat Minat dari Kepala Daerah :</div>
+              <input type="file" name="mintatKepalaDaerah" id="mintatKepalaDaerah" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
               <div class="form-label">Surat Penetapan Lokasi oleh Kepala Daerah :</div>
               <input type="file" name="penetapan_ipltx" id="penetapan_ipltx" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 File : PDF Max Size : 300 MB.
               </small>
             </div>
+
+            <div class="mb-3">
+              <div class="form-label">Surat Pernyataan BPPW :</div>
+              <input type="file" name="pernyataanBPPW" id="pernyataanBPPW" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
             <div class="mb-3">
               <div class="form-label">Detail Engineering Design (DED) :</div>
               <input type="file" name="ded_ipltx" id="ded_ipltx" class="form-control" accept="application/pdf" />
@@ -1940,7 +2243,7 @@
             </div>
 
             <div class="mb-3">
-              <div class="form-label">Dokumen Lingkungan   :</div>
+              <div class="form-label">Dokumen Lingkungan :</div>
               <input type="file" name="lingkungan_ipltx" id="lingkungan_ipltx" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 File : PDF Max Size : 300 MB.
@@ -1949,6 +2252,46 @@
             <div class="mb-3">
               <div class="form-label">Surat Kesiapan Lembaga Pengelola  :</div>
               <input type="file" name="kesiapan_ipltx" id="kesiapan_ipltx" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Rencana pengelolaan/business plan IPLT :</div>
+              <input type="file" name="businessPlanIPLT" id="businessPlanIPLT" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Bukti komitmen untuk melaksanaan LLTT :</div>
+              <input type="file" name="buktiKomitmenIPLT" id="buktiKomitmenIPLT" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">As Build Drawing IPLT Terbangun *(untuk rincian menu peningkatan/ rehabilitasi IPLT) :</div>
+              <input type="file" name="abd" id="abd" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Laporan Audit/reviu BPKP *(untuk rincian menu peningkatan/ rehabilitasi IPLT) :</div>
+              <input type="file" name="bpkp" id="bpkp" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Spesifikasi Teknis dan Harga Supplier Truk Tinja *(untuk rincian menu pengadaan truk tinja) :</div>
+              <input type="file" name="sTrukTinja" id="sTrukTinja" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 File : PDF Max Size : 300 MB.
               </small>
@@ -1982,12 +2325,30 @@
             <input type="hidden" name="idEditDesaIplt" id="idEditDesaIplt">
 
             <div class="mb-3">
+              <div class="form-label">Surat Minat dari Kepala Daerah :</div>
+              <input type="file" name="mintatKepalaDaerah_edit" id="mintatKepalaDaerah_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
               <div class="form-label">Surat Penetapan Lokasi oleh Kepala Daerah :</div>
               <input type="file" name="penetapan_ipltx_edit" id="penetapan_ipltx_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 File : PDF Max Size : 300 MB.
               </small>
             </div>
+
+            <div class="mb-3">
+              <div class="form-label">Surat Pernyataan BPPW :</div>
+              <input type="file" name="pernyataanBPPW_edit" id="pernyataanBPPW_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+
             <div class="mb-3">
               <div class="form-label">Detail Engineering Design (DED) :</div>
               <input type="file" name="ded_ipltx_edit" id="ded_ipltx_edit" class="form-control" accept="application/pdf" />
@@ -2047,6 +2408,41 @@
             <div class="mb-3">
               <div class="form-label">Surat Kesiapan Lembaga Pengelola  :</div>
               <input type="file" name="kesiapan_ipltx_edit" id="kesiapan_ipltx_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+            <div class="mb-3">
+              <div class="form-label">Rencana pengelolaan/business plan IPLT  :</div>
+              <input type="file" name="businessPlanIPLT_edit" id="businessPlanIPLT_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+            <div class="mb-3">
+              <div class="form-label">Bukti komitmen untuk melaksanaan LLTT :</div>
+              <input type="file" name="buktiKomitmenIPLT_edit" id="buktiKomitmenIPLT_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+            <div class="mb-3">
+              <div class="form-label">As Build Drawing IPLT Terbangun :</div>
+              <input type="file" name="abd_edit" id="abd_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+            <div class="mb-3">
+              <div class="form-label">Laporan Audit/reviu BPKP :</div>
+              <input type="file" name="bpkp_edit" id="bpkp_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+            <div class="mb-3">
+              <div class="form-label">Spesifikasi Teknis dan Harga Supplier Truk Tinja :</div>
+              <input type="file" name="sTrukTinja_edit" id="sTrukTinja_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 File : PDF Max Size : 300 MB.
               </small>
@@ -2139,12 +2535,61 @@
               </small>
             </div>
             <div class="mb-3">
-              <div class="form-label">Daftar calon penerima manfaat TPS 3R minimal 200 KK :</div>
+              <div class="form-label">Daftar Calon Penerima Manfaat TPS3R :</div>
               <input type="file" name="penerima_manfaat_pembangunanBaru" id="penerima_manfaat_pembangunanBaru" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 File : PDF Max Size : 300 MB.
               </small>
             </div>
+
+            <div class="mb-3">
+              <div class="form-label">Berita Acara Kesepakatan Warga :</div>
+              <input type="file" name="ba_warga" id="ba_warga" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan :</div>
+              <input type="file" name="kesepakatan_oprasi_pemeliharan" id="kesepakatan_oprasi_pemeliharan" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Surat dukungan Dinas Lingkungan Hidup :</div>
+              <input type="file" name="surat_dinas_hidup" id="surat_dinas_hidup" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Justifikasi Peningkatan/Rehabilitasi TPS3R (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+              <input type="file" name="justifikasi_TPS_peningkatan" id="justifikasi_TPS_peningkatan" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">SK Kepala Desa tentang Pembentukan KKP (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+              <input type="file" name="sk_desa_kpp" id="sk_desa_kpp" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">As Build Drawing TPS3R Terbangun (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+              <input type="file" name="abd" id="abd" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
           </div>
           <div class="modal-footer text-end">
             <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
@@ -2216,12 +2661,62 @@
               </small>
             </div>
             <div class="mb-3">
-              <div class="form-label">Daftar calon penerima manfaat TPS 3R minimal 200 KK :</div>
+              <div class="form-label">Daftar Calon Penerima Manfaat TPS3R :</div>
               <input type="file" name="penerima_manfaat_pembangunanBaru_edit" id="penerima_manfaat_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 File : PDF Max Size : 300 MB.
               </small>
             </div>
+
+            <div class="mb-3">
+              <div class="form-label">Berita Acara Kesepakatan Warga :</div>
+              <input type="file" name="ba_warga" id="ba_warga" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan :</div>
+              <input type="file" name="kesepakatan_oprasi_pemeliharan" id="kesepakatan_oprasi_pemeliharan" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Surat dukungan Dinas Lingkungan Hidup :</div>
+              <input type="file" name="surat_dinas_hidup_edit" id="surat_dinas_hidup_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">Justifikasi Peningkatan/Rehabilitasi TPS3R (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+              <input type="file" name="justifikasi_TPS_peningkatan_edit" id="justifikasi_TPS_peningkatan_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">SK Kepala Desa tentang Pembentukan KKP (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+              <input type="file" name="sk_desa_kpp_edit" id="sk_desa_kpp_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+            <div class="mb-3">
+              <div class="form-label">As Build Drawing TPS3R Terbangun (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+              <input type="file" name="abd_edit" id="abd_edit" class="form-control" accept="application/pdf" />
+              <small class="form-hint">
+                File : PDF Max Size : 300 MB.
+              </small>
+            </div>
+
+
           </div>
           <div class="modal-footer text-end">
             <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
@@ -4613,14 +5108,67 @@ if (filePenetapanLokasi == '' && fileLegalitas=='' && filertrw=='' && fileKesiap
             <i class="fas fa-copy fa-lg"></i>
             </button>` :``;
 
+            mintatKepalaDaerah = (val.mintatKepalaDaerah != null || val.mintatKepalaDaerah != '') ? `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.mintatKepalaDaerah+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`:``;
+            mintatKepalaDaerahCopy = (val.mintatKepalaDaerah != null || val.mintatKepalaDaerah != '') ? `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.mintatKepalaDaerah+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>` :``;
+
+            pernyataanBPPW = (val.pernyataanBPPW != null || val.pernyataanBPPW != '') ? `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.pernyataanBPPW+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`:``;
+            pernyataanBPPWCopy = (val.pernyataanBPPW != null || val.pernyataanBPPW != '') ? `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.pernyataanBPPW+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>` :``;
+
+            businessPlanIPLT = (val.businessPlanIPLT != null || val.businessPlanIPLT != '') ? `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.businessPlanIPLT+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`:``;
+            businessPlanIPLTCopy = (val.businessPlanIPLT != null || val.businessPlanIPLT != '') ? `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.businessPlanIPLT+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>` :``;
+
+            buktiKomitmenIPLT = (val.buktiKomitmenIPLT != null || val.buktiKomitmenIPLT != '') ? `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.buktiKomitmenIPLT+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`:``;
+            buktiKomitmenIPLTCopy = (val.buktiKomitmenIPLT != null || val.buktiKomitmenIPLT != '') ? `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.buktiKomitmenIPLT+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>` :``;
+
+            abd = (val.abd != null || val.abd != '') ? `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.abd+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`:``;
+            abdCopy = (val.abd != null || val.abd != '') ? `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.abd+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>` :``;
+
+            bpkp = (val.bpkp != null || val.bpkp != '') ? `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.bpkp+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`:``;
+            bpkpCopy = (val.bpkp != null || val.bpkp != '') ? `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.bpkp+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>` :``;
+
+            sTrukTinja = (val.sTrukTinja != null || val.sTrukTinja != '') ? `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.sTrukTinja+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`:``;
+            sTrukTinjaCopy = (val.sTrukTinja != null || val.sTrukTinja != '') ? `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.sTrukTinja+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>` :``;
+
 
 
             tbodyIplt += `<tr>`;
             tbodyIplt += `<td class='text-center'>`+noIplt+`</td>`;
             tbodyIplt += `<td class='text-center'>`+ val.nmkec +`</td>`;
             tbodyIplt += `<td class='text-center'>`+ val.nmdesa +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.mintatKepalaDaerah != null ? mintatKepalaDaerah : "") +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.mintatKepalaDaerah != null ? mintatKepalaDaerahCopy : "") +`</td>`;
             tbodyIplt += `<td class='text-center'>`+ (val.penetapan_ipltx != null ? penetapan_ipltx : "") +`</td>`;
             tbodyIplt += `<td class='text-center'>`+ (val.penetapan_ipltx != null ? penetapan_ipltxCopy : "") +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.pernyataanBPPW != null ? pernyataanBPPW : "") +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.pernyataanBPPW != null ? pernyataanBPPWCopy : "") +`</td>`;
             tbodyIplt += `<td class='text-center'>`+ (val.ded_ipltx != null ? ded_ipltx : "") +`</td>`;
             tbodyIplt += `<td class='text-center'>`+ (val.ded_ipltx != null ? ded_ipltxCopy : "") +`</td>`;
             tbodyIplt += `<td class='text-center'>`+ (val.rab_ipltx != null ? rab_ipltx : '') +`</td>`;
@@ -4635,6 +5183,16 @@ if (filePenetapanLokasi == '' && fileLegalitas=='' && filertrw=='' && fileKesiap
             tbodyIplt += `<td class='text-center'>`+ (val.lingkungan_ipltx != null ? lingkungan_ipltxCopy : '') +`</td>`;
             tbodyIplt += `<td class='text-center'>`+ (val.kesiapan_ipltx != null ? kesiapan_ipltx : '') +`</td>`;
             tbodyIplt += `<td class='text-center'>`+ (val.kesiapan_ipltx != null ? kesiapan_ipltxCopy : '') +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.businessPlanIPLT != null ? businessPlanIPLT : '') +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.businessPlanIPLT != null ? businessPlanIPLTCopy : '') +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.buktiKomitmenIPLT != null ? buktiKomitmenIPLT : '') +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.buktiKomitmenIPLT != null ? buktiKomitmenIPLTCopy : '') +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.abd != null ? abd : '') +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.abd != null ? abdCopy : '') +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.bpkp != null ? bpkp : '') +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.bpkp != null ? bpkpCopy : '') +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.sTrukTinja != null ? sTrukTinja : '') +`</td>`;
+            tbodyIplt += `<td class='text-center'>`+ (val.sTrukTinja != null ? sTrukTinjaCopy : '') +`</td>`;
 
             tbodyIplt += `</tr>`;
 
@@ -4693,6 +5251,48 @@ if (filePenetapanLokasi == '' && fileLegalitas=='' && filertrw=='' && fileKesiap
             <i class="fas fa-copy fa-lg"></i>
             </button>`;
 
+            ba_warga = `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.ba_warga+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`;
+            ba_wargaCopy = `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.ba_warga+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>`;
+
+            kesepakatan_oprasi_pemeliharan = `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.kesepakatan_oprasi_pemeliharan+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`;
+            kesepakatan_oprasi_pemeliharanCopy = `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.kesepakatan_oprasi_pemeliharan+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>`;
+
+            surat_dinas_hidup = `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.surat_dinas_hidup+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`;
+            surat_dinas_hidupCopy = `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.surat_dinas_hidup+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>`;
+
+            justifikasi_TPS_peningkatan = `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.justifikasi_TPS_peningkatan+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`;
+            justifikasi_TPS_peningkatanCopy = `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.justifikasi_TPS_peningkatan+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>`;
+
+            sk_desa_kpp = `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.sk_desa_kpp+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`;
+            sk_desa_kppCopy = `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.sk_desa_kpp+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>`;
+
+            abd = `<button class="btn btn-icon btn-danger" onclick="showPdf('`+val.abd+`')">
+            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>`;
+            abdCopy = `<button class="btn btn-icon btn-secondary" onclick="copyLink('`+val.abd+`')">
+            <i class="fas fa-copy fa-lg"></i>
+            </button>`;
+
 
 
             tbodyPembangunanBaru += `<tr>`;
@@ -4711,6 +5311,24 @@ if (filePenetapanLokasi == '' && fileLegalitas=='' && filertrw=='' && fileKesiap
             tbodyPembangunanBaru += `<td class='text-center'>`+ (val.bp_pembangunanBaru != null ? bp_pembangunanBaruCopy : '') +`</td>`;
             tbodyPembangunanBaru += `<td class='text-center'>`+ (val.penerima_manfaat_pembangunanBaru != null ? penerima_manfaat_pembangunanBaru : '') +`</td>`;
             tbodyPembangunanBaru += `<td class='text-center'>`+ (val.penerima_manfaat_pembangunanBaru != null ? penerima_manfaat_pembangunanBaruCopy : '') +`</td>`;
+
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.ba_warga != null ? ba_warga : '') +`</td>`;
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.ba_warga != null ? ba_wargaCopy : '') +`</td>`;
+
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.kesepakatan_oprasi_pemeliharan != null ? kesepakatan_oprasi_pemeliharan : '') +`</td>`;
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.kesepakatan_oprasi_pemeliharan != null ? kesepakatan_oprasi_pemeliharanCopy : '') +`</td>`;
+
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.surat_dinas_hidup != null ? surat_dinas_hidup : '') +`</td>`;
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.surat_dinas_hidup != null ? surat_dinas_hidupCopy : '') +`</td>`;
+
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.justifikasi_TPS_peningkatan != null ? justifikasi_TPS_peningkatan : '') +`</td>`;
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.justifikasi_TPS_peningkatan != null ? justifikasi_TPS_peningkatanCopy : '') +`</td>`;
+
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.sk_desa_kpp != null ? sk_desa_kpp : '') +`</td>`;
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.sk_desa_kpp != null ? sk_desa_kppCopy : '') +`</td>`;
+
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.abd != null ? abd : '') +`</td>`;
+            tbodyPembangunanBaru += `<td class='text-center'>`+ (val.abd != null ? abdCopy : '') +`</td>`;
 
 
             tbodyPembangunanBaru += `</tr>`;

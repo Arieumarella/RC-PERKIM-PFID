@@ -218,58 +218,98 @@
       </div>
     </div>
   </div>
-  <!-- Libs JS -->
-  <script src="<?= base_url(); ?>assets/dist/libs/apexcharts/dist/apexcharts.min.js?1692870487" defer></script>
-  <script src="<?= base_url(); ?>assets/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487" defer></script>
-  <script src="<?= base_url(); ?>assets/dist/libs/jsvectormap/dist/maps/world.js?1692870487" defer></script>
-  <script src="<?= base_url(); ?>assets/dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487" defer></script>
-  <!-- Tabler Core -->
-  <script src="<?= base_url(); ?>assets/dist/js/tabler.min.js?1692870487" defer></script>
-  <script src="<?= base_url(); ?>assets/dist/js/demo.min.js?1692870487" defer></script>
-  <!-- Loading Overlay -->
-  <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
 
-  <!-- Toastr -->
-  <script type="text/javascript" src="<?= base_url(); ?>assets/toastr/toastr.min.js"></script>
-  <!-- Custom Toast -->
-  <script type="text/javascript" src="<?= base_url(); ?>assets/toastr/toast_custom.js"></script>
-  <!-- SweetAlert -->
-  <script type="text/javascript" src="<?= base_url(); ?>assets/sweetalert/sweetalert2.js"></script>
-  <!-- Select2 -->
-  <script type="text/javascript" src="<?= base_url(); ?>assets/select2/select2.js"></script>
+  <!-- Modal PDF -->
+  <div class="modal modal-blur fade " id="modalPDFXX" >
+    <div class="modal-dialog modal-xl "style="height:100%;">
+      <div class="modal-content " style="height:100%; margin-top: -40px;">
+        <div style="height: 100%; width: 100%; margin:auto;  justify-content: center;  align-items: center;">
+          <embed src="" id="idEmbed" frameborder="0" width="100%" height="100%">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal PDF -->
+    
+    <!-- Libs JS -->
+    <script src="<?= base_url(); ?>assets/dist/libs/apexcharts/dist/apexcharts.min.js?1692870487" defer></script>
+    <script src="<?= base_url(); ?>assets/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1692870487" defer></script>
+    <script src="<?= base_url(); ?>assets/dist/libs/jsvectormap/dist/maps/world.js?1692870487" defer></script>
+    <script src="<?= base_url(); ?>assets/dist/libs/jsvectormap/dist/maps/world-merc.js?1692870487" defer></script>
+    <!-- Tabler Core -->
+    <script src="<?= base_url(); ?>assets/dist/js/tabler.min.js?1692870487" defer></script>
+    <script src="<?= base_url(); ?>assets/dist/js/demo.min.js?1692870487" defer></script>
+    <!-- Loading Overlay -->
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
 
-  <script>
+    <!-- Toastr -->
+    <script type="text/javascript" src="<?= base_url(); ?>assets/toastr/toastr.min.js"></script>
+    <!-- Custom Toast -->
+    <script type="text/javascript" src="<?= base_url(); ?>assets/toastr/toast_custom.js"></script>
+    <!-- SweetAlert -->
+    <script type="text/javascript" src="<?= base_url(); ?>assets/sweetalert/sweetalert2.js"></script>
+    <!-- Select2 -->
+    <script type="text/javascript" src="<?= base_url(); ?>assets/select2/select2.js"></script>
 
-    $.LoadingOverlaySetup({
-      background      : "rgba(221, 221, 221, 0.4)",
-      text : 'Loading . . .',
-      textResizeFactor : '0.3'
-    });
+    <script>
 
-    $( document ).ready(function() {
+      $.LoadingOverlaySetup({
+        background      : "rgba(221, 221, 221, 0.4)",
+        text : 'Loading . . .',
+        textResizeFactor : '0.3'
+      });
 
-
-      toastr.options = {
-        "closeButton": false,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-      }
+      $( document ).ready(function() {
 
 
-    });
-  </script>
+        toastr.options = {
+          "closeButton": false,
+          "debug": false,
+          "newestOnTop": false,
+          "progressBar": false,
+          "positionClass": "toast-top-right",
+          "preventDuplicates": false,
+          "onclick": null,
+          "showDuration": "300",
+          "hideDuration": "1000",
+          "timeOut": "5000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        }
 
-</body>
-</html>
+
+        $('#tahunAnggaran').on('change', function() {
+
+          let val = $(this).val();
+          
+          $.ajax({
+            url: base_url()+'Home/setSession',
+            type: "post",
+            dataType: 'json',
+            data: {
+              val
+            },
+            success: function(res) {
+              if (res.code != 200) {
+                t_error('Ada yang error.!');
+                return;
+              }
+              location.reload();
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              t_error('Ada yg error.!');
+            }
+          });
+
+        });
+
+
+      });
+    </script>
+
+  </body>
+  </html>

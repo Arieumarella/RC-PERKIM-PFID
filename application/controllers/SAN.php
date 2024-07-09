@@ -645,6 +645,13 @@ class SAN extends CI_Controller {
 			'lingkungan_ipltx' => 'Dokumen Lingkungan',
 			'kesiapan_ipltx' => 'Surat Kesiapan Lembaga Pengelola',
 			'kesiapan_biaya_ipltx' => 'Surat Kesiapan Biaya Operasional dan Pemeliharaan',
+			'mintatKepalaDaerah' => 'Surat Minat dari Kepala Daerah',
+			'pernyataanBPPW' => 'Surat Pernyataan BPPW',
+			'businessPlanIPLT' => 'Rencana pengelolaan atau business plan IPLT',
+			'buktiKomitmenIPLT' => 'Bukti komitmen untuk melaksanaan LLTT',
+			'abd' => 'As Build Drawing IPLT Terbangun',
+			'bpkp' => 'Laporan Audit atau reviu BPKP',
+			'sTrukTinja' => 'Spesifikasi Teknis dan Harga Supplier Truk Tinja'
 		);
 
 		$dataInsert = array(
@@ -769,6 +776,13 @@ class SAN extends CI_Controller {
 			'mp_ipltx_edit' => 'MasterPlan',
 			'lingkungan_ipltx_edit' => 'Dokumen Lingkungan',
 			'kesiapan_ipltx_edit' => 'Surat Kesiapan Lembaga Pengelola',
+			'mintatKepalaDaerah_edit' => 'Surat Minat dari Kepala Daerah',
+			'pernyataanBPPW_edit' => 'Surat Pernyataan BPP',
+			'businessPlanIPLT_edit' => 'Rencana pengelolaan atau business plan IPLT',
+			'buktiKomitmenIPLT_edit' => 'Bukti komitmen untuk melaksanaan LLTT',
+			'abd_edit' => 'As Build Drawing IPLT Terbangun',
+			'bpkp_edit' => 'Laporan Audit atau reviu BPKP',
+			'sTrukTinja_edit' => 'Spesifikasi Teknis dan Harga Supplier Truk Tinja'
 		);
 
 		$dataInsert = array(
@@ -887,6 +901,36 @@ class SAN extends CI_Controller {
 					if ($key == 'kesiapan_ipltx_edit') {
 						$dataInsert['kesiapan_ipltx'] = $fullPath;
 					}
+
+					if ($key == 'mintatKepalaDaerah_edit') {
+						$dataInsert['mintatKepalaDaerah'] = $fullPath;
+					}
+
+					if ($key == 'pernyataanBPPW_edit') {
+						$dataInsert['pernyataanBPPW'] = $fullPath;
+					}
+
+					if ($key == 'businessPlanIPLT_edit') {
+						$dataInsert['businessPlanIPLT'] = $fullPath;
+					}
+
+					if ($key == 'buktiKomitmenIPLT_edit') {
+						$dataInsert['buktiKomitmenIPLT'] = $fullPath;
+					}
+
+					if ($key == 'abd_edit') {
+						$dataInsert['abd'] = $fullPath;
+					}
+
+					if ($key == 'bpkp_edit') {
+						$dataInsert['bpkp'] = $fullPath;
+					}
+
+					if ($key == 'sTrukTinja_edit') {
+						$dataInsert['sTrukTinja'] = $fullPath;
+					}
+
+
 				}
 			}
 		}
@@ -939,6 +983,12 @@ class SAN extends CI_Controller {
 			'legalitas_pembangunanBaru' => 'Bukti legalitas lahan untuk TPS 3R',
 			'bp_pembangunanBaru' => 'Konsep Business Plan pengelolaan TPS 3R pasca konstruksi',
 			'penerima_manfaat_pembangunanBaru' => 'Daftar calon penerima manfaat TPS 3R minimal 200 KK',
+			'ba_warga' => 'Berita Acara Kesepakatan Warga',
+			'kesepakatan_oprasi_pemeliharan' => 'Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan',
+			'surat_dinas_hidup' => 'Surat dukungan Dinas Lingkungan Hidup',
+			'justifikasi_TPS_peningkatan' => 'Justifikasi Peningkatan atau Rehabilitasi TPS3R',
+			'sk_desa_kpp' => 'SK Kepala Desa tentang Pembentukan KKP',
+			'abd' => 'As Build Drawing TPS3R Terbangun'
 		);
 
 		$dataInsert = array(
@@ -1062,6 +1112,12 @@ class SAN extends CI_Controller {
 			'legalitas_pembangunanBaru_edit' => 'Bukti legalitas lahan untuk TPS 3R',
 			'bp_pembangunanBaru_edit' => 'Konsep Business Plan pengelolaan TPS 3R pasca konstruksi',
 			'penerima_manfaat_pembangunanBaru_edit' => 'Daftar calon penerima manfaat TPS 3R minimal 200 KK',
+			'ba_warga_edit' => 'Berita Acara Kesepakatan Warga',
+			'kesepakatan_oprasi_pemeliharan_edit' => 'Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan',
+			'surat_dinas_hidup_edit' => 'Surat dukungan Dinas Lingkungan Hidup',
+			'justifikasi_TPS_peningkatan_edit' => 'Justifikasi Peningkatan atau Rehabilitasi TPS3R',
+			'sk_desa_kpp_edit' => 'SK Kepala Desa tentang Pembentukan KKP',
+			'abd_edit' => 'As Build Drawing TPS3R Terbangun'
 		);
 
 		$dataInsert = array(
@@ -1150,6 +1206,32 @@ class SAN extends CI_Controller {
 					if ($key == 'penerima_manfaat_pembangunanBaru_edit') {
 						$dataInsert['penerima_manfaat_pembangunanBaru'] = $fullPath;
 					}
+
+					if ($key == 'ba_warga_edit') {
+						$dataInsert['ba_warga'] = $fullPath;
+					}
+
+					if ($key == 'kesepakatan_oprasi_pemeliharan_edit') {
+						$dataInsert['kesepakatan_oprasi_pemeliharan'] = $fullPath;
+					}
+
+					if ($key == 'surat_dinas_hidup_edit') {
+						$dataInsert['surat_dinas_hidup'] = $fullPath;
+					}
+
+					if ($key == 'justifikasi_TPS_peningkatan_edit') {
+						$dataInsert['justifikasi_TPS_peningkatan'] = $fullPath;
+					}
+
+					if ($key == 'sk_desa_kpp_edit') {
+						$dataInsert['sk_desa_kpp'] = $fullPath;
+					}
+
+					if ($key == 'abd_edit') {
+						$dataInsert['abd'] = $fullPath;
+					}
+
+
 				}
 			}
 		}

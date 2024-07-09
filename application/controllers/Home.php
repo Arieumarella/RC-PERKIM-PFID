@@ -40,4 +40,13 @@ class Home extends CI_Controller {
 
 		$this->load->view('tamplate/baseTamplate', $tmp);
 	}
+
+	public function setSession()
+	{
+		$ta = $this->input->post('val');
+		$this->session->set_userdata('thang', $ta);
+
+		echo json_encode(['code' => 200]);
+	}
+
 }

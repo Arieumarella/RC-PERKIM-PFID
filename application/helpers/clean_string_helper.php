@@ -26,23 +26,31 @@ function clean($str)
 	
 }
 
-function kdlokasi($kdsatker)
+function kdlokasi($kdsatker ='')
 {
+
+	$kdsatker = $kdsatker ?? '';
+
 	return substr($kdsatker,2,2);
 }
 
-function kdkabkota($kdsatker)
+function kdkabkota($kdsatker='')
 {
+	$kdsatker = $kdsatker ?? '';
+
 	return substr($kdsatker,4,2);
 }
 
-function kdbidang($kdsatker)
-{
+function kdbidang($kdsatker='')
+{	
+
+	$kdsatker = $kdsatker ?? '';
 	return substr($kdsatker,6,2);
 }
 
-function getNameBidang($kdsatker)
+function getNameBidang($kdsatker='')
 {
+	$kdsatker = $kdsatker ?? '';
 	$kdbidangan = substr($kdsatker,6,2);
 
 	switch ($kdbidangan) {
@@ -67,7 +75,7 @@ function getNameBidang($kdsatker)
 }
 
 
-function getNameBidangByKdbidang($kdbidang)
+function getNameBidangByKdbidang($kdbidang='')
 {
 
 	switch ($kdbidang) {
@@ -110,7 +118,7 @@ function getNamaBalaiByIdBalai($idBalai='')
 	return $thang->query($qry)->row()->nama; 
 }
 
-function getNameBalaiById($kdbidang, $idBalai, $prive)
+function getNameBalaiById($kdbidang='', $idBalai='', $prive='')
 {
 
 	if ($kdbidang == '01') {
@@ -179,7 +187,7 @@ function getNameBalaiById($kdbidang, $idBalai, $prive)
 }
 
 
-function getNameBalaiByIdBalay($idBalai, $kdbidang)
+function getNameBalaiByIdBalay($idBalai='', $kdbidang='')
 {
 	if ($kdbidang == '01') {
 
@@ -237,7 +245,7 @@ function getArrayBulan() {
 }
 
 
-function getNameBulanByKdbulan($kdbulan)
+function getNameBulanByKdbulan($kdbulan='')
 {
 
 	switch ($kdbulan) {
