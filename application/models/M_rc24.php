@@ -8,11 +8,8 @@ class M_rc24 extends CI_Model {
 	public function getDataProvinsiAM()
 	{
 		$qry = "
-		select * from (
-		SELECT MID(KdSatker,3,2) AS kdlokasi, nmlokasi FROM emondak2023.d009_dak_awal
-		UNION
-		SELECT MID(KdSatker,3,2) AS kdlokasi, nmlokasi FROM emondak2022.d009_dak_awal
-		) as a group by kdlokasi
+		
+		SELECT MID(KdSatker,3,2) AS kdlokasi, nmlokasi FROM d009_dak_awal group by MID(KdSatker,3,2)
 		";
 
 		return $this->db->query($qry)->result();
@@ -23,13 +20,7 @@ class M_rc24 extends CI_Model {
 	{
 
 		$kdlokasi = clean($kdlokasi);	
-		$qry = " select *  FROM (
-		SELECT CONCAT(left(KdSatker,7),'5') as KdSatker, nmkabkota FROM emondak2022.d009_dak_awal2022 WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota
-		UNION 
-		SELECT CONCAT(left(KdSatker,7),'5') as KdSatker, nmkabkota FROM emondak2023.d009_dak_awal2022 WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota
-		UNION
-		SELECT CONCAT(left(KdSatker,7),'5') as KdSatker, nmkabkota FROM emondak2024.d009_dak_awal2022 WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota
-		) as a GROUP BY KdSatker
+		$qry = "SELECT CONCAT(left(KdSatker,7),'5') as KdSatker, nmkabkota FROM d009_dak_awal WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota
 		";
 
 		return $this->db->query($qry)->result();
@@ -40,15 +31,8 @@ class M_rc24 extends CI_Model {
 	{
 
 		$kdlokasi = clean($kdlokasi);	
-		$qry = " SELECT a.*  FROM (
-			SELECT CONCAT(LEFT(KdSatker,7),'5') AS KdSatker, nmkabkota FROM emondak2022.d009_dak_awal2022 WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota
-			UNION 
-			SELECT CONCAT(LEFT(KdSatker,7),'5') AS KdSatker, nmkabkota FROM emondak2023.d009_dak_awal2022 WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota
-			UNION
-			SELECT CONCAT(LEFT(KdSatker,7),'5') AS KdSatker, nmkabkota FROM emondak2024.d009_dak_awal2022 WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota
-			) AS a 
-		-- INNER JOIN (SELECT * FROM t_alokasi_perkim2024 WHERE RIGHT(kdsatker,2)='$kdbidang')AS b ON MID(a.KdSatker,3,2)=MID(b.kdsatker,3,2) AND MID(a.KdSatker,5,2)=MID(b.kdsatker,5,2)
-		GROUP BY a.KdSatker ORDER BY nmkabkota
+		$qry = " 
+		SELECT CONCAT(LEFT(KdSatker,7),'5') AS KdSatker, nmkabkota FROM d009_dak_awal WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY a.KdSatker ORDER BY nmkabkota
 		";
 
 		return $this->db->query($qry)->result();
