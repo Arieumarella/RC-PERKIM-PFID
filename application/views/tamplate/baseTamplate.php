@@ -19,9 +19,12 @@
   <link href="<?= base_url(); ?>assets//dist/css/tabler-payments.min.css?1692870487" rel="stylesheet"/>
   <link href="<?= base_url(); ?>assets//dist/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
   <link href="<?= base_url(); ?>assets//dist/css/demo.min.css?1692870487" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <!-- datatable -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
   <!-- Toastr  -->
   <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/toastr/toastr.min.css">
   <!-- Selecr2 -->
@@ -60,7 +63,10 @@
   .philoShoper {
     font-family: "Philosopher", sans-serif;
   }
+
 </style>
+
+
 </head>
 <body class="layout-fluid">
   <script src="<?= base_url(); ?>assets/dist/js/demo-theme.min.js?1692870487"></script>
@@ -69,7 +75,7 @@
     <?php $this->load->view('tamplate/sidebar'); ?>
     <!-- End Sidebar -->
 
-    <div class="page-wrapper">
+    <div class="page-wrapper content">
       <!-- Page header -->
       <div class="page-header d-print-none">
         <div class="container-xl">
@@ -107,7 +113,7 @@
       </div>
       <!-- Page body -->
       <div class="page-body">
-        <div class="container-xl">
+        <div class="container-xl ">
           <?php $this->load->view($content); ?>
         </div>
       </div>
@@ -250,6 +256,10 @@
     <script type="text/javascript" src="<?= base_url(); ?>assets/sweetalert/sweetalert2.js"></script>
     <!-- Select2 -->
     <script type="text/javascript" src="<?= base_url(); ?>assets/select2/select2.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <!-- Datatable -->
+    <script type="text/javascript" src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
 
     <script>
 
@@ -261,6 +271,7 @@
 
       $( document ).ready(function() {
 
+        new DataTable('#userTabel');
 
         toastr.options = {
           "closeButton": false,

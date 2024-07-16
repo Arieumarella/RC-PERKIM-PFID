@@ -8,10 +8,7 @@
    </h1>
    <div class="d-flex justify-content-center" style="text-align: center;  text-align-last: center; margin-top: -10px; margin-bottom: -10px;">
     <select type="text" class="form-select" id="tahunAnggaran" value="" style="width: 100px;">
-      <option value="2023" <?= $this->session->userdata('thang') == '2023' ? 'selected' : ''; ?>>2023</option>
-      <option value="2024" <?= $this->session->userdata('thang') == '2024' ? 'selected' : ''; ?>>2024</option>
       <option value="2025" <?= $this->session->userdata('thang') == '2025' ? 'selected' : ''; ?>>2025</option>
-      <option value="2026" <?= $this->session->userdata('thang') == '2026' ? 'selected' : ''; ?>>2026</option>
     </select>
   </div>
 
@@ -276,6 +273,20 @@
           </div>
         </div>
       </li> -->
+      <?php if ($this->session->userdata('rkdak_user') == 'perkimpfid') { ?>
+
+        <li class="nav-item <?= $tittle == 'User' ? 'active':''; ?>">
+          <a class="nav-link <?= $tittle == 'User' ? 'active':''; ?>" href="<?= base_url(); ?>Users" >
+            <span class="nav-link-icon d-md-none d-lg-inline-block ">
+              <i class="fas fa-users"></i>
+            </span>
+            <span class="nav-link-title">
+              Users
+            </span>
+          </a>
+        </li>
+
+      <?php } ?>
 
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url(); ?>Login/Logout" >

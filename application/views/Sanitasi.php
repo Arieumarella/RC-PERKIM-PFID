@@ -184,11 +184,11 @@
               <br>
               <a href="#" type="button" class="btn btn-primary mt-2" onclick="showModaUpload('2')"><i class="fas fa-plus" style="margin-right:5px;"></i> Tambah data - Air Limbah (IPLT dan Truck Tinja)</a>
               <br>
-              <a href="#" type="button" class="btn btn-primary mt-2 bg-orange text-orange-fg" onclick="showModaUpload('3')"><i class="fas fa-plus" style="margin-right:5px;"></i> Tambah data - Persampahan (Pembangunan Baru TPS 3R)</a>
+              <a href="#" type="button" class="btn btn-primary mt-2 bg-orange text-orange-fg" onclick="showModaUpload('3')"><i class="fas fa-plus" style="margin-right:5px;"></i> Tambah data - Persampahan (Pembangunan dan Peningkatan/Rehabilitasi TPS3R)</a>
               <br>
-              <a href="#" type="button" class="btn btn-primary mt-2 bg-orange text-orange-fg" onclick="showModaUpload('4')"><i class="fas fa-plus" style="margin-right:5px;"></i> Tambah data - Persampahan (Rehabilitasi TPS3R)</a>
+              <!-- <a href="#" type="button" class="btn btn-primary mt-2 bg-orange text-orange-fg" onclick="showModaUpload('4')"><i class="fas fa-plus" style="margin-right:5px;"></i> Tambah data - Persampahan (Rehabilitasi TPS3R)</a>
               <br>
-              <a href="#" type="button" class="btn btn-primary mt-2 mb-2 bg-orange text-orange-fg" onclick="showModaUpload('5')"><i class="fas fa-plus" style="margin-right:5px;"></i> Tambah data - Persampahan (Pembangunan TPST)</a>
+              <a href="#" type="button" class="btn btn-primary mt-2 mb-2 bg-orange text-orange-fg" onclick="showModaUpload('5')"><i class="fas fa-plus" style="margin-right:5px;"></i> Tambah data - Persampahan (Pembangunan TPST)</a> -->
 
               <?= $this->session->userdata('psn'); ?>
               <!-- Card Tab -->
@@ -197,183 +197,183 @@
                 <ul class="nav nav-tabs ">
                   <li class="nav-item"><a href="#tab-top-1" class="nav-link active " data-bs-toggle="tab">Air Limbah <br>(SPALD-T dan SPALD-S)</a></li>
                   <li class="nav-item"><a href="#tab-top-2" class="nav-link" data-bs-toggle="tab">Air Limbah <br>(IPLT dan Truck Tinja)</a></li>
-                  <li class="nav-item"><a href="#tab-top-3" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Pembangunan Baru TPS 3R)</a></li>
-                  <li class="nav-item"><a href="#tab-top-4" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Rehabilitasi TPS3R)</a></li>
-                  <li class="nav-item"><a href="#tab-top-5" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Pembangunan TPST)</a></li>
-                </ul>
-                <div class="tab-content ">
-                  <!-- Content of card #1 -->
-                  <div id="tab-top-1" class="card tab-pane active show">
-                    <div class="card-body">
-                      <div class="text-center">
+                  <li class="nav-item"><a href="#tab-top-3" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Pembangunan dan Peningkatan/Rehabilitasi TPS3R)</a></li>
+                  <!-- <li class="nav-item"><a href="#tab-top-4" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Rehabilitasi TPS3R)</a></li>
+                    <li class="nav-item"><a href="#tab-top-5" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Pembangunan TPST)</a></li> -->
+                  </ul>
+                  <div class="tab-content ">
+                    <!-- Content of card #1 -->
+                    <div id="tab-top-1" class="card tab-pane active show">
+                      <div class="card-body">
+                        <div class="text-center">
 
-                        <table class="table table-bordered table-lg" style="border-color: #a7a7b6;" >
-                         <thead class="text-center sticky-top align-middle">
-                          <tr>
-                            <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">No</th>
-                            <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KECAMATAN</th>
-                            <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KELURAHAN/DESA</th>
-                            <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">DED</th>
-                            <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">RAB</th>
-                            <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan <br> Kegiatan dari <br>Pemerintah Desa/Kelurahan</th>
-                            <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan <br> Kegiatan dari <br>Dinas Kab/Kota</th>
-                            <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Daftar calon <br> penerima manfaat </th>
-                            <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Bukti Kepemilikan dan/<br>atau keberfungsian IPLT<br> (*untuk rincian menu tangki septik <br> individual pedesaan, perkotaan, <br> dan tangki septik komunal (5-10KK))</th>
+                          <table class="table table-bordered table-lg" style="border-color: #a7a7b6;" >
+                           <thead class="text-center sticky-top align-middle">
+                            <tr>
+                              <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">No</th>
+                              <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KECAMATAN</th>
+                              <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">KELURAHAN/DESA</th>
+                              <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">DED</th>
+                              <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">RAB</th>
+                              <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan <br> Kegiatan dari <br>Pemerintah Desa/Kelurahan</th>
+                              <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan Kesiapan Lahan</th>
+                              <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Daftar calon <br> penerima manfaat </th>
+                              <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Bukti Kepemilikan dan/<br>atau keberfungsian IPLT<br> (*untuk rincian menu tangki septik <br> individual pedesaan, perkotaan, <br> dan tangki septik komunal (5-10KK))</th>
 
-                            <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;"><i>As Build Drawing</i>Jaringan IPAL terbangun <br> dan rencana pengembangannya <br> (*untuk rincian menu <br> penambahan pipa <br> pengumpul dan SR)</th>
-                            <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Justifikasi teknis untuk <br> penambahan pipa pengumpul <br> (*untuk rincian menu <br> penambahan pipa <br> pengumpul dan SR)</th>
-                            <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Edit Data</th>
-                          </tr>
-                          <tr>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
-                            <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
-                          </tr>
-                        </thead>
+                              <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;"><i>As Build Drawing</i>Jaringan IPAL terbangun <br> dan rencana pengembangannya <br> (*untuk rincian menu <br> penambahan pipa <br> pengumpul dan SR)</th>
+                              <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Justifikasi teknis untuk <br> penambahan pipa pengumpul <br> (*untuk rincian menu <br> penambahan pipa <br> pengumpul dan SR)</th>
+                              <th rowspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Edit Data</th>
+                            </tr>
+                            <tr>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">FILE</th>
+                              <th style="background-color: #5E767E; color: white; font-size: 10px;">LINK</th>
+                            </tr>
+                          </thead>
 
-                        <tbody class="text-end" id="bodyTableConten">
-                          <?php $noIpal=1; foreach ($dataSanIpal as $key => $value) { ?>
-                           <tr class="text-center">
-                             <td><?= $noIpal; ?></td>
-                             <td><?= $value->nmkec; ?></td>
-                             <td><?= $value->nmdesa; ?></td>
-                             <td>
+                          <tbody class="text-end" id="bodyTableConten">
+                            <?php $noIpal=1; foreach ($dataSanIpal as $key => $value) { ?>
+                             <tr class="text-center">
+                               <td><?= $noIpal; ?></td>
+                               <td><?= $value->nmkec; ?></td>
+                               <td><?= $value->nmdesa; ?></td>
+                               <td>
+                                 <?php if ($value->ded_ipal != '') { ?>
+                                  <button class="btn btn-icon btn-danger" onclick="showPdf('<?=  str_replace("'", ",", $value->ded_ipal); ?>')">
+                                    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+                                  </button>
+                                <?php } ?>
+                              </td>
+                              <td>
                                <?php if ($value->ded_ipal != '') { ?>
-                                <button class="btn btn-icon btn-danger" onclick="showPdf('<?=  str_replace("'", ",", $value->ded_ipal); ?>')">
-                                  <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+                                <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->ded_ipal; ?>')">
+                                  <i class="fas fa-copy fa-lg"></i>
                                 </button>
                               <?php } ?>
                             </td>
                             <td>
-                             <?php if ($value->ded_ipal != '') { ?>
-                              <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->ded_ipal; ?>')">
-                                <i class="fas fa-copy fa-lg"></i>
+                             <?php if ($value->rab_ipal != '') { ?>
+                              <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->rab_ipal); ?>')">
+                                <i class="fa-solid fas fa-file-pdf fa-lg"></i>
                               </button>
                             <?php } ?>
                           </td>
                           <td>
                            <?php if ($value->rab_ipal != '') { ?>
-                            <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->rab_ipal); ?>')">
-                              <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+                            <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->rab_ipal; ?>')">
+                              <i class="fas fa-copy fa-lg"></i>
                             </button>
                           <?php } ?>
                         </td>
                         <td>
-                         <?php if ($value->rab_ipal != '') { ?>
-                          <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->rab_ipal; ?>')">
-                            <i class="fas fa-copy fa-lg"></i>
+                         <?php if ($value->k_lahan_ipal != '') { ?>
+                          <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->k_lahan_ipal); ?>')">
+                            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
                           </button>
                         <?php } ?>
                       </td>
                       <td>
                        <?php if ($value->k_lahan_ipal != '') { ?>
-                        <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->k_lahan_ipal); ?>')">
-                          <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+                        <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->k_lahan_ipal; ?>')">
+                          <i class="fas fa-copy fa-lg"></i>
                         </button>
                       <?php } ?>
                     </td>
                     <td>
-                     <?php if ($value->k_lahan_ipal != '') { ?>
-                      <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->k_lahan_ipal; ?>')">
-                        <i class="fas fa-copy fa-lg"></i>
+                     <?php if ($value->k_lahan_dinas_ipal != '') { ?>
+                      <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->k_lahan_dinas_ipal); ?>')">
+                        <i class="fa-solid fas fa-file-pdf fa-lg"></i>
                       </button>
                     <?php } ?>
                   </td>
                   <td>
                    <?php if ($value->k_lahan_dinas_ipal != '') { ?>
-                    <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->k_lahan_dinas_ipal); ?>')">
-                      <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+                    <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->k_lahan_dinas_ipal; ?>')">
+                      <i class="fas fa-copy fa-lg"></i>
                     </button>
                   <?php } ?>
                 </td>
                 <td>
-                 <?php if ($value->k_lahan_dinas_ipal != '') { ?>
-                  <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->k_lahan_dinas_ipal; ?>')">
-                    <i class="fas fa-copy fa-lg"></i>
+                 <?php if ($value->penerima_manfaat_ipal != '') { ?>
+                  <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->penerima_manfaat_ipal); ?>')">
+                    <i class="fa-solid fas fa-file-pdf fa-lg"></i>
                   </button>
                 <?php } ?>
               </td>
               <td>
                <?php if ($value->penerima_manfaat_ipal != '') { ?>
-                <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->penerima_manfaat_ipal); ?>')">
-                  <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+                <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->penerima_manfaat_ipal; ?>')">
+                  <i class="fas fa-copy fa-lg"></i>
                 </button>
               <?php } ?>
             </td>
             <td>
-             <?php if ($value->penerima_manfaat_ipal != '') { ?>
-              <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->penerima_manfaat_ipal; ?>')">
-                <i class="fas fa-copy fa-lg"></i>
+             <?php if ($value->spesifikasi_ipal != '') { ?>
+              <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->spesifikasi_ipal); ?>')">
+                <i class="fa-solid fas fa-file-pdf fa-lg"></i>
               </button>
             <?php } ?>
           </td>
           <td>
            <?php if ($value->spesifikasi_ipal != '') { ?>
-            <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->spesifikasi_ipal); ?>')">
+            <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->spesifikasi_ipal; ?>')">
+              <i class="fas fa-copy fa-lg"></i>
+            </button>
+          <?php } ?>
+        </td>
+
+        <td>
+          <?php if ($value->abd != '') { ?>
+            <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->abd); ?>')">
               <i class="fa-solid fas fa-file-pdf fa-lg"></i>
             </button>
           <?php } ?>
         </td>
         <td>
-         <?php if ($value->spesifikasi_ipal != '') { ?>
-          <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->spesifikasi_ipal; ?>')">
-            <i class="fas fa-copy fa-lg"></i>
-          </button>
-        <?php } ?>
-      </td>
+          <?php if ($value->abd != '') { ?>
+            <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->abd; ?>')">
+              <i class="fas fa-copy fa-lg"></i>
+            </button>
+          <?php } ?>
+        </td>
 
-      <td>
-        <?php if ($value->abd != '') { ?>
-          <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->abd); ?>')">
-            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
-          </button>
-        <?php } ?>
-      </td>
-      <td>
-        <?php if ($value->abd != '') { ?>
-          <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->abd; ?>')">
-            <i class="fas fa-copy fa-lg"></i>
-          </button>
-        <?php } ?>
-      </td>
-
-      <td>
-        <?php if ($value->justekPipa != '') { ?>
-          <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->justekPipa); ?>')">
-            <i class="fa-solid fas fa-file-pdf fa-lg"></i>
-          </button>
-        <?php } ?>
-      </td>
-      <td>
-        <?php if ($value->justekPipa != '') { ?>
-          <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->justekPipa; ?>')">
-            <i class="fas fa-copy fa-lg"></i>
-          </button>
-        <?php } ?>
-      </td>
+        <td>
+          <?php if ($value->justekPipa != '') { ?>
+            <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->justekPipa); ?>')">
+              <i class="fa-solid fas fa-file-pdf fa-lg"></i>
+            </button>
+          <?php } ?>
+        </td>
+        <td>
+          <?php if ($value->justekPipa != '') { ?>
+            <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->justekPipa; ?>')">
+              <i class="fas fa-copy fa-lg"></i>
+            </button>
+          <?php } ?>
+        </td>
 
 
-      <td class="text-center" style="display: flex; align-items: center;">
-        <button class="btn btn-warning btn-icon  d-inline" onclick="editDataIpal('<?= str_replace("'", "",$value->nmkec); ?>', '<?= str_replace("'", "",$value->nmdesa);  ?>', '<?= $value->id; ?>', '<?= $value->kdkec; ?>', '<?= $value->kddesa; ?>')" style="margin-right: 10px;"><i class="fas fa-edit"></i></button>
-        <button class="btn btn-danger btn-icon  d-inline" onclick="hapusDataIpal('<?= $value->id; ?>')"><i class="fas fa-trash"></i></button>
-      </td>
-    </tr>
-    <?php $noIpal++;} ?>
-  </tbody>
-</table>
+        <td class="text-center" style="display: flex; align-items: center;">
+          <button class="btn btn-warning btn-icon  d-inline" onclick="editDataIpal('<?= str_replace("'", "",$value->nmkec); ?>', '<?= str_replace("'", "",$value->nmdesa);  ?>', '<?= $value->id; ?>', '<?= $value->kdkec; ?>', '<?= $value->kddesa; ?>')" style="margin-right: 10px;"><i class="fas fa-edit"></i></button>
+          <button class="btn btn-danger btn-icon  d-inline" onclick="hapusDataIpal('<?= $value->id; ?>')"><i class="fas fa-trash"></i></button>
+        </td>
+      </tr>
+      <?php $noIpal++;} ?>
+    </tbody>
+  </table>
 </div>
 </div>
 </div>
@@ -698,7 +698,7 @@
           <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan <br>Kegiatan </th>
           <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Bukti legalitas lahan <br> untuk TPS 3R </th>
           <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Konsep Business Plan <br>pengelolaan TPS 3R <br>pasca konstruksi</th>
-          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Daftar Calon<br>Penerima Manfaat TPS3R</th>
+          <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Daftar Calon<br>Penerima Manfaat TPS3R <br> (MIN 200 KK)</th>
           <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Berita Acara <br> Kesepakatan Warga</th>
           <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan dan Dukungan <br> Biaya Operasi <br> dan Pemeliharaan</th>
           <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat dukungan <br> Dinas Lingkungan Hidup</th>
@@ -1530,9 +1530,9 @@
               <ul class="nav nav-tabs ">
                 <li class="nav-item"><a href="#tab-top-1" class="nav-link active " data-bs-toggle="tab">Air Limbah <br>(SPALD-T dan SPALD-S)</a></li>
                 <li class="nav-item"><a href="#tab-top-2" class="nav-link" data-bs-toggle="tab">Air Limbah <br>(IPLT dan Truck Tinja)</a></li>
-                <li class="nav-item"><a href="#tab-top-3" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Pembangunan Baru TPS 3R)</a></li>
-                <li class="nav-item"><a href="#tab-top-4" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Rehabilitasi TPS3R)</a></li>
-                <li class="nav-item"><a href="#tab-top-5" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Pembangunan TPST)</a></li>
+                <li class="nav-item"><a href="#tab-top-3" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Pembangunan dan Peningkatan/Rehabilitasi TPS3R)</a></li>
+               <!--  <li class="nav-item"><a href="#tab-top-4" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Rehabilitasi TPS3R)</a></li>
+                <li class="nav-item"><a href="#tab-top-5" class="nav-link" data-bs-toggle="tab">Persampahan <br>(Pembangunan TPST)</a></li> -->
               </ul>
               <div class="tab-content ">
                 <!-- Content of card #1 -->
@@ -1548,8 +1548,8 @@
                           <th rowspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">KELURAHAN/DESA</th>
                           <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">DED</th>
                           <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">RAB</th>
-                          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan <br> Kegiatan dari <br>PEMERINTAH DESA/KELURAHAN</th>
-                          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan <br> Kegiatan dari <br> DINAS KAB/KOTA</th>
+                          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan dan/atau <br> Pengelolaan Kegiatan <br> (dari Desa/Kelurahan <br> untuk IPAL Skala <br> Permukiman atau <br> dari Pemerintah Daerah <br> untuk IPAL Skala Perkotaan)</th>
+                          <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan Kesiapan Lahan</th>
                           <th colspan="2" style="background-color: #5E767E; color: white; font-size: 10px;">Daftar calon <br> penerima manfaat </th>
                           <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Bukti Kepemilikan dan/<br>atau keberfungsian IPLT<br> (*untuk rincian menu tangki septik <br> individual pedesaan, perkotaan, <br> dan tangki septik komunal (5-10KK))</th>
 
@@ -1669,7 +1669,7 @@
                       <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan Pelaksanaan <br>Kegiatan </th>
                       <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Bukti legalitas lahan <br> untuk TPS 3R </th>
                       <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Konsep Business Plan <br>pengelolaan TPS 3R <br>pasca konstruksi</th>
-                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Daftar Calon<br>Penerima Manfaat TPS3R</th>
+                      <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Daftar Calon<br>Penerima Manfaat TPS3R <br> (MIN 200 KK)</th>
                       <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Berita Acara <br> Kesepakatan Warga</th>
                       <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat Pernyataan <br> Kesiapan dan Dukungan <br> Biaya Operasi <br> dan Pemeliharaan</th>
                       <th colspan='2' style="background-color: #5E767E; color: white; font-size: 10px;">Surat dukungan <br> Dinas Lingkungan Hidup</th>
@@ -2465,7 +2465,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Tambah Data Persampahan (Pembangunan Baru TPS 3R)</h5>
+          <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Tambah Data Persampahan (Pembangunan dan Peningkatan/Rehabilitasi TPS3R)</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -2535,7 +2535,7 @@
               </small>
             </div>
             <div class="mb-3">
-              <div class="form-label">Daftar Calon Penerima Manfaat TPS3R :</div>
+              <div class="form-label">Daftar Calon Penerima Manfaat TPS3R (MIN 200 KK) :</div>
               <input type="file" name="penerima_manfaat_pembangunanBaru" id="penerima_manfaat_pembangunanBaru" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 File : PDF Max Size : 300 MB.
@@ -2661,7 +2661,7 @@
               </small>
             </div>
             <div class="mb-3">
-              <div class="form-label">Daftar Calon Penerima Manfaat TPS3R :</div>
+              <div class="form-label">Daftar Calon Penerima Manfaat TPS3R (MIN 200 KK):</div>
               <input type="file" name="penerima_manfaat_pembangunanBaru_edit" id="penerima_manfaat_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 File : PDF Max Size : 300 MB.

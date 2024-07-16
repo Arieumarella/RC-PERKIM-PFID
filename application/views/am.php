@@ -261,11 +261,11 @@
                                   <th colspan="2" style="background-color: #5E767E; color: white;">KESIAPAN LAHAN</th>
                                   <th colspan="2" style="background-color: #5E767E; color: white;">DAFTAR CALON <br> PENERIMA MANFAAT</th>
                                   <th colspan="2" style="background-color: #5E767E; color: white;">KESIAPAN LEMBAGA <br> PENGELOLA</th>
+                                  <th colspan="2" style="background-color: #5E767E; color: white;">Studi Kelayakan/<br>Feasibility Study (FS)/ <br> Justifikasi Teknis (Justek)</th>
                                   <th colspan="2" style="background-color: #5E767E; color: white;">
                                     <i class="fa fa-star" style="margin-right: 5px; font-size: 10px;"></i><i style="margin-right: 5px; font-size: 10px;">Untuk kegiatan SPAM Regional</i><br>
                                     Perjanjian Kerja Sama
                                   </th>
-                                  <th colspan="2" style="background-color: #5E767E; color: white;">Studi Kelayakan/<br>Feasibility Study (FS)/ <br> Justifikasi Teknis (Justek)</th>
                                   <th rowspan="2" style="background-color: #5E767E; color: white;">Edit Data</th>
                                 </tr>
                                 <tr>
@@ -363,20 +363,7 @@
                                         </button>
                                       <?php } ?>
                                     </td>
-                                    <td>
-                                      <?php if ($value->pks != '') { ?>
-                                        <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->pks); ?>')">
-                                          <i class="fas fa-file-pdf fa-lg"></i>
-                                        </button>
-                                      <?php } ?>
-                                    </td>
-                                    <td>
-                                      <?php if ($value->pks != '') { ?>
-                                        <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->pks; ?>')">
-                                          <i class="fas fa-copy fa-lg"></i>
-                                        </button>
-                                      <?php } ?>
-                                    </td>
+
 
                                     <td>
                                       <?php if ($value->kelayakan_justek != '') { ?>
@@ -388,6 +375,20 @@
                                     <td>
                                       <?php if ($value->kelayakan_justek != '') { ?>
                                         <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->kelayakan_justek; ?>')">
+                                          <i class="fas fa-copy fa-lg"></i>
+                                        </button>
+                                      <?php } ?>
+                                    </td>
+                                    <td>
+                                      <?php if ($value->pks != '') { ?>
+                                        <button class="btn btn-icon btn-danger" onclick="showPdf('<?= str_replace("'", ",", $value->pks); ?>')">
+                                          <i class="fas fa-file-pdf fa-lg"></i>
+                                        </button>
+                                      <?php } ?>
+                                    </td>
+                                    <td>
+                                      <?php if ($value->pks != '') { ?>
+                                        <button class="btn btn-icon btn-secondary" onclick="copyLink('<?= $value->pks; ?>')">
                                           <i class="fas fa-copy fa-lg"></i>
                                         </button>
                                       <?php } ?>
@@ -626,11 +627,14 @@
                                   <th colspan="2" style="background-color: #5E767E; color: white;">KESIAPAN LAHAN</th>
                                   <th colspan="2" style="background-color: #5E767E; color: white;">DAFTAR CALON <br> PENERIMA MANFAAT</th>
                                   <th colspan="2" style="background-color: #5E767E; color: white;">KESIAPAN LEMBAGA PENGELOLA</th>
+
+                                  <th colspan="2" style="background-color: #5E767E; color: white;">Studi Kelayakan/<br>Feasibility Study (FS)/ <br> Justifikasi Teknis (Justek)</th>
+                                  
                                   <th colspan="2" style="background-color: #5E767E; color: white;">
                                     <i class="fa fa-star" style="margin-right: 5px; font-size: 10px;"></i><i style="margin-right: 5px; font-size: 10px;">Untuk kegiatan SPAM Regional</i><br>
                                     Perjanjian Kerja Sama
                                   </th>
-                                  <th colspan="2" style="background-color: #5E767E; color: white;">Studi Kelayakan/<br>Feasibility Study (FS)/ <br> Justifikasi Teknis (Justek)</th>
+
                                   <th rowspan="2" style="background-color: #5E767E; color: white;">STATUS <br> VERIFIKASI</th>
                                 </tr>
                                 <tr>
@@ -1591,10 +1595,10 @@
                 tbody += `<td class='text-center'>` + (val.penerima_manfaat != null ? penerima_manfaatCopy : '') + `</td>`;
                 tbody += `<td class='text-center'>` + (val.k_lembaga != null ? k_lembaga : '') + `</td>`;
                 tbody += `<td class='text-center'>` + (val.k_lembaga != null ? k_lembagaCopy : '') + `</td>`;
-                tbody += `<td class='text-center'>` + (val.pks != null ? kerjasama : '') + `</td>`;
-                tbody += `<td class='text-center'>` + (val.pks != null ? kerjasamaCopy : '') + `</td>`;
                 tbody += `<td class='text-center'>` + (val.pks != null ? kelayakanJustek : '') + `</td>`;
                 tbody += `<td class='text-center'>` + (val.pks != null ? kelayakanJustekCopy : '') + `</td>`;
+                tbody += `<td class='text-center'>` + (val.pks != null ? kerjasama : '') + `</td>`;
+                tbody += `<td class='text-center'>` + (val.pks != null ? kerjasamaCopy : '') + `</td>`;
                 tbody += `<td class='text-center'></td>`;
                 tbody += `</tr>`;
 

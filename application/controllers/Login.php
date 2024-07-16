@@ -107,7 +107,7 @@ class Login extends CI_Controller
 			'rkdak_kab' => $data->kdkabkota,
 			'kd_balai' => $data->kd_balai,
 			'rkdak_stat' => 'x',
-			'thang' => date('Y'),
+			'thang' => '2025',
 			'sts_login' => true,
 			'ipc' => $ip,
 			'kdlokasiBalai' => $data->kd_balai,
