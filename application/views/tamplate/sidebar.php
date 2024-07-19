@@ -57,15 +57,56 @@
 
       <?php } ?>
 
-      <?php if ($this->session->userdata('rkdak_prive') > '1') { ?>
-
-        <li class="nav-item <?= $tittle == 'Penilaian Usulan Awal' ? 'active':''; ?>">
-          <a class="nav-link <?= $tittle == 'Penilaian Usulan Awal' ? 'active':''; ?>" href="<?= base_url(); ?>Penilaian" >
-            <span class="nav-link-icon d-md-none d-lg-inline-block ">
-              <i class="fas fa-clipboard-list"></i>
+<!--       <?php if ($this->session->userdata('rkdak_user') == 'perkimpfid') { ?>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <?= $tittle == 'BA Air Minum' ? 'show':''; ?>" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded=" <?= $tittle == 'BA Air Minum' ? 'true':'false'; ?>" >
+            <span class="nav-link-icon d-md-none d-lg-inline-block">
+              <i class="fas fa-print"></i>
             </span>
             <span class="nav-link-title">
-              Penilaian Usulan Awal
+              Berita Acara
+            </span>
+          </a>
+          <div class="dropdown-menu <?= $tittle == 'BA Air Minum' ? 'show':''; ?>">
+            <div class="dropdown-menu-columns">
+              <div class="dropdown-menu-column">
+                <a class="dropdown-item <?= $tittle == 'BA Air Minum' ? 'active':''; ?>" href="<?= base_url(); ?>Ba/AM">
+                  Air Minum
+                </a>
+                <a class="dropdown-item" href="<?= base_url(); ?>Ba/SAN">
+                  Sanitasi
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <?php } ?> -->
+
+
+        <?php if ($this->session->userdata('rkdak_prive') > '1') { ?>
+
+          <li class="nav-item <?= $tittle == 'Penilaian Usulan Awal' ? 'active':''; ?>">
+            <a class="nav-link <?= $tittle == 'Penilaian Usulan Awal' ? 'active':''; ?>" href="<?= base_url(); ?>Penilaian" >
+              <span class="nav-link-icon d-md-none d-lg-inline-block ">
+                <i class="fas fa-clipboard-list"></i>
+              </span>
+              <span class="nav-link-title">
+                Penilaian Usulan Awal
+              </span>
+            </a>
+          </li>
+
+        <?php } ?>
+
+        <?php if ($this->session->userdata('rkdak_prive') > '1') { ?>
+
+          <li class="nav-item <?= $tittle == 'BA Krisna Siap' ? 'active':''; ?>">
+            <a class="nav-link <?= $tittle == 'BA Krisna Siap' ? 'active':''; ?>" href="<?= base_url(); ?>KrisnaSiap" >
+              <span class="nav-link-icon d-md-none d-lg-inline-block ">
+               <i class="fas fa-paste"></i>
+             </span>
+             <span class="nav-link-title">
+              BA Krisna Siap
             </span>
           </a>
         </li>
@@ -273,34 +314,55 @@
           </div>
         </div>
       </li> -->
+
+
+
       <?php if ($this->session->userdata('rkdak_user') == 'perkimpfid') { ?>
 
-        <li class="nav-item <?= $tittle == 'User' ? 'active':''; ?>">
-          <a class="nav-link <?= $tittle == 'User' ? 'active':''; ?>" href="<?= base_url(); ?>Users" >
+        <li class="nav-item <?= $tittle == 'Upload Usulan Awal' ? 'active':''; ?>">
+          <a class="nav-link <?= $tittle == 'Upload Usulan Awal' ? 'active':''; ?>" href="<?= base_url(); ?>uploadUsulanAwal" >
             <span class="nav-link-icon d-md-none d-lg-inline-block ">
-              <i class="fas fa-users"></i>
-            </span>
-            <span class="nav-link-title">
-              Users
-            </span>
-          </a>
-        </li>
-
-      <?php } ?>
-
-      <li class="nav-item">
-        <a class="nav-link" href="<?= base_url(); ?>Login/Logout" >
-          <span class="nav-link-icon d-md-none d-lg-inline-block ">
-            <i class="fas fa-sign-out-alt"></i>
-          </span>
-          <span class="nav-link-title">
-            Logout
+             <i class="fas fa-file-upload"></i>
+           </span>
+           <span class="nav-link-title">
+            Upload Usulan Awal Krisna
           </span>
         </a>
       </li>
 
+    <?php } ?>
 
-    </ul>
-  </div>
+    
+    <?php if ($this->session->userdata('rkdak_user') == 'perkimpfid') { ?>
+
+      <li class="nav-item <?= $tittle == 'User' ? 'active':''; ?>">
+        <a class="nav-link <?= $tittle == 'User' ? 'active':''; ?>" href="<?= base_url(); ?>Users" >
+          <span class="nav-link-icon d-md-none d-lg-inline-block ">
+            <i class="fas fa-users"></i>
+          </span>
+          <span class="nav-link-title">
+            Users
+          </span>
+        </a>
+      </li>
+
+    <?php } ?>
+
+    
+
+    <li class="nav-item">
+      <a class="nav-link" href="<?= base_url(); ?>Login/Logout" >
+        <span class="nav-link-icon d-md-none d-lg-inline-block ">
+          <i class="fas fa-sign-out-alt"></i>
+        </span>
+        <span class="nav-link-title">
+          Logout
+        </span>
+      </a>
+    </li>
+
+
+  </ul>
+</div>
 </div>
 </aside>

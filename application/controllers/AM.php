@@ -78,9 +78,15 @@ class AM extends CI_Controller {
 		$kdkabkota = kdkabkota($kdsatker);
 		$ta = $this->session->userdata('thang');
 
-
 		$nmProv = getProvinsiByRow($kdlokasi)->NMLOKASI;
 		$nmKab = getKabKotaByRow($kdlokasi, $kdkabkota)->NMKABKOTA;
+
+		if ($kdkabkota == '00') {
+			$kdkabkota = $this->input->post('kabkota');
+		}
+
+		
+
 		$nmKecamatan = getKecamatan($kdlokasi, $kdkabkota, $kdkec)->nmkec;
 		$nmDesa = getdesa($kdlokasi, $kdkabkota, $kdkec, $kddesa)->nmdesa;
 

@@ -11,6 +11,7 @@
                 <th>No</th>
                 <th>Provinsi</th>
                 <th>Kabupaten/Kota</th>
+                <th>Bidang</th>
                 <th>Nama</th>
                 <th>Username</th>
                 <th>Password</th>
@@ -23,6 +24,7 @@
                   <td><?= $no++; ?></td>
                   <td><?= $val->nmlokasi; ?></td>
                   <td><?= $val->nmkabkota; ?></td>
+                  <td><?= getNameBidang($val->ket); ?></td>
                   <td><?= $val->nama; ?></td>
                   <td><?= $val->username; ?></td>
                   <td><?= $val->sandi; ?></td>
@@ -38,6 +40,7 @@
                 <th>No</th>
                 <th>Provinsi</th>
                 <th>Kabupaten/Kota</th>
+                <th>Bidang</th>
                 <th>Nama</th>
                 <th>Username</th>
                 <th>Password</th>

@@ -9,7 +9,7 @@ class M_rc24 extends CI_Model {
 	{
 		$qry = "
 		
-		SELECT MID(KdSatker,3,2) AS kdlokasi, nmlokasi FROM d009_dak_awal group by MID(KdSatker,3,2)
+		SELECT MID(kdsatker,3,2) as kdlokasi, nmlokasi FROM d009_dak_awal group by MID(KdSatker,3,2)
 		";
 
 		return $this->db->query($qry)->result();
@@ -20,8 +20,7 @@ class M_rc24 extends CI_Model {
 	{
 
 		$kdlokasi = clean($kdlokasi);	
-		$qry = "SELECT CONCAT(left(KdSatker,7),'5') as KdSatker, nmkabkota FROM d009_dak_awal WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota
-		";
+		$qry = "SELECT CONCAT(left(KdSatker,7),'5') as KdSatker, nmkabkota FROM d009_dak_awal WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota";
 
 		return $this->db->query($qry)->result();
 	}
@@ -31,9 +30,7 @@ class M_rc24 extends CI_Model {
 	{
 
 		$kdlokasi = clean($kdlokasi);	
-		$qry = " 
-		SELECT CONCAT(LEFT(KdSatker,7),'5') AS KdSatker, nmkabkota FROM d009_dak_awal WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY a.KdSatker ORDER BY nmkabkota
-		";
+		$qry = "SELECT CONCAT(LEFT(KdSatker,7),'5') AS KdSatker, nmkabkota FROM d009_dak_awal WHERE MID(KdSatker,3,2)='$kdlokasi'  ORDER BY nmkabkota";
 
 		return $this->db->query($qry)->result();
 	}
@@ -334,6 +331,68 @@ class M_rc24 extends CI_Model {
 		$kddesa = clean($kddesa);	
 		
 		$qry = "SELECT * FROM t_rc_integrasi2 WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' AND kdkec='$kdkec'  AND  kddesa='$kddesa'";
+		return $this->db->query($qry)->row();
+	}
+
+
+	public function deleteKrisnaSiap($tabel, $data)
+	{
+
+		$data = clean($data);
+		$tabel = clean($tabel);
+
+		$this->db->where($data);
+		return $this->db->delete($tabel);
+	}
+
+	public function getDataKrisnaSiapByIdX($nmkab, $nmBidang, $ta)
+	{
+
+		$nmkab = clean($nmkab);
+		$nmBidang = clean($nmBidang);
+
+		$qry = "SELECT * FROM data_krisna_siap WHERE pengusul_nama='$nmkab' AND bidang='$nmBidang' and ta=$ta";
+
+		return $this->db->query($qry)->result();
+	}
+
+
+	public function getSubMenuXX($kabKota, $bidang, $ta)
+	{
+		$kabKota = clean($kabKota);
+		$bidang = clean($bidang);
+
+		$qry = "SELECT sub_bidang FROM data_krisna_siap WHERE pengusul_nama='$kabKota' AND bidang='$bidang' and ta=$ta GROUP BY sub_bidang";
+
+		return $this->db->query($qry)->result();
+	}
+
+
+	public function getDataheaderKrisnaSiapXXXX($nmKab, $nmBidang, $ta)
+	{
+		$nmBidang = clean($nmBidang);
+		$nmKab = clean($nmKab);
+
+		$qry = "SELECT pengusul_nama,
+		SUM(IF(approval_sinkron_kl=1,1,0)) AS usulan_approve_kl,
+		SUM(IF(approval_sinkron_kl=2,1,0)) AS usulan_reject_kl,
+		SUM(IF(approval_sinkron_kl=3,1,0)) AS usulan_discuss_kl,
+		SUM(IF(approval_sinkron_dit=1,1,0)) AS usulan_approve_ppn,
+		SUM(IF(approval_sinkron_dit=2,1,0)) AS usulan_reject_ppn,
+		SUM(IF(approval_sinkron_dit=3,1,0)) AS usulan_discuss_ppn,
+		SUM(IF(approval_sinkron_sum=1,1,0)) AS usulan_approve_sinkron,
+		SUM(IF(approval_sinkron_sum=2,1,0)) AS usulan_reject_sinkron,
+		SUM(IF(approval_sinkron_sum=3,1,0)) AS usulan_discuss_sinkron,
+		SUM(IF(approval_sinkron_kl=1,usulan_sinkron_kl,0)) AS nilai_approve_kl,
+		SUM(IF(approval_sinkron_kl=2,usulan_sinkron_kl,0)) AS nilai_reject_kl,
+		SUM(IF(approval_sinkron_kl=3,usulan_sinkron_kl,0)) AS nilai_discuss_kl,
+		SUM(IF(approval_sinkron_dit=1,usulan_sinkron_dit,0)) AS nilai_approve_ppn,
+		SUM(IF(approval_sinkron_dit=2,usulan_sinkron_dit,0)) AS nilai_reject_ppn,
+		SUM(IF(approval_sinkron_dit=3,usulan_sinkron_dit,0)) AS nilai_discuss_ppn,
+		SUM(IF(approval_sinkron_sum=1,usulan_sinkron_pusat,0)) AS nilai_approve_sinkron,
+		SUM(IF(approval_sinkron_sum=2,usulan_sinkron_kl,0)) AS nilai_reject_sinkron,
+		SUM(IF(approval_sinkron_sum=3,usulan_sinkron_pusat,0)) AS nilai_discuss_sinkron FROM data_krisna_siap WHERE pengusul_nama='$nmKab' AND bidang='$nmBidang' AND ta=$ta GROUP BY pengusul_nama";
+
 		return $this->db->query($qry)->row();
 	}
 

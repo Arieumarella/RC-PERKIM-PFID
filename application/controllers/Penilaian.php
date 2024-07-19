@@ -333,6 +333,7 @@ class Penilaian extends CI_Controller {
 		$ttd_bppw = clean($this->input->post('ttd_bppw'));
 		$dataDaerah = $this->M_penilaian->getDataDaerah($kdsatker);
 
+
 		$data = array(
 			'dataTabel' => $this->M_penilaian->getDataTabelPDF($kdsatker, $sub_menu),
 			'dataHeader' => $this->M_penilaian->getDataSimoniKrisnaHeaderBySubBidang($kdsatker, $sub_menu),
