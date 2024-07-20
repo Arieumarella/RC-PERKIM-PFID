@@ -57,6 +57,21 @@
 
       <?php } ?>
 
+      <?php if ($this->session->userdata('rkdak_prive') > '1') { ?>
+
+        <li class="nav-item <?= $tittle == 'PPKT' ? 'active':''; ?>">
+          <a class="nav-link <?= $tittle == 'PPKT' ? 'active':''; ?>" href="<?= base_url(); ?>PPKT" >
+            <span class="nav-link-icon d-md-none d-lg-inline-block ">
+              <i class="fas fa-igloo"></i>
+            </span>
+            <span class="nav-link-title">
+              PPKT
+            </span>
+          </a>
+        </li>
+
+      <?php } ?>
+
 <!--       <?php if ($this->session->userdata('rkdak_user') == 'perkimpfid') { ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle <?= $tittle == 'BA Air Minum' ? 'show':''; ?>" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded=" <?= $tittle == 'BA Air Minum' ? 'true':'false'; ?>" >

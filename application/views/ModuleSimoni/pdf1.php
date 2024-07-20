@@ -319,6 +319,7 @@
 
                         $approveKl='';
                         $warnaSum='';
+                        $penilaian='';
 
                         if ($value->Aprroval_PPN2 == '1' and $value->Approval_KL2 == '1') {
                             $penilaian = 'Approve';

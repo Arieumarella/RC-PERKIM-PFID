@@ -197,7 +197,7 @@ class KrisnaSiap extends CI_Controller {
 		$html2 = $this->load->view('ModuleSimoni/pdf2SudahSiap', $dataBa, TRUE);
 
 		$combined_html = $html . $html2;
-
+		ob_start();
 		$dompdf = new Dompdf();
 		$dompdf->set_option('isHtml5ParserEnabled', true);
 		$dompdf->set_option('isRemoteEnabled', true);
@@ -206,7 +206,9 @@ class KrisnaSiap extends CI_Controller {
 		$dompdf->loadHtml($combined_html);
 		$dompdf->render();
 		$pdf_content = $dompdf->output();
-		ob_end_clean();
+		if (ob_get_level() > 0) {
+			ob_end_clean();
+		}
 		$dompdf->stream('gabungan_pdf.pdf', array('Attachment' => 0));
 		return;
 
