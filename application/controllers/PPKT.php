@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use Dompdf\Dompdf;
+
 class PPKT extends CI_Controller {
 
 	public function __construct() {
@@ -31,14 +33,31 @@ class PPKT extends CI_Controller {
 
 
 	public function index()
-	{
+	{	
+		if ($this->session->userdata('rkdak_prive') > '1') {
 
-		$tmp = array(
-			'tittle' => 'PPKT',
-			'tittle_header' => 'PPKT',
-			'content' => 'PPKT',
-			'dataProvinsi' => $this->M_PPKT->getDataProvinsi()
-		);
+			$tmp = array(
+				'tittle' => 'PPKT',
+				'tittle_header' => 'PPKT',
+				'content' => 'PPKT',
+				'dataProvinsi' => $this->M_PPKT->getDataProvinsi()
+			);
+
+		}else{
+
+			$kdsatker = $this->session->userdata('rkdak_kdsat');
+			$kdlokasi = kdlokasi($kdsatker);
+			$kdkabkota = kdkabkota($kdsatker);
+
+			$tmp = array(
+				'tittle' => 'PPKT',
+				'tittle_header' => 'PPKT',
+				'content' => 'PPKT',
+				'dataTabel' => $this->M_PPKT->getDataTabelPPKT($kdsatker),
+				'dataKecamatan' => $this->M_dinamis->getResult('t_kec2', ['kdlokasi' => $kdlokasi, 'kdkabkota' => $kdkabkota])
+			);
+
+		}
 
 		$this->load->view('tamplate/baseTamplate', $tmp);
 	}
@@ -830,6 +849,86 @@ class PPKT extends CI_Controller {
 
 		redirect('PPKT/detail/'.$idPPKT12, 'refresh');
 
+	}
+
+
+
+	function cetakBaPPKT()
+	{
+		$id = $this->input->post('id');
+
+		$dataAwal = $this->M_dinamis->getById('t_rc_ppkt', ['id' => $id]);
+
+		$kdsatker = $dataAwal->kdsatker;
+		$kdkec = $dataAwal->kdkec;
+		$kddesa = $dataAwal->kddesa;
+		$kdlokasi = kdlokasi($kdsatker);
+		$kdkabkota = kdkabkota($kdsatker);
+
+		$ttdPemda = $this->input->post('ttdPemda');
+		$Bappenas = $this->input->post('Bappenas');
+		$ttdDitPerumahan = $this->input->post('ttdDitPerumahan');
+		$atrBpn = $this->input->post('atrBpn');
+		$ttdAtrBpn = $this->input->post('ttdAtrBpn');
+		$pfid = $this->input->post('pfid');
+		$ttdPfid = $this->input->post('ttdPfid');
+		$kawasanPermukiman = $this->input->post('kawasanPermukiman');
+		$ttdPengembangan = $this->input->post('ttdPengembangan');
+		$am = $this->input->post('am');
+		$ttdAirMinum = $this->input->post('ttdAirMinum');
+		$sanitasi = $this->input->post('sanitasi');
+		$ttdSanitasi = $this->input->post('ttdSanitasi');
+		$ditRuswa = $this->input->post('ditRuswa');
+		$ttdRuswa = $this->input->post('ttdRuswa');
+
+
+		$tmp = array(
+			'catatRCPPKT' => $this->M_PPKT->getDataPPKTCatatan($id),
+			'dataAM' => $this->M_PPKT->getDataAMPPKT($id),
+			'dataSAN' => $this->M_PPKT->getDataAMPPKTSan($id),
+			'dataPperum' => $this->M_PPKT->getDataAMPPKTPerum($id),
+			'nmProvinsi' => strtoupper('PROVINSI ' . getProvinsiByRow($kdlokasi)->NMLOKASI),
+			'nmkabkota' => strtoupper(getKabKotaByRow($kdlokasi, $kdkabkota)->NMKABKOTA),
+			'nmkec' => $this->M_PPKT->getNmKec($kdlokasi, $kdkabkota, $kdkec)->nmkec,
+			'nmdesa' => $this->M_PPKT->getNmDesa($kdlokasi, $kdkabkota, $kdkec, $kddesa)->nmdesa,
+			'ttdPemda' => $ttdPemda,
+			'Bappenas' => $Bappenas,
+			'ttdDitPerumahan' => $ttdDitPerumahan,
+			'atrBpn' => $atrBpn,
+			'ttdAtrBpn' => $ttdAtrBpn,
+			'pfid' => $pfid,
+			'ttdPfid' => $ttdPfid,
+			'kawasanPermukiman' => $kawasanPermukiman,
+			'ttdPengembangan' => $ttdPengembangan,
+			'am' => $am,
+			'ttdAirMinum' => $ttdAirMinum,
+			'sanitasi' => $sanitasi,
+			'ttdSanitasi' => $ttdSanitasi,
+			'ditRuswa' => $ditRuswa,
+			'ttdRuswa' => $ttdRuswa
+		);
+
+		
+
+		$html = $this->load->view('ModuleSimoni/ba_ppkt', $tmp, TRUE);
+		$html2 = $this->load->view('ModuleSimoni/ba_ppkt2', $tmp, TRUE);
+		$html3 = $this->load->view('ModuleSimoni/ba_ppkt3', $tmp, TRUE);
+		$html4 = $this->load->view('ModuleSimoni/ba_ppkt_biaya', $tmp, TRUE);
+		$html5 = $this->load->view('ModuleSimoni/pdfIntegrasiTTD3', $tmp, TRUE);
+		$combined_html = $html.$html2.$html3.$html4.$html5;
+		ob_start();
+		$dompdf = new Dompdf();
+		$dompdf->set_option('isHtml5ParserEnabled', true);
+		$dompdf->set_option('isRemoteEnabled', true);
+		$dompdf->setPaper('A4', 'portrait');
+
+		$dompdf->loadHtml($combined_html);
+		$dompdf->render();
+		$pdf_content = $dompdf->output();
+		if (ob_get_level() > 0) {
+			ob_end_clean();
+		}
+		$dompdf->stream('gabungan_pdf.pdf', array('Attachment' => 0));
 	}
 
 

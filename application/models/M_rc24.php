@@ -393,6 +393,26 @@ class M_rc24 extends CI_Model {
 		SUM(IF(approval_sinkron_sum=2,usulan_sinkron_kl,0)) AS nilai_reject_sinkron,
 		SUM(IF(approval_sinkron_sum=3,usulan_sinkron_pusat,0)) AS nilai_discuss_sinkron FROM data_krisna_siap WHERE pengusul_nama='$nmKab' AND bidang='$nmBidang' AND ta=$ta GROUP BY pengusul_nama";
 
+		$qry = "SELECT pengusul_nama,
+		SUM(IF(approval_sinkron_kl='Approved',1,0)) AS usulan_approve_kl,
+		SUM(IF(approval_sinkron_kl='Reject',1,0)) AS usulan_reject_kl,
+		SUM(IF(approval_sinkron_kl='Discuss',1,0)) AS usulan_discuss_kl,
+		SUM(IF(approval_sinkron_dit='Approved',1,0)) AS usulan_approve_ppn,
+		SUM(IF(approval_sinkron_dit='Reject',1,0)) AS usulan_reject_ppn,
+		SUM(IF(approval_sinkron_dit='Discuss',1,0)) AS usulan_discuss_ppn,
+		SUM(IF(approval_sinkron_sum='Approved',1,0)) AS usulan_approve_sinkron,
+		SUM(IF(approval_sinkron_sum='Reject',1,0)) AS usulan_reject_sinkron,
+		SUM(IF(approval_sinkron_sum='Discuss',1,0)) AS usulan_discuss_sinkron,
+		SUM(IF(approval_sinkron_kl='Approved',usulan_sinkron_kl,0)) AS nilai_approve_kl,
+		SUM(IF(approval_sinkron_kl='Reject',usulan_sinkron_kl,0)) AS nilai_reject_kl,
+		SUM(IF(approval_sinkron_kl='Discuss',usulan_sinkron_kl,0)) AS nilai_discuss_kl,
+		SUM(IF(approval_sinkron_dit='Approved',usulan_sinkron_dit,0)) AS nilai_approve_ppn,
+		SUM(IF(approval_sinkron_dit='Reject',usulan_sinkron_dit,0)) AS nilai_reject_ppn,
+		SUM(IF(approval_sinkron_dit='Discuss',usulan_sinkron_dit,0)) AS nilai_discuss_ppn,
+		SUM(IF(approval_sinkron_sum='Approved',usulan_sinkron_pusat,0)) AS nilai_approve_sinkron,
+		SUM(IF(approval_sinkron_sum='Reject',usulan_sinkron_kl,0)) AS nilai_reject_sinkron,
+		SUM(IF(approval_sinkron_sum='Discuss',usulan_sinkron_pusat,0)) AS nilai_discuss_sinkron FROM data_krisna_siap WHERE pengusul_nama='$nmKab' AND bidang='$nmBidang' AND ta=$ta GROUP BY pengusul_nama";
+
 		return $this->db->query($qry)->row();
 	}
 

@@ -7,8 +7,7 @@ class M_user extends CI_Model {
 	public function getAllData()
 	{
 		$qry = "SELECT nmlokasi, nmkabkota, a.* FROM (SELECT * FROM pengguna) AS a
-		LEFT JOIN (SELECT * FROM d009_dak_awal) AS b ON LEFT(a.ket,6)=b.kdsatkerx
-		WHERE nmlokasi IS NOT NULL AND nmkabkota IS NOT NULL";
+		LEFT JOIN (SELECT * FROM d009_dak_awal) AS b ON LEFT(a.ket,6)=b.kdsatkerx";
 
 		return $this->db->query($qry)->result();
 	}

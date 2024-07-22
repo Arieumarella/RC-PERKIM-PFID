@@ -22,10 +22,57 @@
                 z-index: 1;
               }
 
-
-
-
             </style>
+            <?php if ($this->session->userdata('rkdak_prive') == '1') { ?>
+
+              
+
+              <div class="container mt-3 text-center" id="contenAdmin">
+                <div class="col-md-12 col-lg-12">
+                  <div class="card card-stacked">
+                    <div class="card-body">
+                      <h2 class="font-calibri-tittle">REKAP READINESS CRITERIA PPKT TA. <?= $this->session->userdata('thang'); ?></h2>
+                      <h2 class="font-calibri-tittle" id="nmprovinsi2" style="margin-top:-18px;"></h2>
+                      <h2 class="font-calibri-tittle" id="nmkabkota2" style="margin-top:-18px;"></h2>
+
+                      <div class="row text-start">
+                        <div class="col-2">
+                          <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+                            <button class="btn btn-primary" onclick="showModalTambah();"><i class="fas fa-plus"></i> TAMBAH DATA</button>
+                          <?php } ?>
+                        </div>
+                      </div>
+
+                      <table class="table table-bordered table-lg mt-2" style="border-color: #a7a7b6;" >
+                       <thead class="text-center sticky-top align-middle">
+                        <tr>
+                          <th style="background-color: #5E767E; color: white; font-size: 10px; width: 1px;">No.</th>
+                          <th style="background-color: #5E767E; color: white; font-size: 10px;">Kecamatan</th>
+                          <th style="background-color: #5E767E; color: white; font-size: 10px;">Desa</th>
+                        </tr>
+                      </thead>
+
+                      <tbody class="text-end" id="bodyTableConten">
+                        <?php $no=1; foreach ($dataTabel as $key => $val) { ?>
+                          <tr>
+                            <td><?= $no++; ?></td>
+                            <td class="text-start"><?= $val->nmkec; ?></td>
+                            <td  class='text-start'><a href="<?= base_url(); ?>PPKT/detail/<?= $val->id; ?>" target="_blank"><?= $val->nmdesa; ?></a></td>
+                          </tr>
+                        <?php } ?>
+                      </tbody>
+                    </table>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
+
+
+          <?php if ($this->session->userdata('rkdak_prive') > '1') { ?>
+
             <div class="container mt-3 " id="container">
               <div class="col-md-12 col-lg-12">
                 <div class="card card-stacked">
@@ -73,7 +120,9 @@
 
                     <div class="row text-start">
                       <div class="col-2">
-                        <button class="btn btn-primary" onclick="showModalTambah();"><i class="fas fa-plus"></i> TAMBAH DATA</button>
+                        <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+                          <button class="btn btn-primary" onclick="showModalTambah();"><i class="fas fa-plus"></i> TAMBAH DATA</button>
+                        <?php } ?>
                       </div>
                     </div>
 
@@ -137,232 +186,234 @@
           </div>
           <!-- End Pembangunan -->
 
-          
+        <?php } ?>
 
 
-          <script type="text/javascript">
-            $( document ).ready(function() {
+        <script type="text/javascript">
+          $( document ).ready(function() {
 
-              hapusPPKT = function (id) {
+           <?php if ($this->session->userdata('rkdak_prive') > '1') { ?>
 
-               Swal.fire({
-                title: 'Apakah Anda yakin?',
-                text: "Data yang telah dihapus tidak bisa dikambalikan.!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  ajaxUntukSemua(base_url()+'PPKT/hapusPPKT', {id}, function(data) {
-                    getDataTableConten();
-                    Swal.fire(
-                      'Dihapus!',
-                      'Data Berhasil Dihapus.!',
-                      'success'
-                      );
+            hapusPPKT = function (id) {
+
+             Swal.fire({
+              title: 'Apakah Anda yakin?',
+              text: "Data yang telah dihapus tidak bisa dikambalikan.!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Ya, hapus!',
+              cancelButtonText: 'Batal'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                ajaxUntukSemua(base_url()+'PPKT/hapusPPKT', {id}, function(data) {
+                  getDataTableConten();
+                  Swal.fire(
+                    'Dihapus!',
+                    'Data Berhasil Dihapus.!',
+                    'success'
+                    );
 
 
-                  }, function(error) {
-                    console.log('Kesalahan:', error);
-                    t_error('Ada yg Error : '+error)
-                  });
-                }
-              });
+                }, function(error) {
+                  console.log('Kesalahan:', error);
+                  t_error('Ada yg Error : '+error)
+                });
+              }
+            });
 
+          }
+
+
+          simpanDataPPKT = function () {
+
+            let kdsatker = $("#kdsatkerPPKT").val(),
+            kdkec =  $("#kecamatanPPKT option:selected").val(),
+            kddesa =  $("#desaPPKT option:selected").val();
+
+            if (kdsatker == '') {
+              t_error('Invalid Parameter.!')
+              return;
+            }
+
+            if (kdkec == '') {
+              t_error('Silahkan Pilih Kecamatan Terlebih Dahulu.!');
+              return;
             }
 
 
-            simpanDataPPKT = function () {
-
-              let kdsatker = $("#kdsatkerPPKT").val(),
-              kdkec =  $("#kecamatanPPKT option:selected").val(),
-              kddesa =  $("#desaPPKT option:selected").val();
-
-              if (kdsatker == '') {
-                t_error('Invalid Parameter.!')
-                return;
-              }
-
-              if (kdkec == '') {
-                t_error('Silahkan Pilih Kecamatan Terlebih Dahulu.!');
-                return;
-              }
+            if (kddesa == '') {
+              t_error('Silahkan Pilih Desa Terlebih Dahulu.!');
+              return;
+            }
 
 
-              if (kddesa == '') {
-                t_error('Silahkan Pilih Desa Terlebih Dahulu.!');
-                return;
+            ajaxUntukSemua(base_url()+'PPKT/simpanDataPPKT', {kdsatker,kdkec,kddesa}, function(data) {
+
+              if (data.code != 200) {
+
+                $('#modalTambahPPKT').modal('hide');
+                t_error('Data gagal Disimpan.!');
+
               }
 
 
-              ajaxUntukSemua(base_url()+'PPKT/simpanDataPPKT', {kdsatker,kdkec,kddesa}, function(data) {
+              if (data.code == 200) {
 
-                if (data.code != 200) {
-
-                  $('#modalTambahPPKT').modal('hide');
-                  t_error('Data gagal Disimpan.!');
-
-                }
-
-
-                if (data.code == 200) {
-
-                 $('#modalTambahPPKT').modal('hide');
-                 getDataTableConten();
-                 Swal.fire({
-                  icon: 'success',
-                  title: 'Data Berhasil Disimpan',
-                  confirmButtonText: 'OK'
-                });
+               $('#modalTambahPPKT').modal('hide');
+               getDataTableConten();
+               Swal.fire({
+                icon: 'success',
+                title: 'Data Berhasil Disimpan',
+                confirmButtonText: 'OK'
+              });
 
 
-               }
+             }
 
 
-             }, function(error) {
+           }, function(error) {
+            console.log('Kesalahan:', error);
+            t_error('Ada yg Error : '+error)
+          });
+
+
+
+
+          }
+
+
+          showModalTambah = function () {
+
+            $('#modalTambahPPKT').modal('show');
+
+
+          }
+
+
+          getDataTableConten = function () { 
+
+            let kdlokasi = $("#provinsi option:selected").val(),
+            kdkabkota =  $("#kabkota option:selected").val();
+
+            if (kdkabkota == '') {
+              t_error('Silakan Pilih Provinsi/kabupaten Kota Terlebih Dahulu.!')
+              return;
+            }
+
+            let kdlokasi_text = $("#provinsi option:selected").text(),
+            kdkabkota_text =  $("#kabkota option:selected").text();
+
+            $('#nmprovinsi2').text(kdlokasi_text.toUpperCase());
+            $('#nmkabkota2').text(kdkabkota_text.toUpperCase());
+            $('#kdsatkerPPKT').val(kdkabkota);
+
+            $.LoadingOverlay("show");
+
+            ajaxUntukSemua(base_url()+'PPKT/getDataTabel', {kdlokasi,kdkabkota}, function(data) {
+
+                  // Set Kecamatan
+              let opt = `<option value="" selected disabled>-- Pilih Kecamatan --</option>`; 
+
+              data.dataKecamatan.forEach(function(value) {
+
+                opt += `<option value="`+value.kdkec+`">`+value.nmkec+`</option>`
+
+              });
+
+              $('#kecamatanPPKT').html(opt);
+                  // End Set Kecamatan
+
+
+                  // Set Data Tabel
+              let tbody = ``,
+              no=1;
+
+              data.dataTabel.forEach(function(value) {
+
+               tbody += `<tr>`;
+               tbody += `<td class='text-center'>${no}</td>`;
+               tbody += `<td  class='text-start'>${value.nmkec}</td>`;
+               tbody += `<td  class='text-start'><a href="`+base_url()+'PPKT/detail/'+value.id+`" target="_blank">${value.nmdesa}</a></td>`;
+               tbody += `<td class='text-center'><button class="btn btn-icon btn-danger" onclick="hapusPPKT('${value.id}')"><i class="fas fa-trash-alt"></i></button></td>`;
+               tbody += `</tr>`;
+               no++;
+             });
+
+              $('#bodyTableConten').html(tbody);
+                  // End Set Data Tabel
+
+              $('#contenAdmin').removeClass('d-none');
+
+              $('html, body').animate({
+                scrollTop: $('#contenAdmin').offset().top
+              }, {
+                duration: 800, 
+                easing: 'swing' 
+              });
+
+              $.LoadingOverlay("hide");
+
+
+            }, function(error) {
+              console.log('Kesalahan:', error);
+              t_error('Ada yg Error : '+error)
+            });
+
+          }
+
+
+
+
+          $('#provinsi').change(function() {
+            let kdlokasi = $("#provinsi option:selected").val();
+
+            ajaxUntukSemua(base_url()+'PPKT/getKabKotaByKdlokasi', {kdlokasi}, function(data) {
+
+              let opt = `<option value="" selected disabled>-- Pilih Kab/Kota --</option>`; 
+
+              data.forEach(function(value) {
+
+                opt += `<option value="`+value.KdSatker+`">`+value.nmkabkota+`</option>`
+
+              });
+
+              $('#kabkota').html(opt);
+
+            }, function(error) {
               console.log('Kesalahan:', error);
               t_error('Ada yg Error : '+error)
             });
 
 
+          });
 
 
-            }
+          $('#kecamatanPPKT').change(function() {
+            let kdsatker = $("#kdsatkerPPKT").val(),
+            kdkec = $("#kecamatanPPKT option:selected").val();
 
+            ajaxUntukSemua(base_url()+'PPKT/getDataDesa', {kdsatker, kdkec}, function(data) {
 
-            showModalTambah = function () {
+              let opt = `<option value="" selected disabled>-- Pilih Desa --</option>`; 
 
-              $('#modalTambahPPKT').modal('show');
+              data.forEach(function(value) {
 
+                opt += `<option value="`+value.kddesa+`">`+value.nmdesa+`</option>`
 
-            }
-
-
-            getDataTableConten = function () { 
-
-              let kdlokasi = $("#provinsi option:selected").val(),
-              kdkabkota =  $("#kabkota option:selected").val();
-
-              if (kdkabkota == '') {
-                t_error('Silakan Pilih Provinsi/kabupaten Kota Terlebih Dahulu.!')
-                return;
-              }
-
-              let kdlokasi_text = $("#provinsi option:selected").text(),
-              kdkabkota_text =  $("#kabkota option:selected").text();
-
-              $('#nmprovinsi2').text(kdlokasi_text.toUpperCase());
-              $('#nmkabkota2').text(kdkabkota_text.toUpperCase());
-              $('#kdsatkerPPKT').val(kdkabkota);
-
-              $.LoadingOverlay("show");
-
-              ajaxUntukSemua(base_url()+'PPKT/getDataTabel', {kdlokasi,kdkabkota}, function(data) {
-
-                  // Set Kecamatan
-                let opt = `<option value="" selected disabled>-- Pilih Kecamatan --</option>`; 
-
-                data.dataKecamatan.forEach(function(value) {
-
-                  opt += `<option value="`+value.kdkec+`">`+value.nmkec+`</option>`
-
-                });
-
-                $('#kecamatanPPKT').html(opt);
-                  // End Set Kecamatan
-
-
-                  // Set Data Tabel
-                let tbody = ``,
-                no=1;
-
-                data.dataTabel.forEach(function(value) {
-
-                 tbody += `<tr>`;
-                 tbody += `<td class='text-center'>${no}</td>`;
-                 tbody += `<td  class='text-start'>${value.nmkec}</td>`;
-                 tbody += `<td  class='text-start'><a href="`+base_url()+'PPKT/detail/'+value.id+`" target="_blank">${value.nmdesa}</a></td>`;
-                 tbody += `<td class='text-center'><button class="btn btn-icon btn-danger" onclick="hapusPPKT('${value.id}')"><i class="fas fa-trash-alt"></i></button></td>`;
-                 tbody += `</tr>`;
-                 no++;
-               });
-
-                $('#bodyTableConten').html(tbody);
-                  // End Set Data Tabel
-
-                $('#contenAdmin').removeClass('d-none');
-
-                $('html, body').animate({
-                  scrollTop: $('#contenAdmin').offset().top
-                }, {
-                  duration: 800, 
-                  easing: 'swing' 
-                });
-
-                $.LoadingOverlay("hide");
-
-
-              }, function(error) {
-                console.log('Kesalahan:', error);
-                t_error('Ada yg Error : '+error)
               });
 
-            }
+              $('#desaPPKT').html(opt);
 
-
-
-
-            $('#provinsi').change(function() {
-              let kdlokasi = $("#provinsi option:selected").val();
-
-              ajaxUntukSemua(base_url()+'PPKT/getKabKotaByKdlokasi', {kdlokasi}, function(data) {
-
-                let opt = `<option value="" selected disabled>-- Pilih Kab/Kota --</option>`; 
-
-                data.forEach(function(value) {
-
-                  opt += `<option value="`+value.KdSatker+`">`+value.nmkabkota+`</option>`
-
-                });
-
-                $('#kabkota').html(opt);
-
-              }, function(error) {
-                console.log('Kesalahan:', error);
-                t_error('Ada yg Error : '+error)
-              });
-
-
-            });
-
-
-            $('#kecamatanPPKT').change(function() {
-              let kdsatker = $("#kdsatkerPPKT").val(),
-              kdkec = $("#kecamatanPPKT option:selected").val();
-
-              ajaxUntukSemua(base_url()+'PPKT/getDataDesa', {kdsatker, kdkec}, function(data) {
-
-                let opt = `<option value="" selected disabled>-- Pilih Desa --</option>`; 
-
-                data.forEach(function(value) {
-
-                  opt += `<option value="`+value.kddesa+`">`+value.nmdesa+`</option>`
-
-                });
-
-                $('#desaPPKT').html(opt);
-
-              }, function(error) {
-                console.log('Kesalahan:', error);
-                t_error('Ada yg Error : '+error)
-              });
-
-
+            }, function(error) {
+              console.log('Kesalahan:', error);
+              t_error('Ada yg Error : '+error)
             });
 
 
           });
-        </script>
+
+        <?php } ?>
+      });
+    </script>

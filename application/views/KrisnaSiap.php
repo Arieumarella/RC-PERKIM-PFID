@@ -44,6 +44,10 @@
             <div class="form-label">File Krisna :</div>
             <input type="file" name="file_krisna" id="file_krisna" class="form-control" accept=".xlsx" required>
           </div>
+          <div class="col-6">
+            <div class="form-label">Catatan :</div>
+            <textarea class="form-control" id="catatn_baru" name="catatn_baru" rows="6" placeholder="Content.." style="height: 179px;" required></textarea>
+          </div>
         </div>
 
         <div class="text-end">

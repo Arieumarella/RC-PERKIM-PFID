@@ -63,6 +63,7 @@ class KrisnaSiap extends CI_Controller {
 		$ttd_pfid = $this->input->post('ttd_pfid');
 		$ttd_pemda = $this->input->post('ttd_pemda');
 		$ttd_bppw = $this->input->post('ttd_bppw');
+		$catatn_baru = $this->input->post('catatn_baru');
 		$ta = $this->session->userdata('thang');
 
 		if (!file_exists('./assets/PERKIM')) {
@@ -130,45 +131,47 @@ class KrisnaSiap extends CI_Controller {
 			$nmKec = '';
 			$nmDesa = '';
 			$nmbidang = '';
-			$no = 0;
+			$no = 1;
 
 			foreach ($worksheet->getRowIterator() as $row) {
+				
+				if ($no > 1) {
 
-				$cellIterator = $row->getCellIterator();
-				$cellIterator->setIterateOnlyExistingCells(false);
-				$rowData = array();
-				$rowData['id'] = $idSubmit;
+					$cellIterator = $row->getCellIterator();
+					$cellIterator->setIterateOnlyExistingCells(false);
+					$rowData = array();
+					$rowData['id'] = $idSubmit;
 
-				foreach ($cellIterator as $cell) {
-					$columnIndex = $cell->getColumn();
+					foreach ($cellIterator as $cell) {
+						$columnIndex = $cell->getColumn();
 
-					if (in_array($columnIndex, $kolomYgDiambil)) {
-						$nmFeld = $arrayDanKolom[$columnIndex];
-						$rowData[$nmFeld] = $cell->getValue();
+						if (in_array($columnIndex, $kolomYgDiambil)) {
+							$nmFeld = $arrayDanKolom[$columnIndex];
+							$rowData[$nmFeld] = $cell->getValue();
+						}
+
+						if ($columnIndex == 'B') {
+							$nmprovinsi = $cell->getValue();
+						}
+
+						if ($columnIndex == 'A') {
+							$nmkabkota = $cell->getValue();
+						}
+
+						if ($columnIndex == 'H') {
+							$nmbidang = $cell->getValue();
+						}
 					}
 
-					if ($columnIndex == 'B') {
-						$nmprovinsi = $cell->getValue();
+					if ($no == 2) {
+						$this->M_rc24->deleteKrisnaSiap('data_krisna_siap', ['pengusul_nama' => $nmkabkota, 'bidang' => $nmbidang, 'ta' => $ta]);
 					}
 
-					if ($columnIndex == 'A') {
-						$nmkabkota = $cell->getValue();
-					}
 
-					if ($columnIndex == 'H') {
-						$nmbidang = $cell->getValue();
-					}
+
+					$this->M_dinamis->save('data_krisna_siap', array_merge($rowData,['ta' => $ta]));
+
 				}
-
-				if ($no == 1) {
-					$this->M_rc24->deleteKrisnaSiap('data_krisna_siap', ['pengusul_nama' => $nmkabkota, 'bidang' => $nmbidang, 'ta' => $ta]);
-				}
-
-
-
-				$this->M_dinamis->save('data_krisna_siap', array_merge($rowData,['ta' => $ta]));
-
-
 
 				$no++;
 			}
@@ -188,7 +191,8 @@ class KrisnaSiap extends CI_Controller {
 			'ttd_bppw' => $ttd_bppw,
 			'nmProvinsi' => $nmprovinsi,
 			'nmKabKota' => $nmkabkota,
-			'nmBidang' => $nmbidang
+			'nmBidang' => $nmbidang,
+			'catatn_baru' => $catatn_baru
 		);
 
 

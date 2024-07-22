@@ -18,7 +18,7 @@ class M_PPKT extends CI_Model {
 	{
 
 		$kdlokasi = clean($kdlokasi);	
-		$qry = "SELECT CONCAT(left(KdSatker,7),'5') as KdSatker, nmkabkota FROM d009_dak_awal WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota";
+		$qry = "SELECT CONCAT(KdSatker,'05') as KdSatker, nmkabkota FROM d009_dak_awal WHERE MID(KdSatker,3,2)='$kdlokasi' GROUP BY nmkabkota";
 
 		return $this->db->query($qry)->result();
 	}
@@ -345,6 +345,28 @@ public function getDataAMPPKTPerum($id)
 	$qry = "SELECT * FROM t_ppkt_perum WHERE id_ppkt=$id";
 	return $this->db->query($qry)->result();
 
+}
+
+public function getNmKec($kdlokasi, $kdkabkota, $kdkec)
+{
+	$kdlokasi = clean($kdlokasi);
+	$kdkabkota = clean($kdkabkota);		
+	$kdkec = clean($kdkec);		
+
+	$qry = "SELECT * FROM t_kec2 WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' AND kdkec='$kdkec'";
+	return $this->db->query($qry)->row();
+}
+
+public function getNmDesa($kdlokasi, $kdkabkota, $kdkec, $kddesa)
+{
+
+	$kdlokasi = clean($kdlokasi);
+	$kdkabkota = clean($kdkabkota);		
+	$kdkec = clean($kdkec);	
+	$kddesa = clean($kddesa);		
+
+	$qry = "SELECT * FROM t_desa2 WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' AND kdkec='$kdkec' AND kddesa='$kddesa'";
+	return $this->db->query($qry)->row();
 }
 
 }
