@@ -89,10 +89,10 @@
         }
 
         .warnaIjo {
-           background-color: #baffd6;
-       }
+         background-color: #baffd6;
+     }
 
-       .smallTableRight2 {
+     .smallTableRight2 {
         float: left;
         width: 25%;
         margin-left: 1.5px;
@@ -113,20 +113,20 @@
     }
 
     .warnaAbuAbu {
-     background-color: #e4e4e4;
+       background-color: #e4e4e4;
+   }
+
+   .warnaHijauBanget {
+     background-color: #96ff95;
  }
 
- .warnaHijauBanget {
-   background-color: #96ff95;
-}
+ .warnaKuningBanget {
+     background-color: #ffe78f;
+ }
 
-.warnaKuningBanget {
-   background-color: #ffe78f;
-}
-
-.warnaMerahBanget {
-   background-color: #ff6c6c;
-}
+ .warnaMerahBanget {
+     background-color: #ff6c6c;
+ }
 </style>
 </head>
 <body>

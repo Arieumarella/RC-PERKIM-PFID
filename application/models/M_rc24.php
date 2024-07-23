@@ -44,12 +44,30 @@ class M_rc24 extends CI_Model {
 
 		$kdkabkota = kdkabkota($kdkabkota);
 
-		$qry = "SELECT nmkec, nmdesa, a.* FROM 
-		(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota') AS a
-		LEFT JOIN t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec
-		LEFT JOIN t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa 
-		
-		";
+		if ($this->session->userdata('is_provinsi') == false and $this->session->userdata('rkdak_priv') == '1') {
+
+			$qry = "SELECT nmkec, nmdesa, a.* FROM 
+			(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdlokasi_penginput <>'00' ) AS a
+			LEFT JOIN t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec
+			LEFT JOIN t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa ";
+
+		}else{
+			
+			if ($this->session->userdata('rkdak_priv') == '1') {
+				$qry = "SELECT nmkec, nmdesa, a.* FROM 
+				(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdlokasi_penginput='00') AS a
+				LEFT JOIN t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec
+				LEFT JOIN t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa ";
+			}else{
+				$qry = "SELECT nmkec, nmdesa, a.* FROM 
+				(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdlokasi_penginput = '00' ) AS a
+				LEFT JOIN t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec
+				LEFT JOIN t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa ";
+			}
+
+			
+		}
+
 
 		return $this->db->query($qry)->result();
 	}
@@ -140,7 +158,7 @@ class M_rc24 extends CI_Model {
 		LEFT JOIN
 		t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
 		ORDER BY nmkec,nmdesa";
-		
+
 		return $this->db->query($qry)->result();
 	}
 
@@ -158,7 +176,7 @@ class M_rc24 extends CI_Model {
 		LEFT JOIN
 		t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
 		ORDER BY nmkec,nmdesa";
-		
+
 		return $this->db->query($qry)->result();
 	}
 
@@ -176,7 +194,7 @@ class M_rc24 extends CI_Model {
 		LEFT JOIN
 		t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
 		ORDER BY nmkec,nmdesa";
-		
+
 		return $this->db->query($qry)->result();
 	}
 
@@ -329,7 +347,7 @@ class M_rc24 extends CI_Model {
 		$kdkabkota = clean($kdkabkota);		
 		$kdkec = clean($kdkec);	
 		$kddesa = clean($kddesa);	
-		
+
 		$qry = "SELECT * FROM t_rc_integrasi2 WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' AND kdkec='$kdkec'  AND  kddesa='$kddesa'";
 		return $this->db->query($qry)->row();
 	}

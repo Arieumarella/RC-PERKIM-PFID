@@ -294,10 +294,10 @@
 
                             $pengadan = json_decode($value->pengadaan_sinkron_ids, true)[0];
 
-                            if ($pengadan == '1') {
-                                $pengadan = 'Swakelola';
-                            }else{
+                            if ($pengadan == 'Penyedia') {
                                 $pengadan = 'Penyedia';
+                            }else{
+                                $pengadan = 'Swakelola';
                             }
 
                         }

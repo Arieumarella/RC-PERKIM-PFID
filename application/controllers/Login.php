@@ -111,6 +111,7 @@ class Login extends CI_Controller
 			'sts_login' => true,
 			'ipc' => $ip,
 			'kdlokasiBalai' => $data->kd_balai,
+			'is_provinsi' => ($data->kdkabkota == '00') ? true:false,
 			'rkdak_dak' => $data->ket,
 		);
 

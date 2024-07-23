@@ -110,6 +110,7 @@ class AM extends CI_Controller {
 
 		$dataInsert = array(
 			'kdlokasi' => $kdlokasi,
+			'kdlokasi_penginput' => ($this->session->userdata('is_provinsi') == true) ? '00':null,
 			'kdkabkota' => $kdkabkota,
 			'kdkec' => $kdkec,
 			'kddesa' => $kddesa,
