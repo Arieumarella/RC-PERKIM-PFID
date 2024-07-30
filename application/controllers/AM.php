@@ -208,13 +208,17 @@ class AM extends CI_Controller {
 	{
 		
 		$idEdit = $this->input->post('idEdit');
+
+		$dataAwal = $this->M_dinamis->getById('t_rc_am', ['id' => $idEdit]);
+
+
 		$kdkec = $this->input->post('idEditDKec');
 		$kddesa = $this->input->post('idEditDesa');
 		$ta = $this->session->userdata('thang');
 
 		$kdsatker = $this->session->userdata('rkdak_kdsat');
-		$kdlokasi = kdlokasi($kdsatker);
-		$kdkabkota = kdkabkota($kdsatker);
+		$kdlokasi = $dataAwal->kdlokasi;
+		$kdkabkota = $dataAwal->kdkabkota;
 
 
 		$nmProv = getProvinsiByRow($kdlokasi)->NMLOKASI;

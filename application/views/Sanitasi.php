@@ -1938,12 +1938,31 @@
         <div class="modal-body">
           <form id="formUploadFileRcSanIplt" action="<?= base_url(); ?>SAN/simpanFileSanIpal" method="POST" enctype="multipart/form-data">
 
+            <?php if ($this->session->userdata('is_provinsi')) { ?>
+
+              <div class="mb-3">
+                <div class="form-label">Pilih Kabupaten/Kota :</div>
+                <select id="klikKabKota_ipal" name="klikKabKota_ipal" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
+                  <option value="" selected disabled>--- Pilih Kabupaten/Kota ---</option>
+                  <?php foreach ($dataKabKota as $key => $val) { ?>
+                    <option value="<?= $val->kdkabkota; ?>"><?= $val->nmkabkota; ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+
+            <?php } ?>
+
+
+
+
             <div class="mb-3">
               <div class="form-label">Pilih Kecamatan :</div>
               <select id="klikKecamatan_ipal" name="kdkec_ipal" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
                 <option value="" selected disabled>--- Pilih Kecamatan ---</option>
-                <?php foreach ($dataKecamatan as $key => $value) { ?>
-                  <option value="<?= $value->kdkec; ?>"><?= $value->nmkec; ?></option>
+                <?php if ($this->session->userdata('is_provinsi')!= true) { ?>
+                  <?php foreach ($dataKecamatan as $key => $value) { ?>
+                    <option value="<?= $value->kdkec; ?>"><?= $value->nmkec; ?></option>
+                  <?php } ?>
                 <?php } ?>
               </select>
             </div>
@@ -2151,12 +2170,29 @@
         <div class="modal-body">
           <form id="formUploadFileRcSanIpltX" action="<?= base_url(); ?>SAN/simpanFileSanIPLTX" method="POST" enctype="multipart/form-data">
 
+            <?php if ($this->session->userdata('is_provinsi')) { ?>
+
+              <div class="mb-3">
+                <div class="form-label">Pilih Kabupaten/Kota :</div>
+                <select id="klikKabKota_ipltX" name="klikKabKota_ipltX" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
+                  <option value="" selected disabled>--- Pilih Kabupaten/Kota ---</option>
+                  <?php foreach ($dataKabKota as $key => $val) { ?>
+                    <option value="<?= $val->kdkabkota; ?>"><?= $val->nmkabkota; ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+
+            <?php } ?>
+
+
             <div class="mb-3">
               <div class="form-label">Pilih Kecamatan :</div>
               <select id="klikKecamatan_ipltX" name="kdkec_ipltX" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
                 <option value="" selected disabled>--- Pilih Kecamatan ---</option>
-                <?php foreach ($dataKecamatan as $key => $value) { ?>
-                  <option value="<?= $value->kdkec; ?>"><?= $value->nmkec; ?></option>
+                <?php if ($this->session->userdata('is_provinsi')!= true) { ?>
+                  <?php foreach ($dataKecamatan as $key => $value) { ?>
+                    <option value="<?= $value->kdkec; ?>"><?= $value->nmkec; ?></option>
+                  <?php } ?>
                 <?php } ?>
               </select>
             </div>
@@ -2471,775 +2507,791 @@
         <div class="modal-body">
           <form id="formUploadFileRcSanPembangunanBaru" action="<?= base_url(); ?>SAN/simpanFileSanPembangunanBaru" method="POST" enctype="multipart/form-data">
 
+           <?php if ($this->session->userdata('is_provinsi')) { ?>
+
             <div class="mb-3">
-              <div class="form-label">Pilih Kecamatan :</div>
-              <select id="klikKecamatan_pembangunanBaru" name="kdkec_pembangunanBaru" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
-                <option value="" selected disabled>--- Pilih Kecamatan ---</option>
-                <?php foreach ($dataKecamatan as $key => $value) { ?>
-                  <option value="<?= $value->kdkec; ?>"><?= $value->nmkec; ?></option>
+              <div class="form-label">Pilih Kabupaten/Kota :</div>
+              <select id="klikKabKota_pembangunanBaru" name="klikKabKota_pembangunanBaru" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
+                <option value="" selected disabled>--- Pilih Kabupaten/Kota ---</option>
+                <?php foreach ($dataKabKota as $key => $val) { ?>
+                  <option value="<?= $val->kdkabkota; ?>"><?= $val->nmkabkota; ?></option>
                 <?php } ?>
               </select>
             </div>
 
-            <div class="mb-3">
-              <div class="form-label">Pilih Desa :</div>
-              <select id="klikDesa_pembangunanBaru" name="kddesa_pembangunanBaru" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
-                <option value="" selected disabled>-- Pilih Desa --</option>
+          <?php } ?>
 
-              </select>
-            </div>
-
-            <hr class="mt-2 mb-2">
-            <div class="mb-3">
-              <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
-              <input type="file" name="ded_pembangunanBaru" id="ded_pembangunanBaru" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
-              <input type="file" name="rab_pembangunanBaru" id="rab_pembangunanBaru" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-
-
-            <div class="mb-3">
-              <div class="form-label">Surat Pernyataan Kesiapan Pelaksanaan Kegiatan :</div>
-              <input type="file" name="kesiapan_pembangunanBaru" id="kesiapan_pembangunanBaru" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Surat yang didalamnya isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-
-            <div class="mb-3">
-              <div class="form-label">Bukti legalitas lahan untuk TPS 3R  :</div>
-              <input type="file" name="legalitas_pembangunanBaru" id="legalitas_pembangunanBaru" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Berupa Sertifikat/Akta Jual Beli lahan apabila lahan milik pemerintah dan Akta Jual Beli/Akta Hibah untuk kegiatan Pembangunan TPS 3R apabila lahan semula milik masyarakat/pribadi</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Konsep Business Plan pengelolaan TPS 3R pasca konstruksi :</div>
-              <input type="file" name="bp_pembangunanBaru" id="bp_pembangunanBaru" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Daftar Calon Penerima Manfaat TPS3R (MIN 200 KK) :</div>
-              <input type="file" name="penerima_manfaat_pembangunanBaru" id="penerima_manfaat_pembangunanBaru" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Berita Acara Kesepakatan Warga :</div>
-              <input type="file" name="ba_warga" id="ba_warga" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan :</div>
-              <input type="file" name="kesepakatan_oprasi_pemeliharan" id="kesepakatan_oprasi_pemeliharan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Surat dukungan Dinas Lingkungan Hidup :</div>
-              <input type="file" name="surat_dinas_hidup" id="surat_dinas_hidup" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Justifikasi Peningkatan/Rehabilitasi TPS3R (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
-              <input type="file" name="justifikasi_TPS_peningkatan" id="justifikasi_TPS_peningkatan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">SK Kepala Desa tentang Pembentukan KKP (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
-              <input type="file" name="sk_desa_kpp" id="sk_desa_kpp" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">As Build Drawing TPS3R Terbangun (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
-              <input type="file" name="abd" id="abd" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-          </div>
-          <div class="modal-footer text-end">
-            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-              Cancel
-            </a>
-            <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Modal Pembangunan Baru -->
-
-  <!-- Modal Pembangunan Baru -->
-  <div class="modal modal-blur fade" id="modal-pembangunanBaruEdit" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="tittle_modal_pembangunanBaru_Edit"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="formUploadFileRcSanPembangunanBaruEdit" action="<?= base_url(); ?>SAN/simpanFileSanPembangunanBaruEdit" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="idEditPembangunanBaru" id="idEditPembangunanBaru">
-            <input type="hidden" name="idEditDKecPembangunanBaru" id="idEditDKecPembangunanBaru">
-            <input type="hidden" name="idEditDesaPembangunanBaru" id="idEditDesaPembangunanBaru">
-            <div class="mb-3">
-              <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
-              <input type="file" name="ded_pembangunanBaru_edit" id="ded_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
-              <input type="file" name="rab_pembangunanBaru_edit" id="rab_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-
-
-            <div class="mb-3">
-              <div class="form-label">Surat Pernyataan Kesiapan Pelaksanaan Kegiatan :</div>
-              <input type="file" name="kesiapan_pembangunanBaru_edit" id="kesiapan_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Surat yang didalamnya isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-
-            <div class="mb-3">
-              <div class="form-label">Bukti legalitas lahan untuk TPS 3R  :</div>
-              <input type="file" name="legalitas_pembangunanBaru_edit" id="legalitas_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Berupa Sertifikat/Akta Jual Beli lahan apabila lahan milik pemerintah dan Akta Jual Beli/Akta Hibah untuk kegiatan Pembangunan TPS 3R apabila lahan semula milik masyarakat/pribadi</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Konsep Business Plan pengelolaan TPS 3R pasca konstruksi :</div>
-              <input type="file" name="bp_pembangunanBaru_edit" id="bp_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Daftar Calon Penerima Manfaat TPS3R (MIN 200 KK):</div>
-              <input type="file" name="penerima_manfaat_pembangunanBaru_edit" id="penerima_manfaat_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Berita Acara Kesepakatan Warga :</div>
-              <input type="file" name="ba_warga" id="ba_warga" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan :</div>
-              <input type="file" name="kesepakatan_oprasi_pemeliharan" id="kesepakatan_oprasi_pemeliharan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Surat dukungan Dinas Lingkungan Hidup :</div>
-              <input type="file" name="surat_dinas_hidup_edit" id="surat_dinas_hidup_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Justifikasi Peningkatan/Rehabilitasi TPS3R (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
-              <input type="file" name="justifikasi_TPS_peningkatan_edit" id="justifikasi_TPS_peningkatan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">SK Kepala Desa tentang Pembentukan KKP (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
-              <input type="file" name="sk_desa_kpp_edit" id="sk_desa_kpp_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">As Build Drawing TPS3R Terbangun (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
-              <input type="file" name="abd_edit" id="abd_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-
-          </div>
-          <div class="modal-footer text-end">
-            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-              Cancel
-            </a>
-            <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Modal Pembangunan Baru -->
-
-
-  <!-- Modal Rehabilitasi -->
-  <div class="modal modal-blur fade" id="modal-rehabilitasi" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Tambah Data Persampahan (Rehabilitasi TPS3R)</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="formUploadrehabilitasi" action="<?= base_url(); ?>SAN/simpanFileSanRehabilitasi" method="POST" enctype="multipart/form-data">
-
-            <div class="mb-3">
-              <div class="form-label">Pilih Kecamatan :</div>
-              <select id="klikKecamatan_rehabilitasi" name="kdkec_rehabilitasi" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
-                <option value="" selected disabled>--- Pilih Kecamatan ---</option>
+          <div class="mb-3">
+            <div class="form-label">Pilih Kecamatan :</div>
+            <select id="klikKecamatan_pembangunanBaru" name="kdkec_pembangunanBaru" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
+              <option value="" selected disabled>--- Pilih Kecamatan ---</option>
+              <?php if ($this->session->userdata('is_provinsi')!= true) { ?>
                 <?php foreach ($dataKecamatan as $key => $value) { ?>
                   <option value="<?= $value->kdkec; ?>"><?= $value->nmkec; ?></option>
                 <?php } ?>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Pilih Desa :</div>
-              <select id="klikDesa_rehabilitasi" name="kddesa_rehabilitasi" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
-                <option value="" selected disabled>-- Pilih Desa --</option>
-
-              </select>
-            </div>
-
-            <hr class="mt-2 mb-2">
-            <div class="mb-3">
-              <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
-              <input type="file" name="ded_rehabilitasi" id="ded_rehabilitasi" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
-              <input type="file" name="rab_rehabilitasi" id="rab_rehabilitasi" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Surat Pernyataan Kesiapan Pelaksanaan Kegiatan :</div>
-              <input type="file" name="kesiapan_rehabilitasi" id="kesiapan_rehabilitasi" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Surat yang didalam isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Bukti legalitas lahan untuk TPS 3R :</div>
-              <input type="file" name="legalitas_rehabilitasi" id="legalitas_rehabilitasi" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Berupa Sertifikat/Akta Jual Beli lahan apabila lahan milik pemerintah dan Akta Jual Beli/Akta Hibah untuk kegiatan Pembangunan TPS 3R apabila lahan semula milik masyarakat/pribadi</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Konsep Business Plan pengelolaan TPS 3R pasca konstruksi :</div>
-              <input type="file" name="bp_rehabilitasi" id="bp_rehabilitasi" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Daftar calon penerima manfaat TPS 3R minimal 200 KK :</div>
-              <input type="file" name="penerima_manfaat_rehabilitasi" id="penerima_manfaat_rehabilitasi" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Justifikasi teknis kebutuhan peningkatan/rehabilitasi TPS 3R :</div>
-              <input type="file" name="justifikasi_rehabilitasi" id="justifikasi_rehabilitasi" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Memuat informasi mengenai kondisi bangunan dan prasarana; informasi jenis pengolahan yang diterapkan oleh TPS3R, baik untuk sampah organik maupun sampah anorganik; informasi mengenai volume timbulan sampah yang dikelola dan volume residu yang diangkut ke TPA/TPST</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Surat Komitmen Kepala Daerah :</div>
-              <input type="file" name="komitmen_rehabilitasi" id="komitmen_rehabilitasi" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Memuat komitmen kepala daerah dalam melaksanakan pemicuan masyarakat termasuk rencana kegiatan pendampingan dan pemicuan perubahan perilaku</b>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Surat kesiapan dukungan biaya operasional dan pemeliharaan :</div>
-              <input type="file" name="dukungan_rehabilitasi" id="dukungan_rehabilitasi" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Surat kesiapan dukungan biaya operasional dan pemeliharaan yang dikeluarkaan yang dinas terkait.</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Rincian Kegiatan dan Anggaran alokasi APBD untuk peningkatan kapasitas TPS3R :</div>
-              <input type="file" name="rincian_anggaran_rehabilitasi" id="rincian_anggaran_rehabilitasi" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Bukti Kepemilikan KPP :</div>
-              <input type="file" name="kpp" id="kpp" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>yang dibuktikan dengan kepemilikan SK Pembentukan KPP</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
+              <?php } ?>
+            </select>
           </div>
-          <div class="modal-footer text-end">
-            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-              Cancel
-            </a>
-            <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
-          </form>
+
+          <div class="mb-3">
+            <div class="form-label">Pilih Desa :</div>
+            <select id="klikDesa_pembangunanBaru" name="kddesa_pembangunanBaru" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
+              <option value="" selected disabled>-- Pilih Desa --</option>
+
+            </select>
+          </div>
+
+          <hr class="mt-2 mb-2">
+          <div class="mb-3">
+            <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
+            <input type="file" name="ded_pembangunanBaru" id="ded_pembangunanBaru" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
+            <input type="file" name="rab_pembangunanBaru" id="rab_pembangunanBaru" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+
+
+          <div class="mb-3">
+            <div class="form-label">Surat Pernyataan Kesiapan Pelaksanaan Kegiatan :</div>
+            <input type="file" name="kesiapan_pembangunanBaru" id="kesiapan_pembangunanBaru" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Surat yang didalamnya isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+
+          <div class="mb-3">
+            <div class="form-label">Bukti legalitas lahan untuk TPS 3R  :</div>
+            <input type="file" name="legalitas_pembangunanBaru" id="legalitas_pembangunanBaru" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Berupa Sertifikat/Akta Jual Beli lahan apabila lahan milik pemerintah dan Akta Jual Beli/Akta Hibah untuk kegiatan Pembangunan TPS 3R apabila lahan semula milik masyarakat/pribadi</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Konsep Business Plan pengelolaan TPS 3R pasca konstruksi :</div>
+            <input type="file" name="bp_pembangunanBaru" id="bp_pembangunanBaru" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Daftar Calon Penerima Manfaat TPS3R (MIN 200 KK) :</div>
+            <input type="file" name="penerima_manfaat_pembangunanBaru" id="penerima_manfaat_pembangunanBaru" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Berita Acara Kesepakatan Warga :</div>
+            <input type="file" name="ba_warga" id="ba_warga" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan :</div>
+            <input type="file" name="kesepakatan_oprasi_pemeliharan" id="kesepakatan_oprasi_pemeliharan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Surat dukungan Dinas Lingkungan Hidup :</div>
+            <input type="file" name="surat_dinas_hidup" id="surat_dinas_hidup" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Justifikasi Peningkatan/Rehabilitasi TPS3R (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+            <input type="file" name="justifikasi_TPS_peningkatan" id="justifikasi_TPS_peningkatan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">SK Kepala Desa tentang Pembentukan KKP (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+            <input type="file" name="sk_desa_kpp" id="sk_desa_kpp" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">As Build Drawing TPS3R Terbangun (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+            <input type="file" name="abd" id="abd" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
         </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
+        </form>
       </div>
     </div>
   </div>
-  <!-- End Modal Rehabilitasi -->
+</div>
+<!-- End Modal Pembangunan Baru -->
 
-
-  <!-- Modal Edit Rehabilitasi -->
-  <div class="modal modal-blur fade" id="modal-rehabilitasi-edit" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="tittle_modal_rehabilitasi_edit"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="formUploadrehabilitasiEdit" action="<?= base_url(); ?>SAN/simpanFileSanRehabilitasiEdit" method="POST" enctype="multipart/form-data">
-
-            <input type="hidden" name="idEditRehabilitasi" id="idEditRehabilitasi">
-            <input type="hidden" name="idEditDKecRehabilitasi" id="idEditDKecRehabilitasi">
-            <input type="hidden" name="idEditDesaRehabilitasi" id="idEditDesaRehabilitasi">
-
-            <div class="mb-3">
-              <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
-              <input type="file" name="ded_rehabilitasi_edit" id="ded_rehabilitasi_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
-              <input type="file" name="rab_rehabilitasi_edit" id="rab_rehabilitasi_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Surat Pernyataan Kesiapan Pelaksanaan Kegiatan :</div>
-              <input type="file" name="kesiapan_rehabilitasi_edit" id="kesiapan_rehabilitasi_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Surat yang didalam isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Bukti legalitas lahan untuk TPS 3R :</div>
-              <input type="file" name="legalitas_rehabilitasi_edit" id="legalitas_rehabilitasi_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Berupa Sertifikat/Akta Jual Beli lahan apabila lahan milik pemerintah dan Akta Jual Beli/Akta Hibah untuk kegiatan Pembangunan TPS 3R apabila lahan semula milik masyarakat/pribadi</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Konsep Business Plan pengelolaan TPS 3R pasca konstruksi :</div>
-              <input type="file" name="bp_rehabilitasi_edit" id="bp_rehabilitasi_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Daftar calon penerima manfaat TPS 3R minimal 200 KK :</div>
-              <input type="file" name="penerima_manfaat_rehabilitasi_edit" id="penerima_manfaat_rehabilitasi_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Justifikasi teknis kebutuhan peningkatan/rehabilitasi TPS 3R :</div>
-              <input type="file" name="justifikasi_rehabilitasi_edit" id="justifikasi_rehabilitasi_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Memuat informasi mengenai kondisi bangunan dan prasarana; informasi jenis pengolahan yang diterapkan oleh TPS3R, baik untuk sampah organik maupun sampah anorganik; informasi mengenai volume timbulan sampah yang dikelola dan volume residu yang diangkut ke TPA/TPST</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Surat Komitmen Kepala Daerah :</div>
-              <input type="file" name="komitmen_rehabilitasi_edit" id="komitmen_rehabilitasi_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Memuat komitmen kepala daerah dalam melaksanakan pemicuan masyarakat termasuk rencana kegiatan pendampingan dan pemicuan perubahan perilaku</b>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Surat kesiapan dukungan biaya operasional dan pemeliharaan :</div>
-              <input type="file" name="dukungan_rehabilitasi_edit" id="dukungan_rehabilitasi_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Surat kesiapan dukungan biaya operasional dan pemeliharaan yang dikeluarkaan yang dinas terkait.</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Rincian Kegiatan dan Anggaran alokasi APBD untuk peningkatan kapasitas TPS3R :</div>
-              <input type="file" name="rincian_anggaran_rehabilitasi_edit" id="rincian_anggaran_rehabilitasi_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Bukti Kepemilikan KPP :</div>
-              <input type="file" name="kpp_edit" id="kpp_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>yang dibuktikan dengan kepemilikan SK Pembentukan KPP</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
+<!-- Modal Pembangunan Baru -->
+<div class="modal modal-blur fade" id="modal-pembangunanBaruEdit" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_pembangunanBaru_Edit"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formUploadFileRcSanPembangunanBaruEdit" action="<?= base_url(); ?>SAN/simpanFileSanPembangunanBaruEdit" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="idEditPembangunanBaru" id="idEditPembangunanBaru">
+          <input type="hidden" name="idEditDKecPembangunanBaru" id="idEditDKecPembangunanBaru">
+          <input type="hidden" name="idEditDesaPembangunanBaru" id="idEditDesaPembangunanBaru">
+          <div class="mb-3">
+            <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
+            <input type="file" name="ded_pembangunanBaru_edit" id="ded_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
           </div>
-          <div class="modal-footer text-end">
-            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-              Cancel
-            </a>
-            <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
-          </form>
+          <div class="mb-3">
+            <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
+            <input type="file" name="rab_pembangunanBaru_edit" id="rab_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+
+
+          <div class="mb-3">
+            <div class="form-label">Surat Pernyataan Kesiapan Pelaksanaan Kegiatan :</div>
+            <input type="file" name="kesiapan_pembangunanBaru_edit" id="kesiapan_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Surat yang didalamnya isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+
+          <div class="mb-3">
+            <div class="form-label">Bukti legalitas lahan untuk TPS 3R  :</div>
+            <input type="file" name="legalitas_pembangunanBaru_edit" id="legalitas_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Berupa Sertifikat/Akta Jual Beli lahan apabila lahan milik pemerintah dan Akta Jual Beli/Akta Hibah untuk kegiatan Pembangunan TPS 3R apabila lahan semula milik masyarakat/pribadi</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Konsep Business Plan pengelolaan TPS 3R pasca konstruksi :</div>
+            <input type="file" name="bp_pembangunanBaru_edit" id="bp_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Daftar Calon Penerima Manfaat TPS3R (MIN 200 KK):</div>
+            <input type="file" name="penerima_manfaat_pembangunanBaru_edit" id="penerima_manfaat_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Berita Acara Kesepakatan Warga :</div>
+            <input type="file" name="ba_warga" id="ba_warga" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan :</div>
+            <input type="file" name="kesepakatan_oprasi_pemeliharan" id="kesepakatan_oprasi_pemeliharan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Surat dukungan Dinas Lingkungan Hidup :</div>
+            <input type="file" name="surat_dinas_hidup_edit" id="surat_dinas_hidup_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Justifikasi Peningkatan/Rehabilitasi TPS3R (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+            <input type="file" name="justifikasi_TPS_peningkatan_edit" id="justifikasi_TPS_peningkatan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">SK Kepala Desa tentang Pembentukan KKP (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+            <input type="file" name="sk_desa_kpp_edit" id="sk_desa_kpp_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">As Build Drawing TPS3R Terbangun (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
+            <input type="file" name="abd_edit" id="abd_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+
         </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
+        </form>
       </div>
     </div>
   </div>
-  <!-- End Modal Edit Rehabilitasi -->
+</div>
+<!-- End Modal Pembangunan Baru -->
 
 
+<!-- Modal Rehabilitasi -->
+<div class="modal modal-blur fade" id="modal-rehabilitasi" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Tambah Data Persampahan (Rehabilitasi TPS3R)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formUploadrehabilitasi" action="<?= base_url(); ?>SAN/simpanFileSanRehabilitasi" method="POST" enctype="multipart/form-data">
 
-
-  <!-- Pembangunan -->
-  <div class="modal modal-blur fade" id="modal-pembangunan" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Tambah Data Persampahan (Pembangunan TPST)</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="formUploadpembangunan" action="<?= base_url(); ?>SAN/simpanFileSanPembangunan" method="POST" enctype="multipart/form-data">
-
-            <div class="mb-3">
-              <div class="form-label">Pilih Kecamatan :</div>
-              <select id="klikKecamatan_pembangunan" name="kdkec_pembangunan" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
-                <option value="" selected disabled>--- Pilih Kecamatan ---</option>
-                <?php foreach ($dataKecamatan as $key => $value) { ?>
-                  <option value="<?= $value->kdkec; ?>"><?= $value->nmkec; ?></option>
-                <?php } ?>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">Pilih Desa :</div>
-              <select id="klikDesa_pembangunan" name="kddesa_pembangunan" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
-                <option value="" selected disabled>-- Pilih Desa --</option>
-
-              </select>
-            </div>
-
-            <hr class="mt-2 mb-2">
-            <div class="mb-3">
-              <div class="form-label">Surat Penetapan Lokasi oleh Kepala Daerah :</div>
-              <input type="file" name="penetapan_lokasi_pembangunan" id="penetapan_lokasi_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Bukti legalitas lahan berupa sertifikat lahan :</div>
-              <input type="file" name="legalitas_pembangunan" id="legalitas_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Kesesuaian dengan RTRW :</div>
-              <input type="file" name="rtrw_pembangunan" id="rtrw_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Surat Pernyataan Kesiapan Lembaga Pengelola berupa UPTD, BLUD, BUMD :</div>
-              <input type="file" name="kesiapan_pengelola_pembangunan" id="kesiapan_pengelola_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Surat Pernyataan Kesiapan Lembaga Pengelola berupa UPTD, BLUD, BUMD dengan (melampirkan rincian data SDM serta memuat penyataan Kesiapan Biaya Operasional dan Pemeliharaan dan Pernyataan Kesanggupan untuk menyediakan alat pengangkut sampah terpilah dan/atau penjadwalan pengangkutan sampah terpilah)</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Rencana Anggaran Biaya (RAB) :</div>
-              <input type="file" name="rab_pembangunan" id="rab_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label"> Detail Engineering Design (DED) :</div>
-              <input type="file" name="ded_pembangunan" id="ded_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">PKS dengan Offtaker :</div>
-              <input type="file" name="pks_pembangunan" id="pks_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Dilengkapi Detail teknis spesifikasi offtaker jenis industri, profil perusahaan, lokasi, jarak dengan infrastruktur pengolahan sampah</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Dokumen Lingkungan :</div>
-              <input type="file" name="lingkungan_pembangunan" id="lingkungan_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Berupa Dokumen AMDAL/UKL-UPL</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Data profil :</div>
-              <input type="file" name="profile_pembangunan" id="profile_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Profil pengelolaan sampah kab/kota menyeluruh mulai dari hulu ke hilir terkait 5 aspek pegelolaan sampah yang terdiri dari dari regulasi, kelembagaan, teknis, keuangan dan peran serta masyarakat termasuk substansi Ketersediaan, jumlah, dan kondisi keberfungsian sarana pengolahan sampah (alat angkut, alat berat, dll); Ketersediaan, jumlah, dan kondisi keberfungsian prasarana pengolahan sampah (TPS3R, TPST, TPA, bank sampah, PDU, dll); Timbulan dan persentase sampah terkumpul menuju prasarana pengolahan sampah; Timbulan sampah dan persentase sampah yang sudah dipilah di prasarana pengolahan sampah; Timbulan dan persentase sampah yang terangkut ke TPA; Ketersediaan alur/ diagram neraca massa sampah</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Surat pernyataan Komitmen DPRD :</div>
-              <input type="file" name="dprd_pembangunan" id="dprd_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Surat pernyataan Komitmen DPRD untuk mendanai biaya operasi dan pemeliharaan yang memuat nominal alokasi biaya OP</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Kesiapan calon penerima :</div>
-              <input type="file" name="penerima_pembangunan" id="penerima_pembangunan" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Kesiapan calon penerima bantuan berupa kesiapan masyarakat untuk terlayani persampahan dan untuk membayar retribusi sampah; Bukti form kesiapan masyarakat untuk siap melakukan pemilahan sampah, mau terlayani TPST, dan membayar retribusi sampah</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
+          <div class="mb-3">
+            <div class="form-label">Pilih Kecamatan :</div>
+            <select id="klikKecamatan_rehabilitasi" name="kdkec_rehabilitasi" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
+              <option value="" selected disabled>--- Pilih Kecamatan ---</option>
+              <?php foreach ($dataKecamatan as $key => $value) { ?>
+                <option value="<?= $value->kdkec; ?>"><?= $value->nmkec; ?></option>
+              <?php } ?>
+            </select>
           </div>
-          <div class="modal-footer text-end">
-            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-              Cancel
-            </a>
-            <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
-          </form>
+
+          <div class="mb-3">
+            <div class="form-label">Pilih Desa :</div>
+            <select id="klikDesa_rehabilitasi" name="kddesa_rehabilitasi" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
+              <option value="" selected disabled>-- Pilih Desa --</option>
+
+            </select>
+          </div>
+
+          <hr class="mt-2 mb-2">
+          <div class="mb-3">
+            <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
+            <input type="file" name="ded_rehabilitasi" id="ded_rehabilitasi" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
+            <input type="file" name="rab_rehabilitasi" id="rab_rehabilitasi" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Surat Pernyataan Kesiapan Pelaksanaan Kegiatan :</div>
+            <input type="file" name="kesiapan_rehabilitasi" id="kesiapan_rehabilitasi" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Surat yang didalam isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Bukti legalitas lahan untuk TPS 3R :</div>
+            <input type="file" name="legalitas_rehabilitasi" id="legalitas_rehabilitasi" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Berupa Sertifikat/Akta Jual Beli lahan apabila lahan milik pemerintah dan Akta Jual Beli/Akta Hibah untuk kegiatan Pembangunan TPS 3R apabila lahan semula milik masyarakat/pribadi</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Konsep Business Plan pengelolaan TPS 3R pasca konstruksi :</div>
+            <input type="file" name="bp_rehabilitasi" id="bp_rehabilitasi" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Daftar calon penerima manfaat TPS 3R minimal 200 KK :</div>
+            <input type="file" name="penerima_manfaat_rehabilitasi" id="penerima_manfaat_rehabilitasi" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Justifikasi teknis kebutuhan peningkatan/rehabilitasi TPS 3R :</div>
+            <input type="file" name="justifikasi_rehabilitasi" id="justifikasi_rehabilitasi" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Memuat informasi mengenai kondisi bangunan dan prasarana; informasi jenis pengolahan yang diterapkan oleh TPS3R, baik untuk sampah organik maupun sampah anorganik; informasi mengenai volume timbulan sampah yang dikelola dan volume residu yang diangkut ke TPA/TPST</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Surat Komitmen Kepala Daerah :</div>
+            <input type="file" name="komitmen_rehabilitasi" id="komitmen_rehabilitasi" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Memuat komitmen kepala daerah dalam melaksanakan pemicuan masyarakat termasuk rencana kegiatan pendampingan dan pemicuan perubahan perilaku</b>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Surat kesiapan dukungan biaya operasional dan pemeliharaan :</div>
+            <input type="file" name="dukungan_rehabilitasi" id="dukungan_rehabilitasi" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Surat kesiapan dukungan biaya operasional dan pemeliharaan yang dikeluarkaan yang dinas terkait.</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Rincian Kegiatan dan Anggaran alokasi APBD untuk peningkatan kapasitas TPS3R :</div>
+            <input type="file" name="rincian_anggaran_rehabilitasi" id="rincian_anggaran_rehabilitasi" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Bukti Kepemilikan KPP :</div>
+            <input type="file" name="kpp" id="kpp" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>yang dibuktikan dengan kepemilikan SK Pembentukan KPP</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
         </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
+        </form>
       </div>
     </div>
   </div>
-  <!-- End Pembangunan -->
+</div>
+<!-- End Modal Rehabilitasi -->
 
 
+<!-- Modal Edit Rehabilitasi -->
+<div class="modal modal-blur fade" id="modal-rehabilitasi-edit" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_rehabilitasi_edit"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formUploadrehabilitasiEdit" action="<?= base_url(); ?>SAN/simpanFileSanRehabilitasiEdit" method="POST" enctype="multipart/form-data">
 
-  <!-- Edit Pembangunan -->
-  <div class="modal modal-blur fade" id="modal-pembangunan-edit" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="tittle_modal_dpembangunan-edit"></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="formUploadpembangunanEdit" action="<?= base_url(); ?>SAN/simpanFileSanPembangunanEdit" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="idEditRehabilitasi" id="idEditRehabilitasi">
+          <input type="hidden" name="idEditDKecRehabilitasi" id="idEditDKecRehabilitasi">
+          <input type="hidden" name="idEditDesaRehabilitasi" id="idEditDesaRehabilitasi">
 
-            <input type="hidden" name="idEditPembangunan" id="idEditPembangunan">
-            <input type="hidden" name="idEditDKecPembangunan" id="idEditDKecPembangunan">
-            <input type="hidden" name="idEditDesaPembangunan" id="idEditDesaPembangunan">
-
-            <div class="mb-3">
-              <div class="form-label">Surat Penetapan Lokasi oleh Kepala Daerah :</div>
-              <input type="file" name="penetapan_lokasi_pembangunan_edit" id="penetapan_lokasi_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Bukti legalitas lahan berupa sertifikat lahan :</div>
-              <input type="file" name="legalitas_pembangunan_edit" id="legalitas_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Kesesuaian dengan RTRW :</div>
-              <input type="file" name="rtrw_pembangunan_edit" id="rtrw_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Surat Pernyataan Kesiapan Lembaga Pengelola berupa UPTD, BLUD, BUMD :</div>
-              <input type="file" name="kesiapan_pengelola_pembangunan_edit" id="kesiapan_pengelola_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Surat Pernyataan Kesiapan Lembaga Pengelola berupa UPTD, BLUD, BUMD dengan (melampirkan rincian data SDM serta memuat penyataan Kesiapan Biaya Operasional dan Pemeliharaan dan Pernyataan Kesanggupan untuk menyediakan alat pengangkut sampah terpilah dan/atau penjadwalan pengangkutan sampah terpilah)</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Rencana Anggaran Biaya (RAB) :</div>
-              <input type="file" name="rab_pembangunan_edit" id="rab_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label"> Detail Engineering Design (DED) :</div>
-              <input type="file" name="ded_pembangunan_edit" id="ded_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
-            <div class="mb-3">
-              <div class="form-label">PKS dengan Offtaker :</div>
-              <input type="file" name="pks_pembangunan_edit" id="pks_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Dilengkapi Detail teknis spesifikasi offtaker jenis industri, profil perusahaan, lokasi, jarak dengan infrastruktur pengolahan sampah</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Dokumen Lingkungan :</div>
-              <input type="file" name="lingkungan_pembangunan_edit" id="lingkungan_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Berupa Dokumen AMDAL/UKL-UPL</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Data profil :</div>
-              <input type="file" name="profile_pembangunan_edit" id="profile_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Profil pengelolaan sampah kab/kota menyeluruh mulai dari hulu ke hilir terkait 5 aspek pegelolaan sampah yang terdiri dari dari regulasi, kelembagaan, teknis, keuangan dan peran serta masyarakat termasuk substansi Ketersediaan, jumlah, dan kondisi keberfungsian sarana pengolahan sampah (alat angkut, alat berat, dll); Ketersediaan, jumlah, dan kondisi keberfungsian prasarana pengolahan sampah (TPS3R, TPST, TPA, bank sampah, PDU, dll); Timbulan dan persentase sampah terkumpul menuju prasarana pengolahan sampah; Timbulan sampah dan persentase sampah yang sudah dipilah di prasarana pengolahan sampah; Timbulan dan persentase sampah yang terangkut ke TPA; Ketersediaan alur/ diagram neraca massa sampah</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Surat pernyataan Komitmen DPRD :</div>
-              <input type="file" name="dprd_pembangunan_edit" id="dprd_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Surat pernyataan Komitmen DPRD untuk mendanai biaya operasi dan pemeliharaan yang memuat nominal alokasi biaya OP</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-            <div class="mb-3">
-              <div class="form-label">Kesiapan calon penerima :</div>
-              <input type="file" name="penerima_pembangunan_edit" id="penerima_pembangunan_edit" class="form-control" accept="application/pdf" />
-              <small class="form-hint">
-                <b>Kesiapan calon penerima bantuan berupa kesiapan masyarakat untuk terlayani persampahan dan untuk membayar retribusi sampah; Bukti form kesiapan masyarakat untuk siap melakukan pemilahan sampah, mau terlayani TPST, dan membayar retribusi sampah</b>
-                <br>
-                File : PDF Max Size : 300 MB.
-              </small>
-            </div>
-
+          <div class="mb-3">
+            <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
+            <input type="file" name="ded_rehabilitasi_edit" id="ded_rehabilitasi_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
           </div>
-          <div class="modal-footer text-end">
-            <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-              Cancel
-            </a>
-            <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
-          </form>
+          <div class="mb-3">
+            <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
+            <input type="file" name="rab_rehabilitasi_edit" id="rab_rehabilitasi_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Surat Pernyataan Kesiapan Pelaksanaan Kegiatan :</div>
+            <input type="file" name="kesiapan_rehabilitasi_edit" id="kesiapan_rehabilitasi_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Surat yang didalam isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Bukti legalitas lahan untuk TPS 3R :</div>
+            <input type="file" name="legalitas_rehabilitasi_edit" id="legalitas_rehabilitasi_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Berupa Sertifikat/Akta Jual Beli lahan apabila lahan milik pemerintah dan Akta Jual Beli/Akta Hibah untuk kegiatan Pembangunan TPS 3R apabila lahan semula milik masyarakat/pribadi</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Konsep Business Plan pengelolaan TPS 3R pasca konstruksi :</div>
+            <input type="file" name="bp_rehabilitasi_edit" id="bp_rehabilitasi_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Daftar calon penerima manfaat TPS 3R minimal 200 KK :</div>
+            <input type="file" name="penerima_manfaat_rehabilitasi_edit" id="penerima_manfaat_rehabilitasi_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Justifikasi teknis kebutuhan peningkatan/rehabilitasi TPS 3R :</div>
+            <input type="file" name="justifikasi_rehabilitasi_edit" id="justifikasi_rehabilitasi_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Memuat informasi mengenai kondisi bangunan dan prasarana; informasi jenis pengolahan yang diterapkan oleh TPS3R, baik untuk sampah organik maupun sampah anorganik; informasi mengenai volume timbulan sampah yang dikelola dan volume residu yang diangkut ke TPA/TPST</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Surat Komitmen Kepala Daerah :</div>
+            <input type="file" name="komitmen_rehabilitasi_edit" id="komitmen_rehabilitasi_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Memuat komitmen kepala daerah dalam melaksanakan pemicuan masyarakat termasuk rencana kegiatan pendampingan dan pemicuan perubahan perilaku</b>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Surat kesiapan dukungan biaya operasional dan pemeliharaan :</div>
+            <input type="file" name="dukungan_rehabilitasi_edit" id="dukungan_rehabilitasi_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Surat kesiapan dukungan biaya operasional dan pemeliharaan yang dikeluarkaan yang dinas terkait.</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Rincian Kegiatan dan Anggaran alokasi APBD untuk peningkatan kapasitas TPS3R :</div>
+            <input type="file" name="rincian_anggaran_rehabilitasi_edit" id="rincian_anggaran_rehabilitasi_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Bukti Kepemilikan KPP :</div>
+            <input type="file" name="kpp_edit" id="kpp_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>yang dibuktikan dengan kepemilikan SK Pembentukan KPP</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
         </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
+        </form>
       </div>
     </div>
   </div>
-  <!-- End Edit Pembangunan -->
+</div>
+<!-- End Modal Edit Rehabilitasi -->
+
+
+
+
+<!-- Pembangunan -->
+<div class="modal modal-blur fade" id="modal-pembangunan" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Tambah Data Persampahan (Pembangunan TPST)</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formUploadpembangunan" action="<?= base_url(); ?>SAN/simpanFileSanPembangunan" method="POST" enctype="multipart/form-data">
+
+          <div class="mb-3">
+            <div class="form-label">Pilih Kecamatan :</div>
+            <select id="klikKecamatan_pembangunan" name="kdkec_pembangunan" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
+              <option value="" selected disabled>--- Pilih Kecamatan ---</option>
+              <?php foreach ($dataKecamatan as $key => $value) { ?>
+                <option value="<?= $value->kdkec; ?>"><?= $value->nmkec; ?></option>
+              <?php } ?>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Pilih Desa :</div>
+            <select id="klikDesa_pembangunan" name="kddesa_pembangunan" class="form-select align-middle w-100" style="width:auto; height: 33px;" >
+              <option value="" selected disabled>-- Pilih Desa --</option>
+
+            </select>
+          </div>
+
+          <hr class="mt-2 mb-2">
+          <div class="mb-3">
+            <div class="form-label">Surat Penetapan Lokasi oleh Kepala Daerah :</div>
+            <input type="file" name="penetapan_lokasi_pembangunan" id="penetapan_lokasi_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Bukti legalitas lahan berupa sertifikat lahan :</div>
+            <input type="file" name="legalitas_pembangunan" id="legalitas_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Kesesuaian dengan RTRW :</div>
+            <input type="file" name="rtrw_pembangunan" id="rtrw_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Surat Pernyataan Kesiapan Lembaga Pengelola berupa UPTD, BLUD, BUMD :</div>
+            <input type="file" name="kesiapan_pengelola_pembangunan" id="kesiapan_pengelola_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Surat Pernyataan Kesiapan Lembaga Pengelola berupa UPTD, BLUD, BUMD dengan (melampirkan rincian data SDM serta memuat penyataan Kesiapan Biaya Operasional dan Pemeliharaan dan Pernyataan Kesanggupan untuk menyediakan alat pengangkut sampah terpilah dan/atau penjadwalan pengangkutan sampah terpilah)</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Rencana Anggaran Biaya (RAB) :</div>
+            <input type="file" name="rab_pembangunan" id="rab_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label"> Detail Engineering Design (DED) :</div>
+            <input type="file" name="ded_pembangunan" id="ded_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">PKS dengan Offtaker :</div>
+            <input type="file" name="pks_pembangunan" id="pks_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Dilengkapi Detail teknis spesifikasi offtaker jenis industri, profil perusahaan, lokasi, jarak dengan infrastruktur pengolahan sampah</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Dokumen Lingkungan :</div>
+            <input type="file" name="lingkungan_pembangunan" id="lingkungan_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Berupa Dokumen AMDAL/UKL-UPL</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Data profil :</div>
+            <input type="file" name="profile_pembangunan" id="profile_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Profil pengelolaan sampah kab/kota menyeluruh mulai dari hulu ke hilir terkait 5 aspek pegelolaan sampah yang terdiri dari dari regulasi, kelembagaan, teknis, keuangan dan peran serta masyarakat termasuk substansi Ketersediaan, jumlah, dan kondisi keberfungsian sarana pengolahan sampah (alat angkut, alat berat, dll); Ketersediaan, jumlah, dan kondisi keberfungsian prasarana pengolahan sampah (TPS3R, TPST, TPA, bank sampah, PDU, dll); Timbulan dan persentase sampah terkumpul menuju prasarana pengolahan sampah; Timbulan sampah dan persentase sampah yang sudah dipilah di prasarana pengolahan sampah; Timbulan dan persentase sampah yang terangkut ke TPA; Ketersediaan alur/ diagram neraca massa sampah</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Surat pernyataan Komitmen DPRD :</div>
+            <input type="file" name="dprd_pembangunan" id="dprd_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Surat pernyataan Komitmen DPRD untuk mendanai biaya operasi dan pemeliharaan yang memuat nominal alokasi biaya OP</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Kesiapan calon penerima :</div>
+            <input type="file" name="penerima_pembangunan" id="penerima_pembangunan" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Kesiapan calon penerima bantuan berupa kesiapan masyarakat untuk terlayani persampahan dan untuk membayar retribusi sampah; Bukti form kesiapan masyarakat untuk siap melakukan pemilahan sampah, mau terlayani TPST, dan membayar retribusi sampah</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+        </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Pembangunan -->
+
+
+
+<!-- Edit Pembangunan -->
+<div class="modal modal-blur fade" id="modal-pembangunan-edit" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_dpembangunan-edit"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formUploadpembangunanEdit" action="<?= base_url(); ?>SAN/simpanFileSanPembangunanEdit" method="POST" enctype="multipart/form-data">
+
+          <input type="hidden" name="idEditPembangunan" id="idEditPembangunan">
+          <input type="hidden" name="idEditDKecPembangunan" id="idEditDKecPembangunan">
+          <input type="hidden" name="idEditDesaPembangunan" id="idEditDesaPembangunan">
+
+          <div class="mb-3">
+            <div class="form-label">Surat Penetapan Lokasi oleh Kepala Daerah :</div>
+            <input type="file" name="penetapan_lokasi_pembangunan_edit" id="penetapan_lokasi_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Bukti legalitas lahan berupa sertifikat lahan :</div>
+            <input type="file" name="legalitas_pembangunan_edit" id="legalitas_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Kesesuaian dengan RTRW :</div>
+            <input type="file" name="rtrw_pembangunan_edit" id="rtrw_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Surat Pernyataan Kesiapan Lembaga Pengelola berupa UPTD, BLUD, BUMD :</div>
+            <input type="file" name="kesiapan_pengelola_pembangunan_edit" id="kesiapan_pengelola_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Surat Pernyataan Kesiapan Lembaga Pengelola berupa UPTD, BLUD, BUMD dengan (melampirkan rincian data SDM serta memuat penyataan Kesiapan Biaya Operasional dan Pemeliharaan dan Pernyataan Kesanggupan untuk menyediakan alat pengangkut sampah terpilah dan/atau penjadwalan pengangkutan sampah terpilah)</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Rencana Anggaran Biaya (RAB) :</div>
+            <input type="file" name="rab_pembangunan_edit" id="rab_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label"> Detail Engineering Design (DED) :</div>
+            <input type="file" name="ded_pembangunan_edit" id="ded_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">PKS dengan Offtaker :</div>
+            <input type="file" name="pks_pembangunan_edit" id="pks_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Dilengkapi Detail teknis spesifikasi offtaker jenis industri, profil perusahaan, lokasi, jarak dengan infrastruktur pengolahan sampah</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Dokumen Lingkungan :</div>
+            <input type="file" name="lingkungan_pembangunan_edit" id="lingkungan_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Berupa Dokumen AMDAL/UKL-UPL</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Data profil :</div>
+            <input type="file" name="profile_pembangunan_edit" id="profile_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Profil pengelolaan sampah kab/kota menyeluruh mulai dari hulu ke hilir terkait 5 aspek pegelolaan sampah yang terdiri dari dari regulasi, kelembagaan, teknis, keuangan dan peran serta masyarakat termasuk substansi Ketersediaan, jumlah, dan kondisi keberfungsian sarana pengolahan sampah (alat angkut, alat berat, dll); Ketersediaan, jumlah, dan kondisi keberfungsian prasarana pengolahan sampah (TPS3R, TPST, TPA, bank sampah, PDU, dll); Timbulan dan persentase sampah terkumpul menuju prasarana pengolahan sampah; Timbulan sampah dan persentase sampah yang sudah dipilah di prasarana pengolahan sampah; Timbulan dan persentase sampah yang terangkut ke TPA; Ketersediaan alur/ diagram neraca massa sampah</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Surat pernyataan Komitmen DPRD :</div>
+            <input type="file" name="dprd_pembangunan_edit" id="dprd_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Surat pernyataan Komitmen DPRD untuk mendanai biaya operasi dan pemeliharaan yang memuat nominal alokasi biaya OP</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Kesiapan calon penerima :</div>
+            <input type="file" name="penerima_pembangunan_edit" id="penerima_pembangunan_edit" class="form-control" accept="application/pdf" />
+            <small class="form-hint">
+              <b>Kesiapan calon penerima bantuan berupa kesiapan masyarakat untuk terlayani persampahan dan untuk membayar retribusi sampah; Bukti form kesiapan masyarakat untuk siap melakukan pemilahan sampah, mau terlayani TPST, dan membayar retribusi sampah</b>
+              <br>
+              File : PDF Max Size : 300 MB.
+            </small>
+          </div>
+
+        </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File">Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Edit Pembangunan -->
 
 
 
@@ -3697,9 +3749,14 @@ editDataPembangunan = function (nmkec, nmdes, id, kdkec, kddesa) {
 
 
 $('#klikKecamatan_ipal').change(function() {
-  let idkec = $(this).val();
+  let idkec = $(this).val(),
+  idkabKota = '';
 
-  ajaxUntukSemua(base_url()+'SAN/getDataDesa', {idkec}, function(data) {
+  <?php if ($this->session->userdata('is_provinsi')) { ?>
+    idkabKota = $('#klikKabKota_ipal').val();
+  <?php } ?>
+
+  ajaxUntukSemua(base_url()+'SAN/getDataDesaIplt', {idkec,idkabKota}, function(data) {
 
     let html = `<option value="" selected disabled>-- Pilih Desa --</option>`;
 
@@ -3720,11 +3777,104 @@ $('#klikKecamatan_ipal').change(function() {
 });
 
 
+<?php if ($this->session->userdata('is_provinsi')) { ?>
+
+  $('#klikKabKota_ipal').change(function() {
+
+    let idkabKota = $(this).val();
+
+    ajaxUntukSemua(base_url()+'SAN/getDatakecamatan', {idkabKota}, function(data) {
+
+
+      let htmlIpltx = `<option value="" selected disabled>-- Pilih Kecamatan --</option>`;
+
+      $.each(data, function(index, val) {
+
+        htmlIpltx += `<option value="`+val.kdkec+`">`+val.nmkec+`</option>`;
+
+      })
+
+      $('#klikKecamatan_ipal').html(htmlIpltx);
+
+
+    }, function(error) {
+      console.log('Kesalahan:', error);
+      t_error('Ada yg Error : '+error)
+    });
+
+
+
+  });
+
+
+  $('#klikKabKota_ipltX').change(function() {
+
+    let idkabKota = $(this).val();
+
+    ajaxUntukSemua(base_url()+'SAN/getDatakecamatan', {idkabKota}, function(data) {
+
+
+      let htmlIpltx = `<option value="" selected disabled>-- Pilih Kecamatan --</option>`;
+
+      $.each(data, function(index, val) {
+
+        htmlIpltx += `<option value="`+val.kdkec+`">`+val.nmkec+`</option>`;
+
+      })
+
+      $('#klikKecamatan_ipltX').html(htmlIpltx);
+
+
+    }, function(error) {
+      console.log('Kesalahan:', error);
+      t_error('Ada yg Error : '+error)
+    });
+
+
+
+  });
+
+
+  $('#klikKabKota_pembangunanBaru').change(function() {
+
+    let idkabKota = $(this).val();
+
+    ajaxUntukSemua(base_url()+'SAN/getDatakecamatan', {idkabKota}, function(data) {
+
+
+      let htmlIpltx = `<option value="" selected disabled>-- Pilih Kecamatan --</option>`;
+
+      $.each(data, function(index, val) {
+
+        htmlIpltx += `<option value="`+val.kdkec+`">`+val.nmkec+`</option>`;
+
+      })
+
+      $('#klikKecamatan_pembangunanBaru').html(htmlIpltx);
+
+
+    }, function(error) {
+      console.log('Kesalahan:', error);
+      t_error('Ada yg Error : '+error)
+    });
+
+
+
+  });
+
+<?php } ?>
+
+
 $('#klikKecamatan_ipltX').change(function() {
-  let idkec = $(this).val();
+  let idkec = $(this).val(),
+  idkabKota = '';
 
-  ajaxUntukSemua(base_url()+'SAN/getDataDesa', {idkec}, function(data) {
+  <?php if ($this->session->userdata('is_provinsi')) { ?>
+    idkabKota = $('#klikKabKota_ipltX').val();
+  <?php } ?>
 
+  ajaxUntukSemua(base_url()+'SAN/getDataDesa', {idkec,idkabKota}, function(data) {
+    console.log(data)
     let htmlIpltx = `<option value="" selected disabled>-- Pilih Desa --</option>`;
 
     $.each(data, function(index, val) {
@@ -3744,9 +3894,14 @@ $('#klikKecamatan_ipltX').change(function() {
 });
 
 $('#klikKecamatan_pembangunanBaru').change(function() {
-  let idkec = $(this).val();
+  let idkec = $(this).val(),
+  idkabKota = '';
 
-  ajaxUntukSemua(base_url()+'SAN/getDataDesa', {idkec}, function(data) {
+  <?php if ($this->session->userdata('is_provinsi')) { ?>
+    idkabKota = $('#klikKabKota_pembangunanBaru').val();
+  <?php } ?>
+
+  ajaxUntukSemua(base_url()+'SAN/getDataDesa', {idkec,idkabKota}, function(data) {
 
     let htmlIpltx = `<option value="" selected disabled>-- Pilih Desa --</option>`;
 

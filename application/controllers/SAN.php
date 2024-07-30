@@ -52,14 +52,15 @@ class SAN extends CI_Controller {
 			$kdkabkota = kdkabkota($kdsatker);
 			$kdbidang = kdbidang($kdsatker);
 
-			$tmp['dataSanIpal'] = $this->M_rc24->getDataTabelSanIpal($kdlokasi, $kdkabkota);
-			$tmp['dataSanIPLT'] = $this->M_rc24->getDataTabelSanIplt($kdlokasi, $kdkabkota);
-			$tmp['dataSanPembangunanBaru'] = $this->M_rc24->getDataTabelSanPembangunanBaru($kdlokasi, $kdkabkota);
+			$tmp['dataSanIpal'] = $this->M_rc24->getDataTabelSanIpal($kdlokasi, $kdkabkota, $kdsatker);
+			$tmp['dataSanIPLT'] = $this->M_rc24->getDataTabelSanIplt($kdlokasi, $kdkabkota, $kdsatker);
+			$tmp['dataSanPembangunanBaru'] = $this->M_rc24->getDataTabelSanPembangunanBaru($kdlokasi, $kdkabkota, $kdsatker);
 			$tmp['dataSanRehabilitasi'] = $this->M_rc24->getDataTabelSanRehabilitasi($kdlokasi, $kdkabkota);
 			$tmp['dataSanPembangunan'] = $this->M_rc24->getDataTabelSanPembangunan($kdlokasi, $kdkabkota);
 			$tmp['nmProvinsi'] = strtoupper('PROVINSI ' . getProvinsiByRow($kdlokasi)->NMLOKASI);
 			$tmp['nmkabkota'] = strtoupper(getKabKotaByRow($kdlokasi, $kdkabkota)->NMKABKOTA);
 			$tmp['dataHeader'] = $this->M_rc24->getDataHeaderSan($kdlokasi, $kdkabkota);
+			$tmp['dataKabKota'] = $this->M_rc24->getDataKabKota($kdlokasi);
 			$tmp['dataKecamatan'] = $this->M_rc24->getDataKecamatan($kdlokasi, $kdkabkota);
 		}
 
@@ -78,8 +79,34 @@ class SAN extends CI_Controller {
 			$kdlokasi = kdlokasi($kdsatker);
 			$kdkabkota = kdkabkota($kdsatker);
 
-			if ($kdkabkota == '00') {
-				$kdkabkota = $this->input->post('kdkabkotaX');
+			if ($this->session->userdata('is_provinsi')) {
+				$kdkabkota = $this->input->post('idkabKota');
+			}
+		} else {
+
+			$kdlokasi = $this->input->post('kdlokasi');
+			$kdsatker = $this->input->post('kdkabkota');
+			$kdkabkota = kdkabkota($kdsatker);
+		}
+
+		$data = $this->M_rc24->detDesa($kdlokasi, $kdkabkota, $kdkec);
+
+		echo json_encode($data);
+	}
+
+
+	public function getDataDesaIplt()
+	{
+		$kdkec = $this->input->post('idkec');
+		$kdsatker = $this->session->userdata('rkdak_kdsat');
+
+		if ($this->session->userdata('rkdak_priv') == '1') {
+
+			$kdlokasi = kdlokasi($kdsatker);
+			$kdkabkota = kdkabkota($kdsatker);
+
+			if ($this->session->userdata('is_provinsi')) {
+				$kdkabkota = $this->input->post('idkabKota');
 			}
 		} else {
 
@@ -98,12 +125,13 @@ class SAN extends CI_Controller {
 	{
 		$kdlokasi = $this->input->post('kdlokasi');
 		$kdkabkota = $this->input->post('kdkabkota');
+		$kdsatkerSession = $this->session->userdata('rkdak_kdsat');
 
 		$kdkabkota = kdkabkota($kdkabkota);
 
-		$Ipal = $this->M_rc24->getDataTabelSanIpal($kdlokasi, $kdkabkota);
-		$dataIPLT = $this->M_rc24->getDataTabelSanIplt($kdlokasi, $kdkabkota);
-		$PembangunanBaru = $this->M_rc24->getDataTabelSanPembangunanBaru($kdlokasi, $kdkabkota);
+		$Ipal = $this->M_rc24->getDataTabelSanIpal($kdlokasi, $kdkabkota,'');
+		$dataIPLT = $this->M_rc24->getDataTabelSanIplt($kdlokasi, $kdkabkota, '');
+		$PembangunanBaru = $this->M_rc24->getDataTabelSanPembangunanBaru($kdlokasi, $kdkabkota,'');
 		$rehabilitasi = $this->M_rc24->getDataTabelSanRehabilitasi($kdlokasi, $kdkabkota);
 		$pembangunan = $this->M_rc24->getDataTabelSanPembangunan($kdlokasi, $kdkabkota);
 
@@ -340,7 +368,11 @@ class SAN extends CI_Controller {
 	public function simpanFileSanIpal()
 	{
 
-		$kdsatker = $this->session->userdata('rkdak_kdsat');
+		$kdsatkerSession = $this->session->userdata('rkdak_kdsat');
+		$kdlokasiSession =  kdlokasi($kdsatkerSession);
+		$kdkabkotaSession = kdkabkota($kdsatkerSession);
+
+		$kdsatker = $this->session->userdata('is_provinsi') ? "03".$kdlokasiSession.$this->input->post('klikKabKota_ipal').'04' : $this->session->userdata('rkdak_kdsat');
 		$kdlokasi =  kdlokasi($kdsatker);
 		$kdkabkota = kdkabkota($kdsatker);
 		$kdkec = $this->input->post('kdkec_ipal');
@@ -377,6 +409,7 @@ class SAN extends CI_Controller {
 			'kdkabkota' => $kdkabkota,
 			'kdkec' => $kdkec,
 			'kddesa' => $kddesa,
+			'kdkabkota_penginput' => $this->session->userdata('is_provinsi') ? $this->session->userdata('rkdak_kdsat'):'',
 			'created_at' => date('Y-m-d H:i:s')
 		);
 
@@ -464,8 +497,9 @@ class SAN extends CI_Controller {
 
 	public function simpanFileSanIpalEdit()
 	{
-		$idEdit = $this->input->post('idEditIpal');
-		$kdsatker = $this->session->userdata('rkdak_kdsat');
+		$idEdit =  $this->input->post('idEditIpal');
+		$dataAwal = $this->M_dinamis->getById('t_rc_san_ipal', ['id' => $idEdit]);
+		$kdsatker = ($this->session->userdata('rkdak_prive')) ? '03'.$dataAwal->kdlokasi.$dataAwal->kdkabkota.'04' : $this->session->userdata('rkdak_kdsat');
 		$kdlokasi =  kdlokasi($kdsatker);
 		$kdkabkota = kdkabkota($kdsatker);
 		$kdkec = $this->input->post('idEditDKecIpal');
@@ -613,8 +647,14 @@ class SAN extends CI_Controller {
 	}
 
 	public function simpanFileSanIPLTX()
-	{
-		$kdsatker = $this->session->userdata('rkdak_kdsat');
+	{	
+
+		$kdsatkerSession = $this->session->userdata('rkdak_kdsat');
+		$kdlokasiSession =  kdlokasi($kdsatkerSession);
+		$kdkabkotaSession = kdkabkota($kdsatkerSession);
+
+		$kdsatker = $this->session->userdata('is_provinsi') ? "03".$kdlokasiSession.$this->input->post('klikKabKota_ipltX').'04' : $this->session->userdata('rkdak_kdsat');
+
 		$kdlokasi =  kdlokasi($kdsatker);
 		$kdkabkota = kdkabkota($kdsatker);
 		$kdkec = $this->input->post('kdkec_ipltX');
@@ -659,6 +699,7 @@ class SAN extends CI_Controller {
 			'kdkabkota' => $kdkabkota,
 			'kdkec' => $kdkec,
 			'kddesa' => $kddesa,
+			'kdkabkota_penginput' => $this->session->userdata('is_provinsi') ? $this->session->userdata('rkdak_kdsat'):'',
 			'created_at' => date('Y-m-d H:i:s')
 		);
 
@@ -747,7 +788,10 @@ class SAN extends CI_Controller {
 	public function simpanFileSanIPLTXEdit()
 	{
 		$idEdit = $this->input->post('idEditIplt');
-		$kdsatker = $this->session->userdata('rkdak_kdsat');
+
+		$dataAwal = $this->M_dinamis->getById('t_rc_san_iplt', ['id' => $idEdit]);
+		$kdsatker = ($this->session->userdata('rkdak_prive')) ? '03'.$dataAwal->kdlokasi.$dataAwal->kdkabkota.'04' : $this->session->userdata('rkdak_kdsat');
+		
 		$kdlokasi =  kdlokasi($kdsatker);
 		$kdkabkota = kdkabkota($kdsatker);
 		$kdkec = $this->input->post('idEditDKecIplt');
@@ -956,7 +1000,13 @@ class SAN extends CI_Controller {
 
 	public function simpanFileSanPembangunanBaru()
 	{
-		$kdsatker = $this->session->userdata('rkdak_kdsat');
+
+
+		$kdsatkerSession = $this->session->userdata('rkdak_kdsat');
+		$kdlokasiSession =  kdlokasi($kdsatkerSession);
+		$kdkabkotaSession = kdkabkota($kdsatkerSession);
+
+		$kdsatker = $this->session->userdata('is_provinsi') ? "03".$kdlokasiSession.$this->input->post('klikKabKota_pembangunanBaru').'04' : $this->session->userdata('rkdak_kdsat');
 		$kdlokasi =  kdlokasi($kdsatker);
 		$kdkabkota = kdkabkota($kdsatker);
 		$kdkec = $this->input->post('kdkec_pembangunanBaru');
@@ -996,6 +1046,7 @@ class SAN extends CI_Controller {
 			'kdkabkota' => $kdkabkota,
 			'kdkec' => $kdkec,
 			'kddesa' => $kddesa,
+			'kdkabkota_penginput' => $this->session->userdata('is_provinsi') ? $this->session->userdata('rkdak_kdsat'):'',
 			'created_at' => date('Y-m-d H:i:s')
 		);
 
@@ -1084,7 +1135,10 @@ class SAN extends CI_Controller {
 	public function simpanFileSanPembangunanBaruEdit()
 	{
 		$id = $this->input->post('idEditPembangunanBaru');
-		$kdsatker = $this->session->userdata('rkdak_kdsat');
+
+		$dataAwal = $this->M_dinamis->getById('t_rc_san_pembangunan_baru', ['id' => $idEdit]);
+		$kdsatker = ($this->session->userdata('rkdak_prive')) ? '03'.$dataAwal->kdlokasi.$dataAwal->kdkabkota.'04' : $this->session->userdata('rkdak_kdsat');
+
 		$kdlokasi =  kdlokasi($kdsatker);
 		$kdkabkota = kdkabkota($kdsatker);
 		$kdkec = $this->input->post('idEditDKecPembangunanBaru');
@@ -1979,6 +2033,18 @@ class SAN extends CI_Controller {
 		}
 
 		redirect('SAN', 'refresh');
+	}
+
+
+	public function getDatakecamatan()
+	{
+		$kdsatker = $this->session->userdata('rkdak_kdsat');
+		$kdlokasi = kdlokasi($kdsatker);
+		$idkabKota = $this->input->post('idkabKota');
+
+		$data = $this->M_rc24->getDatakecamatan($kdlokasi, $idkabKota);
+
+		echo json_encode($data);
 	}
 
 

@@ -318,29 +318,29 @@
                             <td class="adaDiHeaderdanBody"><?= number_format($value->usulan_sinkron_pusat,0,',','.'); ?></td>
                             
                             <!-- <td class="adaDiHeaderdanBody <?= ($value->approval_sinkron_kl == '1') ? 'warnaHijauBanget' :  (($value->approval_sinkron_kl == '2') ? 'warnaMerahBanget': (($value->approval_sinkron_kl == '3') ? 'warnaKuningBanget':'')); ?>">
-                            <?= ($value->approval_sinkron_kl == '1') ? 'Approve' :  (($value->approval_sinkron_kl == '2') ? 'Reject': (($value->approval_sinkron_kl == '3') ? 'Discuss/Stock Program':'')); ?>            
+                            <?= ($value->approval_sinkron_kl == '1') ? 'Approve' :  (($value->approval_sinkron_kl == '2') ? 'Rejected': (($value->approval_sinkron_kl == '3') ? 'Discuss/Stock Program':'')); ?>            
                             </td>
                             
-                            <td class="adaDiHeaderdanBody <?= ($value->approval_sinkron_dit == '1') ? 'warnaHijauBanget' :  (($value->approval_sinkron_dit == '2') ? 'warnaMerahBanget': (($value->approval_sinkron_dit == '3') ? 'warnaKuningBanget':'')); ?>"><?= ($value->approval_sinkron_dit == '1') ? 'Approve' :  (($value->approval_sinkron_dit == '2') ? 'Reject': (($value->approval_sinkron_dit == '3') ? 'Discuss/Stock Program':'')); ?>        
+                            <td class="adaDiHeaderdanBody <?= ($value->approval_sinkron_dit == '1') ? 'warnaHijauBanget' :  (($value->approval_sinkron_dit == '2') ? 'warnaMerahBanget': (($value->approval_sinkron_dit == '3') ? 'warnaKuningBanget':'')); ?>"><?= ($value->approval_sinkron_dit == '1') ? 'Approve' :  (($value->approval_sinkron_dit == '2') ? 'Rejected': (($value->approval_sinkron_dit == '3') ? 'Discuss/Stock Program':'')); ?>        
                             </td>
 
                              <td class="adaDiHeaderdanBody 
                                 <?= ($value->approval_sinkron_sum == '1') ? 'warnaHijauBanget' :  (($value->approval_sinkron_sum == '2') ? 'warnaMerahBanget': (($value->approval_sinkron_sum == '3') ? 'warnaKuningBanget':'')); ?>">
 
-                                <?= ($value->approval_sinkron_sum == '1') ? 'Approve' :  (($value->approval_sinkron_sum == '2') ? 'Reject': (($value->approval_sinkron_sum == '3') ? 'Discuss/Stock Program':'')); ?>
+                                <?= ($value->approval_sinkron_sum == '1') ? 'Approve' :  (($value->approval_sinkron_sum == '2') ? 'Rejected': (($value->approval_sinkron_sum == '3') ? 'Discuss/Stock Program':'')); ?>
                             </td> -->
 
-                            <td class="adaDiHeaderdanBody <?= ($value->approval_sinkron_kl == 'Approved') ? 'warnaHijauBanget' :  (($value->approval_sinkron_kl == 'Reject') ? 'warnaMerahBanget': (($value->approval_sinkron_kl == 'Discuss') ? 'warnaKuningBanget':'')); ?>">
-                                <?= ($value->approval_sinkron_kl == 'Approved') ? 'Approve' :  (($value->approval_sinkron_kl == 'Reject') ? 'Reject': (($value->approval_sinkron_kl == 'Discuss') ? 'Discuss/Stock Program':'')); ?>            
+                            <td class="adaDiHeaderdanBody <?= ($value->approval_sinkron_kl == 'Approved') ? 'warnaHijauBanget' :  (($value->approval_sinkron_kl == 'Rejected') ? 'warnaMerahBanget': (($value->approval_sinkron_kl == 'Discuss') ? 'warnaKuningBanget':'')); ?>">
+                                <?= ($value->approval_sinkron_kl == 'Approved') ? 'Approve' :  (($value->approval_sinkron_kl == 'Rejected') ? 'Rejected': (($value->approval_sinkron_kl == 'Discuss') ? 'Discuss/Stock Program':'')); ?>            
                             </td>
                             
-                            <td class="adaDiHeaderdanBody <?= ($value->approval_sinkron_dit == 'Approved') ? 'warnaHijauBanget' :  (($value->approval_sinkron_dit == 'Reject') ? 'warnaMerahBanget': (($value->approval_sinkron_dit == 'Discuss') ? 'warnaKuningBanget':'')); ?>"><?= ($value->approval_sinkron_dit == 'Approved') ? 'Approve' :  (($value->approval_sinkron_dit == 'Reject') ? 'Reject': (($value->approval_sinkron_dit == 'Discuss') ? 'Discuss/Stock Program':'')); ?>        
+                            <td class="adaDiHeaderdanBody <?= ($value->approval_sinkron_dit == 'Approved') ? 'warnaHijauBanget' :  (($value->approval_sinkron_dit == 'Rejected') ? 'warnaMerahBanget': (($value->approval_sinkron_dit == 'Discuss') ? 'warnaKuningBanget':'')); ?>"><?= ($value->approval_sinkron_dit == 'Approved') ? 'Approve' :  (($value->approval_sinkron_dit == 'Rejected') ? 'Rejected': (($value->approval_sinkron_dit == 'Discuss') ? 'Discuss/Stock Program':'')); ?>        
                         </td>
 
                         <td class="adaDiHeaderdanBody 
-                        <?= ($value->approval_sinkron_sum == 'Approved') ? 'warnaHijauBanget' :  (($value->approval_sinkron_sum == 'Reject') ? 'warnaMerahBanget': (($value->approval_sinkron_sum == 'Discuss') ? 'warnaKuningBanget':'')); ?>">
+                        <?= ($value->approval_sinkron_sum == 'Approved') ? 'warnaHijauBanget' :  (($value->approval_sinkron_sum == 'Rejected') ? 'warnaMerahBanget': (($value->approval_sinkron_sum == 'Discuss') ? 'warnaKuningBanget':'')); ?>">
 
-                        <?= ($value->approval_sinkron_sum == 'Approved') ? 'Approve' :  (($value->approval_sinkron_sum == 'Reject') ? 'Reject': (($value->approval_sinkron_sum == 'Discuss') ? 'Discuss/Stock Program':'')); ?>
+                        <?= ($value->approval_sinkron_sum == 'Approved') ? 'Approve' :  (($value->approval_sinkron_sum == 'Rejected') ? 'Rejected': (($value->approval_sinkron_sum == 'Discuss') ? 'Discuss/Stock Program':'')); ?>
                     </td>
 
                     <td class="adaDiHeaderdanBody" style="text-align: left;"><?= $value->note_sinkron_kl; ?></td>

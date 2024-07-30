@@ -44,20 +44,26 @@ class M_rc24 extends CI_Model {
 
 		$kdkabkota = kdkabkota($kdkabkota);
 
+
+
+
 		if ($this->session->userdata('is_provinsi') == false and $this->session->userdata('rkdak_priv') == '1') {
 
 			$qry = "SELECT nmkec, nmdesa, a.* FROM 
-			(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdlokasi_penginput <>'00' ) AS a
+			(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdlokasi_penginput is null) AS a
 			LEFT JOIN t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec
 			LEFT JOIN t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa ";
 
 		}else{
 			
 			if ($this->session->userdata('rkdak_priv') == '1') {
+				
 				$qry = "SELECT nmkec, nmdesa, a.* FROM 
 				(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdlokasi_penginput='00') AS a
 				LEFT JOIN t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec
 				LEFT JOIN t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa ";
+
+
 			}else{
 				$qry = "SELECT nmkec, nmdesa, a.* FROM 
 				(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdlokasi_penginput = '00' ) AS a
@@ -110,54 +116,175 @@ class M_rc24 extends CI_Model {
 	}
 
 
-	public function getDataTabelSanIpal($kdlokasi, $kdkabkota)
+	public function getDataTabelSanIpal($kdlokasi, $kdkabkota, $kdsatker)
 	{
 
 		$kdlokasi = clean($kdlokasi);
 		$kdkabkota = clean($kdkabkota);
 
-		$qry = "SELECT nmkec,nmdesa,a.* FROM 
-		(SELECT * FROM t_rc_san_ipal WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota') AS a
-		LEFT JOIN
-		t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
-		LEFT JOIN
-		t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
-		ORDER BY nmkec,nmdesa";
+		if ($this->session->userdata('is_provinsi') and $this->session->userdata('rkdak_prive') == '1') {
+
+			$qry = "SELECT nmkec,nmdesa,a.* FROM 
+			(SELECT * FROM t_rc_san_ipal WHERE kdkabkota_penginput='$kdsatker') AS a
+			LEFT JOIN
+			t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+			LEFT JOIN
+			t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+			ORDER BY nmkec,nmdesa";
+
+
+		}else{
+
+			if ($this->session->userdata('rkdak_prive') == '1') {
+				$qry = "SELECT nmkec,nmdesa,a.* FROM 
+				(SELECT * FROM t_rc_san_ipal WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdkabkota_penginput='') AS a
+				LEFT JOIN
+				t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+				LEFT JOIN
+				t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+				ORDER BY nmkec,nmdesa";
+
+			}else{
+				$kdssatker = '33'.$kdlokasi.$kdkabkota.'04';
+				if($kdkabkota == '00'){
+					$qry = "SELECT nmkec,nmdesa,a.* FROM 
+					(SELECT * FROM t_rc_san_ipal WHERE kdkabkota_penginput=$kdssatker) AS a
+					LEFT JOIN
+					t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+					LEFT JOIN
+					t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+					ORDER BY nmkec,nmdesa";
+				}else{
+
+					$qry = "SELECT nmkec,nmdesa,a.* FROM 
+					(SELECT * FROM t_rc_san_ipal WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdkabkota_penginput='') AS a
+					LEFT JOIN
+					t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+					LEFT JOIN
+					t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+					ORDER BY nmkec,nmdesa";
+				}
+
+			}			
+
+		}
 
 		return $this->db->query($qry)->result();
 	}
 
 
-	public function getDataTabelSanIplt($kdlokasi, $kdkabkota)
+	public function getDataTabelSanIplt($kdlokasi, $kdkabkota, $kdsatker)
 	{
 
 		$kdlokasi = clean($kdlokasi);
 		$kdkabkota = clean($kdkabkota);
 
-		$qry = "SELECT nmkec,nmdesa,a.* FROM 
-		(SELECT * FROM t_rc_san_iplt WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota') AS a
-		LEFT JOIN
-		t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
-		LEFT JOIN
-		t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
-		ORDER BY nmkec,nmdesa";
+		if ($this->session->userdata('is_provinsi') and $this->session->userdata('rkdak_prive') == '1') {
+
+			
+			$qry = "SELECT nmkec,nmdesa,a.* FROM 
+			(SELECT * FROM t_rc_san_iplt WHERE kdkabkota_penginput=$kdsatker) AS a
+			LEFT JOIN
+			t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+			LEFT JOIN
+			t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+			ORDER BY nmkec,nmdesa";
+
+
+		}else{
+
+			if ($this->session->userdata('rkdak_prive') == '1') {
+				$qry = "SELECT nmkec,nmdesa,a.* FROM 
+				(SELECT * FROM t_rc_san_iplt WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdkabkota_penginput='') AS a
+				LEFT JOIN
+				t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+				LEFT JOIN
+				t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+				ORDER BY nmkec,nmdesa";
+
+			}else{
+				$kdssatker = '33'.$kdlokasi.$kdkabkota.'04';
+
+				if($kdkabkota == '00'){
+					$qry = "SELECT nmkec,nmdesa,a.* FROM 
+					(SELECT * FROM t_rc_san_iplt WHERE kdkabkota_penginput=$kdssatker) AS a
+					LEFT JOIN
+					t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+					LEFT JOIN
+					t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+					ORDER BY nmkec,nmdesa";
+				}else{
+
+					$qry = "SELECT nmkec,nmdesa,a.* FROM 
+					(SELECT * FROM t_rc_san_iplt WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdkabkota_penginput='') AS a
+					LEFT JOIN
+					t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+					LEFT JOIN
+					t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+					ORDER BY nmkec,nmdesa";
+				}
+			}			
+
+		}
 
 		return $this->db->query($qry)->result();
 	}
 
-	public function getDataTabelSanPembangunanBaru($kdlokasi, $kdkabkota)
+	public function getDataTabelSanPembangunanBaru($kdlokasi, $kdkabkota, $kdsatker)
 	{
 
 		$kdlokasi = clean($kdlokasi);
 		$kdkabkota = clean($kdkabkota);
 
-		$qry = "SELECT nmkec,nmdesa,a.* FROM 
-		(SELECT * FROM t_rc_san_pembangunan_baru WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota') AS a
-		LEFT JOIN
-		t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
-		LEFT JOIN
-		t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
-		ORDER BY nmkec,nmdesa";
+		if ($this->session->userdata('is_provinsi') and $this->session->userdata('rkdak_prive') == '1') {
+
+			$qry = "SELECT nmkec,nmdesa,a.* FROM 
+			(SELECT * FROM t_rc_san_pembangunan_baru WHERE kdkabkota_penginput=$kdsatker) AS a
+			LEFT JOIN
+			t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+			LEFT JOIN
+			t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+			ORDER BY nmkec,nmdesa";
+
+
+		}else{
+
+			if ($this->session->userdata('rkdak_prive') == '1') {
+
+				$qry = "SELECT nmkec,nmdesa,a.* FROM 
+				(SELECT * FROM t_rc_san_pembangunan_baru WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdkabkota_penginput='') AS a
+				LEFT JOIN
+				t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+				LEFT JOIN
+				t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+				ORDER BY nmkec,nmdesa";
+
+			}else{
+				$kdssatker = '33'.$kdlokasi.$kdkabkota.'04';
+
+				if($kdkabkota == '00'){
+					$qry = "SELECT nmkec,nmdesa,a.* FROM 
+					(SELECT * FROM t_rc_san_ipal WHERE kdkabkota_penginput=$kdssatker) AS a
+					LEFT JOIN
+					t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+					LEFT JOIN
+					t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+					ORDER BY nmkec,nmdesa";
+				}else{
+
+					$qry = "SELECT nmkec,nmdesa,a.* FROM 
+					(SELECT * FROM t_rc_san_ipal WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdkabkota_penginput='') AS a
+					LEFT JOIN
+					t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
+					LEFT JOIN
+					t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa
+					ORDER BY nmkec,nmdesa";
+				}
+
+			}	
+
+		}		
+
 
 		return $this->db->query($qry)->result();
 	}
@@ -413,25 +540,32 @@ class M_rc24 extends CI_Model {
 
 		$qry = "SELECT pengusul_nama,
 		SUM(IF(approval_sinkron_kl='Approved',1,0)) AS usulan_approve_kl,
-		SUM(IF(approval_sinkron_kl='Reject',1,0)) AS usulan_reject_kl,
+		SUM(IF(approval_sinkron_kl='Rejected',1,0)) AS usulan_reject_kl,
 		SUM(IF(approval_sinkron_kl='Discuss',1,0)) AS usulan_discuss_kl,
 		SUM(IF(approval_sinkron_dit='Approved',1,0)) AS usulan_approve_ppn,
-		SUM(IF(approval_sinkron_dit='Reject',1,0)) AS usulan_reject_ppn,
+		SUM(IF(approval_sinkron_dit='Rejected',1,0)) AS usulan_reject_ppn,
 		SUM(IF(approval_sinkron_dit='Discuss',1,0)) AS usulan_discuss_ppn,
 		SUM(IF(approval_sinkron_sum='Approved',1,0)) AS usulan_approve_sinkron,
-		SUM(IF(approval_sinkron_sum='Reject',1,0)) AS usulan_reject_sinkron,
+		SUM(IF(approval_sinkron_sum='Rejected',1,0)) AS usulan_reject_sinkron,
 		SUM(IF(approval_sinkron_sum='Discuss',1,0)) AS usulan_discuss_sinkron,
 		SUM(IF(approval_sinkron_kl='Approved',usulan_sinkron_kl,0)) AS nilai_approve_kl,
-		SUM(IF(approval_sinkron_kl='Reject',usulan_sinkron_kl,0)) AS nilai_reject_kl,
+		SUM(IF(approval_sinkron_kl='Rejected',usulan_sinkron_kl,0)) AS nilai_reject_kl,
 		SUM(IF(approval_sinkron_kl='Discuss',usulan_sinkron_kl,0)) AS nilai_discuss_kl,
 		SUM(IF(approval_sinkron_dit='Approved',usulan_sinkron_dit,0)) AS nilai_approve_ppn,
-		SUM(IF(approval_sinkron_dit='Reject',usulan_sinkron_dit,0)) AS nilai_reject_ppn,
+		SUM(IF(approval_sinkron_dit='Rejected',usulan_sinkron_dit,0)) AS nilai_reject_ppn,
 		SUM(IF(approval_sinkron_dit='Discuss',usulan_sinkron_dit,0)) AS nilai_discuss_ppn,
 		SUM(IF(approval_sinkron_sum='Approved',usulan_sinkron_pusat,0)) AS nilai_approve_sinkron,
-		SUM(IF(approval_sinkron_sum='Reject',usulan_sinkron_kl,0)) AS nilai_reject_sinkron,
+		SUM(IF(approval_sinkron_sum='Rejected',usulan_sinkron_kl,0)) AS nilai_reject_sinkron,
 		SUM(IF(approval_sinkron_sum='Discuss',usulan_sinkron_pusat,0)) AS nilai_discuss_sinkron FROM data_krisna_siap WHERE pengusul_nama='$nmKab' AND bidang='$nmBidang' AND ta=$ta GROUP BY pengusul_nama";
 
 		return $this->db->query($qry)->row();
+	}
+
+
+	public function getDataKabKota($kdlokasi=null)
+	{
+		$qry = "SELECT mid(kdsatker,5,2) as kdkabkota, nmkabkota FROM d009_dak_awal where mid(kdsatker,3,2)='$kdlokasi' and right(kdsatker,2)<>'00'";
+		return $this->db->query($qry)->result();
 	}
 
 
