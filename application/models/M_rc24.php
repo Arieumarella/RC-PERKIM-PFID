@@ -66,14 +66,13 @@ class M_rc24 extends CI_Model {
 
 			}else{
 				$qry = "SELECT nmkec, nmdesa, a.* FROM 
-				(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdlokasi_penginput = '00' ) AS a
+				(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdlokasi_penginput='00' ) AS a
 				LEFT JOIN t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec
 				LEFT JOIN t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa ";
 			}
 
 			
 		}
-
 
 		return $this->db->query($qry)->result();
 	}
@@ -169,6 +168,8 @@ class M_rc24 extends CI_Model {
 
 		}
 
+
+		
 		return $this->db->query($qry)->result();
 	}
 
@@ -264,7 +265,7 @@ class M_rc24 extends CI_Model {
 
 				if($kdkabkota == '00'){
 					$qry = "SELECT nmkec,nmdesa,a.* FROM 
-					(SELECT * FROM t_rc_san_ipal WHERE kdkabkota_penginput=$kdssatker) AS a
+					(SELECT * FROM t_rc_san_pembangunan_baru WHERE kdkabkota_penginput=$kdssatker) AS a
 					LEFT JOIN
 					t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
 					LEFT JOIN
@@ -273,7 +274,7 @@ class M_rc24 extends CI_Model {
 				}else{
 
 					$qry = "SELECT nmkec,nmdesa,a.* FROM 
-					(SELECT * FROM t_rc_san_ipal WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdkabkota_penginput='') AS a
+					(SELECT * FROM t_rc_san_pembangunan_baru WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' and kdkabkota_penginput='') AS a
 					LEFT JOIN
 					t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec 
 					LEFT JOIN
