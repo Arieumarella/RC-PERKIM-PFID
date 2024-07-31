@@ -65,10 +65,19 @@ class M_rc24 extends CI_Model {
 
 
 			}else{
-				$qry = "SELECT nmkec, nmdesa, a.* FROM 
-				(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdlokasi_penginput='00' ) AS a
-				LEFT JOIN t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec
-				LEFT JOIN t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa ";
+
+				if ($kdkabkota == '00') {
+					$qry = "SELECT nmkec, nmdesa, a.* FROM 
+					(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdlokasi_penginput='00' ) AS a
+					LEFT JOIN t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec
+					LEFT JOIN t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa ";
+				}else{
+					$qry = "SELECT nmkec, nmdesa, a.* FROM 
+					(SELECT * FROM t_rc_am WHERE kdlokasi='$kdlokasi' AND kdkabkota='$kdkabkota' ) AS a
+					LEFT JOIN t_kec2 AS b ON a.kdlokasi=b.kdlokasi AND a.kdkabkota=b.kdkabkota AND a.kdkec=b.kdkec
+					LEFT JOIN t_desa2 AS c ON a.kdlokasi=c.kdlokasi AND a.kdkabkota=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa ";
+				}
+				
 			}
 
 			
