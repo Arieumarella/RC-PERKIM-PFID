@@ -1166,7 +1166,7 @@ class SAN extends CI_Controller {
 			'legalitas_pembangunanBaru_edit' => 'Bukti legalitas lahan untuk TPS 3R',
 			'bp_pembangunanBaru_edit' => 'Konsep Business Plan pengelolaan TPS 3R pasca konstruksi',
 			'penerima_manfaat_pembangunanBaru_edit' => 'Daftar calon penerima manfaat TPS 3R minimal 200 KK',
-			'ba_warga_edit' => 'Berita Acara Kesepakatan Warga',
+			'ba_warga' => 'Berita Acara Kesepakatan Warga',
 			'kesepakatan_oprasi_pemeliharan_edit' => 'Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan',
 			'surat_dinas_hidup_edit' => 'Surat dukungan Dinas Lingkungan Hidup',
 			'justifikasi_TPS_peningkatan_edit' => 'Justifikasi Peningkatan atau Rehabilitasi TPS3R',
@@ -1261,7 +1261,7 @@ class SAN extends CI_Controller {
 						$dataInsert['penerima_manfaat_pembangunanBaru'] = $fullPath;
 					}
 
-					if ($key == 'ba_warga_edit') {
+					if ($key == 'ba_warga') {
 						$dataInsert['ba_warga'] = $fullPath;
 					}
 

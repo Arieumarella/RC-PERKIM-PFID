@@ -53,7 +53,7 @@ class PPKT extends CI_Controller {
 				'tittle' => 'PPKT',
 				'tittle_header' => 'PPKT',
 				'content' => 'PPKT',
-				'dataTabel' => $this->M_PPKT->getDataTabelPPKT($kdsatker),
+				'dataTabel' => $this->M_PPKT->getDataTabelPPKTPemda($kdlokasi, $kdkabkota),
 				'dataKecamatan' => $this->M_dinamis->getResult('t_kec2', ['kdlokasi' => $kdlokasi, 'kdkabkota' => $kdkabkota])
 			);
 

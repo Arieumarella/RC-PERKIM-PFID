@@ -37,6 +37,18 @@ class M_PPKT extends CI_Model {
 	}
 
 
+	public function getDataTabelPPKTPemda($kdlokasi, $kdkabkota)
+	{
+		$ta = $this->session->userdata('thang');
+
+		$qry = "SELECT nmkec,nmdesa,a.* FROM (SELECT * FROM t_rc_ppkt WHERE mid(kdsatker,3,2)='$kdlokasi' and mid(kdsatker,5,2)='$kdkabkota' and ta=$ta) AS a
+		LEFT JOIN (SELECT * FROM t_kec2) AS b ON MID(a.kdsatker,3,2)=b.kdlokasi AND MID(a.kdsatker,5,2)=b.kdkabkota AND a.kdkec=b.kdkec
+		LEFT JOIN (SELECT * FROM t_desa2) AS c ON MID(a.kdsatker,3,2)=c.kdlokasi AND MID(a.kdsatker,5,2)=c.kdkabkota AND a.kdkec=c.kdkec AND a.kddesa=c.kddesa";
+
+		return $this->db->query($qry)->result();
+	}
+
+
 	public function getDataPPKTDokumen($id)
 	{
 		$id = clean($id);
