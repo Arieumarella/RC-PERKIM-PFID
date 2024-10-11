@@ -65,7 +65,26 @@ class KonregAM extends CI_Controller {
 		echo json_encode($data);
 	}
 
-	public function FunctionName($value='')
+
+	public function getDataBaAm()
+	{
+		
+		$kdlokasi = clean($this->input->post('kdlokasi'));
+		$kdkabkota = clean($this->input->post('kdkabkota'));
+		$tematik = clean($this->input->post('tematik'));
+		$kdsatker = $kdkabkota;
+		$ta = $this->session->userdata('thang');
+		$select = '';
+
+		$dataAwal = $this->M_dinamis->getById('t_data_konreg_am', ['kdsatker' => $kdsatker, 'ta' => $ta]);
+		$dataBody = $this->M_dinamis->getById('t_data_ba_konreg_am', ['kdsatker' => $kdsatker, 'ta' => $ta]);
+
+		echo json_encode(['code' => 200, 'dataAwal' => $dataAwal, 'dataBody' => $dataBody]);
+
+	}
+
+
+	public function simpanBaKonregAM($value='')
 	{
 		$paguAlokasitotalhidde = $this->input->post('paguAlokasitotalhidde');
 		$minApproveHeaderHedden = $this->input->post('minApproveHeaderHedden');
@@ -102,6 +121,49 @@ class KonregAM extends CI_Controller {
 		$catatanAll = $this->input->post('catatanAll');
 		$kdPersentase = $this->input->post('kdPersentase');
 
+
+		$dataInsert = array(
+			'paguAlokasi' => $paguAlokasitotalhidde,
+			'minApprove' => $minApproveHeaderHedden,
+			'maxPenunjang' => $maxPenunjangHedden,
+			'kdsatker' => $kdsatkerHidden,
+			'kdTematik' => $kdTematikHidden,
+			'nilaiFisik' => $nilaiFisik,
+			'catatFisik' => $catatFisik,
+			'checkOutput' => $checkOutput,
+			'catatOutput' => $catatOutput,
+			'checkKomponen' => $checkKomponen,
+			'catatKomponen' => $catatKomponen,
+			'nilaiPenunjang' => $nilaiPenunjang,
+			'checkPenunjang' => $checkPenunjang,
+			'rincianKegiatan' => $rincianKegiatan,
+			'fisikPenunjang' => $fisikPenunjang,
+			'fisikPenunjangCatat' => $fisikPenunjangCatat,
+			'checkSPTJM' => $checkSPTJM,
+			'catatSptjm' => $catatSptjm,
+			'checkRispam' => $checkRispam,
+			'catatRispam' => $catatRispam,
+			'checkDed' => $checkDed,
+			'dedCatat' => $dedCatat,
+			'checkRab' => $checkRab,
+			'rabCatat' => $rabCatat,
+			'checkIpa' => $checkIpa,
+			'ipaCatat' => $ipaCatat,
+			'checkRds' => $checkRds,
+			'rdsCatat' => $rdsCatat,
+			'checkPdam' => $checkPdam,
+			'pdamCatat' => $pdamCatat,
+			'checkPks' => $checkPks,
+			'pksCatat' => $pksCatat,
+			'catatanAll' => $catatanAll,
+			'kdPersentase' => $kdPersentase,
+			'ta' => $this->session->userdata('thang')
+		);
+
+		$this->M_dinamis->delete('t_data_ba_konreg_am', ['kdsatker' => $kdsatkerHidden, 'ta' => $this->session->userdata('thang')]);
+		$pros = $this->M_dinamis->save('t_data_ba_konreg_am', $dataInsert);
+
+		echo json_encode(['code' => ($pros) ? 200 :500]);
 		
 	}
 	
