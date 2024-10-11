@@ -150,68 +150,66 @@
 
       <?php 
 
-      $dataTittle = ['BA Konsultasi Program AM'];
+      $dataTittle = ['BA Konsultasi Program AM', 'BA Konsultasi Program Sanitasi'];
 
       ?>
 
-      <li class="nav-item dropdown <?= in_array($tittle, $dataTittle) ? 'active show':''; ?>">
-        <a class="nav-link dropdown-toggle <?= in_array($tittle, $dataTittle) ? 'show':''; ?>" href="#navbar-base" data-bs-toggle="dropdown">
-          <span class="nav-link-icon d-md-none d-lg-inline-block">
-            <i class="fas fa-stream"></i>
-          </span>
-
-          <span class="material-symbols-outlined">
-
-          </span>
-
-          <span class="nav-link-title">
-            Konsultasi Program
-          </span>
-        </a>
-        <div class="dropdown-menu <?= $tittle == 'BA Konsultasi Program AM' ? 'show':''; ?>">
-          <div class="dropdown-menu-columns">
-            <div class="dropdown-menu-column">
-              <a class="dropdown-item" href="<?= base_url(); ?>KonregAM">
-                BA Air Minum
-              </a>
-            </div>
-          </div>
-        </div>
-      </li>
-
-    <?php } ?>
-
-    
-    <?php if ($this->session->userdata('rkdak_user') == 'perkimpfid') { ?>
-
-      <li class="nav-item <?= $tittle == 'User' ? 'active':''; ?>">
-        <a class="nav-link <?= $tittle == 'User' ? 'active':''; ?>" href="<?= base_url(); ?>Users" >
-          <span class="nav-link-icon d-md-none d-lg-inline-block ">
-            <i class="fas fa-users"></i>
-          </span>
-          <span class="nav-link-title">
-            Users
-          </span>
-        </a>
-      </li>
-
-    <?php } ?>
-
-    
-
-    <li class="nav-item">
-      <a class="nav-link" href="<?= base_url(); ?>Login/Logout" >
-        <span class="nav-link-icon d-md-none d-lg-inline-block ">
-          <i class="fas fa-sign-out-alt"></i>
+      <li class="nav-item <?= in_array($tittle, $dataTittle) ? 'active':''; ?> dropdown">
+        <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true" >
+         <span class="nav-link-icon d-md-none d-lg-inline-block">
+          <i class="fas fa-stream"></i>
         </span>
         <span class="nav-link-title">
-          Logout
+          Konsultasi Program
+        </span>
+      </a>
+      <div class="dropdown-menu <?= in_array($tittle, $dataTittle) ? 'show':''; ?>">
+        <div class="dropdown-menu-columns">
+          <div class="dropdown-menu-column">
+            <a class="dropdown-item <?= $tittle == 'BA Konsultasi Program AM' ? 'active':''; ?>" href="<?= base_url(); ?>KonregAM" >
+              BA Air Minum
+            </a>
+            <a class="dropdown-item <?= $tittle == 'BA Konsultasi Program Sanitasi' ? 'active':''; ?>" href="<?= base_url(); ?>KonregSAN" >
+              BA Sanitasi
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+
+  <?php } ?>
+
+
+  <?php if ($this->session->userdata('rkdak_user') == 'perkimpfid') { ?>
+
+    <li class="nav-item <?= $tittle == 'User' ? 'active':''; ?>">
+      <a class="nav-link <?= $tittle == 'User' ? 'active':''; ?>" href="<?= base_url(); ?>Users" >
+        <span class="nav-link-icon d-md-none d-lg-inline-block ">
+          <i class="fas fa-users"></i>
+        </span>
+        <span class="nav-link-title">
+          Users
         </span>
       </a>
     </li>
 
+  <?php } ?>
 
-  </ul>
+
+
+  <li class="nav-item">
+    <a class="nav-link" href="<?= base_url(); ?>Login/Logout" >
+      <span class="nav-link-icon d-md-none d-lg-inline-block ">
+        <i class="fas fa-sign-out-alt"></i>
+      </span>
+      <span class="nav-link-title">
+        Logout
+      </span>
+    </a>
+  </li>
+
+
+</ul>
 </div>
 </div>
 </aside>
