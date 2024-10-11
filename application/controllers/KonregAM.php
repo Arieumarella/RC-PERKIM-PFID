@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use Dompdf\Dompdf;
+
 class KonregAM extends CI_Controller {
 
 	public function __construct() {
@@ -77,7 +79,7 @@ class KonregAM extends CI_Controller {
 		$select = '';
 
 		$dataAwal = $this->M_dinamis->getById('t_data_konreg_am', ['kdsatker' => $kdsatker, 'ta' => $ta]);
-		$dataBody = $this->M_dinamis->getById('t_data_ba_konreg_am', ['kdsatker' => $kdsatker, 'ta' => $ta]);
+		$dataBody = $this->M_dinamis->getById('t_data_ba_konreg_am', ['kdsatker' => $kdsatker, 'kdTematik' => $tematik, 'ta' => $ta]);
 
 		echo json_encode(['code' => 200, 'dataAwal' => $dataAwal, 'dataBody' => $dataBody]);
 
@@ -160,11 +162,67 @@ class KonregAM extends CI_Controller {
 			'ta' => $this->session->userdata('thang')
 		);
 
-		$this->M_dinamis->delete('t_data_ba_konreg_am', ['kdsatker' => $kdsatkerHidden, 'ta' => $this->session->userdata('thang')]);
+		$this->M_dinamis->delete('t_data_ba_konreg_am', ['kdsatker' => $kdsatkerHidden, 'kdTematik' => $kdTematikHidden, 'ta' => $this->session->userdata('thang')]);
 		$pros = $this->M_dinamis->save('t_data_ba_konreg_am', $dataInsert);
 
 		echo json_encode(['code' => ($pros) ? 200 :500]);
 		
+	}
+
+
+	public function prsCetakBaAM()
+	{
+		$kdsatkerBa = $this->input->post('kdsatkerBa'); 
+		$tematikBa = $this->input->post('tematikBa');
+		$peserta = $this->input->post('peserta');
+		$noTlp = $this->input->post('noTlp');
+		$ttdDaerah = $this->input->post('ttdDaerah');
+		$jabatanttdDaerah = $this->input->post('jabatanttdDaerah');
+		$balai = $this->input->post('balai');
+		$jabatanBalai = $this->input->post('jabatanBalai');
+		$ck1 = $this->input->post('ck1');
+		$jabatanCk1 = $this->input->post('jabatanCk1');
+		$ck2 = $this->input->post('ck2');
+		$jabatanCk2 = $this->input->post('jabatanCk2');
+		$Pfid = $this->input->post('Pfid');
+		$jabatanPfid = $this->input->post('jabatanPfid');
+		$ta = $this->session->userdata('thang');
+
+		$tmp = array(
+			'kdsatkerBa'  => $kdsatkerBa,
+			'tematikBa' => $tematikBa,
+			'peserta' => $peserta,
+			'noTlp' => $noTlp,
+			'ttdDaerah' => $ttdDaerah,
+			'jabatanttdDaerah' => $jabatanttdDaerah,
+			'balai' => $balai,
+			'jabatanBalai' => $jabatanBalai,
+			'ck1' => $ck1,
+			'nmProvinsi' => $this->M_dinamis->getById('t_data_konreg_am', ['kdsatker' => $kdsatkerBa, 'ta' => $ta])->nmlokasi,
+			'NmKabKota' => $this->M_dinamis->getById('t_data_konreg_am', ['kdsatker' => $kdsatkerBa, 'ta' => $ta])->nmkabkota,
+			'jabatanCk1' => $jabatanCk1,
+			'ck2' => $ck2,
+			'jabatanCk2' => $jabatanCk2,
+			'Pfid' => $Pfid,
+			'jabatanPfid' => $jabatanPfid,
+			'dataTabel' => $this->M_dinamis->getById('t_data_ba_konreg_am', ['kdsatker' => $kdsatkerBa, 'KdTematik' => clean($tematikBa)]),
+			'dataHeader' => $this->M_dinamis->getById('t_data_konreg_am', ['kdsatker' => $kdsatkerBa, 'ta' => $ta]),
+			'ta' => $this->session->userdata('thang')
+		);
+
+
+
+		$html= $this->load->view('ModuleSimoni/pdfkonregAM', $tmp, TRUE);
+
+		$dompdf = new Dompdf();
+		$dompdf->set_option('isHtml5ParserEnabled', true);
+		$dompdf->set_option('isRemoteEnabled', true);
+		$dompdf->setPaper('A4', 'portrait'); 
+		$dompdf->loadHtml($html);
+		$dompdf->render();
+		$pdf_content = $dompdf->output();
+		ob_end_clean();
+		$dompdf->stream('BA_pdf.pdf', array('Attachment' => 0));
 	}
 	
 

@@ -390,44 +390,125 @@
             </div>
 
 
-            <script type="text/javascript">
-              $(document).ready(function() {
+            <div class="modal modal-blur fade" id="modalCetakBa" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Cetak Berita Acara Bidang Air Minum</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="<?= base_url(); ?>KonregAM/prsCetakBaAM" method="POST">
+                      <input type="hidden" name="kdsatkerBa" id="kdsatkerBa">
+                      <input type="hidden" name="tematikBa" id="tematikBa">
+                      <div class="row">
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Nama Peserta</label>
+                          <input type="text" class="form-control" name="peserta" placeholder="Nama Peserta." required>
+                        </div>
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Nomor Telepon Peserta</label>
+                          <input type="text" class="form-control" name="noTlp" placeholder="Nomor Telepon Peserta." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
+                        </div>
+                      </div>
+
+                      <hr class="mt-2 mb-2">
+
+                      <div class="row">
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Penanda Tangan Daerah</label>
+                          <input type="text" class="form-control" name="ttdDaerah" placeholder="Nama Penanda Tangan Daerah." required>
+                        </div>
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Jabatan Penanda Tangan Daerah</label>
+                          <input type="text" class="form-control" name="jabatanttdDaerah" placeholder="Jabatan Penanda Tangan Daerah." required>
+                        </div>
+
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Name Petugas Balai</label>
+                          <input type="text" class="form-control" name="balai" placeholder="Nama Petugas Balai." required>
+                        </div>
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Jabatan Petugas Balai</label>
+                          <input type="text" class="form-control" name="jabatanBalai" placeholder="Jabatan Petugas Balai." required>
+                        </div>
+
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Name Petugas Ditjen CK 1</label>
+                          <input type="text" class="form-control" name="ck1" placeholder="Nama Petugas Ditjen CK." required>
+                        </div>
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Jabatan Petugas Ditjen CK 1</label>
+                          <input type="text" class="form-control" name="jabatanCk1" placeholder="Jabatan Ditjen CK." required>
+                        </div>
+
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Name Petugas Ditjen CK 2</label>
+                          <input type="text" class="form-control" name="ck2" placeholder="Nama Petugas Ditjen CK." required>
+                        </div>
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Jabatan Petugas Ditjen CK 2</label>
+                          <input type="text" class="form-control" name="jabatanCk2" placeholder="Jabatan Ditjen CK." required>
+                        </div>
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Name Petugas PFID</label>
+                          <input type="text" class="form-control" name="Pfid" placeholder="Nama Petugas PFID." required>
+                        </div>
+                        <div class="mb-3 col-6">
+                          <label class="form-label">Jabatan Petugas PFID</label>
+                          <input type="text" class="form-control" name="jabatanPfid" placeholder="Jabatan PFID." required>
+                        </div>
+                      </div>
+                      <div class="modal-footer ms-auto">
+                        <a href="#" class="btn btn-secondary" data-bs-dismiss="modal">
+                          Cancel
+                        </a>
+                        <button class="btn btn-primary" type="submit">Simpan</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <script type="text/javascript">
+                $(document).ready(function() {
 
                 // Show Data
-                getDataTableConten = function () {
+                  getDataTableConten = function () {
 
-                  let kdlokasi = $("#provinsi option:selected").val(),
-                  kdkabkota =  $("#kabkota option:selected").val(),
-                  tematik = $("#tematik option:selected").val();
+                    let kdlokasi = $("#provinsi option:selected").val(),
+                    kdkabkota =  $("#kabkota option:selected").val(),
+                    tematik = $("#tematik option:selected").val();
 
-
-                  // Masukan Value Hidden
-                  kdkabkotaX = kdkabkota.slice(0, 6);
-                  $('#kdTematikHidden').val(tematik);
-                  $('#kdsatkerHidden').val(kdkabkotaX+'03');
 
                   // Masukan Value Hidden
-                  if (kdkabkota == '') {
-                    t_error('Silakan Pilih Provinsi/kabupaten Kota Terlebih Dahulu.!')
-                    return;
-                  }
+                    kdkabkotaX = kdkabkota.slice(0, 6);
+                    $('#kdTematikHidden').val(tematik);
+                    $('#kdsatkerHidden').val(kdkabkotaX+'03');
 
-                  if (tematik == '') {
-                    t_error('Silakan Pilih Tematik.!')
-                    return;
-                  }
+                  // Masukan Value Hidden
+                    if (kdkabkota == '') {
+                      t_error('Silakan Pilih Provinsi/kabupaten Kota Terlebih Dahulu.!')
+                      return;
+                    }
 
-                  $.LoadingOverlay("show");
+                    if (tematik == '') {
+                      t_error('Silakan Pilih Tematik.!')
+                      return;
+                    }
 
-                  ajaxUntukSemua(base_url()+'KonregAM/getDataBaAm', {kdlokasi, kdkabkota, tematik}, function(data) {
+                    $.LoadingOverlay("show");
+
+                    ajaxUntukSemua(base_url()+'KonregAM/getDataBaAm', {kdlokasi, kdkabkota, tematik}, function(data) {
 
 
                     // Set provinsi 
-                    $('#provHeader').text($('#provinsi option:selected').text());
+                      $('#provHeader').text($('#provinsi option:selected').text());
                     // End Set Provinsi
 
                     // Set kabupaten/Kota
-                    $('#kabKotaHeader').text($('#kabkota option:selected').text());
+                      $('#kabKotaHeader').text($('#kabkota option:selected').text());
                     // End Set kabupaten/Kota
 
 
@@ -435,215 +516,215 @@
 
 
                     // Non tematik
-                    if (tematik == '1') {
+                      if (tematik == '1') {
 
-                      $('#icon-rispam').text('Non Tematik');
+                        $('#icon-rispam').text('Non Tematik');
 
-                      $('#paguAlokasiTot').text(data.dataAwal.ld_total == 0 ? 0 : formatAngka(data.dataAwal.ld_total));
-                      $('#paguAlokasitotalhidde').val(data.dataAwal.ld_total);
+                        $('#paguAlokasiTot').text(data.dataAwal.ld_total == 0 ? 0 : formatAngka(data.dataAwal.ld_total));
+                        $('#paguAlokasitotalhidde').val(data.dataAwal.ld_total);
 
-                      $('#paguAlokasiPemda').text('Rp. '+ data.dataAwal.ld_alokasi_pemda == 0 ? '-' : formatAngka(data.dataAwal.ld_alokasi_pemda));
+                        $('#paguAlokasiPemda').text('Rp. '+ data.dataAwal.ld_alokasi_pemda == 0 ? '-' : formatAngka(data.dataAwal.ld_alokasi_pemda));
 
-                      $('#paguAspirasi').text('Rp. '+ data.dataAwal.ld_alokasi_dpr == 0 ? '-' : formatAngka(data.dataAwal.ld_alokasi_dpr));
+                        $('#paguAspirasi').text('Rp. '+ data.dataAwal.ld_alokasi_dpr == 0 ? '-' : formatAngka(data.dataAwal.ld_alokasi_dpr));
 
-                      $('#minApproveHeader').text(data.dataAwal.ld_min_approve == 0 ? 0 : formatAngka(data.dataAwal.ld_min_approve));
-                      $('#minApproveHeaderHedden').val(data.dataAwal.ld_min_approve);
+                        $('#minApproveHeader').text(data.dataAwal.ld_min_approve == 0 ? 0 : formatAngka(data.dataAwal.ld_min_approve));
+                        $('#minApproveHeaderHedden').val(data.dataAwal.ld_min_approve);
 
-                      $('#MaxApproveHeader').text(data.dataAwal.ld_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.ld_max_penunjang) );
-                      $('#maxPenunjangHedden').val(data.dataAwal.ld_max_penunjang);
+                        $('#MaxApproveHeader').text(data.dataAwal.ld_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.ld_max_penunjang) );
+                        $('#maxPenunjangHedden').val(data.dataAwal.ld_max_penunjang);
 
 
-                    }
+                      }
                    // End Non tematik
 
                     // Tematik PPKT
-                    if (tematik == '2') {
-                      $('#icon-rispam').text('Tematik PPKT');
-                      $('#paguAlokasiTot').text(data.dataAwal.kt_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.kt_alokasi_pemda));
-                      $('#paguAlokasitotalhidde').val(data.dataAwal.kt_alokasi_pemda);
+                      if (tematik == '2') {
+                        $('#icon-rispam').text('Tematik PPKT');
+                        $('#paguAlokasiTot').text(data.dataAwal.kt_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.kt_alokasi_pemda));
+                        $('#paguAlokasitotalhidde').val(data.dataAwal.kt_alokasi_pemda);
 
 
-                      $('#paguAlokasiPemda').text(data.dataAwal.kt_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.kt_alokasi_pemda));
+                        $('#paguAlokasiPemda').text(data.dataAwal.kt_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.kt_alokasi_pemda));
 
-                      $('#paguAspirasi').text('Rp. -');
+                        $('#paguAspirasi').text('Rp. -');
 
-                      $('#minApproveHeader').text(data.dataAwal.kt_min_approve == 0 ? 0 : formatAngka(data.dataAwal.kt_min_approve) );
-                      $('#minApproveHeaderHedden').val(data.dataAwal.kt_min_approve);
+                        $('#minApproveHeader').text(data.dataAwal.kt_min_approve == 0 ? 0 : formatAngka(data.dataAwal.kt_min_approve) );
+                        $('#minApproveHeaderHedden').val(data.dataAwal.kt_min_approve);
 
 
-                      $('#MaxApproveHeader').text(data.dataAwal.kt_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.kt_max_penunjang));
-                      $('#maxPenunjangHedden').val(data.dataAwal.kt_max_penunjang);
+                        $('#MaxApproveHeader').text(data.dataAwal.kt_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.kt_max_penunjang));
+                        $('#maxPenunjangHedden').val(data.dataAwal.kt_max_penunjang);
 
-                    }
+                      }
                    // End Tematik PPKT
 
 
                     // Tematik PE-RPKI
-                    if (tematik == '3') {
-                      $('#icon-rispam').text('Tematik PE-RPKI');
-                      $('#paguAlokasiTot').text(data.dataAwal.ki_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.ki_alokasi_pemda));
-                      $('#paguAlokasitotalhidde').val(data.dataAwal.ki_alokasi_pemda);
+                      if (tematik == '3') {
+                        $('#icon-rispam').text('Tematik PE-RPKI');
+                        $('#paguAlokasiTot').text(data.dataAwal.ki_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.ki_alokasi_pemda));
+                        $('#paguAlokasitotalhidde').val(data.dataAwal.ki_alokasi_pemda);
 
 
-                      $('#paguAlokasiPemda').text(data.dataAwal.ki_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.ki_alokasi_pemda));
+                        $('#paguAlokasiPemda').text(data.dataAwal.ki_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.ki_alokasi_pemda));
 
-                      $('#paguAspirasi').text('Rp. -');
+                        $('#paguAspirasi').text('Rp. -');
 
-                      $('#minApproveHeader').text(data.dataAwal.ki_min_approve == 0 ? 0 : formatAngka(data.dataAwal.ki_min_approve) );
-                      $('#minApproveHeaderHedden').val(data.dataAwal.ki_min_approve);
+                        $('#minApproveHeader').text(data.dataAwal.ki_min_approve == 0 ? 0 : formatAngka(data.dataAwal.ki_min_approve) );
+                        $('#minApproveHeaderHedden').val(data.dataAwal.ki_min_approve);
 
 
-                      $('#MaxApproveHeader').text(data.dataAwal.ki_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.ki_max_penunjang));
-                      $('#maxPenunjangHedden').val(data.dataAwal.ki_max_penunjang);
+                        $('#MaxApproveHeader').text(data.dataAwal.ki_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.ki_max_penunjang));
+                        $('#maxPenunjangHedden').val(data.dataAwal.ki_max_penunjang);
 
-                    }
+                      }
                    // End Tematik PE-RPKI
 
 
-                    
+
                      // End Set Pagu header
 
                     // Set Data Table
-                    if (data.dataBody != null) {
+                      if (data.dataBody != null) {
 
                        // Set Alokasi Pemda
-                      let alokasiTotal = '';
+                        let alokasiTotal = '';
 
-                      if (tematik == '1') {
-                        alokasiTotal = data.dataAwal.ld_total;
-                      }
+                        if (tematik == '1') {
+                          alokasiTotal = data.dataAwal.ld_total;
+                        }
 
-                      if (tematik == '2') {
-                        alokasiTotal = data.dataAwal.kt_alokasi_pemda;
-                      }
+                        if (tematik == '2') {
+                          alokasiTotal = data.dataAwal.kt_alokasi_pemda;
+                        }
 
-                      if (tematik == '3') {
-                        alokasiTotal = data.dataAwal.ki_alokasi_pemda;
-                      }
+                        if (tematik == '3') {
+                          alokasiTotal = data.dataAwal.ki_alokasi_pemda;
+                        }
                       // End Set Alokasi Pemda
 
                       // Set statsu kegiatan fisik
-                      if (Number(data.dataBody.nilaiFisik) < Number(alokasiTotal)) {
-                        $('#sts_fisik').text('OK');
-                      }else{
-                        $('#sts_fisik').text('NOT OK');
-                      }
+                        if (Number(data.dataBody.nilaiFisik) < Number(alokasiTotal)) {
+                          $('#sts_fisik').text('OK');
+                        }else{
+                          $('#sts_fisik').text('NOT OK');
+                        }
                        // End Set statsu kegiatan fisik
 
-                      $('#persentase').text(((Number(data.dataBody.nilaiPenunjang)/Number(data.dataBody.fisikPenunjang))*100).toFixed(4)+' %');
+                        $('#persentase').text(((Number(data.dataBody.nilaiPenunjang)/Number(data.dataBody.fisikPenunjang))*100).toFixed(4)+' %');
 
 
 
-                      let totalPenunjangFisik = Number(data.dataBody.fisikPenunjang);
+                        let totalPenunjangFisik = Number(data.dataBody.fisikPenunjang);
 
 
 
                       // Set Max Alokasi Penunjang
-                      let alokasiPenunjang = '';
+                        let alokasiPenunjang = '';
 
 
-                      if (tematik == '1') {
-                        alokasiPenunjang = data.dataAwal.ld_max_penunjang;
-                      }
+                        if (tematik == '1') {
+                          alokasiPenunjang = data.dataAwal.ld_max_penunjang;
+                        }
 
-                      if (tematik == '2') {
-                        alokasiPenunjang = data.dataAwal.kt_max_penunjang;
-                      }
+                        if (tematik == '2') {
+                          alokasiPenunjang = data.dataAwal.kt_max_penunjang;
+                        }
 
-                      if (tematik == '3') {
-                        alokasiPenunjang = data.dataAwal.ki_max_penunjang;
-                      }
+                        if (tematik == '3') {
+                          alokasiPenunjang = data.dataAwal.ki_max_penunjang;
+                        }
                       // End Set Max Alokasi Penunjang
 
 
-                      let penujangPerbandingan = data.dataBody.nilaiPenunjang;
+                        let penujangPerbandingan = data.dataBody.nilaiPenunjang;
 
-                      if (totalPenunjangFisik > alokasiTotal) {
-                        $('#stsNilaiFisikPenunajng').text('Not Ok');
+                        if (totalPenunjangFisik > alokasiTotal) {
+                          $('#stsNilaiFisikPenunajng').text('Not Ok');
+                        }else{
+                          $('#stsNilaiFisikPenunajng').text('Ok');
+                        }
+
+
+                        if (penujangPerbandingan > alokasiPenunjang) {
+                          $('#kegaiatanStatus').text('Not Ok');
+                        }else{
+                          $('#kegaiatanStatus').text('Ok');
+                        }
+
+
+                        $('#nilaiFisik').val(data.dataBody.nilaiFisik);
+                        $('#catatFisik').val(data.dataBody.catatFisik);
+                        $('input[type="checkbox"][name="checkOutput"][id="checkOutput"]').prop('checked', data.dataBody.checkOutput == 'on' ? true:false);
+                        $('#catatOutput').val(data.dataBody.catatOutput);
+                        $('input[type="checkbox"][id="checkKomponen"]').prop('checked', data.dataBody.checkKomponen == 'on' ? true:false);
+                        $('#catatKomponen').val(data.dataBody.catatKomponen);
+                        $('#nilaiPenunjang').val(data.dataBody.nilaiPenunjang);
+                        $('input[type="checkbox"][id="checkPenunjang"]').prop('checked', data.dataBody.checkPenunjang == 'on' ? true:false);
+                        $('#rincianKegiatan').val(data.dataBody.rincianKegiatan);
+                        $('#fisikPenunjang').val(data.dataBody.fisikPenunjang);
+                        $('#fisikPenunjangCatat').val(data.dataBody.fisikPenunjangCatat);
+                        $('input[type="checkbox"][id="checkSPTJM"]').prop('checked', data.dataBody.checkSPTJM == 'on' ? true:false);
+                        $('#catatSptjm').val(data.dataBody.catatSptjm);
+                        $('input[type="checkbox"][id="checkRispam"]').prop('checked', data.dataBody.checkRispam == 'on' ? true:false);
+                        $('#catatRispam').val(data.dataBody.catatRispam);
+                        $('input[type="checkbox"][id="checkDed"]').prop('checked', data.dataBody.checkDed == 'on' ? true:false);
+                        $('#dedCatat').val(data.dataBody.dedCatat);
+                        $('input[type="checkbox"][id="checkRab"]').prop('checked', data.dataBody.checkRab == 'on' ? true:false);
+                        $('#rabCatat').val(data.dataBody.rabCatat);
+                        $('input[type="checkbox"][id="checkIpa"]').prop('checked', data.dataBody.checkIpa == 'on' ? true:false);
+                        $('#ipaCatat').val(data.dataBody.ipaCatat);
+                        $('input[type="checkbox"][id="checkRds"]').prop('checked', data.dataBody.checkRds == 'on' ? true:false);
+                        $('#rdsCatat').val(data.dataBody.rdsCatat);
+                        $('input[type="checkbox"][id="checkPdam"]').prop('checked', data.dataBody.checkPdam == 'on' ? true:false);
+                        $('#pdamCatat').val(data.dataBody.pdamCatat);
+                        $('input[type="checkbox"][id="checkPks"]').prop('checked', data.dataBody.checkPks == 'on' ? true:false);
+                        $('#pksCatat').val(data.dataBody.pksCatat);
+                        $('#catatanAll').val(data.dataBody.catatanAll);
+
+
                       }else{
-                        $('#stsNilaiFisikPenunajng').text('Ok');
+
+                        $('#persentase').text('');
+                        $('#sts_fisik').text('');
+                        $('#nilaiFisik').val('');
+                        $('#catatFisik').val('');
+                        $('#catatKomponen').val('');
+                        $('input[type="checkbox"][name="checkOutput"][id="checkOutput"]').prop('checked', false);
+                        $('#catatOutput').val('');
+                        $('input[type="checkbox"][id="checkKomponen"]').prop('checked', false);
+                        $('#nilaiPenunjang').val('');
+                        $('input[type="checkbox"][id="checkPenunjang"]').prop('checked', false);
+                        $('#rincianKegiatan').val('');
+                        $('#fisikPenunjang').val('');
+                        $('#fisikPenunjangCatat').val('');
+                        $('input[type="checkbox"][id="checkSPTJM"]').prop('checked', false);
+                        $('#catatSptjm').val('');
+                        $('input[type="checkbox"][id="checkRispam"]').prop('checked', false);
+                        $('#catatRispam').val('');
+                        $('input[type="checkbox"][id="checkDed"]').prop('checked', false);
+                        $('#dedCatat').val('');
+                        $('input[type="checkbox"][id="checkRab"]').prop('checked', false);
+                        $('#rabCatat').val('');
+                        $('input[type="checkbox"][id="checkIpa"]').prop('checked', false);
+                        $('#ipaCatat').val('');
+                        $('input[type="checkbox"][id="checkRds"]').prop('checked', false);
+                        $('#rdsCatat').val('');
+                        $('input[type="checkbox"][id="checkPdam"]').prop('checked', false);
+                        $('#pdamCatat').val('');
+                        $('input[type="checkbox"][id="checkPks"]').prop('checked', false);
+                        $('#pksCatat').val('');
+                        $('#catatanAll').val('');
                       }
-
-
-                      if (penujangPerbandingan > alokasiPenunjang) {
-                        $('#kegaiatanStatus').text('Not Ok');
-                      }else{
-                        $('#kegaiatanStatus').text('Ok');
-                      }
-
-
-                      $('#nilaiFisik').val(data.dataBody.nilaiFisik);
-                      $('#catatFisik').val(data.dataBody.catatFisik);
-                      $('input[type="checkbox"][name="checkOutput"][id="checkOutput"]').prop('checked', data.dataBody.checkOutput == 'on' ? true:false);
-                      $('#catatOutput').val(data.dataBody.catatOutput);
-                      $('input[type="checkbox"][id="checkKomponen"]').prop('checked', data.dataBody.checkKomponen == 'on' ? true:false);
-                      $('#catatKomponen').val(data.dataBody.catatKomponen);
-                      $('#nilaiPenunjang').val(data.dataBody.nilaiPenunjang);
-                      $('input[type="checkbox"][id="checkPenunjang"]').prop('checked', data.dataBody.checkPenunjang == 'on' ? true:false);
-                      $('#rincianKegiatan').val(data.dataBody.rincianKegiatan);
-                      $('#fisikPenunjang').val(data.dataBody.fisikPenunjang);
-                      $('#fisikPenunjangCatat').val(data.dataBody.fisikPenunjangCatat);
-                      $('input[type="checkbox"][id="checkSPTJM"]').prop('checked', data.dataBody.checkSPTJM == 'on' ? true:false);
-                      $('#catatSptjm').val(data.dataBody.catatSptjm);
-                      $('input[type="checkbox"][id="checkRispam"]').prop('checked', data.dataBody.checkRispam == 'on' ? true:false);
-                      $('#catatRispam').val(data.dataBody.catatRispam);
-                      $('input[type="checkbox"][id="checkDed"]').prop('checked', data.dataBody.checkDed == 'on' ? true:false);
-                      $('#dedCatat').val(data.dataBody.dedCatat);
-                      $('input[type="checkbox"][id="checkRab"]').prop('checked', data.dataBody.checkRab == 'on' ? true:false);
-                      $('#rabCatat').val(data.dataBody.rabCatat);
-                      $('input[type="checkbox"][id="checkIpa"]').prop('checked', data.dataBody.checkIpa == 'on' ? true:false);
-                      $('#ipaCatat').val(data.dataBody.ipaCatat);
-                      $('input[type="checkbox"][id="checkRds"]').prop('checked', data.dataBody.checkRds == 'on' ? true:false);
-                      $('#rdsCatat').val(data.dataBody.rdsCatat);
-                      $('input[type="checkbox"][id="checkPdam"]').prop('checked', data.dataBody.checkPdam == 'on' ? true:false);
-                      $('#pdamCatat').val(data.dataBody.pdamCatat);
-                      $('input[type="checkbox"][id="checkPks"]').prop('checked', data.dataBody.checkPks == 'on' ? true:false);
-                      $('#pksCatat').val(data.dataBody.pksCatat);
-                      $('#catatanAll').val(data.dataBody.catatanAll);
-
-
-                    }else{
-
-                      $('#persentase').text('');
-                      $('#sts_fisik').text('');
-                      $('#nilaiFisik').val('');
-                      $('#catatFisik').val('');
-                      $('#catatKomponen').val('');
-                      $('input[type="checkbox"][name="checkOutput"][id="checkOutput"]').prop('checked', false);
-                      $('#catatOutput').val('');
-                      $('input[type="checkbox"][id="checkKomponen"]').prop('checked', false);
-                      $('#nilaiPenunjang').val('');
-                      $('input[type="checkbox"][id="checkPenunjang"]').prop('checked', false);
-                      $('#rincianKegiatan').val('');
-                      $('#fisikPenunjang').val('');
-                      $('#fisikPenunjangCatat').val('');
-                      $('input[type="checkbox"][id="checkSPTJM"]').prop('checked', false);
-                      $('#catatSptjm').val('');
-                      $('input[type="checkbox"][id="checkRispam"]').prop('checked', false);
-                      $('#catatRispam').val('');
-                      $('input[type="checkbox"][id="checkDed"]').prop('checked', false);
-                      $('#dedCatat').val('');
-                      $('input[type="checkbox"][id="checkRab"]').prop('checked', false);
-                      $('#rabCatat').val('');
-                      $('input[type="checkbox"][id="checkIpa"]').prop('checked', false);
-                      $('#ipaCatat').val('');
-                      $('input[type="checkbox"][id="checkRds"]').prop('checked', false);
-                      $('#rdsCatat').val('');
-                      $('input[type="checkbox"][id="checkPdam"]').prop('checked', false);
-                      $('#pdamCatat').val('');
-                      $('input[type="checkbox"][id="checkPks"]').prop('checked', false);
-                      $('#pksCatat').val('');
-                      $('#catatanAll').val('');
-                    }
       // End Set data table 
 
-                    $.LoadingOverlay("hide");
+                      $.LoadingOverlay("hide");
 
 
-                  }, function(error) {
-                    console.log('Kesalahan:', error);
-                    t_error('Ada yg Error : '+error)
-                  });
+                    }, function(error) {
+                      console.log('Kesalahan:', error);
+                      t_error('Ada yg Error : '+error)
+                    });
 
           $("#container2").removeClass("d-none");
 
@@ -942,7 +1023,16 @@ $('#kabkota').change(function() {
   });
 
 });
-                  // End Pilih Kab/kota
+// End Pilih Kab/kota
+
+showCetakBa = function () {
+  let kdsatkerBa = $('#kdsatkerHidden').val(),
+  tematikBa = $('#kdTematikHidden').val();
+  $('#kdsatkerBa').val(kdsatkerBa);
+  $('#tematikBa').val(tematikBa);
+  $('#modalCetakBa').modal('show');
+}
+
 
 });
 </script>
