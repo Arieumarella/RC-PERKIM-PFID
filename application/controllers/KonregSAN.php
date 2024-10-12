@@ -76,10 +76,9 @@ class KonregSAN extends CI_Controller {
 		$tematik = clean($this->input->post('tematik'));
 		$kdsatker = $kdkabkota;
 		$ta = $this->session->userdata('thang');
-		$select = '';
 
 		$dataAwal = $this->M_dinamis->getById('t_data_konreg_san', ['kdsatker' => $kdsatker, 'ta' => $ta]);
-		$dataBody = $this->M_dinamis->getById('t_data_ba_konreg_am', ['kdsatker' => $kdsatker, 'kdTematik' => $tematik, 'ta' => $ta]);
+		$dataBody = $this->M_dinamis->getById('t_data_ba_konreg_san', ['kdsatker' => $kdsatker, 'kdTematik' => $tematik, 'ta' => $ta]);
 
 		echo json_encode(['code' => 200, 'dataAwal' => $dataAwal, 'dataBody' => $dataBody]);
 
@@ -104,22 +103,89 @@ class KonregSAN extends CI_Controller {
 		$rincianKegiatan = $this->input->post('rincianKegiatan');
 		$fisikPenunjang = $this->input->post('fisikPenunjang');
 		$fisikPenunjangCatat = $this->input->post('fisikPenunjangCatat');
-		$checkSPTJM = $this->input->post('checkSPTJM');
+
+		$checkSPTJM = $this->input->post('checkSPTJM');		
 		$catatSptjm = $this->input->post('catatSptjm');
-		$checkRispam = $this->input->post('checkRispam');
-		$catatRispam = $this->input->post('catatRispam');
+		$checkSSK = $this->input->post('checkSSK');
+		$catatSSK = $this->input->post('catatSSK');
 		$checkDed = $this->input->post('checkDed');
-		$dedCatat = $this->input->post('dedCatat');
+		$catatDed = $this->input->post('catatDed');
 		$checkRab = $this->input->post('checkRab');
-		$rabCatat = $this->input->post('rabCatat');
-		$checkIpa = $this->input->post('checkIpa');
-		$ipaCatat = $this->input->post('ipaCatat');
-		$checkRds = $this->input->post('checkRds');
-		$rdsCatat = $this->input->post('rdsCatat');
-		$checkPdam = $this->input->post('checkPdam');
-		$pdamCatat = $this->input->post('pdamCatat');
-		$checkPks = $this->input->post('checkPks');
-		$pksCatat = $this->input->post('pksCatat');
+		$catatRab = $this->input->post('catatRab');
+		$checkSpkp = $this->input->post('checkSpkp');
+		$catatSpkp = $this->input->post('catatSpkp');
+		$checkKlbs = $this->input->post('checkKlbs');
+		$catatKlbs = $this->input->post('catatKlbs');
+		$checkDcpm = $this->input->post('checkDcpm');
+		$catatDcpm = $this->input->post('catatDcpm');
+		$checkIplt = $this->input->post('checkIplt');
+		$catatIplt = $this->input->post('catatIplt');
+		$checkJustifikasi = $this->input->post('checkJustifikasi');
+		$catatJustifikasi = $this->input->post('catatJustifikasi');
+		$checkSmkd = $this->input->post('checkSmkd');
+		$catatSmkd = $this->input->post('catatSmkd');
+		$checkSpl = $this->input->post('checkSpl');
+		$catakSpl = $this->input->post('catakSpl');
+		$checkBppw = $this->input->post('checkBppw');
+		$catakBppw = $this->input->post('catakBppw');
+		$checkIDpr = $this->input->post('checkIDpr');
+		$catakIDpr = $this->input->post('catakIDpr');
+		$checkIRab = $this->input->post('checkIRab');
+		$catakIRab = $this->input->post('catakIRab');
+		$checkIBll = $this->input->post('checkIBll');
+		$catakIBll = $this->input->post('catakIBll');
+		$checkIDjt = $this->input->post('checkIDjt');
+		$catakIDjt = $this->input->post('catakIDjt');
+		$checkIMasterPlan = $this->input->post('checkIMasterPlan');
+		$catakIMasterPlan = $this->input->post('catakIMasterPlan');
+		$checkIAmdal = $this->input->post('checkIAmdal');
+		$catakIAmdal = $this->input->post('catakIAmdal');
+		$checkIKlp = $this->input->post('checkIKlp');
+		$catakIKlp = $this->input->post('catakIKlp');
+		$checkIBisnis = $this->input->post('checkIBisnis');
+		$catakIBisnis = $this->input->post('catakIBisnis');
+		$checkIBkll = $this->input->post('checkIBkll');
+		$catakIBkll = $this->input->post('catakIBkll');
+		$checkIAbd = $this->input->post('checkIAbd');
+		$catakIAbd = $this->input->post('catakIAbd');
+		$checkIBpkp = $this->input->post('checkIBpkp');
+		$catakIBpkp = $this->input->post('catakIBpkp');
+		$checkITrukTinja = $this->input->post('checkITrukTinja');
+		$catakITrukTinja = $this->input->post('catakITrukTinja');
+		$checkPPembangunan = $this->input->post('checkPPembangunan');
+		$catatPPembangunan = $this->input->post('catatPPembangunan');
+		$checkPRab = $this->input->post('checkPRab');
+		$catakPRab = $this->input->post('catakPRab');
+		$checkPSpkp = $this->input->post('checkPSpkp');
+		$catakPSpkp = $this->input->post('catakPSpkp');
+		$checkPBll = $this->input->post('checkPBll');
+		$catakPBll = $this->input->post('catakPBll');
+		$checkPKbp = $this->input->post('checkPKbp');
+		$catakPKbp = $this->input->post('catakPKbp');
+		$checkPDcpm = $this->input->post('checkPDcpm');
+		$catakPDcpm = $this->input->post('catakPDcpm');
+		$checkPBkaw = $this->input->post('checkPBkaw');
+		$catakPBkaw = $this->input->post('catakPBkaw');
+		$checkPSPKD = $this->input->post('checkPSPKD');
+		$catakPSPKD = $this->input->post('catakPSPKD');
+		$checkPDddl = $this->input->post('checkPDddl');
+		$catakPDddl = $this->input->post('catakPDddl');
+		$checkJtp = $this->input->post('checkJtp');
+		$catakJtp = $this->input->post('catakJtp');
+		$checkSKKKP = $this->input->post('checkSKKKP');
+		$catakSKKKP = $this->input->post('catakSKKKP');
+		$checkAbdTp = $this->input->post('checkAbdTp');
+		$catakAbdTp = $this->input->post('catakAbdTp');
+
+		$air_limba_na = $this->input->post('air_limba_na');
+		$air_limba_na_iplt = $this->input->post('air_limba_na_iplt');
+		$persambahan_na = $this->input->post('persambahan_na');
+
+		
+		
+		
+		
+
 		$catatanAll = $this->input->post('catatanAll');
 		$kdPersentase = $this->input->post('kdPersentase');
 
@@ -143,27 +209,86 @@ class KonregSAN extends CI_Controller {
 			'fisikPenunjangCatat' => $fisikPenunjangCatat,
 			'checkSPTJM' => $checkSPTJM,
 			'catatSptjm' => $catatSptjm,
-			'checkRispam' => $checkRispam,
-			'catatRispam' => $catatRispam,
+			'checkSSK' => $checkSSK,
+			'catatSSK' => $catatSSK,
 			'checkDed' => $checkDed,
-			'dedCatat' => $dedCatat,
+			'catatDed' => $catatDed,
 			'checkRab' => $checkRab,
-			'rabCatat' => $rabCatat,
-			'checkIpa' => $checkIpa,
-			'ipaCatat' => $ipaCatat,
-			'checkRds' => $checkRds,
-			'rdsCatat' => $rdsCatat,
-			'checkPdam' => $checkPdam,
-			'pdamCatat' => $pdamCatat,
-			'checkPks' => $checkPks,
-			'pksCatat' => $pksCatat,
+			'catatRab' => $catatRab,
+			'checkSpkp' => $checkSpkp,
+			'catatSpkp' => $catatSpkp,
+			'checkKlbs' => $checkKlbs,
+			'catatKlbs' => $catatKlbs,
+			'checkDcpm' => $checkDcpm,
+			'catatDcpm' => $catatDcpm,
+			'checkIplt' => $checkIplt,
+			'catatIplt' => $catatIplt,
+			'checkJustifikasi' => $checkJustifikasi,
+			'catatJustifikasi' => $catatJustifikasi,
+			'checkSmkd' => $checkSmkd,
+			'catatSmkd' => $catatSmkd,
+			'checkSpl' => $checkSpl,
+			'catakSpl' => $catakSpl,
+			'checkBppw' => $checkBppw,
+			'catakBppw' => $catakBppw,
+			'checkIDpr' => $checkIDpr,
+			'catakIDpr' => $catakIDpr,
+			'checkIRab' => $checkIRab,
+			'catakIRab' => $catakIRab,
+			'checkIBll' => $checkIBll,
+			'catakIBll' => $catakIBll,
+			'checkIDjt' => $checkIDjt,
+			'catakIDjt' => $catakIDjt,
+			'checkIMasterPlan' => $checkIMasterPlan,
+			'catakIMasterPlan' => $catakIMasterPlan,
+			'checkIAmdal' => $checkIAmdal,
+			'catakIAmdal' => $catakIAmdal,
+			'checkIKlp' => $checkIKlp,
+			'catakIKlp' => $catakIKlp,
+			'checkIBisnis' => $checkIBisnis,
+			'catakIBisnis' => $catakIBisnis,
+			'checkIBkll' => $checkIBkll,
+			'catakIBkll' => $catakIBkll,
+			'checkIAbd' => $checkIAbd,
+			'catakIAbd' => $catakIAbd,
+			'checkIBpkp' => $checkIBpkp,
+			'catakIBpkp' => $catakIBpkp,
+			'checkITrukTinja' => $checkITrukTinja,
+			'catakITrukTinja' => $catakITrukTinja,
+			'checkPPembangunan' => $checkPPembangunan,
+			'catatPPembangunan' => $catatPPembangunan,
+			'checkPRab' => $checkPRab,
+			'catakPRab' => $catakPRab,
+			'checkPSpkp' => $checkPSpkp,
+			'catakPSpkp' => $catakPSpkp,
+			'checkPBll' => $checkPBll,
+			'catakPBll' => $catakPBll,
+			'checkPKbp' => $checkPKbp,
+			'catakPKbp' => $catakPKbp,
+			'checkPDcpm' => $checkPDcpm,
+			'catakPDcpm' => $catakPDcpm,
+			'checkPBkaw' => $checkPBkaw,
+			'catakPBkaw' => $catakPBkaw,
+			'checkPSPKD' => $checkPSPKD,
+			'catakPSPKD' => $catakPSPKD,
+			'checkPDddl' => $checkPDddl,
+			'catakPDddl' => $catakPDddl,
+			'checkJtp' => $checkJtp,
+			'catakJtp' => $catakJtp,
+			'checkSKKKP' => $checkSKKKP,
+			'catakSKKKP' => $catakSKKKP,
+			'checkAbdTp' => $checkAbdTp,
+			'catakAbdTp' => $catakAbdTp,
 			'catatanAll' => $catatanAll,
 			'kdPersentase' => $kdPersentase,
+			'kondisiAirLimba' => $air_limba_na,
+			'kondisiAirLimbaIplt' => $air_limba_na_iplt,
+			'kondisiPersampahan' => $persambahan_na,
 			'ta' => $this->session->userdata('thang')
 		);
 
-		$this->M_dinamis->delete('t_data_ba_konreg_am', ['kdsatker' => $kdsatkerHidden, 'kdTematik' => $kdTematikHidden, 'ta' => $this->session->userdata('thang')]);
-		$pros = $this->M_dinamis->save('t_data_ba_konreg_am', $dataInsert);
+		$this->M_dinamis->delete('t_data_ba_konreg_san', ['kdsatker' => $kdsatkerHidden, 'kdTematik' => $kdTematikHidden, 'ta' => $this->session->userdata('thang')]);
+		$pros = $this->M_dinamis->save('t_data_ba_konreg_san', $dataInsert);
 
 		echo json_encode(['code' => ($pros) ? 200 :500]);
 		

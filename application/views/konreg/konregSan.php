@@ -87,7 +87,7 @@
                   <div class="card card-stacked">
                     <div class="card-body">
                       <div class="text-center mt-3 ">
-                        <h2 class="font-calibri-tittle">BERITA ACARA KONSULTASI PROGRAM BIDANG Sanitasi TA. <?= $ta; ?></h2>
+                        <h2 class="font-calibri-tittle">BERITA ACARA KONSULTASI PROGRAM BIDANG SANITASI TA. <?= $ta; ?></h2>
                         <h2 class="font-calibri-tittle" id="nmprovinsi"> </h2>
                         <h2 class="font-calibri-tittle" id="nmkabkota"> </h2>
                       </div>
@@ -102,7 +102,7 @@
                               : 
                             </div>
                             <div class="col-lg-5 col-sm-3" style="padding-left: 4%; margin-top: -22px;" id="bidangHeader">
-                              Air Minum
+                              Sanitasi
                             </div>     
                           </div>
                         </div>
@@ -232,6 +232,7 @@
                       <th style="width: 20%; background-color: #5E767E; color: white;">NILAI <br> (Rp.)</th>
                       <th style="width: 15%; background-color: #5E767E; color: white;">STATUS</th>
                       <th style="width: 25%; background-color: #5E767E; color: white;">KETERANGAN</th>
+                      <th style="width: 25%; background-color: #5E767E; color: white;">N/A</th>
                     </tr>
                   </thead>
 
@@ -247,6 +248,7 @@
                       <td class="text-center"><textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatFisik" 
                         style="width: 200px;" id="catatFisik"></textarea>
                       </td>
+                      <td rowspan="8"></td>
                     </tr>
                     <tr class="text-start">
                       <td>b. Output</td>
@@ -297,8 +299,8 @@
                     </tr>
 
                     <tr class="text-start">
-                      <td class="text-center" rowspan="8">4.</td>
-                      <td rowspan="8">Readiness Criteria</td>
+                      <td class="text-center" rowspan="36">4.</td>
+                      <td rowspan="2">Readiness Criteria</td>
                       <td>a. Surat pernyataan tanggungjawab mutlak (SPTJM)</td>
                       <td class="text-end" style="vertical-align: middle;"></td>
                       <td class="text-center"><input class="form-check-input custom-cheklist" type="checkbox" name="checkSPTJM" id="checkSPTJM"></td>
@@ -308,207 +310,777 @@
                     </tr>
 
                     <tr class="text-start">
-                      <td>b. Dokumen RISPAM</td>
-                      <td></td>
-                      <td class="text-center"><input class="form-check-input custom-cheklist" type="checkbox" name="checkRispam" id="checkRispam"></td>
-                      <td class="text-center" ><textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatRispam" 
-                        style="width: 200px;" id="catatRispam"></textarea>
+                      <td>b. Dokumen Strategi Sanitasi Kab/Kota (SSK)</td>
+                      <td class="text-end" style="vertical-align: middle;"></td>
+                      <td class="text-center"><input class="form-check-input custom-cheklist" type="checkbox" name="checkSSK" id="checkSSK"></td>
+                      <td class="text-center"><textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatSSK" 
+                        style="width: 200px;" id="catatSSK"></textarea>
                       </td>
                     </tr>
 
                     <tr class="text-start">
-                      <td>c. Dokumen Perencanaan Rinci / Detail Engineering Design (DED)</td>
-                      <td></td>
-                      <td class="text-center"><input class="form-check-input custom-cheklist" type="checkbox" name="checkDed" id="checkDed"></td>
-                      <td class="text-center" ><textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="dedCatat" 
-                        style="width: 200px;" id="dedCatat"></textarea>
+                      <td rowspan="7">Readiness Criteria - Air Limbah<br>(SPALD-T dan SPALD-S)</td>
+                      <td>a. Template Dokumen Perencanaan Rinci/Detail Engineering Design (DED)</td>
+                      <td class="text-end" style="vertical-align: middle;"></td>
+                      <td class="text-center">
+                        <input class="form-check-input custom-cheklist" type="checkbox" name="checkDed" id="checkDed">
+                        <p class="c_air_limba_na d-none">N/A</p>
+                      </td>
+                      <td class="text-center">
+                        <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatDed" 
+                        style="width: 200px;" id="catatDed"></textarea>
+                        <p class="c_air_limba_na d-none">N/A</p>
+                      </td>
+                      <td class="text-center" rowspan="7"><input class="form-check-input custom-cheklist" type="checkbox" name="air_limba_na" id="air_limba_na"></td>
+                    </tr>
+
+                    <tr class="text-start">
+                      <td>b. Template Rencana Anggaran Biaya (RAB)  </td>
+                      <td class="text-end" style="vertical-align: middle;"></td>
+                      <td class="text-center">
+                        <input class="form-check-input custom-cheklist" type="checkbox" name="checkRab" id="checkRab">
+                        <p class="c_air_limba_na d-none">N/A</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="c_air_limba_na d-none">N/A</p>
+                        <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatRab" 
+                        style="width: 200px;" id="catatRab"></textarea>
                       </td>
                     </tr>
 
                     <tr class="text-start">
-                      <td>d. Rencana Anggaran Biaya (RAB)</td>
-                      <td></td>
-                      <td class="text-center"><input class="form-check-input custom-cheklist" type="checkbox" name="checkRab" id="checkRab"></td>
-                      <td class="text-center" ><textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="rabCatat" 
-                        style="width: 200px;" id="rabCatat"></textarea>
-                      </td>
-                    </tr>
-
-                    <tr class="text-start">
-                      <td>e. Surat Pernyataan Kesiapan Lahan (untuk kegiatan yang memiliki bangunan di atas lahan seperti IPA, Broncaptering, Sumur, dan Reservoir);</td>
-                      <td></td>
-                      <td class="text-center"><input class="form-check-input custom-cheklist" type="checkbox" name="checkIpa" id="checkIpa"></td>
-                      <td class="text-center" ><textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="ipaCatat" 
-                        style="width: 200px;" id="ipaCatat"></textarea>
-                      </td>
-                    </tr>
-
-                    <tr class="text-start">
-                      <td>f. Daftar calon penerima manfaat berdasarkan hasil Real Demand Survey (RDS) yang dikeluarkan dan ditandatangani pengelolan SPAM terbangun (PDAM / UPTD / Perumda / Kepala Desa /  KPSPAM / BUMDES) dan diketahui oleh OPD Teknis.</td>
-                      <td></td>
-                      <td class="text-center"><input class="form-check-input custom-cheklist" type="checkbox" name="checkRds" id="checkRds"></td>
-                      <td class="text-center" ><textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="rdsCatat" 
-                        style="width: 200px;" id="rdsCatat"></textarea>
-                      </td>
-                    </tr>
-
-                    <tr class="text-start">
-                      <td>g. Surat kesiapan Lembaga pengelola yang dikeluarkan oleh pengelola SPAM terbangun (PDAM / UPTD / Perumda / KPSPAM / BUMDES).</td>
-                      <td></td>
-                      <td class="text-center"><input class="form-check-input custom-cheklist" type="checkbox" name="checkPdam" id="checkPdam"></td>
-                      <td class="text-center" ><textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="pdamCatat" 
-                        style="width: 200px;" id="pdamCatat"></textarea>
-                      </td>
-                    </tr>
-
-                    <tr class="text-start">
-                      <td>h. Perjanjian Kerja Sama (PKS) pengembangan SPAM Regional yang sudah dilegalisasi atau apabila masih dalam proses penyusunan dapat disertakan surat pernyataan dari Kepala Daerah. (Untuk SPAM Regional Provinsi).</td>
-                      <td></td>
-                      <td class="text-center"><input class="form-check-input custom-cheklist" type="checkbox" name="checkPks" id="checkPks"></td>
-                      <td class="text-center" ><textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="pksCatat" 
-                        style="width: 200px;" id="pksCatat"></textarea>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="6" class="text-center"  style="background-color: #5E767E; color: white;">CATATAN</td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="6" class="text-center" ><textarea class="form-control" data-bs-toggle="" placeholder="" name="catatanAll" 
-                        style="width: 100%; height: 200px !important;" id="catatanAll"></textarea></td>
+                      <td>c. Surat Pernyataan Kesiapan Pelaksanaan Kegiatan dari Pemerintah Desa/Kelurahan</td>
+                      <td class="text-end" style="vertical-align: middle;"></td>
+                      <td class="text-center">
+                        <p class="c_air_limba_na d-none">N/A</p>
+                        <input class="form-check-input custom-cheklist" type="checkbox" name="checkSpkp" id="checkSpkp"></td>
+                        <td class="text-center">
+                          <p class="c_air_limba_na d-none">N/A</p>
+                          <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatSpkp" 
+                          style="width: 200px;" id="catatSpkp"></textarea>
+                        </td>
                       </tr>
 
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="ms-auto text-end">
-                  <button class="btn btn-dark" onclick="showCetakBa()">CETAK BA</button>
-                  <button class="btn btn-primary" onclick="simpanForm();">Simpan</button>
-                </div>
-              </div>
-            </div>
+                      <tr class="text-start">
+                        <td>d. Kesiapan lahan berupa surat pernyataan kesiapan dari Pemerintah Desa/Sertifikat/Akta Hibah/Akta Jual Beli</td>
+                        <td class="text-end" style="vertical-align: middle;"></td>
+                        <td class="text-center">
+                          <p class="c_air_limba_na d-none">N/A</p>
+                          <input class="form-check-input custom-cheklist" type="checkbox" name="checkKlbs" id="checkKlbs">
+                        </td>
+                        <td class="text-center">
+                          <p class="c_air_limba_na d-none">N/A</p>
+                          <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatKlbs" 
+                          style="width: 200px;" id="catatKlbs"></textarea>
+                        </td>
+                      </tr>
+
+                      <tr class="text-start">
+                        <td>e. Daftar Calon Penerima Manfaat</td>
+                        <td class="text-end" style="vertical-align: middle;"></td>
+                        <td class="text-center">
+                          <p class="c_air_limba_na d-none">N/A</p>
+                          <input class="form-check-input custom-cheklist" type="checkbox" name="checkDcpm" id="checkDcpm">
+                        </td>
+                        <td class="text-center">
+                          <p class="c_air_limba_na d-none">N/A</p>
+                          <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatDcpm" 
+                          style="width: 200px;" id="catatDcpm"></textarea>
+                        </td>
+                      </tr>
+
+                      <tr class="text-start">
+                        <td>f. Bukti Kepemilikan IPLT</td>
+                        <td class="text-end" style="vertical-align: middle;"></td>
+                        <td class="text-center">
+                          <p class="c_air_limba_na d-none">N/A</p>
+                          <input class="form-check-input custom-cheklist" type="checkbox" name="checkIplt" id="checkIplt">
+                        </td>
+                        <td class="text-center">
+                          <p class="c_air_limba_na d-none">N/A</p>
+                          <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatIplt" 
+                          style="width: 200px;" id="catatIplt"></textarea>
+                        </td>
+                      </tr>
 
 
-            <div class="modal modal-blur fade" id="modalCetakBa" tabindex="-1" role="dialog" aria-hidden="true">
-              <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Cetak Berita Acara Bidang Sanitasi</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form action="<?= base_url(); ?>KonregSan/prsCetakBaAM" method="POST">
-                      <input type="hidden" name="kdsatkerBa" id="kdsatkerBa">
-                      <input type="hidden" name="tematikBa" id="tematikBa">
-                      <div class="row">
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Nama Peserta</label>
-                          <input type="text" class="form-control" name="peserta" placeholder="Nama Peserta." required>
-                        </div>
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Nomor Telepon Peserta</label>
-                          <input type="text" class="form-control" name="noTlp" placeholder="Nomor Telepon Peserta." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
-                        </div>
-                      </div>
+                      <tr class="text-start">
+                        <td>g. Justifikasi teknis untuk penambahan pipa pengumpul</td>
+                        <td class="text-end" style="vertical-align: middle;"></td>
+                        <td class="text-center">
+                          <p class="c_air_limba_na d-none">N/A</p>
+                          <input class="form-check-input custom-cheklist" type="checkbox" name="checkJustifikasi" id="checkJustifikasi"></td>
+                          <td class="text-center">
+                            <p class="c_air_limba_na d-none">N/A</p>
+                            <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatJustifikasi" 
+                            style="width: 200px;" id="catatJustifikasi"></textarea>
+                          </td>
+                        </tr>
 
-                      <hr class="mt-2 mb-2">
+                        <tr class="text-start">
+                          <td rowspan="15">Readiness Criteria - Air Limbah <br> (IPLT dan Truck Tinja)</td>
+                          <td>a. IPLT - Surat Minat Kepala Daerah </td>
+                          <td class="text-end" style="vertical-align: middle;"></td>
+                          <td class="text-center">
+                            <p class="c_air_limba_na_iplt d-none">N/A</p>
+                            <input class="form-check-input custom-cheklist" type="checkbox" name="checkSmkd" id="checkSmkd"></td>
+                            <td class="text-center">
+                              <p class="c_air_limba_na_iplt d-none">N/A</p>
+                              <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatSmkd" 
+                              style="width: 200px;" id="catatSmkd"></textarea>
+                            </td>
+                            <td class="text-center" rowspan="15"><input class="form-check-input custom-cheklist" type="checkbox" name="air_limba_na_iplt" id="air_limba_na_iplt"></td>
+                          </tr>
 
-                      <div class="row">
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Penanda Tangan Daerah</label>
-                          <input type="text" class="form-control" name="ttdDaerah" placeholder="Nama Penanda Tangan Daerah." required>
-                        </div>
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Jabatan Penanda Tangan Daerah</label>
-                          <input type="text" class="form-control" name="jabatanttdDaerah" placeholder="Jabatan Penanda Tangan Daerah." required>
-                        </div>
+                          <tr class="text-start">
+                            <td>b. Justifikasi teknis untuk penambahan pipa pengumpul</td>
+                            <td class="text-end" style="vertical-align: middle;"></td>
+                            <td class="text-center">
+                              <p class="c_air_limba_na_iplt d-none">N/A</p>
+                              <input class="form-check-input custom-cheklist" type="checkbox" name="checkSpl" id="checkSpl"></td>
+                              <td class="text-center">
+                                <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakSpl" 
+                                style="width: 200px;" id="catakSpl"></textarea>
+                              </td>
+                            </tr>
 
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Name Petugas Balai</label>
-                          <input type="text" class="form-control" name="balai" placeholder="Nama Petugas Balai." required>
-                        </div>
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Jabatan Petugas Balai</label>
-                          <input type="text" class="form-control" name="jabatanBalai" placeholder="Jabatan Petugas Balai." required>
-                        </div>
+                            <tr class="text-start">
+                              <td>c. IPLT - Persetujuan dari Kepala BPPW  </td>
+                              <td class="text-end" style="vertical-align: middle;"></td>
+                              <td class="text-center">
+                                <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                <input class="form-check-input custom-cheklist" type="checkbox" name="checkBppw" id="checkBppw"></td>
+                                <td class="text-center">
+                                  <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                  <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakBppw" 
+                                  style="width: 200px;" id="catakBppw"></textarea>
+                                </td>
+                              </tr>
 
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Name Petugas Ditjen CK 1</label>
-                          <input type="text" class="form-control" name="ck1" placeholder="Nama Petugas Ditjen CK." required>
-                        </div>
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Jabatan Petugas Ditjen CK 1</label>
-                          <input type="text" class="form-control" name="jabatanCk1" placeholder="Jabatan Ditjen CK." required>
-                        </div>
+                              <tr class="text-start">
+                                <td>d. IPLT - Dokumen Perencanaan Rinci / Detail Engineering Design (DED)</td>
+                                <td class="text-end" style="vertical-align: middle;"></td>
+                                <td class="text-center">
+                                  <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                  <input class="form-check-input custom-cheklist" type="checkbox" name="checkIDpr" id="checkIDpr"></td>
+                                  <td class="text-center">
+                                    <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                    <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIDpr" 
+                                    style="width: 200px;" id="catakIDpr"></textarea>
+                                  </td>
+                                </tr>
 
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Name Petugas Ditjen CK 2</label>
-                          <input type="text" class="form-control" name="ck2" placeholder="Nama Petugas Ditjen CK." required>
-                        </div>
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Jabatan Petugas Ditjen CK 2</label>
-                          <input type="text" class="form-control" name="jabatanCk2" placeholder="Jabatan Ditjen CK." required>
-                        </div>
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Name Petugas PFID</label>
-                          <input type="text" class="form-control" name="Pfid" placeholder="Nama Petugas PFID." required>
-                        </div>
-                        <div class="mb-3 col-6">
-                          <label class="form-label">Jabatan Petugas PFID</label>
-                          <input type="text" class="form-control" name="jabatanPfid" placeholder="Jabatan PFID." required>
-                        </div>
-                      </div>
-                      <div class="modal-footer ms-auto">
-                        <a href="#" class="btn btn-secondary" data-bs-dismiss="modal">
-                          Cancel
-                        </a>
-                        <button class="btn btn-primary" type="submit">Simpan</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                                <tr class="text-start">
+                                  <td>e. IPLT - Rencana Anggaran Biaya (RAB)</td>
+                                  <td class="text-end" style="vertical-align: middle;"></td>
+                                  <td class="text-center">
+                                    <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                    <input class="form-check-input custom-cheklist" type="checkbox" name="checkIRab" id="checkIRab"></td>
+                                    <td class="text-center">
+                                      <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                      <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIRab" 
+                                      style="width: 200px;" id="catakIRab"></textarea>
+                                    </td>
+                                  </tr>
+
+                                  <tr class="text-start">
+                                    <td>f. IPLT - Bukti Legalitas Lahan</td>
+                                    <td class="text-end" style="vertical-align: middle;"></td>
+                                    <td class="text-center">
+                                      <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                      <input class="form-check-input custom-cheklist" type="checkbox" name="checkIBll" id="checkIBll"></td>
+                                      <td class="text-center">
+                                        <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                        <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIBll" 
+                                        style="width: 200px;" id="catakIBll"></textarea>
+                                      </td>
+                                    </tr>
+
+                                    <tr class="text-start">
+                                      <td>g. IPLT - Dokumentasi Justifikasi Teknis</td>
+                                      <td class="text-end" style="vertical-align: middle;"></td>
+                                      <td class="text-center">
+                                        <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                        <input class="form-check-input custom-cheklist" type="checkbox" name="checkIDjt" id="checkIDjt"></td>
+                                        <td class="text-center">
+                                          <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                          <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIDjt" 
+                                          style="width: 200px;" id="catakIDjt"></textarea>
+                                        </td>
+                                      </tr>
+
+                                      <tr class="text-start">
+                                        <td>h. IPLT - Masterplan/Rencana Induk Air Limbah Kota/Kab</td>
+                                        <td class="text-end" style="vertical-align: middle;"></td>
+                                        <td class="text-center">
+                                          <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                          <input class="form-check-input custom-cheklist" type="checkbox" name="checkIMasterPlan" id="checkIMasterPlan"></td>
+                                          <td class="text-center">
+                                            <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                            <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIMasterPlan" 
+                                            style="width: 200px;" id="catakIMasterPlan"></textarea>
+                                          </td>
+                                        </tr>
+
+                                        <tr class="text-start">
+                                          <td>i. IPLT - Dokumen Lingkungan (AMDAL/UKL-UPL)</td>
+                                          <td class="text-end" style="vertical-align: middle;"></td>
+                                          <td class="text-center">
+                                            <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                            <input class="form-check-input custom-cheklist" type="checkbox" name="checkIAmdal" id="checkIAmdal"></td>
+                                            <td class="text-center">
+                                              <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                              <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIAmdal" 
+                                              style="width: 200px;" id="catakIAmdal"></textarea>
+                                            </td>
+                                          </tr>
+
+                                          <tr class="text-start">
+                                            <td>j. IPLT - Kesiapan Lembaga Pengelola</td>
+                                            <td class="text-end" style="vertical-align: middle;"></td>
+                                            <td class="text-center">
+                                              <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                              <input class="form-check-input custom-cheklist" type="checkbox" name="checkIKlp" id="checkIKlp"></td>
+                                              <td class="text-center">
+                                                <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIKlp" 
+                                                style="width: 200px;" id="catakIKlp"></textarea>
+                                              </td>
+                                            </tr>
+
+                                            <tr class="text-start">
+                                              <td>k. IPLT - Business Plan </td>
+                                              <td class="text-end" style="vertical-align: middle;"></td>
+                                              <td class="text-center">
+                                                <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                <input class="form-check-input custom-cheklist" type="checkbox" name="checkIBisnis" id="checkIBisnis"></td>
+                                                <td class="text-center">
+                                                  <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                  <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIBisnis" 
+                                                  style="width: 200px;" id="catakIBisnis"></textarea>
+                                                </td>
+                                              </tr>
+
+                                              <tr class="text-start">
+                                                <td>l. IPLT - Bukti Komitmen Layanan Lumpur Tinja Terjadwal</td>
+                                                <td class="text-end" style="vertical-align: middle;"></td>
+                                                <td class="text-center">
+                                                  <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                  <input class="form-check-input custom-cheklist" type="checkbox" name="checkIBkll" id="checkIBkll"></td>
+                                                  <td class="text-center">
+                                                    <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                    <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIBkll" 
+                                                    style="width: 200px;" id="catakIBkll"></textarea>
+                                                  </td>
+                                                </tr>
+
+                                                <tr class="text-start">
+                                                  <td>m. IPLT - As Build Drawing IPLT</td>
+                                                  <td class="text-end" style="vertical-align: middle;"></td>
+                                                  <td class="text-center">
+                                                    <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                    <input class="form-check-input custom-cheklist" type="checkbox" name="checkIAbd" id="checkIAbd"></td>
+                                                    <td class="text-center">
+                                                      <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                      <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIAbd" 
+                                                      style="width: 200px;" id="catakIAbd"></textarea>
+                                                    </td>
+                                                  </tr>
+
+                                                  <tr class="text-start">
+                                                    <td>n. IPLT - Audit/Reviu BPKP</td>
+                                                    <td class="text-end" style="vertical-align: middle;"></td>
+                                                    <td class="text-center">
+                                                      <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                      <input class="form-check-input custom-cheklist" type="checkbox" name="checkIBpkp" id="checkIBpkp"></td>
+                                                      <td class="text-center">
+                                                        <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                        <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakIBpkp" 
+                                                        style="width: 200px;" id="catakIBpkp"></textarea>
+                                                      </td>
+                                                    </tr>
+
+                                                    <tr class="text-start">
+                                                      <td>o. Truck Tinja - Spesifikasi teknis dan harga supplier</td>
+                                                      <td class="text-end" style="vertical-align: middle;"></td>
+                                                      <td class="text-center">
+                                                        <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                        <input class="form-check-input custom-cheklist" type="checkbox" name="checkITrukTinja" id="checkITrukTinja"></td>
+                                                        <td class="text-center">
+                                                          <p class="c_air_limba_na_iplt d-none">N/A</p>
+                                                          <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakITrukTinja" 
+                                                          style="width: 200px;" id="catakITrukTinja"></textarea>
+                                                        </td>
+                                                      </tr>
+
+                                                      <tr class="text-start">
+                                                        <td rowspan="12">Readiness Criteria - Persampahan <br> (Pembangunan dan Peningkatan/Rehabilitasi TPS3R)</td>
+                                                        <td>a. Dokumen Perencanaan Rinci / Detail Engineering Design (DED) </td>
+                                                        <td class="text-end" style="vertical-align: middle;"></td>
+                                                        <td class="text-center">
+                                                          <p class="c_persambahan_na d-none">N/A</p>
+                                                          <input class="form-check-input custom-cheklist" type="checkbox" name="checkPPembangunan" id="checkPPembangunan"></td>
+                                                          <td class="text-center">
+                                                            <p class="c_persambahan_na d-none">N/A</p>
+                                                            <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catatPPembangunan" 
+                                                            style="width: 200px;" id="catatPPembangunan"></textarea>
+                                                          </td>
+                                                          <td class="text-center" rowspan="12"><input class="form-check-input custom-cheklist" type="checkbox" name="persambahan_na" id="persambahan_na"></td>
+                                                        </tr>
+
+                                                        <tr class="text-start">
+                                                          <td>b. Rencana Anggaran Biaya (RAB)</td>
+                                                          <td class="text-end" style="vertical-align: middle;"></td>
+                                                          <td class="text-center">
+                                                            <p class="c_persambahan_na d-none">N/A</p>
+                                                            <input class="form-check-input custom-cheklist" type="checkbox" name="checkPRab" id="checkPRab"></td>
+                                                            <td class="text-center">
+                                                              <p class="c_persambahan_na d-none">N/A</p>
+                                                              <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakPRab" 
+                                                              style="width: 200px;" id="catakPRab"></textarea>
+                                                            </td>
+                                                          </tr>
+
+                                                          <tr class="text-start">
+                                                            <td>c. Surat Pernyataan Kesiapan Pelaksanaan Kegiatan dari Pemerintah Desa/Kelurahan</td>
+                                                            <td class="text-end" style="vertical-align: middle;"></td>
+                                                            <td class="text-center">
+                                                              <p class="c_persambahan_na d-none">N/A</p>
+                                                              <input class="form-check-input custom-cheklist" type="checkbox" name="checkPSpkp" id="checkPSpkp"></td>
+                                                              <td class="text-center">
+                                                                <p class="c_persambahan_na d-none">N/A</p>
+                                                                <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakPSpkp" 
+                                                                style="width: 200px;" id="catakPSpkp"></textarea>
+                                                              </td>
+                                                            </tr>
+
+                                                            <tr class="text-start">
+                                                              <td>d. Bukti Legalitas Lahan</td>
+                                                              <td class="text-end" style="vertical-align: middle;"></td>
+                                                              <td class="text-center">
+                                                                <p class="c_persambahan_na d-none">N/A</p>
+                                                                <input class="form-check-input custom-cheklist" type="checkbox" name="checkPBll" id="checkPBll"></td>
+                                                                <td class="text-center">
+                                                                  <p class="c_persambahan_na d-none">N/A</p>
+                                                                  <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakPBll" 
+                                                                  style="width: 200px;" id="catakPBll"></textarea>
+                                                                </td>
+                                                              </tr>
+
+                                                              <tr class="text-start">
+                                                                <td>e. Konsep Business Plan Pengelolaan TPS3R</td>
+                                                                <td class="text-end" style="vertical-align: middle;"></td>
+                                                                <td class="text-center">
+                                                                  <p class="c_persambahan_na d-none">N/A</p>
+                                                                  <input class="form-check-input custom-cheklist" type="checkbox" name="checkPKbp" id="checkPKbp"></td>
+                                                                  <td class="text-center">
+                                                                    <p class="c_persambahan_na d-none">N/A</p>
+                                                                    <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakPKbp" 
+                                                                    style="width: 200px;" id="catakPKbp"></textarea>
+                                                                  </td>
+                                                                </tr>
+
+                                                                <tr class="text-start">
+                                                                  <td>f. Daftar Calon Penerima Manfaat</td>
+                                                                  <td class="text-end" style="vertical-align: middle;"></td>
+                                                                  <td class="text-center">
+                                                                    <p class="c_persambahan_na d-none">N/A</p>
+                                                                    <input class="form-check-input custom-cheklist" type="checkbox" name="checkPDcpm" id="checkPDcpm"></td>
+                                                                    <td class="text-center">
+                                                                      <p class="c_persambahan_na d-none">N/A</p>
+                                                                      <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakPDcpm" 
+                                                                      style="width: 200px;" id="catakPDcpm"></textarea>
+                                                                    </td>
+                                                                  </tr>
+
+                                                                  <tr class="text-start">
+                                                                    <td>g. Berita Acara Kesiapan Warga</td>
+                                                                    <td class="text-end" style="vertical-align: middle;"></td>
+                                                                    <td class="text-center">
+                                                                      <p class="c_persambahan_na d-none">N/A</p>
+                                                                      <input class="form-check-input custom-cheklist" type="checkbox" name="checkPBkaw" id="checkPBkaw"></td>
+                                                                      <td class="text-center">
+                                                                        <p class="c_persambahan_na d-none">N/A</p>
+                                                                        <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakPBkaw" 
+                                                                        style="width: 200px;" id="catakPBkaw"></textarea>
+                                                                      </td>
+                                                                    </tr>
+
+                                                                    <tr class="text-start">
+                                                                      <td>h. Surat pernyataan kesiapan dan dukungan biaya operasi dan pemeliharaan</td>
+                                                                      <td class="text-end" style="vertical-align: middle;"></td>
+                                                                      <td class="text-center">
+                                                                        <p class="c_persambahan_na d-none">N/A</p>
+                                                                        <input class="form-check-input custom-cheklist" type="checkbox" name="checkPSPKD" id="checkPSPKD"></td>
+                                                                        <td class="text-center">
+                                                                          <p class="c_persambahan_na d-none">N/A</p>
+                                                                          <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakPSPKD" 
+                                                                          style="width: 200px;" id="catakPSPKD"></textarea>
+                                                                        </td>
+                                                                      </tr>
+
+                                                                      <tr class="text-start">
+                                                                        <td>i. Durat dukungan Dinas Lingkungan Hidup</td>
+                                                                        <td class="text-end" style="vertical-align: middle;"></td>
+                                                                        <td class="text-center">
+                                                                          <p class="c_persambahan_na d-none">N/A</p>
+                                                                          <input class="form-check-input custom-cheklist" type="checkbox" name="checkPDddl" id="checkPDddl"></td>
+                                                                          <td class="text-center">
+                                                                            <p class="c_persambahan_na d-none">N/A</p>
+                                                                            <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakPDddl" 
+                                                                            style="width: 200px;" id="catakPDddl"></textarea>
+                                                                          </td>
+                                                                        </tr>
+
+                                                                        <tr class="text-start">
+                                                                          <td>j. Justifikasi Teknis Peningkatan/Rehabilitasi TPS3R</td>
+                                                                          <td class="text-end" style="vertical-align: middle;"></td>
+                                                                          <td class="text-center">
+                                                                            <p class="c_persambahan_na d-none">N/A</p>
+                                                                            <input class="form-check-input custom-cheklist" type="checkbox" name="checkJtp" id="checkJtp"></td>
+                                                                            <td class="text-center">
+                                                                              <p class="c_persambahan_na d-none">N/A</p>
+                                                                              <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakJtp" 
+                                                                              style="width: 200px;" id="catakJtp"></textarea>
+                                                                            </td>
+                                                                          </tr>
+
+                                                                          <tr class="text-start">
+                                                                            <td>k. SK Pembentukan KKP (khusus untuk peningkatan/ rehabilitasi TPS3R)</td>
+                                                                            <td class="text-end" style="vertical-align: middle;"></td>
+                                                                            <td class="text-center">
+                                                                              <p class="c_persambahan_na d-none">N/A</p>
+                                                                              <input class="form-check-input custom-cheklist" type="checkbox" name="checkSKKKP" id="checkSKKKP"></td>
+                                                                              <td class="text-center">
+                                                                                <p class="c_persambahan_na d-none">N/A</p>
+                                                                                <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakSKKKP" 
+                                                                                style="width: 200px;" id="catakSKKKP"></textarea>
+                                                                              </td>
+                                                                            </tr>
+
+                                                                            <tr class="text-start">
+                                                                              <td>l. As Build Drawing TPS3R Terbangun</td>
+                                                                              <td class="text-end" style="vertical-align: middle;"></td>
+                                                                              <td class="text-center">
+                                                                                <p class="c_persambahan_na d-none">N/A</p>
+                                                                                <input class="form-check-input custom-cheklist" type="checkbox" name="checkAbdTp" id="checkAbdTp"></td>
+                                                                                <td class="text-center">
+                                                                                  <p class="c_persambahan_na d-none">N/A</p>
+                                                                                  <textarea class="form-control" data-bs-toggle="autosize" placeholder="" name="catakAbdTp" 
+                                                                                  style="width: 200px;" id="catakAbdTp"></textarea>
+                                                                                </td>
+                                                                              </tr>
+
+                                                                              <tr>
+                                                                                <td colspan="7" class="text-center"  style="background-color: #5E767E; color: white;">CATATAN</td>
+                                                                              </tr>
+
+                                                                              <tr>
+                                                                                <td colspan="7" class="text-center" ><textarea class="form-control" data-bs-toggle="" placeholder="" name="catatanAll" 
+                                                                                  style="width: 100%; height: 200px !important;" id="catatanAll"></textarea></td>
+                                                                                </tr>
+
+                                                                              </tr>
+                                                                            </tbody>
+                                                                          </table>
+                                                                          <div class="ms-auto text-end">
+                                                                            <button class="btn btn-dark" onclick="showCetakBa()">CETAK BA</button>
+                                                                            <button class="btn btn-primary" onclick="simpanForm();">Simpan</button>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
 
 
-              <script type="text/javascript">
-                $(document).ready(function() {
+                                                                      <div class="modal modal-blur fade" id="modalCetakBa" tabindex="-1" role="dialog" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                                                                          <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                              <h5 class="modal-title">Cetak Berita Acara Bidang Sanitasi</h5>
+                                                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                              <form action="<?= base_url(); ?>KonregSan/prsCetakBaAM" method="POST">
+                                                                                <input type="hidden" name="kdsatkerBa" id="kdsatkerBa">
+                                                                                <input type="hidden" name="tematikBa" id="tematikBa">
+                                                                                <div class="row">
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Nama Peserta</label>
+                                                                                    <input type="text" class="form-control" name="peserta" placeholder="Nama Peserta." required>
+                                                                                  </div>
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Nomor Telepon Peserta</label>
+                                                                                    <input type="text" class="form-control" name="noTlp" placeholder="Nomor Telepon Peserta." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
+                                                                                  </div>
+                                                                                </div>
+
+                                                                                <hr class="mt-2 mb-2">
+
+                                                                                <div class="row">
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Penanda Tangan Daerah</label>
+                                                                                    <input type="text" class="form-control" name="ttdDaerah" placeholder="Nama Penanda Tangan Daerah." required>
+                                                                                  </div>
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Jabatan Penanda Tangan Daerah</label>
+                                                                                    <input type="text" class="form-control" name="jabatanttdDaerah" placeholder="Jabatan Penanda Tangan Daerah." required>
+                                                                                  </div>
+
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Name Petugas Balai</label>
+                                                                                    <input type="text" class="form-control" name="balai" placeholder="Nama Petugas Balai." required>
+                                                                                  </div>
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Jabatan Petugas Balai</label>
+                                                                                    <input type="text" class="form-control" name="jabatanBalai" placeholder="Jabatan Petugas Balai." required>
+                                                                                  </div>
+
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Name Petugas Ditjen CK 1</label>
+                                                                                    <input type="text" class="form-control" name="ck1" placeholder="Nama Petugas Ditjen CK." required>
+                                                                                  </div>
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Jabatan Petugas Ditjen CK 1</label>
+                                                                                    <input type="text" class="form-control" name="jabatanCk1" placeholder="Jabatan Ditjen CK." required>
+                                                                                  </div>
+
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Name Petugas Ditjen CK 2</label>
+                                                                                    <input type="text" class="form-control" name="ck2" placeholder="Nama Petugas Ditjen CK." required>
+                                                                                  </div>
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Jabatan Petugas Ditjen CK 2</label>
+                                                                                    <input type="text" class="form-control" name="jabatanCk2" placeholder="Jabatan Ditjen CK." required>
+                                                                                  </div>
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Name Petugas PFID</label>
+                                                                                    <input type="text" class="form-control" name="Pfid" placeholder="Nama Petugas PFID." required>
+                                                                                  </div>
+                                                                                  <div class="mb-3 col-6">
+                                                                                    <label class="form-label">Jabatan Petugas PFID</label>
+                                                                                    <input type="text" class="form-control" name="jabatanPfid" placeholder="Jabatan PFID." required>
+                                                                                  </div>
+                                                                                </div>
+                                                                                <div class="modal-footer ms-auto">
+                                                                                  <a href="#" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                                                    Cancel
+                                                                                  </a>
+                                                                                  <button class="btn btn-primary" type="submit">Simpan</button>
+                                                                                </form>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+
+
+                                                                        <script type="text/javascript">
+                                                                          $(document).ready(function() {
+
+                                                                           $('#air_limba_na').change(function() {
+                                                                            if($(this).is(':checked')) {
+                                                                              $('.c_air_limba_na').removeClass('d-none'); 
+                                                                              $('#checkDed').addClass('d-none'); 
+                                                                              $('#catatDed').addClass('d-none');
+                                                                              $('#checkRab').addClass('d-none');
+                                                                              $('#catatRab').addClass('d-none');
+                                                                              $('#checkSpkp').addClass('d-none');
+                                                                              $('#catatSpkp').addClass('d-none');
+                                                                              $('#checkKlbs').addClass('d-none');
+                                                                              $('#catatKlbs').addClass('d-none');
+                                                                              $('#checkDcpm').addClass('d-none');
+                                                                              $('#catatDcpm').addClass('d-none');
+                                                                              $('#checkIplt').addClass('d-none');
+                                                                              $('#catatIplt').addClass('d-none');
+                                                                              $('#checkJustifikasi').addClass('d-none');
+                                                                              $('#catatJustifikasi').addClass('d-none');
+                                                                            } else {
+                                                                              $('.c_air_limba_na').addClass('d-none');
+                                                                              $('#checkDed').removeClass('d-none'); 
+                                                                              $('#catatDed').removeClass('d-none');
+                                                                              $('#checkRab').removeClass('d-none');
+                                                                              $('#catatRab').removeClass('d-none');
+                                                                              $('#checkSpkp').removeClass('d-none');
+                                                                              $('#catatSpkp').removeClass('d-none');
+                                                                              $('#checkKlbs').removeClass('d-none');
+                                                                              $('#catatKlbs').removeClass('d-none');
+                                                                              $('#checkDcpm').removeClass('d-none');
+                                                                              $('#catatDcpm').removeClass('d-none');
+                                                                              $('#checkIplt').removeClass('d-none');
+                                                                              $('#catatIplt').removeClass('d-none');
+                                                                              $('#checkJustifikasi').removeClass('d-none');
+                                                                              $('#catatJustifikasi').removeClass('d-none');
+
+
+                                                                            }
+                                                                          });
+
+
+                                                                           $('#air_limba_na_iplt').change(function() {
+                                                                            if($(this).is(':checked')) {
+                                                                              $('.c_air_limba_na_iplt').removeClass('d-none'); 
+                                                                              $('#checkSmkd').addClass('d-none');
+                                                                              $('#catatSmkd').addClass('d-none'); 
+                                                                              $('#checkSpl').addClass('d-none');
+                                                                              $('#catakSpl').addClass('d-none');
+                                                                              $('#checkBppw').addClass('d-none');
+                                                                              $('#catakBppw').addClass('d-none');
+                                                                              $('#checkIDpr').addClass('d-none');
+                                                                              $('#catakIDpr').addClass('d-none');
+                                                                              $('#checkIRab').addClass('d-none');
+                                                                              $('#catakIRab').addClass('d-none');
+                                                                              $('#checkIBll').addClass('d-none');
+                                                                              $('#catakIBll').addClass('d-none');
+                                                                              $('#checkIDjt').addClass('d-none');
+                                                                              $('#catakIDjt').addClass('d-none');
+                                                                              $('#checkIMasterPlan').addClass('d-none');
+                                                                              $('#catakIMasterPlan').addClass('d-none');
+                                                                              $('#checkIAmdal').addClass('d-none');
+                                                                              $('#catakIAmdal').addClass('d-none');
+                                                                              $('#checkIKlp').addClass('d-none');
+                                                                              $('#catakIKlp').addClass('d-none');
+                                                                              $('#checkIBisnis').addClass('d-none');
+                                                                              $('#catakIBisnis').addClass('d-none');
+                                                                              $('#checkIBkll').addClass('d-none');
+                                                                              $('#catakIBkll').addClass('d-none');
+                                                                              $('#checkIAbd').addClass('d-none');
+                                                                              $('#catakIAbd').addClass('d-none');
+                                                                              $('#checkIBpkp').addClass('d-none');
+                                                                              $('#catakIBpkp').addClass('d-none');
+                                                                              $('#checkITrukTinja').addClass('d-none');
+                                                                              $('#catakITrukTinja').addClass('d-none');
+                                                                            } else {
+                                                                              $('.c_air_limba_na_iplt').addClass('d-none');
+
+                                                                              $('#checkSmkd').removeClass('d-none');
+                                                                              $('#catatSmkd').removeClass('d-none'); 
+                                                                              $('#checkSpl').removeClass('d-none');
+                                                                              $('#catakSpl').removeClass('d-none');
+                                                                              $('#checkBppw').removeClass('d-none');
+                                                                              $('#catakBppw').removeClass('d-none');
+                                                                              $('#checkIDpr').removeClass('d-none');
+                                                                              $('#catakIDpr').removeClass('d-none');
+                                                                              $('#checkIRab').removeClass('d-none');
+                                                                              $('#catakIRab').removeClass('d-none');
+                                                                              $('#checkIBll').removeClass('d-none');
+                                                                              $('#catakIBll').removeClass('d-none');
+                                                                              $('#checkIDjt').removeClass('d-none');
+                                                                              $('#catakIDjt').removeClass('d-none');
+                                                                              $('#checkIMasterPlan').removeClass('d-none');
+                                                                              $('#catakIMasterPlan').removeClass('d-none');
+                                                                              $('#checkIAmdal').removeClass('d-none');
+                                                                              $('#catakIAmdal').removeClass('d-none');
+                                                                              $('#checkIKlp').removeClass('d-none');
+                                                                              $('#catakIKlp').removeClass('d-none');
+                                                                              $('#checkIBisnis').removeClass('d-none');
+                                                                              $('#catakIBisnis').removeClass('d-none');
+                                                                              $('#checkIBkll').removeClass('d-none');
+                                                                              $('#catakIBkll').removeClass('d-none');
+                                                                              $('#checkIAbd').removeClass('d-none');
+                                                                              $('#catakIAbd').removeClass('d-none');
+                                                                              $('#checkIBpkp').removeClass('d-none');
+                                                                              $('#catakIBpkp').removeClass('d-none');
+                                                                              $('#checkITrukTinja').removeClass('d-none');
+                                                                              $('#catakITrukTinja').removeClass('d-none');
+
+                                                                            }
+                                                                          });
+
+          $('#persambahan_na').change(function() {
+            if($(this).is(':checked')) {
+              $('.c_persambahan_na').removeClass('d-none'); 
+              
+              $('#checkPPembangunan').addClass('d-none');
+              $('#catatPPembangunan').addClass('d-none');
+              $('#checkPRab').addClass('d-none');
+              $('#catakPRab').addClass('d-none');
+              $('#checkPSpkp').addClass('d-none');
+              $('#catakPSpkp').addClass('d-none');
+              $('#checkPBll').addClass('d-none');
+              $('#catakPBll').addClass('d-none');
+              $('#checkPKbp').addClass('d-none');
+              $('#catakPKbp').addClass('d-none');
+              $('#checkPDcpm').addClass('d-none');
+              $('#catakPDcpm').addClass('d-none');
+              $('#checkPBkaw').addClass('d-none');
+              $('#catakPBkaw').addClass('d-none');
+              $('#checkPSPKD').addClass('d-none');
+              $('#catakPSPKD').addClass('d-none');
+              $('#checkPDddl').addClass('d-none');
+              $('#catakPDddl').addClass('d-none');
+              $('#checkJtp').addClass('d-none');
+              $('#catakJtp').addClass('d-none');
+              $('#checkSKKKP').addClass('d-none');
+              $('#catakSKKKP').addClass('d-none');
+              $('#checkAbdTp').addClass('d-none');
+              $('#catakAbdTp').addClass('d-none');
+            } else {
+              $('.c_persambahan_na').addClass('d-none');
+              $('#checkPPembangunan').removeClass('d-none');
+              $('#catatPPembangunan').removeClass('d-none');
+              $('#checkPRab').removeClass('d-none');
+              $('#catakPRab').removeClass('d-none');
+              $('#checkPSpkp').removeClass('d-none');
+              $('#catakPSpkp').removeClass('d-none');
+              $('#checkPBll').removeClass('d-none');
+              $('#catakPBll').removeClass('d-none');
+              $('#checkPKbp').removeClass('d-none');
+              $('#catakPKbp').removeClass('d-none');
+              $('#checkPDcpm').removeClass('d-none');
+              $('#catakPDcpm').removeClass('d-none');
+              $('#checkPBkaw').removeClass('d-none');
+              $('#catakPBkaw').removeClass('d-none');
+              $('#checkPSPKD').removeClass('d-none');
+              $('#catakPSPKD').removeClass('d-none');
+              $('#checkPDddl').removeClass('d-none');
+              $('#catakPDddl').removeClass('d-none');
+              $('#checkJtp').removeClass('d-none');
+              $('#catakJtp').removeClass('d-none');
+              $('#checkSKKKP').removeClass('d-none');
+              $('#catakSKKKP').removeClass('d-none');
+              $('#checkAbdTp').removeClass('d-none');
+              $('#catakAbdTp').removeClass('d-none');
+
+            }
+          });
+
+
+
 
                 // Show Data
-                  getDataTableConten = function () {
+          getDataTableConten = function () {
 
-                    let kdlokasi = $("#provinsi option:selected").val(),
-                    kdkabkota =  $("#kabkota option:selected").val(),
-                    tematik = $("#tematik option:selected").val();
+            let kdlokasi = $("#provinsi option:selected").val(),
+            kdkabkota =  $("#kabkota option:selected").val(),
+            tematik = $("#tematik option:selected").val();
 
-
-                  // Masukan Value Hidden
-                    kdkabkotaX = kdkabkota.slice(0, 6);
-                    $('#kdTematikHidden').val(tematik);
-                    $('#kdsatkerHidden').val(kdkabkotaX+'03');
 
                   // Masukan Value Hidden
-                    if (kdkabkota == '') {
-                      t_error('Silakan Pilih Provinsi/kabupaten Kota Terlebih Dahulu.!')
-                      return;
-                    }
+            kdkabkotaX = kdkabkota.slice(0, 6);
+            $('#kdTematikHidden').val(tematik);
+            $('#kdsatkerHidden').val(kdkabkotaX+'04');
 
-                    if (tematik == '') {
-                      t_error('Silakan Pilih Tematik.!')
-                      return;
-                    }
+                  // Masukan Value Hidden
+            if (kdkabkota == '') {
+              t_error('Silakan Pilih Provinsi/kabupaten Kota Terlebih Dahulu.!')
+              return;
+            }
 
-                    $.LoadingOverlay("show");
+            if (tematik == '') {
+              t_error('Silakan Pilih Tematik.!')
+              return;
+            }
 
-                    ajaxUntukSemua(base_url()+'KonregSan/getDataBaSan', {kdlokasi, kdkabkota, tematik}, function(data) {
+            $.LoadingOverlay("show");
+
+            ajaxUntukSemua(base_url()+'KonregSan/getDataBaSan', {kdlokasi, kdkabkota, tematik}, function(data) {
 
 
                     // Set provinsi 
-                      $('#provHeader').text($('#provinsi option:selected').text());
+              $('#provHeader').text($('#provinsi option:selected').text());
                     // End Set Provinsi
 
                     // Set kabupaten/Kota
-                      $('#kabKotaHeader').text($('#kabkota option:selected').text());
+              $('#kabKotaHeader').text($('#kabkota option:selected').text());
                     // End Set kabupaten/Kota
 
 
@@ -516,68 +1088,68 @@
 
 
                     // Non tematik
-                      if (tematik == '1') {
+              if (tematik == '1') {
 
-                        $('#icon-rispam').text('Non Tematik');
+                $('#icon-rispam').text('Non Tematik');
 
-                        $('#paguAlokasiTot').text(data.dataAwal.ld_total == 0 ? 0 : formatAngka(data.dataAwal.ld_total));
-                        $('#paguAlokasitotalhidde').val(data.dataAwal.ld_total);
+                $('#paguAlokasiTot').text(data.dataAwal.ld_total == 0 ? 0 : formatAngka(data.dataAwal.ld_total));
+                $('#paguAlokasitotalhidde').val(data.dataAwal.ld_total);
 
-                        $('#paguAlokasiPemda').text('Rp. '+ data.dataAwal.ld_alokasi_pemda == 0 ? '-' : formatAngka(data.dataAwal.ld_alokasi_pemda));
+                $('#paguAlokasiPemda').text('Rp. '+ data.dataAwal.ld_alokasi_pemda == 0 ? '-' : formatAngka(data.dataAwal.ld_alokasi_pemda));
 
-                        $('#paguAspirasi').text('Rp. '+ data.dataAwal.ld_alokasi_dpr == 0 ? '-' : formatAngka(data.dataAwal.ld_alokasi_dpr));
+                $('#paguAspirasi').text('Rp. '+ data.dataAwal.ld_alokasi_dpr == 0 ? '-' : formatAngka(data.dataAwal.ld_alokasi_dpr));
 
-                        $('#minApproveHeader').text(data.dataAwal.ld_min_approve == 0 ? 0 : formatAngka(data.dataAwal.ld_min_approve));
-                        $('#minApproveHeaderHedden').val(data.dataAwal.ld_min_approve);
+                $('#minApproveHeader').text(data.dataAwal.ld_min_approve == 0 ? 0 : formatAngka(data.dataAwal.ld_min_approve));
+                $('#minApproveHeaderHedden').val(data.dataAwal.ld_min_approve);
 
-                        $('#MaxApproveHeader').text(data.dataAwal.ld_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.ld_max_penunjang) );
-                        $('#maxPenunjangHedden').val(data.dataAwal.ld_max_penunjang);
+                $('#MaxApproveHeader').text(data.dataAwal.ld_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.ld_max_penunjang) );
+                $('#maxPenunjangHedden').val(data.dataAwal.ld_max_penunjang);
 
 
-                      }
+              }
                    // End Non tematik
 
                     // Tematik PPKT
-                      if (tematik == '2') {
-                        $('#icon-rispam').text('Tematik PPKT');
-                        $('#paguAlokasiTot').text(data.dataAwal.kt_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.kt_alokasi_pemda));
-                        $('#paguAlokasitotalhidde').val(data.dataAwal.kt_alokasi_pemda);
+              if (tematik == '2') {
+                $('#icon-rispam').text('Tematik PPKT');
+                $('#paguAlokasiTot').text(data.dataAwal.kt_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.kt_alokasi_pemda));
+                $('#paguAlokasitotalhidde').val(data.dataAwal.kt_alokasi_pemda);
 
 
-                        $('#paguAlokasiPemda').text(data.dataAwal.kt_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.kt_alokasi_pemda));
+                $('#paguAlokasiPemda').text(data.dataAwal.kt_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.kt_alokasi_pemda));
 
-                        $('#paguAspirasi').text('Rp. -');
+                $('#paguAspirasi').text('Rp. -');
 
-                        $('#minApproveHeader').text(data.dataAwal.kt_min_approve == 0 ? 0 : formatAngka(data.dataAwal.kt_min_approve) );
-                        $('#minApproveHeaderHedden').val(data.dataAwal.kt_min_approve);
+                $('#minApproveHeader').text(data.dataAwal.kt_min_approve == 0 ? 0 : formatAngka(data.dataAwal.kt_min_approve) );
+                $('#minApproveHeaderHedden').val(data.dataAwal.kt_min_approve);
 
 
-                        $('#MaxApproveHeader').text(data.dataAwal.kt_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.kt_max_penunjang));
-                        $('#maxPenunjangHedden').val(data.dataAwal.kt_max_penunjang);
+                $('#MaxApproveHeader').text(data.dataAwal.kt_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.kt_max_penunjang));
+                $('#maxPenunjangHedden').val(data.dataAwal.kt_max_penunjang);
 
-                      }
+              }
                    // End Tematik PPKT
 
 
                     // Tematik PE-RPKI
-                      if (tematik == '3') {
-                        $('#icon-rispam').text('Tematik PE-RPKI');
-                        $('#paguAlokasiTot').text(data.dataAwal.ki_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.ki_alokasi_pemda));
-                        $('#paguAlokasitotalhidde').val(data.dataAwal.ki_alokasi_pemda);
+              if (tematik == '3') {
+                $('#icon-rispam').text('Tematik PE-RPKI');
+                $('#paguAlokasiTot').text(data.dataAwal.ki_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.ki_alokasi_pemda));
+                $('#paguAlokasitotalhidde').val(data.dataAwal.ki_alokasi_pemda);
 
 
-                        $('#paguAlokasiPemda').text(data.dataAwal.ki_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.ki_alokasi_pemda));
+                $('#paguAlokasiPemda').text(data.dataAwal.ki_alokasi_pemda == 0 ? 0 : formatAngka(data.dataAwal.ki_alokasi_pemda));
 
-                        $('#paguAspirasi').text('Rp. -');
+                $('#paguAspirasi').text('Rp. -');
 
-                        $('#minApproveHeader').text(data.dataAwal.ki_min_approve == 0 ? 0 : formatAngka(data.dataAwal.ki_min_approve) );
-                        $('#minApproveHeaderHedden').val(data.dataAwal.ki_min_approve);
+                $('#minApproveHeader').text(data.dataAwal.ki_min_approve == 0 ? 0 : formatAngka(data.dataAwal.ki_min_approve) );
+                $('#minApproveHeaderHedden').val(data.dataAwal.ki_min_approve);
 
 
-                        $('#MaxApproveHeader').text(data.dataAwal.ki_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.ki_max_penunjang));
-                        $('#maxPenunjangHedden').val(data.dataAwal.ki_max_penunjang);
+                $('#MaxApproveHeader').text(data.dataAwal.ki_max_penunjang == 0 ? 0 : formatAngka(data.dataAwal.ki_max_penunjang));
+                $('#maxPenunjangHedden').val(data.dataAwal.ki_max_penunjang);
 
-                      }
+              }
                    // End Tematik PE-RPKI
 
 
@@ -585,146 +1157,500 @@
                      // End Set Pagu header
 
                     // Set Data Table
-                      if (data.dataBody != null) {
+              if (data.dataBody != null) {
 
                        // Set Alokasi Pemda
-                        let alokasiTotal = '';
+                let alokasiTotal = '';
 
-                        if (tematik == '1') {
-                          alokasiTotal = data.dataAwal.ld_total;
-                        }
+                if (tematik == '1') {
+                  alokasiTotal = data.dataAwal.ld_total;
+                }
 
-                        if (tematik == '2') {
-                          alokasiTotal = data.dataAwal.kt_alokasi_pemda;
-                        }
+                if (tematik == '2') {
+                  alokasiTotal = data.dataAwal.kt_alokasi_pemda;
+                }
 
-                        if (tematik == '3') {
-                          alokasiTotal = data.dataAwal.ki_alokasi_pemda;
-                        }
+                if (tematik == '3') {
+                  alokasiTotal = data.dataAwal.ki_alokasi_pemda;
+                }
                       // End Set Alokasi Pemda
 
                       // Set statsu kegiatan fisik
-                        if (Number(data.dataBody.nilaiFisik) < Number(alokasiTotal)) {
-                          $('#sts_fisik').text('OK');
-                        }else{
-                          $('#sts_fisik').text('NOT OK');
-                        }
+                if (Number(data.dataBody.nilaiFisik) < Number(alokasiTotal)) {
+                  $('#sts_fisik').text('OK');
+                }else{
+                  $('#sts_fisik').text('NOT OK');
+                }
                        // End Set statsu kegiatan fisik
 
-                        $('#persentase').text(((Number(data.dataBody.nilaiPenunjang)/Number(data.dataBody.fisikPenunjang))*100).toFixed(4)+' %');
+                $('#persentase').text(((Number(data.dataBody.nilaiPenunjang)/Number(data.dataBody.fisikPenunjang))*100).toFixed(4)+' %');
 
 
 
-                        let totalPenunjangFisik = Number(data.dataBody.fisikPenunjang);
+                let totalPenunjangFisik = Number(data.dataBody.fisikPenunjang);
 
 
 
                       // Set Max Alokasi Penunjang
-                        let alokasiPenunjang = '';
+                let alokasiPenunjang = '';
 
 
-                        if (tematik == '1') {
-                          alokasiPenunjang = data.dataAwal.ld_max_penunjang;
-                        }
+                if (tematik == '1') {
+                  alokasiPenunjang = data.dataAwal.ld_max_penunjang;
+                }
 
-                        if (tematik == '2') {
-                          alokasiPenunjang = data.dataAwal.kt_max_penunjang;
-                        }
+                if (tematik == '2') {
+                  alokasiPenunjang = data.dataAwal.kt_max_penunjang;
+                }
 
-                        if (tematik == '3') {
-                          alokasiPenunjang = data.dataAwal.ki_max_penunjang;
-                        }
+                if (tematik == '3') {
+                  alokasiPenunjang = data.dataAwal.ki_max_penunjang;
+                }
                       // End Set Max Alokasi Penunjang
 
 
-                        let penujangPerbandingan = data.dataBody.nilaiPenunjang;
+                let penujangPerbandingan = data.dataBody.nilaiPenunjang;
 
-                        if (totalPenunjangFisik > alokasiTotal) {
-                          $('#stsNilaiFisikPenunajng').text('Not Ok');
-                        }else{
-                          $('#stsNilaiFisikPenunajng').text('Ok');
-                        }
-
-
-                        if (penujangPerbandingan > alokasiPenunjang) {
-                          $('#kegaiatanStatus').text('Not Ok');
-                        }else{
-                          $('#kegaiatanStatus').text('Ok');
-                        }
+                if (totalPenunjangFisik > alokasiTotal) {
+                  $('#stsNilaiFisikPenunajng').text('Not Ok');
+                }else{
+                  $('#stsNilaiFisikPenunajng').text('Ok');
+                }
 
 
-                        $('#nilaiFisik').val(data.dataBody.nilaiFisik);
-                        $('#catatFisik').val(data.dataBody.catatFisik);
-                        $('input[type="checkbox"][name="checkOutput"][id="checkOutput"]').prop('checked', data.dataBody.checkOutput == 'on' ? true:false);
-                        $('#catatOutput').val(data.dataBody.catatOutput);
-                        $('input[type="checkbox"][id="checkKomponen"]').prop('checked', data.dataBody.checkKomponen == 'on' ? true:false);
-                        $('#catatKomponen').val(data.dataBody.catatKomponen);
-                        $('#nilaiPenunjang').val(data.dataBody.nilaiPenunjang);
-                        $('input[type="checkbox"][id="checkPenunjang"]').prop('checked', data.dataBody.checkPenunjang == 'on' ? true:false);
-                        $('#rincianKegiatan').val(data.dataBody.rincianKegiatan);
-                        $('#fisikPenunjang').val(data.dataBody.fisikPenunjang);
-                        $('#fisikPenunjangCatat').val(data.dataBody.fisikPenunjangCatat);
-                        $('input[type="checkbox"][id="checkSPTJM"]').prop('checked', data.dataBody.checkSPTJM == 'on' ? true:false);
-                        $('#catatSptjm').val(data.dataBody.catatSptjm);
-                        $('input[type="checkbox"][id="checkRispam"]').prop('checked', data.dataBody.checkRispam == 'on' ? true:false);
-                        $('#catatRispam').val(data.dataBody.catatRispam);
-                        $('input[type="checkbox"][id="checkDed"]').prop('checked', data.dataBody.checkDed == 'on' ? true:false);
-                        $('#dedCatat').val(data.dataBody.dedCatat);
-                        $('input[type="checkbox"][id="checkRab"]').prop('checked', data.dataBody.checkRab == 'on' ? true:false);
-                        $('#rabCatat').val(data.dataBody.rabCatat);
-                        $('input[type="checkbox"][id="checkIpa"]').prop('checked', data.dataBody.checkIpa == 'on' ? true:false);
-                        $('#ipaCatat').val(data.dataBody.ipaCatat);
-                        $('input[type="checkbox"][id="checkRds"]').prop('checked', data.dataBody.checkRds == 'on' ? true:false);
-                        $('#rdsCatat').val(data.dataBody.rdsCatat);
-                        $('input[type="checkbox"][id="checkPdam"]').prop('checked', data.dataBody.checkPdam == 'on' ? true:false);
-                        $('#pdamCatat').val(data.dataBody.pdamCatat);
-                        $('input[type="checkbox"][id="checkPks"]').prop('checked', data.dataBody.checkPks == 'on' ? true:false);
-                        $('#pksCatat').val(data.dataBody.pksCatat);
-                        $('#catatanAll').val(data.dataBody.catatanAll);
+                if (penujangPerbandingan > alokasiPenunjang) {
+                  $('#kegaiatanStatus').text('Not Ok');
+                }else{
+                  $('#kegaiatanStatus').text('Ok');
+                }
 
 
-                      }else{
+                $('#nilaiFisik').val(data.dataBody.nilaiFisik);
+                $('#catatFisik').val(data.dataBody.catatFisik);
+                $('input[type="checkbox"][name="checkOutput"][id="checkOutput"]').prop('checked', data.dataBody.checkOutput == 'on' ? true:false);
+                $('#catatOutput').val(data.dataBody.catatOutput);
+                $('input[type="checkbox"][id="checkKomponen"]').prop('checked', data.dataBody.checkKomponen == 'on' ? true:false);
+                $('#catatKomponen').val(data.dataBody.catatKomponen);
+                $('#nilaiPenunjang').val(data.dataBody.nilaiPenunjang);
+                $('input[type="checkbox"][id="checkPenunjang"]').prop('checked', data.dataBody.checkPenunjang == 'on' ? true:false);
+                $('#rincianKegiatan').val(data.dataBody.rincianKegiatan);
+                $('#fisikPenunjang').val(data.dataBody.fisikPenunjang);
+                $('#fisikPenunjangCatat').val(data.dataBody.fisikPenunjangCatat);
+                $('input[type="checkbox"][id="checkSPTJM"]').prop('checked', data.dataBody.checkSPTJM == 'on' ? true:false);
+                $('#catatSptjm').val(data.dataBody.catatSptjm);
+                $('input[type="checkbox"][id="checkSSK"]').prop('checked', data.dataBody.checkSSK == 'on' ? true:false);
+                $('#catatSSK').val(data.dataBody.catatSSK);
+                $('input[type="checkbox"][id="checkDed"]').prop('checked', data.dataBody.checkDed == 'on' ? true:false);
+                $('#catatDed').val(data.dataBody.catatDed);
+                $('input[type="checkbox"][id="checkRab"]').prop('checked', data.dataBody.checkRab == 'on' ? true:false);
+                $('#catatRab').val(data.dataBody.catatRab);
+                $('input[type="checkbox"][id="checkSpkp"]').prop('checked', data.dataBody.checkSpkp == 'on' ? true:false);
+                $('#catatSpkp').val(data.dataBody.catatSpkp);
+                $('input[type="checkbox"][id="checkKlbs"]').prop('checked', data.dataBody.checkKlbs == 'on' ? true:false);
+                $('#catatKlbs').val(data.dataBody.catatKlbs);
+                $('input[type="checkbox"][id="checkDcpm"]').prop('checked', data.dataBody.checkDcpm == 'on' ? true:false);
+                $('#catatDcpm').val(data.dataBody.catatDcpm);
+                $('input[type="checkbox"][id="checkIplt"]').prop('checked', data.dataBody.checkIplt == 'on' ? true:false);
+                $('#catatIplt').val(data.dataBody.catatIplt);
+                $('input[type="checkbox"][id="checkJustifikasi"]').prop('checked', data.dataBody.checkJustifikasi == 'on' ? true:false);
+                $('#catatJustifikasi').val(data.dataBody.catatJustifikasi);
+                $('input[type="checkbox"][id="checkSmkd"]').prop('checked', data.dataBody.checkSmkd == 'on' ? true:false);
+                $('#catatSmkd').val(data.dataBody.catatSmkd);
+                $('input[type="checkbox"][id="checkSpl"]').prop('checked', data.dataBody.checkSpl == 'on' ? true:false);
+                $('#catakSpl').val(data.dataBody.catakSpl);
+                $('input[type="checkbox"][id="checkBppw"]').prop('checked', data.dataBody.checkBppw == 'on' ? true:false);
+                $('#catakBppw').val(data.dataBody.catakBppw);
+                $('input[type="checkbox"][id="checkIDpr"]').prop('checked', data.dataBody.checkIDpr == 'on' ? true:false);
+                $('#catakIDpr').val(data.dataBody.catakIDpr);
+                $('input[type="checkbox"][id="checkIRab"]').prop('checked', data.dataBody.checkIRab == 'on' ? true:false);
+                $('#catakIRab').val(data.dataBody.catakIRab);
+                $('input[type="checkbox"][id="checkIBll"]').prop('checked', data.dataBody.checkIBll == 'on' ? true:false);
+                $('#catakIBll').val(data.dataBody.catakIBll);
+                $('input[type="checkbox"][id="checkIDjt"]').prop('checked', data.dataBody.checkIDjt == 'on' ? true:false);
+                $('#catakIDjt').val(data.dataBody.catakIDjt);
+                $('input[type="checkbox"][id="checkIMasterPlan"]').prop('checked', data.dataBody.checkIMasterPlan == 'on' ? true:false);
+                $('#catakIMasterPlan').val(data.dataBody.catakIMasterPlan);
+                $('input[type="checkbox"][id="checkIAmdal"]').prop('checked', data.dataBody.checkIAmdal == 'on' ? true:false);
+                $('#catakIAmdal').val(data.dataBody.catakIAmdal);
+                $('input[type="checkbox"][id="checkIKlp"]').prop('checked', data.dataBody.checkIKlp == 'on' ? true:false);
+                $('#catakIKlp').val(data.dataBody.catakIKlp);
+                $('input[type="checkbox"][id="checkIBisnis"]').prop('checked', data.dataBody.checkIBisnis == 'on' ? true:false);
+                $('#catakIBisnis').val(data.dataBody.catakIBisnis);
+                $('input[type="checkbox"][id="checkIBkll"]').prop('checked', data.dataBody.checkIBkll == 'on' ? true:false);
+                $('#catakIBkll').val(data.dataBody.catakIBkll);
+                $('input[type="checkbox"][id="checkIAbd"]').prop('checked', data.dataBody.checkIAbd == 'on' ? true:false);
+                $('#catakIAbd').val(data.dataBody.catakIAbd);
+                $('input[type="checkbox"][id="checkIBpkp"]').prop('checked', data.dataBody.checkIBpkp == 'on' ? true:false);
+                $('#catakIBpkp').val(data.dataBody.catakIBpkp);
+                $('input[type="checkbox"][id="checkITrukTinja"]').prop('checked', data.dataBody.checkITrukTinja == 'on' ? true:false);
+                $('#catakITrukTinja').val(data.dataBody.catakITrukTinja);
+                $('input[type="checkbox"][id="checkPPembangunan"]').prop('checked', data.dataBody.checkPPembangunan == 'on' ? true:false);
+                $('#catatPPembangunan').val(data.dataBody.catatPPembangunan);
+                $('input[type="checkbox"][id="checkPRab"]').prop('checked', data.dataBody.checkPRab == 'on' ? true:false);
+                $('#catakPRab').val(data.dataBody.catakPRab);
+                $('input[type="checkbox"][id="checkPSpkp"]').prop('checked', data.dataBody.checkPSpkp == 'on' ? true:false);
+                $('#catakPSpkp').val(data.dataBody.catakPSpkp);
+                $('input[type="checkbox"][id="checkPBll"]').prop('checked', data.dataBody.checkPBll == 'on' ? true:false);
+                $('#catakPBll').val(data.dataBody.catakPBll);
+                $('input[type="checkbox"][id="checkPKbp"]').prop('checked', data.dataBody.checkPKbp == 'on' ? true:false);
+                $('#catakPKbp').val(data.dataBody.catakPKbp);
+                $('input[type="checkbox"][id="checkPDcpm"]').prop('checked', data.dataBody.checkPDcpm == 'on' ? true:false);
+                $('#catakPDcpm').val(data.dataBody.catakPDcpm);
+                $('input[type="checkbox"][id="checkPBkaw"]').prop('checked', data.dataBody.checkPBkaw == 'on' ? true:false);
+                $('#catakPBkaw').val(data.dataBody.catakPBkaw);
+                $('input[type="checkbox"][id="checkPSPKD"]').prop('checked', data.dataBody.checkPSPKD == 'on' ? true:false);
+                $('#catakPSPKD').val(data.dataBody.catakPSPKD);
+                $('input[type="checkbox"][id="checkPDddl"]').prop('checked', data.dataBody.checkPDddl == 'on' ? true:false);
+                $('#catakPDddl').val(data.dataBody.catakPDddl);
+                $('input[type="checkbox"][id="checkJtp"]').prop('checked', data.dataBody.checkJtp == 'on' ? true:false);
+                $('#catakJtp').val(data.dataBody.catakJtp);
+                $('input[type="checkbox"][id="checkSKKKP"]').prop('checked', data.dataBody.checkSKKKP == 'on' ? true:false);
+                $('#catakSKKKP').val(data.dataBody.catakSKKKP);
+                $('input[type="checkbox"][id="checkAbdTp"]').prop('checked', data.dataBody.checkAbdTp == 'on' ? true:false);
+                $('#catakAbdTp').val(data.dataBody.catakAbdTp);
+                $('#catatanAll').val(data.dataBody.catatanAll);
+                $('input[type="checkbox"][id="air_limba_na"]').prop('checked', data.dataBody.kondisiAirLimba == 'on' ? true:false);
+                $('input[type="checkbox"][id="air_limba_na_iplt"]').prop('checked', data.dataBody.kondisiAirLimbaIplt == 'on' ? true:false);
+                $('input[type="checkbox"][id="persambahan_na"]').prop('checked', data.dataBody.kondisiPersampahan == 'on' ? true:false);
 
-                        $('#persentase').text('');
-                        $('#sts_fisik').text('');
-                        $('#nilaiFisik').val('');
-                        $('#catatFisik').val('');
-                        $('#catatKomponen').val('');
-                        $('input[type="checkbox"][name="checkOutput"][id="checkOutput"]').prop('checked', false);
-                        $('#catatOutput').val('');
-                        $('input[type="checkbox"][id="checkKomponen"]').prop('checked', false);
-                        $('#nilaiPenunjang').val('');
-                        $('input[type="checkbox"][id="checkPenunjang"]').prop('checked', false);
-                        $('#rincianKegiatan').val('');
-                        $('#fisikPenunjang').val('');
-                        $('#fisikPenunjangCatat').val('');
-                        $('input[type="checkbox"][id="checkSPTJM"]').prop('checked', false);
-                        $('#catatSptjm').val('');
-                        $('input[type="checkbox"][id="checkRispam"]').prop('checked', false);
-                        $('#catatRispam').val('');
-                        $('input[type="checkbox"][id="checkDed"]').prop('checked', false);
-                        $('#dedCatat').val('');
-                        $('input[type="checkbox"][id="checkRab"]').prop('checked', false);
-                        $('#rabCatat').val('');
-                        $('input[type="checkbox"][id="checkIpa"]').prop('checked', false);
-                        $('#ipaCatat').val('');
-                        $('input[type="checkbox"][id="checkRds"]').prop('checked', false);
-                        $('#rdsCatat').val('');
-                        $('input[type="checkbox"][id="checkPdam"]').prop('checked', false);
-                        $('#pdamCatat').val('');
-                        $('input[type="checkbox"][id="checkPks"]').prop('checked', false);
-                        $('#pksCatat').val('');
-                        $('#catatanAll').val('');
-                      }
+                // Set NA 1
+                if(data.dataBody.kondisiAirLimba == 'on') {
+                  $('.c_air_limba_na').removeClass('d-none'); 
+                  $('#checkDed').addClass('d-none'); 
+                  $('#catatDed').addClass('d-none');
+                  $('#checkRab').addClass('d-none');
+                  $('#catatRab').addClass('d-none');
+                  $('#checkSpkp').addClass('d-none');
+                  $('#catatSpkp').addClass('d-none');
+                  $('#checkKlbs').addClass('d-none');
+                  $('#catatKlbs').addClass('d-none');
+                  $('#checkDcpm').addClass('d-none');
+                  $('#catatDcpm').addClass('d-none');
+                  $('#checkIplt').addClass('d-none');
+                  $('#catatIplt').addClass('d-none');
+                  $('#checkJustifikasi').addClass('d-none');
+                  $('#catatJustifikasi').addClass('d-none');
+                } else {
+                  $('.c_air_limba_na').addClass('d-none');
+                  $('#checkDed').removeClass('d-none'); 
+                  $('#catatDed').removeClass('d-none');
+                  $('#checkRab').removeClass('d-none');
+                  $('#catatRab').removeClass('d-none');
+                  $('#checkSpkp').removeClass('d-none');
+                  $('#catatSpkp').removeClass('d-none');
+                  $('#checkKlbs').removeClass('d-none');
+                  $('#catatKlbs').removeClass('d-none');
+                  $('#checkDcpm').removeClass('d-none');
+                  $('#catatDcpm').removeClass('d-none');
+                  $('#checkIplt').removeClass('d-none');
+                  $('#catatIplt').removeClass('d-none');
+                  $('#checkJustifikasi').removeClass('d-none');
+                  $('#catatJustifikasi').removeClass('d-none');
+                }
+                // End Set NA 1
+
+                // Set NA 2
+                if(data.dataBody.kondisiAirLimbaIplt == 'on') {
+                  $('.c_air_limba_na_iplt').removeClass('d-none'); 
+                  $('#checkSmkd').addClass('d-none');
+                  $('#catatSmkd').addClass('d-none'); 
+                  $('#checkSpl').addClass('d-none');
+                  $('#catakSpl').addClass('d-none');
+                  $('#checkBppw').addClass('d-none');
+                  $('#catakBppw').addClass('d-none');
+                  $('#checkIDpr').addClass('d-none');
+                  $('#catakIDpr').addClass('d-none');
+                  $('#checkIRab').addClass('d-none');
+                  $('#catakIRab').addClass('d-none');
+                  $('#checkIBll').addClass('d-none');
+                  $('#catakIBll').addClass('d-none');
+                  $('#checkIDjt').addClass('d-none');
+                  $('#catakIDjt').addClass('d-none');
+                  $('#checkIMasterPlan').addClass('d-none');
+                  $('#catakIMasterPlan').addClass('d-none');
+                  $('#checkIAmdal').addClass('d-none');
+                  $('#catakIAmdal').addClass('d-none');
+                  $('#checkIKlp').addClass('d-none');
+                  $('#catakIKlp').addClass('d-none');
+                  $('#checkIBisnis').addClass('d-none');
+                  $('#catakIBisnis').addClass('d-none');
+                  $('#checkIBkll').addClass('d-none');
+                  $('#catakIBkll').addClass('d-none');
+                  $('#checkIAbd').addClass('d-none');
+                  $('#catakIAbd').addClass('d-none');
+                  $('#checkIBpkp').addClass('d-none');
+                  $('#catakIBpkp').addClass('d-none');
+                  $('#checkITrukTinja').addClass('d-none');
+                  $('#catakITrukTinja').addClass('d-none');
+                } else {
+                  $('.c_air_limba_na_iplt').addClass('d-none');
+
+                  $('#checkSmkd').removeClass('d-none');
+                  $('#catatSmkd').removeClass('d-none'); 
+                  $('#checkSpl').removeClass('d-none');
+                  $('#catakSpl').removeClass('d-none');
+                  $('#checkBppw').removeClass('d-none');
+                  $('#catakBppw').removeClass('d-none');
+                  $('#checkIDpr').removeClass('d-none');
+                  $('#catakIDpr').removeClass('d-none');
+                  $('#checkIRab').removeClass('d-none');
+                  $('#catakIRab').removeClass('d-none');
+                  $('#checkIBll').removeClass('d-none');
+                  $('#catakIBll').removeClass('d-none');
+                  $('#checkIDjt').removeClass('d-none');
+                  $('#catakIDjt').removeClass('d-none');
+                  $('#checkIMasterPlan').removeClass('d-none');
+                  $('#catakIMasterPlan').removeClass('d-none');
+                  $('#checkIAmdal').removeClass('d-none');
+                  $('#catakIAmdal').removeClass('d-none');
+                  $('#checkIKlp').removeClass('d-none');
+                  $('#catakIKlp').removeClass('d-none');
+                  $('#checkIBisnis').removeClass('d-none');
+                  $('#catakIBisnis').removeClass('d-none');
+                  $('#checkIBkll').removeClass('d-none');
+                  $('#catakIBkll').removeClass('d-none');
+                  $('#checkIAbd').removeClass('d-none');
+                  $('#catakIAbd').removeClass('d-none');
+                  $('#checkIBpkp').removeClass('d-none');
+                  $('#catakIBpkp').removeClass('d-none');
+                  $('#checkITrukTinja').removeClass('d-none');
+                  $('#catakITrukTinja').removeClass('d-none');
+
+                }
+                // End Set NA 2
+
+                // Set NA 3
+                if(data.dataBody.kondisiPersampahan == 'on') {
+                  $('.c_persambahan_na').removeClass('d-none'); 
+
+                  $('#checkPPembangunan').addClass('d-none');
+                  $('#catatPPembangunan').addClass('d-none');
+                  $('#checkPRab').addClass('d-none');
+                  $('#catakPRab').addClass('d-none');
+                  $('#checkPSpkp').addClass('d-none');
+                  $('#catakPSpkp').addClass('d-none');
+                  $('#checkPBll').addClass('d-none');
+                  $('#catakPBll').addClass('d-none');
+                  $('#checkPKbp').addClass('d-none');
+                  $('#catakPKbp').addClass('d-none');
+                  $('#checkPDcpm').addClass('d-none');
+                  $('#catakPDcpm').addClass('d-none');
+                  $('#checkPBkaw').addClass('d-none');
+                  $('#catakPBkaw').addClass('d-none');
+                  $('#checkPSPKD').addClass('d-none');
+                  $('#catakPSPKD').addClass('d-none');
+                  $('#checkPDddl').addClass('d-none');
+                  $('#catakPDddl').addClass('d-none');
+                  $('#checkJtp').addClass('d-none');
+                  $('#catakJtp').addClass('d-none');
+                  $('#checkSKKKP').addClass('d-none');
+                  $('#catakSKKKP').addClass('d-none');
+                  $('#checkAbdTp').addClass('d-none');
+                  $('#catakAbdTp').addClass('d-none');
+                } else {
+                  $('.c_persambahan_na').addClass('d-none');
+                  $('#checkPPembangunan').removeClass('d-none');
+                  $('#catatPPembangunan').removeClass('d-none');
+                  $('#checkPRab').removeClass('d-none');
+                  $('#catakPRab').removeClass('d-none');
+                  $('#checkPSpkp').removeClass('d-none');
+                  $('#catakPSpkp').removeClass('d-none');
+                  $('#checkPBll').removeClass('d-none');
+                  $('#catakPBll').removeClass('d-none');
+                  $('#checkPKbp').removeClass('d-none');
+                  $('#catakPKbp').removeClass('d-none');
+                  $('#checkPDcpm').removeClass('d-none');
+                  $('#catakPDcpm').removeClass('d-none');
+                  $('#checkPBkaw').removeClass('d-none');
+                  $('#catakPBkaw').removeClass('d-none');
+                  $('#checkPSPKD').removeClass('d-none');
+                  $('#catakPSPKD').removeClass('d-none');
+                  $('#checkPDddl').removeClass('d-none');
+                  $('#catakPDddl').removeClass('d-none');
+                  $('#checkJtp').removeClass('d-none');
+                  $('#catakJtp').removeClass('d-none');
+                  $('#checkSKKKP').removeClass('d-none');
+                  $('#catakSKKKP').removeClass('d-none');
+                  $('#checkAbdTp').removeClass('d-none');
+                  $('#catakAbdTp').removeClass('d-none');
+
+                }
+                // End Set NA 3
+
+
+              }else{
+
+                $('#persentase').text('');
+                $('#sts_fisik').text('');
+                $('#nilaiFisik').val('');
+                $('#catatFisik').val('');
+                $('#catatKomponen').val('');
+                $('input[type="checkbox"][name="checkOutput"][id="checkOutput"]').prop('checked', false);
+                $('#catatOutput').val('');
+                $('input[type="checkbox"][id="checkKomponen"]').prop('checked', false);
+                $('#nilaiPenunjang').val('');
+                $('input[type="checkbox"][id="checkPenunjang"]').prop('checked', false);
+                $('#rincianKegiatan').val('');
+                $('#fisikPenunjang').val('');
+                $('#fisikPenunjangCatat').val('');
+                $('input[type="checkbox"][id="checkSPTJM"]').prop('checked', false);
+                $('#catatSptjm').val('');
+                $('input[type="checkbox"][id="checkSSK"]').prop('checked', false);
+                $('#catatSSK').val('');
+                $('input[type="checkbox"][id="checkDed"]').prop('checked', false);
+                $('#catatDed').val('');
+                $('input[type="checkbox"][id="checkRab"]').prop('checked', false);
+                $('#catatRab').val('');
+                $('input[type="checkbox"][id="checkSpkp"]').prop('checked', false);
+                $('#catatSpkp').val('');
+                $('input[type="checkbox"][id="checkKlbs"]').prop('checked', false);
+                $('#catatKlbs').val('');
+                $('input[type="checkbox"][id="checkDcpm"]').prop('checked', false);
+                $('#catatDcpm').val('');
+                $('input[type="checkbox"][id="checkIplt"]').prop('checked', false);
+                $('#catatIplt').val('');
+                $('input[type="checkbox"][id="checkJustifikasi"]').prop('checked', false);
+                $('#catatJustifikasi').val('');
+                $('input[type="checkbox"][id="checkSmkd"]').prop('checked', false);
+                $('#catatSmkd').val('');
+                $('input[type="checkbox"][id="checkSpl"]').prop('checked', false);
+                $('#catakSpl').val('');
+                $('input[type="checkbox"][id="checkBppw"]').prop('checked', false);
+                $('#catakBppw').val('');
+                $('input[type="checkbox"][id="checkIDpr"]').prop('checked', false);
+                $('#catakIDpr').val('');
+                $('input[type="checkbox"][id="checkIRab"]').prop('checked', false);
+                $('#catakIRab').val('');
+                $('input[type="checkbox"][id="checkIBll"]').prop('checked', false);
+                $('#catakIBll').val('');
+                $('input[type="checkbox"][id="checkIDjt"]').prop('checked', false);
+                $('#catakIDjt').val('');
+                $('input[type="checkbox"][id="checkIMasterPlan"]').prop('checked', false);
+                $('#catakIMasterPlan').val('');
+                $('input[type="checkbox"][id="checkIAmdal"]').prop('checked', false);
+                $('#catakIAmdal').val('');
+                $('input[type="checkbox"][id="checkIKlp"]').prop('checked', false);
+                $('#catakIKlp').val('');
+                $('input[type="checkbox"][id="checkIBisnis"]').prop('checked', false);
+                $('#catakIBisnis').val('');
+                $('input[type="checkbox"][id="checkIBkll"]').prop('checked', false);
+                $('#catakIBkll').val('');
+                $('input[type="checkbox"][id="checkIAbd"]').prop('checked', false);
+                $('#catakIAbd').val('');
+                $('input[type="checkbox"][id="checkIBpkp"]').prop('checked', false);
+                $('#catakIBpkp').val('');
+                $('input[type="checkbox"][id="checkITrukTinja"]').prop('checked', false);
+                $('#catakITrukTinja').val('');
+                $('input[type="checkbox"][id="checkPPembangunan"]').prop('checked', false);
+                $('#catatPPembangunan').val('');
+                $('input[type="checkbox"][id="checkPRab"]').prop('checked', false);
+                $('#catakPRab').val('');
+                $('input[type="checkbox"][id="checkPSpkp"]').prop('checked', false);
+                $('#catakPSpkp').val('');
+                $('input[type="checkbox"][id="checkPBll"]').prop('checked', false);
+                $('#catakPBll').val('');
+                $('input[type="checkbox"][id="checkPKbp"]').prop('checked', false);
+                $('#catakPKbp').val('');
+                $('input[type="checkbox"][id="checkPDcpm"]').prop('checked', false);
+                $('#catakPDcpm').val('');
+                $('input[type="checkbox"][id="checkPBkaw"]').prop('checked', false);
+                $('#catakPBkaw').val('');
+                $('input[type="checkbox"][id="checkPSPKD"]').prop('checked', false);
+                $('#catakPSPKD').val('');
+                $('input[type="checkbox"][id="checkPDddl"]').prop('checked', false);
+                $('#catakPDddl').val('');
+                $('input[type="checkbox"][id="checkJtp"]').prop('checked', false);
+                $('#catakJtp').val('');
+                $('input[type="checkbox"][id="checkSKKKP"]').prop('checked', false);
+                $('#catakSKKKP').val('');
+                $('input[type="checkbox"][id="checkAbdTp"]').prop('checked', false);
+                $('#catakAbdTp').val('');
+                $('input[type="checkbox"][id="air_limba_na"]').prop('checked', false);
+                $('input[type="checkbox"][id="air_limba_na_iplt"]').prop('checked', false);
+                $('input[type="checkbox"][id="persambahan_na"]').prop('checked', false);
+                $('#catatanAll').val('');
+
+                $('.c_air_limba_na').addClass('d-none');
+                $('#checkDed').removeClass('d-none'); 
+                $('#catatDed').removeClass('d-none');
+                $('#checkRab').removeClass('d-none');
+                $('#catatRab').removeClass('d-none');
+                $('#checkSpkp').removeClass('d-none');
+                $('#catatSpkp').removeClass('d-none');
+                $('#checkKlbs').removeClass('d-none');
+                $('#catatKlbs').removeClass('d-none');
+                $('#checkDcpm').removeClass('d-none');
+                $('#catatDcpm').removeClass('d-none');
+                $('#checkIplt').removeClass('d-none');
+                $('#catatIplt').removeClass('d-none');
+                $('#checkJustifikasi').removeClass('d-none');
+                $('#catatJustifikasi').removeClass('d-none');
+                $('.c_air_limba_na_iplt').addClass('d-none');
+                $('#checkSmkd').removeClass('d-none');
+                $('#catatSmkd').removeClass('d-none'); 
+                $('#checkSpl').removeClass('d-none');
+                $('#catakSpl').removeClass('d-none');
+                $('#checkBppw').removeClass('d-none');
+                $('#catakBppw').removeClass('d-none');
+                $('#checkIDpr').removeClass('d-none');
+                $('#catakIDpr').removeClass('d-none');
+                $('#checkIRab').removeClass('d-none');
+                $('#catakIRab').removeClass('d-none');
+                $('#checkIBll').removeClass('d-none');
+                $('#catakIBll').removeClass('d-none');
+                $('#checkIDjt').removeClass('d-none');
+                $('#catakIDjt').removeClass('d-none');
+                $('#checkIMasterPlan').removeClass('d-none');
+                $('#catakIMasterPlan').removeClass('d-none');
+                $('#checkIAmdal').removeClass('d-none');
+                $('#catakIAmdal').removeClass('d-none');
+                $('#checkIKlp').removeClass('d-none');
+                $('#catakIKlp').removeClass('d-none');
+                $('#checkIBisnis').removeClass('d-none');
+                $('#catakIBisnis').removeClass('d-none');
+                $('#checkIBkll').removeClass('d-none');
+                $('#catakIBkll').removeClass('d-none');
+                $('#checkIAbd').removeClass('d-none');
+                $('#catakIAbd').removeClass('d-none');
+                $('#checkIBpkp').removeClass('d-none');
+                $('#catakIBpkp').removeClass('d-none');
+                $('#checkITrukTinja').removeClass('d-none');
+                $('#catakITrukTinja').removeClass('d-none');
+                $('.c_persambahan_na').addClass('d-none');
+                $('#checkPPembangunan').removeClass('d-none');
+                $('#catatPPembangunan').removeClass('d-none');
+                $('#checkPRab').removeClass('d-none');
+                $('#catakPRab').removeClass('d-none');
+                $('#checkPSpkp').removeClass('d-none');
+                $('#catakPSpkp').removeClass('d-none');
+                $('#checkPBll').removeClass('d-none');
+                $('#catakPBll').removeClass('d-none');
+                $('#checkPKbp').removeClass('d-none');
+                $('#catakPKbp').removeClass('d-none');
+                $('#checkPDcpm').removeClass('d-none');
+                $('#catakPDcpm').removeClass('d-none');
+                $('#checkPBkaw').removeClass('d-none');
+                $('#catakPBkaw').removeClass('d-none');
+                $('#checkPSPKD').removeClass('d-none');
+                $('#catakPSPKD').removeClass('d-none');
+                $('#checkPDddl').removeClass('d-none');
+                $('#catakPDddl').removeClass('d-none');
+                $('#checkJtp').removeClass('d-none');
+                $('#catakJtp').removeClass('d-none');
+                $('#checkSKKKP').removeClass('d-none');
+                $('#catakSKKKP').removeClass('d-none');
+                $('#checkAbdTp').removeClass('d-none');
+                $('#catakAbdTp').removeClass('d-none');
+              }
       // End Set data table 
 
-                      $.LoadingOverlay("hide");
+              $.LoadingOverlay("hide");
 
 
-                    }, function(error) {
-                      console.log('Kesalahan:', error);
-                      t_error('Ada yg Error : '+error)
-                    });
+            }, function(error) {
+              console.log('Kesalahan:', error);
+              t_error('Ada yg Error : '+error)
+            });
 
           $("#container2").removeClass("d-none");
 
@@ -754,23 +1680,85 @@
          rincianKegiatan = $('#rincianKegiatan').val(),
          fisikPenunjang = $('#fisikPenunjang').val(),
          fisikPenunjangCatat = $('#fisikPenunjangCatat').val(),
+
          checkSPTJM = ($('#checkSPTJM').is(":checked")) ? 'on' : 'off',
          catatSptjm = $('#catatSptjm').val(),
-         checkRispam = ($('#checkRispam').is(":checked")) ? 'on' : 'off',
-         catatRispam = $('#catatRispam').val(),
+         checkSSK = ($('#checkSSK').is(":checked")) ? 'on' : 'off',
+         catatSSK = $('#catatSSK').val(),
          checkDed = ($('#checkDed').is(":checked")) ? 'on' : 'off',
-         dedCatat = $('#dedCatat').val(),
+         catatDed = $('#catatDed').val(),
          checkRab = ($('#checkRab').is(":checked")) ? 'on' : 'off',
-         rabCatat = $('#rabCatat').val(),
-         checkIpa = ($('#checkIpa').is(":checked")) ? 'on' : 'off',
-         ipaCatat = $('#ipaCatat').val(),
-         checkRds = ($('#checkRds').is(":checked")) ? 'on' : 'off',
-         rdsCatat = $('#rdsCatat').val(),
-         checkPdam = ($('#checkPdam').is(":checked")) ? 'on' : 'off',
-         pdamCatat = $('#pdamCatat').val(),
-         checkPks = ($('#checkPks').is(":checked")) ? 'on' : 'off',
-         pksCatat = $('#pksCatat').val(),
+         catatRab = $('#catatRab').val(),
+         checkSpkp = ($('#checkSpkp').is(":checked")) ? 'on' : 'off',
+         catatSpkp = $('#catatSpkp').val(),
+         checkKlbs = ($('#checkKlbs').is(":checked")) ? 'on' : 'off',
+         catatKlbs = $('#catatKlbs').val(),
+         checkDcpm = ($('#checkDcpm').is(":checked")) ? 'on' : 'off',
+         catatDcpm = $('#catatDcpm').val(),
+         checkIplt = ($('#checkIplt').is(":checked")) ? 'on' : 'off',
+         catatIplt = $('#catatIplt').val(),
+         checkJustifikasi = ($('#checkJustifikasi').is(":checked")) ? 'on' : 'off',
+         catatJustifikasi = $('#catatJustifikasi').val(),
+         checkSmkd = ($('#checkSmkd').is(":checked")) ? 'on' : 'off',
+         catatSmkd = $('#catatSmkd').val(),
+         checkSpl = ($('#checkSpl').is(":checked")) ? 'on' : 'off',
+         catakSpl = $('#catakSpl').val(),
+         checkBppw = ($('#checkBppw').is(":checked")) ? 'on' : 'off',
+         catakBppw = $('#catakBppw').val(),
+         checkIDpr = ($('#checkIDpr').is(":checked")) ? 'on' : 'off',
+         catakIDpr = $('#catakIDpr').val(),
+         checkIRab = ($('#checkIRab').is(":checked")) ? 'on' : 'off',
+         catakIRab = $('#catakIRab').val(),
+         checkIBll = ($('#checkIBll').is(":checked")) ? 'on' : 'off',
+         catakIBll = $('#catakIBll').val(),
+         checkIDjt = ($('#checkIDjt').is(":checked")) ? 'on' : 'off',
+         catakIDjt = $('#catakIDjt').val(),
+         checkIMasterPlan = ($('#checkIMasterPlan').is(":checked")) ? 'on' : 'off',
+         catakIMasterPlan = $('#catakIMasterPlan').val(),
+         checkIAmdal = ($('#checkIAmdal').is(":checked")) ? 'on' : 'off',
+         catakIAmdal = $('#catakIAmdal').val(),
+         checkIKlp = ($('#checkIKlp').is(":checked")) ? 'on' : 'off',
+         catakIKlp = $('#catakIKlp').val(),
+         checkIBisnis = ($('#checkIBisnis').is(":checked")) ? 'on' : 'off',
+         catakIBisnis = $('#catakIBisnis').val(),
+         checkIBkll = ($('#checkIBkll').is(":checked")) ? 'on' : 'off',
+         catakIBkll = $('#catakIBkll').val(),
+         checkIAbd = ($('#checkIAbd').is(":checked")) ? 'on' : 'off',
+         catakIAbd = $('#catakIAbd').val(),
+         checkIBpkp = ($('#checkIBpkp').is(":checked")) ? 'on' : 'off',
+         catakIBpkp = $('#catakIBpkp').val(),
+         checkITrukTinja = ($('#checkITrukTinja').is(":checked")) ? 'on' : 'off',
+         catakITrukTinja = $('#catakITrukTinja').val(),
+         checkPPembangunan = ($('#checkPPembangunan').is(":checked")) ? 'on' : 'off',
+         catatPPembangunan = $('#catatPPembangunan').val(),
+         checkPRab = ($('#checkPRab').is(":checked")) ? 'on' : 'off',
+         catakPRab = $('#catakPRab').val(),
+         checkPSpkp = ($('#checkPSpkp').is(":checked")) ? 'on' : 'off',
+         catakPSpkp = $('#catakPSpkp').val(),
+         checkPBll = ($('#checkPBll').is(":checked")) ? 'on' : 'off',
+         catakPBll = $('#catakPBll').val(),
+         checkPKbp = ($('#checkPKbp').is(":checked")) ? 'on' : 'off',
+         catakPKbp = $('#catakPKbp').val(),
+         checkPDcpm = ($('#checkPDcpm').is(":checked")) ? 'on' : 'off',
+         catakPDcpm = $('#catakPDcpm').val(),
+         checkPBkaw = ($('#checkPBkaw').is(":checked")) ? 'on' : 'off',
+         catakPBkaw = $('#catakPBkaw').val(),
+         checkPSPKD = ($('#checkPSPKD').is(":checked")) ? 'on' : 'off',
+         catakPSPKD = $('#catakPSPKD').val(),
+         checkPDddl = ($('#checkPDddl').is(":checked")) ? 'on' : 'off',
+         catakPDddl = $('#catakPDddl').val(),
+         checkJtp = ($('#checkJtp').is(":checked")) ? 'on' : 'off',
+         catakJtp = $('#catakJtp').val(),
+         checkSKKKP = ($('#checkSKKKP').is(":checked")) ? 'on' : 'off',
+         catakSKKKP = $('#catakSKKKP').val(),
+         checkAbdTp = ($('#checkAbdTp').is(":checked")) ? 'on' : 'off',
+         catakAbdTp = $('#catakAbdTp').val(),
          catatanAll = $('#catatanAll').val(),
+
+         air_limba_na = ($('#air_limba_na').is(":checked")) ? 'on' : 'off',
+         air_limba_na_iplt = ($('#air_limba_na_iplt').is(":checked")) ? 'on' : 'off',
+         persambahan_na = ($('#persambahan_na').is(":checked")) ? 'on' : 'off',
+
          totFisikPenunjang = Number(nilaiFisik)+Number(nilaiPenunjang),
          kdPersentase = Number($('#kdPersentase').val());
 
@@ -823,25 +1811,84 @@
       checkPenunjang,
       rincianKegiatan,
       fisikPenunjang,
-      fisikPenunjangCatat,
+      fisikPenunjangCatat,      
       checkSPTJM,
       catatSptjm,
-      checkRispam,
-      catatRispam,
+      checkSSK,
+      catatSSK,
       checkDed,
-      dedCatat,
+      catatDed,
       checkRab,
-      rabCatat,
-      checkIpa,
-      ipaCatat,
-      checkRds,
-      rdsCatat,
-      checkPdam,
-      pdamCatat,
-      checkPks,
-      pksCatat,
+      catatRab,
+      checkSpkp,
+      catatSpkp,
+      checkKlbs,
+      catatKlbs,
+      checkDcpm,
+      catatDcpm,
+      checkIplt,
+      catatIplt,
+      checkJustifikasi,
+      catatJustifikasi,
+      checkSmkd,
+      catatSmkd,
+      checkSpl,
+      catakSpl,
+      checkBppw,
+      catakBppw,
+      checkIDpr,
+      catakIDpr,
+      checkIRab,
+      catakIRab,
+      checkIBll,
+      catakIBll,
+      checkIDjt,
+      catakIDjt,
+      checkIMasterPlan,
+      catakIMasterPlan,
+      checkIAmdal,
+      catakIAmdal,
+      checkIKlp,
+      catakIKlp,
+      checkIBisnis,
+      catakIBisnis,
+      checkIBkll,
+      catakIBkll,
+      checkIAbd,
+      catakIAbd,
+      checkIBpkp,
+      catakIBpkp,
+      checkITrukTinja,
+      catakITrukTinja,
+      checkPPembangunan,
+      catatPPembangunan,
+      checkPRab,
+      catakPRab,
+      checkPSpkp,
+      catakPSpkp,
+      checkPBll,
+      catakPBll,
+      checkPKbp,
+      catakPKbp,
+      checkPDcpm,
+      catakPDcpm,
+      checkPBkaw,
+      catakPBkaw,
+      checkPSPKD,
+      catakPSPKD,
+      checkPDddl,
+      catakPDddl,
+      checkJtp,
+      catakJtp,
+      checkSKKKP,
+      catakSKKKP,
+      checkAbdTp,
+      catakAbdTp,
       catatanAll,
-      kdPersentase
+      kdPersentase,
+      air_limba_na,
+      air_limba_na_iplt,
+      persambahan_na
     };
     $.LoadingOverlay("show");
     ajaxUntukSemua(base_url()+'KonregSan/simpanBaKonregSan', datBody, function(data) {
