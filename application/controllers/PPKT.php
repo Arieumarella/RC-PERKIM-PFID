@@ -880,6 +880,7 @@ class PPKT extends CI_Controller {
 		$ttdSanitasi = $this->input->post('ttdSanitasi');
 		$ditRuswa = $this->input->post('ditRuswa');
 		$ttdRuswa = $this->input->post('ttdRuswa');
+		$baKonsultasiProgram = $this->input->post('baKonsultasiProgram');
 
 
 		$tmp = array(
@@ -905,7 +906,8 @@ class PPKT extends CI_Controller {
 			'sanitasi' => $sanitasi,
 			'ttdSanitasi' => $ttdSanitasi,
 			'ditRuswa' => $ditRuswa,
-			'ttdRuswa' => $ttdRuswa
+			'ttdRuswa' => $ttdRuswa,
+			'baKonsultasiProgram' => $baKonsultasiProgram
 		);
 
 		

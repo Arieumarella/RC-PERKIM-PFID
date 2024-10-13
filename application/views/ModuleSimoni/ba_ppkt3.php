@@ -81,7 +81,7 @@
 				<td></td>
 				<td style="width:1%;">1.1</td>
 				<td style="width:15%;">Perda tentang Pencegahan dan Peningkatan Kualitas Terhadap Perumahan Kumuh dan Permukiman Kumuh</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_56; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_56 : $catatRCPPKT->catat_penilaian_56; ?></td>
 			</tr>
 
 			<tr>
@@ -97,13 +97,13 @@
 				<td></td>
 				<td style="width:1%;">1.1</td>
 				<td style="width:15%;">Rencana Ganti Untung</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_57; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_57 : $catatRCPPKT->catat_penilaian_57; ?></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td style="width:1%;">1.2</td>
 				<td style="width:15%;">Rencana Penghunian Sementara</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_58; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_58 : $catatRCPPKT->catat_penilaian_58; ?></td>
 			</tr>
 			<tr>
 				<td>2.</td>
@@ -113,7 +113,7 @@
 				<td></td>
 				<td style="width:1%;">2.1</td>
 				<td style="width:15%;">Timeline Rencana Penanganan</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_59; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_59 : $catatRCPPKT->catat_penilaian_59; ?></td>
 			</tr>
 			
 			<tr>
@@ -124,7 +124,7 @@
 				<td></td>
 				<td style="width:1%;">3.1</td>
 				<td style="width:15%;">Surat Komitmen Pembangunan IPLT/Pelaksanaan Operasionalisasi IPLT (untuk kab/kota yang mengusulkan menu TS Individual Perkotaan)</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_60; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_60 : $catatRCPPKT->catat_penilaian_60; ?></td>
 			</tr>
 
 			<tr>
@@ -141,7 +141,7 @@
 				<td></td>
 				<td style="width:1%;">1.1</td>
 				<td style="width:15%;">Tahapan Pelaksanaan Konstruksi</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_61; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_61 : $catatRCPPKT->catat_penilaian_61; ?></td>
 			</tr>
 			<tr>
 				<td>2.</td>
@@ -151,7 +151,7 @@
 				<td></td>
 				<td style="width:1%;">2.1</td>
 				<td style="width:15%;">Rencana Monitoring Pelaksanaan Konstruksi</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_62; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_62 : $catatRCPPKT->catat_penilaian_62; ?></td>
 			</tr>
 
 			<tr>
@@ -168,7 +168,7 @@
 				<td></td>
 				<td style="width:1%;">1.1</td>
 				<td style="width:15%;">Rencana Serah Terima Aset</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_63; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_63 : $catatRCPPKT->catat_penilaian_63; ?></td>
 			</tr>
 			<tr>
 				<td>2.</td>
@@ -178,7 +178,7 @@
 				<td></td>
 				<td style="width:1%;">2.1</td>
 				<td style="width:15%;">Rencana Pengelolaan Aset</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_64; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_64 : $catatRCPPKT->catat_penilaian_64; ?></td>
 			</tr>
 			
 		</tbody>

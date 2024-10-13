@@ -169,7 +169,7 @@
             <a class="dropdown-item <?= $tittle == 'BA Konsultasi Program AM' ? 'active':''; ?>" href="<?= base_url(); ?>KonregAM" >
               BA Air Minum
             </a>
-            <a class="dropdown-item <?= $tittle == 'BA Konsultasi Program Sanitasi' ? 'active':''; ?>" href="<?= base_url(); ?>KonregSAN" >
+            <a class="dropdown-item <?= $tittle == 'BA Konsultasi Program Sanitasi' ? 'active':''; ?>" href="<?= base_url(); ?>KonregSan" >
               BA Sanitasi
             </a>
           </div>

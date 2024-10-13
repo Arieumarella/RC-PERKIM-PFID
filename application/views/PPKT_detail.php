@@ -2904,7 +2904,7 @@
   <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="tittle_modal_dok">Form Tambah Data</h5>
+        <h5 class="modal-title" id="tittle_modal_dok">Form Cetak BA</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -2953,13 +2953,17 @@
                 <label class="form-label">TTD Dit. Sanitasi PUPR</label>
                 <input type="text" class="form-control" name="ttdSanitasi" placeholder="Input Penandatangan Dit. Sanitasi PUPR">
               </div>
-
               <div class="mb-3">
                 <label class="form-label">TTD Dit. Rumah Swadaya</label>
                 <input type="text" class="form-control" name="ttdRuswa" placeholder="Input Penandatangan Dit. Ruswa PUPR">
               </div>
-
-            </div>     
+            </div> 
+            <div class="col-6">   
+              <div class="mb-3">
+                <label class="form-label">BA Konsultasi Program</label>
+                <input class="form-check-input" type="checkbox" name="baKonsultasiProgram">
+              </div> 
+            </div>
           </div>
 
           <div class="mb-3">

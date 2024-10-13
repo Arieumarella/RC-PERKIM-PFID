@@ -86,7 +86,7 @@
 				<td></td>
 				<td style="width:1%;">1.1</td>
 				<td style="width:15%;">Executive Summary Program Penanganan Permukiman Kumuh Terpadu (outline terlampir)</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_1; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_1 : $catatRCPPKT->catat_penilaian_1; ?></td>
 			</tr>
 
 			<tr>
@@ -97,7 +97,7 @@
 				<td></td>
 				<td style="width:1%;">2.1</td>
 				<td style="width:15%;">SK Penetapan Lokasi Perumahan Kumuh dan Permukiman Kumuh</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_2; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_2 : $catatRCPPKT->catat_penilaian_2; ?></td>
 			</tr>
 			<tr>
 				<td>3.</td>
@@ -107,25 +107,25 @@
 				<td></td>
 				<td style="width:1%;">3.1</td>
 				<td style="width:15%;">RP2KPKPK/RP2KPKP/RP3KP/dan sejenisnya</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_3; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_3 : $catatRCPPKT->catat_penilaian_3; ?></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td style="width:1%;">3.2</td>
 				<td style="width:15%;">Dokumen RISPAM</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_4; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_4 : $catatRCPPKT->catat_penilaian_4; ?></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td style="width:1%;">3.3</td>
 				<td style="width:15%;">Dokumen SSK</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_5; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_5 : $catatRCPPKT->catat_penilaian_5; ?></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td style="width:1%;">3.4</td>
 				<td style="width:15%;">Dokumen Rencana Induk Pengelolaan Sampah/Minimal Jakstrada</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_6; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_6 : $catatRCPPKT->catat_penilaian_6; ?></td>
 			</tr>
 			<tr>
 				<td>4.</td>
@@ -135,7 +135,7 @@
 				<td></td>
 				<td style="width:1%;">4.1</td>
 				<td style="width:15%;">Bukti sosialisasi kepada masyarakat calon penerima bantuan.</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_7; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_7 : $catatRCPPKT->catat_penilaian_7; ?></td>
 			</tr>
 			<tr>
 				<td>5.</td>
@@ -145,19 +145,19 @@
 				<td></td>
 				<td style="width:1%;">5.1</td>
 				<td style="width:15%;">Pemetaan status pertanahan dan rencana penanganannya.</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_8; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_8 : $catatRCPPKT->catat_penilaian_8; ?></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td style="width:1%;">5.2</td>
 				<td style="width:15%;">Berita Acara Kesepakatan Warga untuk konsolidasi tanah (jika menggunakan skema sertipikasi konsolidasi tanah)</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_9; ?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_9 : $catatRCPPKT->catat_penilaian_9; ?></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td style="width:1%;">5.3</td>
 				<td style="width:15%;">Surat Dukungan Fasilitasi Aspek Pertanahan oleh Kantor Pertanahan setempat</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_10;?> </td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_10 : $catatRCPPKT->catat_penilaian_10;?> </td>
 			</tr>
 			<tr>
 				<td>6.</td>
@@ -167,13 +167,13 @@
 				<td></td>
 				<td style="width:1%;">6.1</td>
 				<td style="width:15%;">Surat Pernyataan Peruntukan Lahan untuk Permukiman dari Instansi Berwenang dalam Penataan Ruang</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_11;?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_11 : $catatRCPPKT->catat_penilaian_11;?></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td style="width:1%;">6.2</td>
 				<td style="width:15%;">RTRW/Peraturan Daerah sejenisnya</td>
-				<td style="width:20%;"><?= $catatRCPPKT->catat_penilaian_12;?></td>
+				<td style="width:20%;"><?= ($baKonsultasiProgram == 'on') ? $catatRCPPKT->catat_rincian_12 : $catatRCPPKT->catat_penilaian_12;?></td>
 			</tr>
 		</tbody>
 	</table>

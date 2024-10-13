@@ -71,23 +71,23 @@
 		</thead>
 		<tbody>
 			<?php $hargasatuan=0; $volume=0; $no=1; $no=1; foreach ($dataAM as $key => $val) { ?>
-			<tr>
-				<td><?= $no++; ?></td>
-				<td><?= $val->rincianKegiatan; ?></td>
-				<td><?= $val->catatan; ?></td>
-				<td><?= $val->volume; ?></td>
-				<td><?= $val->satuan; ?></td>
-				<td><?= $val->harga_satuan; ?></td>
-				<td><?= $val->harga_satuan*$val->volume; ?></td>
-			</tr>
-			<?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
+				<tr>
+					<td><?= $no++; ?></td>
+					<td><?= $val->rincianKegiatan; ?></td>
+					<td><?= $val->catatan; ?></td>
+					<td><?= $val->volume; ?></td>
+					<td><?= $val->satuan; ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan,0,',','.'); ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan*$val->volume,0,',','.'); ?></td>
+				</tr>
+				<?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
 			<?php } ?>
 		</tbody>
 		<tfoot>
 			<tr>
 				<th colspan="6">TOTAL</th>
 				<th>
-					<?= $hargasatuan*$volume; ?>
+					Rp. <?= number_format($hargasatuan*$volume,0,',','.'); ?>
 				</th>
 			</tr>
 		</tfoot>
@@ -111,23 +111,23 @@
 		</thead>
 		<tbody>
 			<?php $hargasatuan=0; $volume=0; $no=1; $no=1; foreach ($dataSAN as $key => $val) { ?>
-			<tr>
-				<td><?= $no++; ?></td>
-				<td><?= $val->rincianKegiatan; ?></td>
-				<td><?= $val->catatan; ?></td>
-				<td><?= $val->volume; ?></td>
-				<td><?= $val->satuan; ?></td>
-				<td><?= $val->harga_satuan; ?></td>
-				<td><?= $val->harga_satuan*$val->volume; ?></td>
-			</tr>
-			<?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
+				<tr>
+					<td><?= $no++; ?></td>
+					<td><?= $val->rincianKegiatan; ?></td>
+					<td><?= $val->catatan; ?></td>
+					<td><?= $val->volume; ?></td>
+					<td><?= $val->satuan; ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan,0,',','.'); ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan*$val->volume,0,',','.'); ?></td>
+				</tr>
+				<?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
 			<?php } ?>
 		</tbody>
 		<tfoot>
 			<tr>
 				<th colspan="6">TOTAL</th>
 				<th>
-					<?= $hargasatuan*$volume; ?>
+					Rp. <?= number_format($hargasatuan*$volume,0,',','.'); ?>
 				</th>
 			</tr>
 		</tfoot>
@@ -152,23 +152,23 @@
 		</thead>
 		<tbody>
 			<?php $hargasatuan=0; $volume=0; $no=1; $no=1; foreach ($dataPperum as $key => $val) { ?>
-			<tr>
-				<td><?= $no++; ?></td>
-				<td><?= $val->rincianKegiatan; ?></td>
-				<td><?= $val->catatan; ?></td>
-				<td><?= $val->volume; ?></td>
-				<td><?= $val->satuan; ?></td>
-				<td><?= $val->harga_satuan; ?></td>
-				<td><?= $val->harga_satuan*$val->volume; ?></td>
-			</tr>
-			<?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
+				<tr>
+					<td><?= $no++; ?></td>
+					<td><?= $val->rincianKegiatan; ?></td>
+					<td><?= $val->catatan; ?></td>
+					<td><?= $val->volume; ?></td>
+					<td><?= $val->satuan; ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan,0,',','.'); ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan*$val->volume,0,',','.'); ?></td>
+				</tr>
+				<?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
 			<?php } ?>
 		</tbody>
 		<tfoot>
 			<tr>
 				<th colspan="6">TOTAL</th>
 				<th>
-					<?= $hargasatuan*$volume; ?>
+					Rp. <?= number_format($hargasatuan*$volume,0,',','.'); ?>
 				</th>
 			</tr>
 		</tfoot>
