@@ -800,7 +800,7 @@
                                                                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                             </div>
                                                                             <div class="modal-body">
-                                                                              <form action="<?= base_url(); ?>KonregSan/prsCetakBaAM" method="POST">
+                                                                              <form action="<?= base_url(); ?>KonregSAN/prsCetakBaSAN" method="POST">
                                                                                 <input type="hidden" name="kdsatkerBa" id="kdsatkerBa">
                                                                                 <input type="hidden" name="tematikBa" id="tematikBa">
                                                                                 <div class="row">
@@ -2079,6 +2079,7 @@ showCetakBa = function () {
   $('#tematikBa').val(tematikBa);
   $('#modalCetakBa').modal('show');
 }
+
 
 
 });

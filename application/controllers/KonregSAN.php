@@ -295,7 +295,7 @@ class KonregSAN extends CI_Controller {
 	}
 
 
-	public function prsCetakBaAM()
+	public function prsCetakBaSAN()
 	{
 		$kdsatkerBa = $this->input->post('kdsatkerBa'); 
 		$tematikBa = $this->input->post('tematikBa');
@@ -323,21 +323,20 @@ class KonregSAN extends CI_Controller {
 			'balai' => $balai,
 			'jabatanBalai' => $jabatanBalai,
 			'ck1' => $ck1,
-			'nmProvinsi' => $this->M_dinamis->getById('t_data_konreg_san', ['kdsatker' => $kdsatkerBa, 'ta' => $ta])->nmlokasi,
-			'NmKabKota' => $this->M_dinamis->getById('t_data_konreg_san', ['kdsatker' => $kdsatkerBa, 'ta' => $ta])->nmkabkota,
+			'nmProvinsi' => $this->M_dinamis->getById('t_data_konreg_san', ['kdsatker' => $kdsatkerBa, 'ta' => $ta]),
+			'NmKabKota' => $this->M_dinamis->getById('t_data_konreg_san', ['kdsatker' => $kdsatkerBa, 'ta' => $ta]),
 			'jabatanCk1' => $jabatanCk1,
 			'ck2' => $ck2,
 			'jabatanCk2' => $jabatanCk2,
 			'Pfid' => $Pfid,
 			'jabatanPfid' => $jabatanPfid,
-			'dataTabel' => $this->M_dinamis->getById('t_data_ba_konreg_am', ['kdsatker' => $kdsatkerBa, 'KdTematik' => clean($tematikBa)]),
-			'dataHeader' => $this->M_dinamis->getById('t_data_konreg_san', ['kdsatker' => $kdsatkerBa, 'ta' => $ta]),
-			'ta' => $this->session->userdata('thang')
+			'ta' => $this->session->userdata('thang'),
+			'dataTabel' => $this->M_dinamis->getById('t_data_ba_konreg_san', ['kdsatker' => clean($kdsatkerBa), 'KdTematik' => clean($tematikBa), 'ta' => $ta]),
+			'dataHeader' => $this->M_dinamis->getById('t_data_konreg_san', ['kdsatker' => $kdsatkerBa, 'ta' => $ta])
 		);
 
 
-
-		$html= $this->load->view('ModuleSimoni/pdfkonregAM', $tmp, TRUE);
+		$html= $this->load->view('ModuleSimoni/pdfkonregSAN', $tmp, TRUE);
 
 		$dompdf = new Dompdf();
 		$dompdf->set_option('isHtml5ParserEnabled', true);

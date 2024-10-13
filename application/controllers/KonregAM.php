@@ -205,7 +205,7 @@ class KonregAM extends CI_Controller {
 			'jabatanCk2' => $jabatanCk2,
 			'Pfid' => $Pfid,
 			'jabatanPfid' => $jabatanPfid,
-			'dataTabel' => $this->M_dinamis->getById('t_data_ba_konreg_am', ['kdsatker' => $kdsatkerBa, 'KdTematik' => clean($tematikBa)]),
+			'dataTabel' => $this->M_dinamis->getById('t_data_ba_konreg_am', ['kdsatker' => $kdsatkerBa, 'KdTematik' => clean($tematikBa), 'ta' => $ta]),
 			'dataHeader' => $this->M_dinamis->getById('t_data_konreg_am', ['kdsatker' => $kdsatkerBa, 'ta' => $ta]),
 			'ta' => $this->session->userdata('thang')
 		);
