@@ -117,6 +117,8 @@ class AM extends CI_Controller {
 			'created_at' => date('Y-m-d H:i:s')
 		);
 
+		
+
 
 		foreach ($dataArray as $key => $value) {
 
@@ -175,6 +177,7 @@ class AM extends CI_Controller {
 					$upload_data = $this->upload->data();
 					$namaFile = $upload_data['file_name'];
 					$fullPath = $upload_data['full_path'];
+
 
 					$dataInsert[$key] = $fullPath;
 
@@ -250,6 +253,8 @@ class AM extends CI_Controller {
 			'updated_at' => date('Y-m-d H:i:s')
 		);
 
+		$keyValue ='';
+
 
 		foreach ($dataArray as $key => $value) {
 
@@ -312,31 +317,54 @@ class AM extends CI_Controller {
 
 					if ($key == 'ded_edit') {
 						$dataInsert['ded'] = $fullPath;
+						$keyValue = 'ded';
 					}
 
 					if ($key == 'rab_edit') {
 						$dataInsert['rab'] = $fullPath;
+						$keyValue = 'rab';
 					}
 
 					if ($key == 'k_lahan_edit') {
 						$dataInsert['k_lahan'] = $fullPath;
+						$keyValue = 'k_lahan';
 					}
 
 					if ($key == 'penerima_manfaat_edit') {
 						$dataInsert['penerima_manfaat'] = $fullPath;
+						$keyValue = 'penerima_manfaat';
 					}
 
 					if ($key == 'k_lembaga_edit') {
 						$dataInsert['k_lembaga'] = $fullPath;
+						$keyValue = 'k_lembaga';
 					}
 
 					if ($key == 'pks_edit') {
 						$dataInsert['pks'] = $fullPath;
+						$keyValue = 'pks';
 					}
 
 
 					if ($key == 'kelayakan_justek_edit') {
 						$dataInsert['kelayakan_justek'] = $fullPath;
+						$keyValue = 'kelayakan_justek';
+					}
+
+					// Proses hapus file lama
+					
+					
+					$dataLampau = $this->M_dinamis->getById('t_rc_am', ['id' => $idEdit]);
+
+					if ($dataLampau != null) {
+						$string = $dataLampau->{$keyValue};
+						$start = strpos($string, 'assets/');
+						$fixPath = FCPATH . substr($string, $start);
+
+						if (file_exists($fixPath)) {
+							unlink($fixPath);
+						}
+
 					}
 
 				}
@@ -471,9 +499,6 @@ class AM extends CI_Controller {
 					}
 
 
-					
-
-
 					$dataInsert = array(
 						'kdlokasi' => $kdlokasi,
 						'kdkabkota' => $kdkabkota,
@@ -490,6 +515,21 @@ class AM extends CI_Controller {
 						'jns_bidang' => 'san',
 						'jns_upload' => $jns_upload,
 					);
+
+					$dataLampau = $this->M_dinamis->getById('t_rc_perkim', $whereDelete);
+
+					// Proses hapus file lama
+					if ($dataLampau != null) {
+						$string = $dataLampau->path;
+						$start = strpos($string, 'assets/');
+						$fixPath = FCPATH . substr($string, $start);
+
+						if (file_exists($fixPath)) {
+							unlink($fixPath);
+						}
+
+					}
+
 
 					$this->M_dinamis->delete('t_rc_perkim', $whereDelete);
 					$this->M_dinamis->save('t_rc_perkim', $dataInsert);
@@ -659,6 +699,34 @@ class AM extends CI_Controller {
 	public function hapusAm()
 	{
 		$id = $this->input->post('id');
+
+		//Delete Filr 
+		$dataArray = array(
+			'ded' => 'DED',
+			'rab' => 'RAB',
+			'k_lahan' => 'Kesediaan Lahan',
+			'penerima_manfaat' => 'Penerima Manfaat',
+			'k_lembaga' => 'Kesiapan Lembaga Pengelola',
+			'pks' => 'PKS (Perjanjian Kerja Sama) & Skema pembagian pendanaan',
+			'kelayakan_justek' => 'Studi Kelayakan atau Feasibility Study (FS) atau Justifikasi Teknis (Justek)'
+		);
+
+		$dataLampau = $this->M_dinamis->getById('t_rc_am', ['id' => $id]);
+
+		
+
+		foreach ($dataArray as $key => $val) {
+
+			$string = $dataLampau->{$key};
+			$start = strpos($string, 'assets/');
+			$fixPath = FCPATH . substr($string, $start);
+
+			if (file_exists($fixPath)) {
+				unlink($fixPath);
+			}
+
+		}
+
 
 		$pros = $this->M_dinamis->delete('t_rc_am', ['id' => $id]);
 		echo json_encode(['code' => ($pros == true) ? '200':'500']);

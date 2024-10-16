@@ -154,6 +154,32 @@ class SAN extends CI_Controller {
 	{
 		$id = $this->input->post('id');
 
+		//Delete Filr 
+		$dataArray = array(
+			'ded_ipal' => 'DED',
+			'rab_ipal' => 'RAB',
+			'k_lahan_ipal' => 'Surat Pernyataan Kesiapan Pelaksanaan Kegiatan dari Pemerintah Desa',
+			'penerima_manfaat_ipal' => 'Daftar calon penerima manfaat',
+			'k_lahan_dinas_ipal' => 'Surat Pernyataan Kesiapan Pelaksanaan Kegiatan dari Dinas Kabupaten',
+			'spesifikasi_ipal' => 'Bukti Kepemilikan dan keberfungsian IPLT',
+			'abd' => 'As Build Drowing',
+			'justekPipa' => 'Justifikasi teknis untuk penambahan pipa pengumpul'
+		);
+
+		$dataLampau = $this->M_dinamis->getById('t_rc_san_ipal', ['id' => $id]);
+
+		foreach ($dataArray as $key => $val) {
+
+			$string = $dataLampau->{$key};
+			$start = strpos($string, 'assets/');
+			$fixPath = FCPATH . substr($string, $start);
+
+			if (file_exists($fixPath)) {
+				unlink($fixPath);
+			}
+
+		}
+
 		$pros = $this->M_dinamis->delete('t_rc_san_ipal', ['id' => $id]);
 		echo json_encode(['code' => ($pros == true) ? '200' : '500']);
 	}
@@ -162,6 +188,41 @@ class SAN extends CI_Controller {
 	public function hapusIplt()
 	{
 		$id = $this->input->post('id');
+
+		//Delete Filr 
+		$dataArray = array(
+			'penetapan_ipltx' => 'Surat Penetapan Lokasi oleh Kepala Daerah',
+			'legalitas_ipltx' => 'Bukti legalitas lahan berupa sertifikat lahan',
+			'ded_ipltx' => 'DED',
+			'rab_ipltx' => 'RAB',
+			'justifikasi_ipltx' => 'Dokumen justifikasi teknis',
+			'audit_ipltx' => 'Laporan audit',
+			'mp_ipltx' => 'MasterPlan',
+			'lingkungan_ipltx' => 'Dokumen Lingkungan',
+			'kesiapan_ipltx' => 'Surat Kesiapan Lembaga Pengelola',
+			'kesiapan_biaya_ipltx' => 'Surat Kesiapan Biaya Operasional dan Pemeliharaan',
+			'mintatKepalaDaerah' => 'Surat Minat dari Kepala Daerah',
+			'pernyataanBPPW' => 'Surat Pernyataan BPPW',
+			'businessPlanIPLT' => 'Rencana pengelolaan atau business plan IPLT',
+			'buktiKomitmenIPLT' => 'Bukti komitmen untuk melaksanaan LLTT',
+			'abd' => 'As Build Drawing IPLT Terbangun',
+			'bpkp' => 'Laporan Audit atau reviu BPKP',
+			'sTrukTinja' => 'Spesifikasi Teknis dan Harga Supplier Truk Tinja'
+		);
+
+		$dataLampau = $this->M_dinamis->getById('t_rc_san_iplt', ['id' => $id]);
+
+		foreach ($dataArray as $key => $val) {
+
+			$string = $dataLampau->{$key};
+			$start = strpos($string, 'assets/');
+			$fixPath = FCPATH . substr($string, $start);
+
+			if (file_exists($fixPath)) {
+				unlink($fixPath);
+			}
+
+		}
 
 		$pros = $this->M_dinamis->delete('t_rc_san_iplt', ['id' => $id]);
 		echo json_encode(['code' => ($pros == true) ? '200' : '500']);
@@ -172,6 +233,37 @@ class SAN extends CI_Controller {
 	{
 		$id = $this->input->post('id');
 
+		//Delete Filr 
+		$dataArray = array(
+			'ded_pembangunanBaru' => 'DED',
+			'rab_pembangunanBaru' => 'RAB',
+			'kesiapan_pembangunanBaru' => 'Surat Pernyataan Kesiapan Pelaksanaan Kegiatan',
+			'legalitas_pembangunanBaru' => 'Bukti legalitas lahan untuk TPS 3R',
+			'bp_pembangunanBaru' => 'Konsep Business Plan pengelolaan TPS 3R pasca konstruksi',
+			'penerima_manfaat_pembangunanBaru' => 'Daftar calon penerima manfaat TPS 3R minimal 200 KK',
+			'ba_warga' => 'Berita Acara Kesepakatan Warga',
+			'kesepakatan_oprasi_pemeliharan' => 'Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan',
+			'surat_dinas_hidup' => 'Surat dukungan Dinas Lingkungan Hidup',
+			'justifikasi_TPS_peningkatan' => 'Justifikasi Peningkatan atau Rehabilitasi TPS3R',
+			'sk_desa_kpp' => 'SK Kepala Desa tentang Pembentukan KKP',
+			'abd' => 'As Build Drawing TPS3R Terbangun'
+		);
+
+		$dataLampau = $this->M_dinamis->getById('t_rc_san_pembangunan_baru', ['id' => $id]);
+
+		foreach ($dataArray as $key => $val) {
+
+			$string = $dataLampau->{$key};
+			$start = strpos($string, 'assets/');
+			$fixPath = FCPATH . substr($string, $start);
+
+			if (file_exists($fixPath)) {
+				unlink($fixPath);
+			}
+
+		}
+
+
 		$pros = $this->M_dinamis->delete('t_rc_san_pembangunan_baru', ['id' => $id]);
 		echo json_encode(['code' => ($pros == true) ? '200' : '500']);
 	}
@@ -180,6 +272,35 @@ class SAN extends CI_Controller {
 	public function hapusRehabilitasi()
 	{
 		$id = $this->input->post('id');
+
+		//Delete Filr 
+		$dataArray = array(
+			'ded_rehabilitasi' => 'DED',
+			'rab_rehabilitasi' => 'RAB',
+			'kesiapan_rehabilitasi' => 'Surat Pernyataan Kesiapan Pelaksanaan Kegiatan',
+			'legalitas_rehabilitasi' => 'Bukti legalitas lahan untuk TPS 3R',
+			'bp_rehabilitasi' => 'Konsep Business Plan pengelolaan TPS 3R pasca konstruksi',
+			'penerima_manfaat_rehabilitasi' => 'Daftar calon penerima manfaat TPS 3R minimal 200 KK',
+			'justifikasi_rehabilitasi' => 'Justifikasi teknis kebutuhan peningkatan atau rehabilitasi TPS 3R',
+			'komitmen_rehabilitasi' => 'Surat Komitmen Kepala Daerah',
+			'dukungan_rehabilitasi' => 'Surat kesiapan dukungan biaya operasional dan pemeliharaan',
+			'rincian_anggaran_rehabilitasi' => 'Rincian Kegiatan dan Anggaran alokasi APBD untuk peningkatan kapasitas TPS3R',
+			'kpp' => 'Bukti Kepemilikan KPP'
+		);
+
+		$dataLampau = $this->M_dinamis->getById('t_rc_san_rehabilitasi', ['id' => $id]);
+
+		foreach ($dataArray as $key => $val) {
+
+			$string = $dataLampau->{$key};
+			$start = strpos($string, 'assets/');
+			$fixPath = FCPATH . substr($string, $start);
+
+			if (file_exists($fixPath)) {
+				unlink($fixPath);
+			}
+
+		}
 
 		$pros = $this->M_dinamis->delete('t_rc_san_rehabilitasi', ['id' => $id]);
 		echo json_encode(['code' => ($pros == true) ? '200' : '500']);
@@ -197,6 +318,35 @@ class SAN extends CI_Controller {
 	public function hapusDakIntegrasi()
 	{
 		$id = $this->input->post('id');
+
+		//Delete Filr 
+		$dataArray = array(
+			'ded_rehabilitasi' => 'DED',
+			'rab_rehabilitasi' => 'RAB',
+			'kesiapan_rehabilitasi' => 'Surat Pernyataan Kesiapan Pelaksanaan Kegiatan',
+			'legalitas_rehabilitasi' => 'Bukti legalitas lahan untuk TPS 3R',
+			'bp_rehabilitasi' => 'Konsep Business Plan pengelolaan TPS 3R pasca konstruksi',
+			'penerima_manfaat_rehabilitasi' => 'Daftar calon penerima manfaat TPS 3R minimal 200 KK',
+			'justifikasi_rehabilitasi' => 'Justifikasi teknis kebutuhan peningkatan atau rehabilitasi TPS 3R',
+			'komitmen_rehabilitasi' => 'Surat Komitmen Kepala Daerah',
+			'dukungan_rehabilitasi' => 'Surat kesiapan dukungan biaya operasional dan pemeliharaan',
+			'rincian_anggaran_rehabilitasi' => 'Rincian Kegiatan dan Anggaran alokasi APBD untuk peningkatan kapasitas TPS3R',
+			'kpp' => 'Bukti Kepemilikan KPP'
+		);
+
+		$dataLampau = $this->M_dinamis->getById('t_rc_perumahan', ['id' => $id]);
+
+		foreach ($dataArray as $key => $val) {
+
+			$string = $dataLampau->{$key};
+			$start = strpos($string, 'assets/');
+			$fixPath = FCPATH . substr($string, $start);
+
+			if (file_exists($fixPath)) {
+				unlink($fixPath);
+			}
+
+		}
 
 		$pros = $this->M_dinamis->delete('t_rc_perumahan', ['id' => $id]);
 		echo json_encode(['code' => ($pros == true) ? '200' : '500']);
@@ -581,6 +731,7 @@ class SAN extends CI_Controller {
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
 				$config['max_size'] = 300000;
+				$keyValue ='';
 
 				$this->upload->initialize($config);
 
@@ -595,35 +746,58 @@ class SAN extends CI_Controller {
 
 					if ($key == 'ded_ipal_edit') {
 						$dataInsert['ded_ipal'] = $fullPath;
+						$keyValue='ded_ipal';
 					}
 
 					if ($key == 'rab_ipal_edit') {
 						$dataInsert['rab_ipal'] = $fullPath;
+						$keyValue='rab_ipal';
 					}
 
 					if ($key == 'k_lahan_ipal_edit') {
 						$dataInsert['k_lahan_ipal'] = $fullPath;
+						$keyValue='k_lahan_ipal';
 					}
 
 					if ($key == 'penerima_manfaat_ipal_edit') {
 						$dataInsert['penerima_manfaat_ipal'] = $fullPath;
+						$keyValue='penerima_manfaat_ipal';
 					}
 
 					if ($key == 'k_lahan_dinas_ipal_edit') {
 						$dataInsert['k_lahan_dinas_ipal'] = $fullPath;
+						$keyValue='k_lahan_dinas_ipal';
 					}
 
 					if ($key == 'spesifikasi_ipal_edit') {
 						$dataInsert['spesifikasi_ipal'] = $fullPath;
+						$keyValue='spesifikasi_ipal';
 					}
 
 					if ($key == 'abd_edit') {
 						$dataInsert['abd'] = $fullPath;
+						$keyValue='abd';
 					}
 
 					if ($key == 'justekPipa_edit') {
 						$dataInsert['justekPipa'] = $fullPath;
+						$keyValue='justekPipa';
 					}
+
+					$dataLampau = $this->M_dinamis->getById('t_rc_san_ipal', ['id' => $idEdit]);
+
+					if ($dataLampau != null) {
+						$string = $dataLampau->{$keyValue};
+						$start = strpos($string, 'assets/');
+						$fixPath = FCPATH . substr($string, $start);
+
+						if (file_exists($fixPath)) {
+							unlink($fixPath);
+						}
+
+					}
+
+
 				}
 			}
 		}
@@ -879,6 +1053,7 @@ class SAN extends CI_Controller {
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
 				$config['max_size'] = 300000;
+				$keyValue = '';
 
 				$this->upload->initialize($config);
 
@@ -916,62 +1091,92 @@ class SAN extends CI_Controller {
 
 					if ($key == 'penetapan_ipltx_edit') {
 						$dataInsert['penetapan_ipltx'] = $fullPath;
+						$keyValue = 'penetapan_ipltx';
 					}
 
 					if ($key == 'legalitas_ipltx_edit') {
 						$dataInsert['legalitas_ipltx'] = $fullPath;
+						$keyValue = 'legalitas_ipltx';
 					}
 
 					if ($key == 'ded_ipltx_edit') {
 						$dataInsert['ded_ipltx'] = $fullPath;
+						$keyValue = 'ded_ipltx';
 					}
 
 					if ($key == 'rab_ipltx_edit') {
 						$dataInsert['rab_ipltx'] = $fullPath;
+						$keyValue = 'rab_ipltx';
 					}
 
 					if ($key == 'justifikasi_ipltx_edit') {
 						$dataInsert['justifikasi_ipltx'] = $fullPath;
+						$keyValue = 'justifikasi_ipltx';
 					}
 
 					if ($key == 'mp_ipltx_edit') {
 						$dataInsert['mp_ipltx'] = $fullPath;
+						$keyValue = 'mp_ipltx';
 					}
 
 					if ($key == 'lingkungan_ipltx_edit') {
 						$dataInsert['lingkungan_ipltx'] = $fullPath;
+						$keyValue = 'lingkungan_ipltx';
 					}
 
 					if ($key == 'kesiapan_ipltx_edit') {
 						$dataInsert['kesiapan_ipltx'] = $fullPath;
+						$keyValue = 'kesiapan_ipltx';
 					}
 
 					if ($key == 'mintatKepalaDaerah_edit') {
 						$dataInsert['mintatKepalaDaerah'] = $fullPath;
+						$keyValue = 'mintatKepalaDaerah';
 					}
 
 					if ($key == 'pernyataanBPPW_edit') {
 						$dataInsert['pernyataanBPPW'] = $fullPath;
+						$keyValue = 'pernyataanBPPW';
 					}
 
 					if ($key == 'businessPlanIPLT_edit') {
 						$dataInsert['businessPlanIPLT'] = $fullPath;
+						$keyValue = 'businessPlanIPLT';
 					}
 
 					if ($key == 'buktiKomitmenIPLT_edit') {
 						$dataInsert['buktiKomitmenIPLT'] = $fullPath;
+						$keyValue = 'buktiKomitmenIPLT';
 					}
 
 					if ($key == 'abd_edit') {
 						$dataInsert['abd'] = $fullPath;
+						$keyValue = 'abd';
 					}
 
 					if ($key == 'bpkp_edit') {
 						$dataInsert['bpkp'] = $fullPath;
+						$keyValue = 'bpkp';
 					}
 
 					if ($key == 'sTrukTinja_edit') {
 						$dataInsert['sTrukTinja'] = $fullPath;
+						$keyValue = 'sTrukTinja';
+					}
+
+
+					// Edit
+					$dataLampau = $this->M_dinamis->getById('t_rc_san_iplt', ['id' => $idEdit]);
+
+					if ($dataLampau != null) {
+						$string = $dataLampau->{$keyValue};
+						$start = strpos($string, 'assets/');
+						$fixPath = FCPATH . substr($string, $start);
+
+						if (file_exists($fixPath)) {
+							unlink($fixPath);
+						}
+
 					}
 
 
@@ -1224,6 +1429,7 @@ class SAN extends CI_Controller {
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
 				$config['max_size'] = 300000;
+				$keyValue = '';
 
 				$this->upload->initialize($config);
 
@@ -1239,50 +1445,76 @@ class SAN extends CI_Controller {
 
 					if ($key == 'ded_pembangunanBaru_edit') {
 						$dataInsert['ded_pembangunanBaru'] = $fullPath;
+						$keyValue = 'ded_pembangunanBaru';
 					}
 
 					if ($key == 'rab_pembangunanBaru_edit') {
 						$dataInsert['rab_pembangunanBaru'] = $fullPath;
+						$keyValue = 'rab_pembangunanBaru';
 					}
 
 					if ($key == 'kkesiapan_pembangunanBaru_edit') {
 						$dataInsert['kkesiapan_pembangunanBaru'] = $fullPath;
+						$keyValue = 'kkesiapan_pembangunanBaru';
 					}
 
 					if ($key == 'legalitas_pembangunanBaru_edit') {
 						$dataInsert['legalitas_pembangunanBaru'] = $fullPath;
+						$keyValue = 'legalitas_pembangunanBaru';
 					}
 
 					if ($key == 'bp_pembangunanBaru_edit') {
 						$dataInsert['bp_pembangunanBaru'] = $fullPath;
+						$keyValue = 'bp_pembangunanBaru';
 					}
 
 					if ($key == 'penerima_manfaat_pembangunanBaru_edit') {
 						$dataInsert['penerima_manfaat_pembangunanBaru'] = $fullPath;
+						$keyValue = 'penerima_manfaat_pembangunanBaru';
 					}
 
 					if ($key == 'ba_warga') {
 						$dataInsert['ba_warga'] = $fullPath;
+						$keyValue = 'ba_warga';
 					}
 
 					if ($key == 'kesepakatan_oprasi_pemeliharan_edit') {
 						$dataInsert['kesepakatan_oprasi_pemeliharan'] = $fullPath;
+						$keyValue = 'kesepakatan_oprasi_pemeliharan';
 					}
 
 					if ($key == 'surat_dinas_hidup_edit') {
 						$dataInsert['surat_dinas_hidup'] = $fullPath;
+						$keyValue = 'surat_dinas_hidup';
 					}
 
 					if ($key == 'justifikasi_TPS_peningkatan_edit') {
 						$dataInsert['justifikasi_TPS_peningkatan'] = $fullPath;
+						$keyValue = 'justifikasi_TPS_peningkatan';
 					}
 
 					if ($key == 'sk_desa_kpp_edit') {
 						$dataInsert['sk_desa_kpp'] = $fullPath;
+						$keyValue = 'sk_desa_kpp';
 					}
 
 					if ($key == 'abd_edit') {
 						$dataInsert['abd'] = $fullPath;
+						$keyValue = 'abd';
+					}
+
+					// Edit
+					$dataLampau = $this->M_dinamis->getById('t_rc_san_pembangunan_baru', ['id' => $idEdit]);
+
+					if ($dataLampau != null) {
+						$string = $dataLampau->{$keyValue};
+						$start = strpos($string, 'assets/');
+						$fixPath = FCPATH . substr($string, $start);
+
+						if (file_exists($fixPath)) {
+							unlink($fixPath);
+						}
+
 					}
 
 
@@ -1523,6 +1755,7 @@ class SAN extends CI_Controller {
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
 				$config['max_size'] = 300000;
+				$keyValue = '';
 
 				$this->upload->initialize($config);
 
@@ -1538,47 +1771,72 @@ class SAN extends CI_Controller {
 
 					if ($key == 'ded_rehabilitasi_edit') {
 						$dataInsert['ded_rehabilitasi'] = $fullPath;
+						$keyValue = 'ded_rehabilitasi';
 					}
 
 					if ($key == 'rab_rehabilitasi_edit') {
 						$dataInsert['rab_rehabilitasi'] = $fullPath;
+						$keyValue = 'rab_rehabilitasi';
 					}
 
 					if ($key == 'kesiapan_rehabilitasi_edit') {
 						$dataInsert['kesiapan_rehabilitasi'] = $fullPath;
+						$keyValue = 'kesiapan_rehabilitasi';
 					}
 
 					if ($key == 'legalitas_rehabilitasi_edit') {
 						$dataInsert['legalitas_rehabilitasi'] = $fullPath;
+						$keyValue = 'legalitas_rehabilitasi';
 					}
 
 					if ($key == 'bp_rehabilitasi_edit') {
 						$dataInsert['bp_rehabilitasi'] = $fullPath;
+						$keyValue = 'bp_rehabilitasi';
 					}
 
 					if ($key == 'penerima_manfaat_rehabilitasi_edit') {
 						$dataInsert['penerima_manfaat_rehabilitasi'] = $fullPath;
+						$keyValue = 'penerima_manfaat_rehabilitasi';
 					}
 
 					if ($key == 'justifikasi_rehabilitasi_edit') {
 						$dataInsert['justifikasi_rehabilitasi'] = $fullPath;
+						$keyValue = 'justifikasi_rehabilitasi';
 					}
 
 					if ($key == 'komitmen_rehabilitasi_edit') {
 						$dataInsert['komitmen_rehabilitasi'] = $fullPath;
+						$keyValue = 'komitmen_rehabilitasi';
 					}
 
 					if ($key == 'dukungan_rehabilitasi_edit') {
 						$dataInsert['dukungan_rehabilitasi'] = $fullPath;
+						$keyValue = 'dukungan_rehabilitasi';
 					}
 
 					if ($key == 'rincian_anggaran_rehabilitasi_edit') {
 						$dataInsert['rincian_anggaran_rehabilitasi'] = $fullPath;
+						$keyValue = 'rincian_anggaran_rehabilitasi';
 					}
 
 					if ($key == 'kpp_edit') {
 						$dataInsert['kpp'] = $fullPath;
+						$keyValue = 'kpp';
 					}
+
+					$dataLampau = $this->M_dinamis->getById('t_rc_san_rehabilitasi', ['id' => $id]);
+
+					if ($dataLampau != null) {
+						$string = $dataLampau->{$keyValue};
+						$start = strpos($string, 'assets/');
+						$fixPath = FCPATH . substr($string, $start);
+
+						if (file_exists($fixPath)) {
+							unlink($fixPath);
+						}
+
+					}
+
 				}
 			}
 		}
@@ -1816,6 +2074,7 @@ class SAN extends CI_Controller {
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
 				$config['max_size'] = 300000;
+				$keyValue = '';
 
 				$this->upload->initialize($config);
 
@@ -1830,47 +2089,75 @@ class SAN extends CI_Controller {
 
 					if ($key == 'penetapan_lokasi_pembangunan_edit') {
 						$dataInsert['penetapan_lokasi_pembangunan'] = $fullPath;
+						$keyValue = 'penetapan_lokasi_pembangunan';
 					}
 
 					if ($key == 'legalitas_pembangunan_edit') {
 						$dataInsert['legalitas_pembangunan'] = $fullPath;
+						$keyValue = 'legalitas_pembangunan';
 					}
 
 					if ($key == 'rtrw_pembangunan_edit') {
 						$dataInsert['rtrw_pembangunan'] = $fullPath;
+						$keyValue = 'rtrw_pembangunan';
 					}
 
 					if ($key == 'kesiapan_pengelola_pembangunan_edit') {
 						$dataInsert['kesiapan_pengelola_pembangunan'] = $fullPath;
+						$keyValue = 'kesiapan_pengelola_pembangunan';
 					}
 
 					if ($key == 'rab_pembangunan_edit') {
 						$dataInsert['rab_pembangunan'] = $fullPath;
+						$keyValue = 'rab_pembangunan';
 					}
 
 					if ($key == 'ded_pembangunan_edit') {
 						$dataInsert['ded_pembangunan'] = $fullPath;
+						$keyValue = 'ded_pembangunan';
 					}
 
 					if ($key == 'pks_pembangunan_edit') {
 						$dataInsert['pks_pembangunan'] = $fullPath;
+						$keyValue = 'pks_pembangunan';
 					}
 
 					if ($key == 'lingkungan_pembangunan_edit') {
 						$dataInsert['lingkungan_pembangunan'] = $fullPath;
+						$keyValue = 'lingkungan_pembangunan';
 					}
 
 					if ($key == 'profile_pembangunan_edit') {
 						$dataInsert['profile_pembangunan'] = $fullPath;
+						$keyValue = 'profile_pembangunan';
 					}
 
 					if ($key == 'dprd_pembangunan_edit') {
 						$dataInsert['dprd_pembangunan'] = $fullPath;
+						$keyValue = 'dprd_pembangunan';
 					}
 
 					if ($key == 'penerima_pembangunan_edit') {
 						$dataInsert['penerima_pembangunan'] = $fullPath;
+						$keyValue = 'penerima_pembangunan';
 					}
+
+
+					// Edit
+					$dataLampau = $this->M_dinamis->getById('t_rc_san_pembangunan', ['id' => $id]);
+
+					if ($dataLampau != null) {
+						$string = $dataLampau->{$keyValue};
+						$start = strpos($string, 'assets/');
+						$fixPath = FCPATH . substr($string, $start);
+
+						if (file_exists($fixPath)) {
+							unlink($fixPath);
+						}
+
+					}
+
+
 				}
 			}
 		}
@@ -2012,6 +2299,22 @@ class SAN extends CI_Controller {
 						'jns_bidang' => 'san',
 						'jns_upload' => $jns_upload,
 					);
+
+					// Proses hapus file lama					
+					$dataLampau = $this->M_dinamis->getById('t_rc_perkim', $whereDelete);
+
+					if ($dataLampau != null) {
+						$string = $dataLampau->path;
+						$start = strpos($string, 'assets/');
+						$fixPath = FCPATH . substr($string, $start);
+
+						if (file_exists($fixPath)) {
+							unlink($fixPath);
+						}
+
+					}
+
+
 
 					$this->M_dinamis->delete('t_rc_perkim', $whereDelete);
 					$this->M_dinamis->save('t_rc_perkim', $dataInsert);

@@ -123,6 +123,26 @@ class PPKT extends CI_Controller {
 	public function hapusPPKT()
 	{
 		$id = $this->input->post('id');
+
+
+		// Delete Dokumen
+		$dataLampau = $this->M_dinamis->getResult('t_dok_ppkt', ['id_ppkt' => $id]);
+
+		foreach ($dataLampau as $key2 => $val2) {
+
+			if ($val2->path != null) {
+				$string = $val2->path;
+				$start = strpos($string, 'assets/');
+				$fixPath = FCPATH . substr($string, $start);
+				if (file_exists($fixPath)) {
+					unlink($fixPath);
+				}
+
+			}
+
+		}
+
+
 		$this->M_dinamis->delete('t_rc_ppkt', ['id' => $id]);
 
 		echo json_encode(['code' => 200]);	
@@ -279,6 +299,26 @@ class PPKT extends CI_Controller {
 					$upload_data = $this->upload->data();
 					$namaFile = $upload_data['file_name'];
 					$fullPath = $upload_data['full_path'];
+
+
+					// Delete Dokumen
+					$dataLampau = $this->M_dinamis->getResult('t_dok_ppkt', ['id_ppkt' => $id, 'jns_file' => $val]);
+
+					foreach ($dataLampau as $key2 => $val2) {
+						
+						if ($val2->path != null) {
+							$string = $val2->path;
+							$start = strpos($string, 'assets/');
+							$fixPath = FCPATH . substr($string, $start);
+							if (file_exists($fixPath)) {
+								unlink($fixPath);
+							}
+
+						}
+
+
+					}
+
 
 					$this->M_dinamis->delete('t_dok_ppkt', ['id_ppkt' => $id, 'jns_file' => $val]);
 
