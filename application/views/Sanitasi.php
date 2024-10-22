@@ -1981,14 +1981,14 @@
               <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
               <input type="file" name="ded_ipal" id="ded_ipal" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 30 MB.
               </small>
             </div>
             <div class="mb-3">
               <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
               <input type="file" name="rab_ipal" id="rab_ipal" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 10 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -1997,7 +1997,7 @@
               <small class="form-hint">
                 <b>Surat yang didalam isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2007,7 +2007,7 @@
               <small class="form-hint">
                 <b>Surat yang didalam isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2016,7 +2016,7 @@
               <small class="form-hint">
                 <b>Untuk menu Pengembangan dan Pembangunan Sistem Pengelolaan Air Limbah Domestik Terpusat (SPALD-T) - Penuntasan Pembangunan SR di IPALD Skala Kota</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2025,7 +2025,7 @@
               <small class="form-hint">
                 <b>untuk rincian menu tangki septik individual pedesaan, perkotaan, dan tangki septik komunal (5-10KK)</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2034,7 +2034,7 @@
               <small class="form-hint">
                 <b>untuk rincian menu penambahan pipa pengumpul dan SR</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 30 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2043,7 +2043,7 @@
               <small class="form-hint">
                 <b>untuk rincian menu penambahan pipa pengumpul dan SR</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
           </div>
@@ -2078,7 +2078,7 @@
               <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
               <input type="file" name="ded_ipal_edit" id="ded_ipal_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 30 MB.
               </small>
             </div>
 
@@ -2086,7 +2086,7 @@
               <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
               <input type="file" name="rab_ipal_edit" id="rab_ipal_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 10 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2095,7 +2095,7 @@
               <small class="form-hint">
                 <b>Surat yang didalam isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2105,7 +2105,7 @@
               <small class="form-hint">
                 <b>Surat yang didalam isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2114,7 +2114,7 @@
               <small class="form-hint">
                 <b>Untuk menu Pengembangan dan Pembangunan Sistem Pengelolaan Air Limbah Domestik Terpusat (SPALD-T) - Penuntasan Pembangunan SR di IPALD Skala Kota</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2123,7 +2123,7 @@
               <small class="form-hint">
                 <b>Untuk rincian menu tangki septik individual pedesaan, perkotaan, dan tangki septik komunal (5-10KK)</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2132,7 +2132,7 @@
               <small class="form-hint">
                 <b>Untuk rincian menu penambahan pipa pengumpul dan SR</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 30 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2141,7 +2141,7 @@
               <small class="form-hint">
                 <b>Untuk rincian menu penambahan pipa pengumpul dan SR</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
           </div>
@@ -2211,7 +2211,7 @@
               <div class="form-label">Surat Minat dari Kepala Daerah :</div>
               <input type="file" name="mintatKepalaDaerah" id="mintatKepalaDaerah" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2219,7 +2219,7 @@
               <div class="form-label">Surat Penetapan Lokasi oleh Kepala Daerah :</div>
               <input type="file" name="penetapan_ipltx" id="penetapan_ipltx" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2227,7 +2227,7 @@
               <div class="form-label">Surat Pernyataan BPPW :</div>
               <input type="file" name="pernyataanBPPW" id="pernyataanBPPW" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2237,7 +2237,7 @@
               <small class="form-hint">
                 <b>Detail Engineering Design (DED) yang telah disusun/direviu, didampingi serta disetujui oleh Balai PPW Provinsi yang dibuktikan dengan Surat Pernyataan Persetujuan dari Kepala Balai PPW Provinsi yang bersangkutan</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 30 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2246,7 +2246,7 @@
               <small class="form-hint">
                 <b>Rencana Anggaran Biaya (RAB) yang telah disusun/direviu, didampingi serta disetujui oleh Balai PPW Provinsi yang dibuktikan dengan Surat Pernyataan Persetujuan dari Kepala Balai PPW Provinsi yang bersangkutan</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 10 MB.
               </small>
             </div>
 
@@ -2256,7 +2256,7 @@
               <div class="form-label">Bukti legalitas lahan berupa sertifikat lahan :</div>
               <input type="file" name="legalitas_ipltx" id="legalitas_ipltx" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2267,14 +2267,14 @@
               <small class="form-hint">
                 <b>Laporan/bukti layanan IPLT sudah >75% (catatan logbook lumpur tinja yang masuk IPLT)  dan rencana tambahan layanan (usulan peningkatan IPLT)</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
               <div class="form-label">MasterPlan/Rencana Induk  :</div>
               <input type="file" name="mp_ipltx" id="mp_ipltx" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 10 MB.
               </small>
             </div>
 
@@ -2282,14 +2282,14 @@
               <div class="form-label">Dokumen Lingkungan :</div>
               <input type="file" name="lingkungan_ipltx" id="lingkungan_ipltx" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
               <div class="form-label">Surat Kesiapan Lembaga Pengelola  :</div>
               <input type="file" name="kesiapan_ipltx" id="kesiapan_ipltx" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2297,7 +2297,7 @@
               <div class="form-label">Rencana pengelolaan/business plan IPLT :</div>
               <input type="file" name="businessPlanIPLT" id="businessPlanIPLT" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 10 MB.
               </small>
             </div>
 
@@ -2305,7 +2305,7 @@
               <div class="form-label">Bukti komitmen untuk melaksanaan LLTT :</div>
               <input type="file" name="buktiKomitmenIPLT" id="buktiKomitmenIPLT" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2313,7 +2313,7 @@
               <div class="form-label">As Build Drawing IPLT Terbangun *(untuk rincian menu peningkatan/ rehabilitasi IPLT) :</div>
               <input type="file" name="abd" id="abd" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 30 MB.
               </small>
             </div>
 
@@ -2321,7 +2321,7 @@
               <div class="form-label">Laporan Audit/reviu BPKP *(untuk rincian menu peningkatan/ rehabilitasi IPLT) :</div>
               <input type="file" name="bpkp" id="bpkp" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2329,7 +2329,7 @@
               <div class="form-label">Spesifikasi Teknis dan Harga Supplier Truk Tinja *(untuk rincian menu pengadaan truk tinja) :</div>
               <input type="file" name="sTrukTinja" id="sTrukTinja" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
           </div>
@@ -2364,7 +2364,7 @@
               <div class="form-label">Surat Minat dari Kepala Daerah :</div>
               <input type="file" name="mintatKepalaDaerah_edit" id="mintatKepalaDaerah_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2372,7 +2372,7 @@
               <div class="form-label">Surat Penetapan Lokasi oleh Kepala Daerah :</div>
               <input type="file" name="penetapan_ipltx_edit" id="penetapan_ipltx_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2380,7 +2380,7 @@
               <div class="form-label">Surat Pernyataan BPPW :</div>
               <input type="file" name="pernyataanBPPW_edit" id="pernyataanBPPW_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2391,7 +2391,7 @@
               <small class="form-hint">
                 <b>Detail Engineering Design (DED) yang telah disusun/direviu, didampingi serta disetujui oleh Balai PPW Provinsi yang dibuktikan dengan Surat Pernyataan Persetujuan dari Kepala Balai PPW Provinsi yang bersangkutan</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 30 MB.
               </small>
             </div>
             <div class="mb-3">
@@ -2400,7 +2400,7 @@
               <small class="form-hint">
                 <b>Rencana Anggaran Biaya (RAB) yang telah disusun/direviu, didampingi serta disetujui oleh Balai PPW Provinsi yang dibuktikan dengan Surat Pernyataan Persetujuan dari Kepala Balai PPW Provinsi yang bersangkutan</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 10 MB.
               </small>
             </div>
 
@@ -2410,7 +2410,7 @@
               <div class="form-label">Bukti legalitas lahan berupa sertifikat lahan :</div>
               <input type="file" name="legalitas_ipltx_edit" id="legalitas_ipltx_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
 
@@ -2421,14 +2421,14 @@
               <small class="form-hint">
                 <b>Laporan/bukti layanan IPLT sudah >75% (catatan logbook lumpur tinja yang masuk IPLT)  dan rencana tambahan layanan (usulan peningkatan IPLT)</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
               <div class="form-label">MasterPlan/Rencana Induk  :</div>
               <input type="file" name="mp_ipltx_edit" id="mp_ipltx_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 10 MB.
               </small>
             </div>
 
@@ -2438,49 +2438,49 @@
               <small class="form-hint">
                 <b>Berupa Dokumen AMDAL/UKL-UPL</b>
                 <br>
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
               <div class="form-label">Surat Kesiapan Lembaga Pengelola  :</div>
               <input type="file" name="kesiapan_ipltx_edit" id="kesiapan_ipltx_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
               <div class="form-label">Rencana pengelolaan/business plan IPLT  :</div>
               <input type="file" name="businessPlanIPLT_edit" id="businessPlanIPLT_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 10 MB.
               </small>
             </div>
             <div class="mb-3">
               <div class="form-label">Bukti komitmen untuk melaksanaan LLTT :</div>
               <input type="file" name="buktiKomitmenIPLT_edit" id="buktiKomitmenIPLT_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
               <div class="form-label">As Build Drawing IPLT Terbangun :</div>
               <input type="file" name="abd_edit" id="abd_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 30 MB.
               </small>
             </div>
             <div class="mb-3">
               <div class="form-label">Laporan Audit/reviu BPKP :</div>
               <input type="file" name="bpkp_edit" id="bpkp_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
             <div class="mb-3">
               <div class="form-label">Spesifikasi Teknis dan Harga Supplier Truk Tinja :</div>
               <input type="file" name="sTrukTinja_edit" id="sTrukTinja_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
-                File : PDF Max Size : 300 MB.
+                File : PDF Max Size : 5 MB.
               </small>
             </div>
           </div>
@@ -2546,14 +2546,14 @@
             <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
             <input type="file" name="ded_pembangunanBaru" id="ded_pembangunanBaru" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 30 MB.
             </small>
           </div>
           <div class="mb-3">
             <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
             <input type="file" name="rab_pembangunanBaru" id="rab_pembangunanBaru" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 10 MB.
             </small>
           </div>
 
@@ -2565,7 +2565,7 @@
             <small class="form-hint">
               <b>Surat yang didalamnya isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
               <br>
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2576,21 +2576,21 @@
             <small class="form-hint">
               <b>Berupa Sertifikat/Akta Jual Beli lahan apabila lahan milik pemerintah dan Akta Jual Beli/Akta Hibah untuk kegiatan Pembangunan TPS 3R apabila lahan semula milik masyarakat/pribadi</b>
               <br>
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
           <div class="mb-3">
             <div class="form-label">Konsep Business Plan pengelolaan TPS 3R pasca konstruksi :</div>
             <input type="file" name="bp_pembangunanBaru" id="bp_pembangunanBaru" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 10 MB.
             </small>
           </div>
           <div class="mb-3">
             <div class="form-label">Daftar Calon Penerima Manfaat TPS3R (MIN 200 KK) :</div>
             <input type="file" name="penerima_manfaat_pembangunanBaru" id="penerima_manfaat_pembangunanBaru" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2598,7 +2598,7 @@
             <div class="form-label">Berita Acara Kesepakatan Warga :</div>
             <input type="file" name="ba_warga" id="ba_warga" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2606,7 +2606,7 @@
             <div class="form-label">Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan :</div>
             <input type="file" name="kesepakatan_oprasi_pemeliharan" id="kesepakatan_oprasi_pemeliharan" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2614,7 +2614,7 @@
             <div class="form-label">Surat dukungan Dinas Lingkungan Hidup :</div>
             <input type="file" name="surat_dinas_hidup" id="surat_dinas_hidup" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2622,7 +2622,7 @@
             <div class="form-label">Justifikasi Peningkatan/Rehabilitasi TPS3R (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
             <input type="file" name="justifikasi_TPS_peningkatan" id="justifikasi_TPS_peningkatan" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2630,7 +2630,7 @@
             <div class="form-label">SK Kepala Desa tentang Pembentukan KKP (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
             <input type="file" name="sk_desa_kpp" id="sk_desa_kpp" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2638,7 +2638,7 @@
             <div class="form-label">As Build Drawing TPS3R Terbangun (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
             <input type="file" name="abd" id="abd" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 30 MB.
             </small>
           </div>
 
@@ -2672,14 +2672,14 @@
             <div class="form-label">Template/Konsep Detail Engineering Design (DED) :</div>
             <input type="file" name="ded_pembangunanBaru_edit" id="ded_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 30 MB.
             </small>
           </div>
           <div class="mb-3">
             <div class="form-label">Template Rencana Anggaran Biaya (RAB) :</div>
             <input type="file" name="rab_pembangunanBaru_edit" id="rab_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 10 MB.
             </small>
           </div>
 
@@ -2691,7 +2691,7 @@
             <small class="form-hint">
               <b>Surat yang didalamnya isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
               <br>
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2702,21 +2702,21 @@
             <small class="form-hint">
               <b>Berupa Sertifikat/Akta Jual Beli lahan apabila lahan milik pemerintah dan Akta Jual Beli/Akta Hibah untuk kegiatan Pembangunan TPS 3R apabila lahan semula milik masyarakat/pribadi</b>
               <br>
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
           <div class="mb-3">
             <div class="form-label">Konsep Business Plan pengelolaan TPS 3R pasca konstruksi :</div>
             <input type="file" name="bp_pembangunanBaru_edit" id="bp_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 10 MB.
             </small>
           </div>
           <div class="mb-3">
             <div class="form-label">Daftar Calon Penerima Manfaat TPS3R (MIN 200 KK):</div>
             <input type="file" name="penerima_manfaat_pembangunanBaru_edit" id="penerima_manfaat_pembangunanBaru_edit" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2724,7 +2724,7 @@
             <div class="form-label">Berita Acara Kesepakatan Warga :</div>
             <input type="file" name="ba_warga" id="ba_warga" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2732,7 +2732,7 @@
             <div class="form-label">Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan :</div>
             <input type="file" name="kesepakatan_oprasi_pemeliharan" id="kesepakatan_oprasi_pemeliharan" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2740,7 +2740,7 @@
             <div class="form-label">Surat dukungan Dinas Lingkungan Hidup :</div>
             <input type="file" name="surat_dinas_hidup_edit" id="surat_dinas_hidup_edit" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2748,7 +2748,7 @@
             <div class="form-label">Justifikasi Peningkatan/Rehabilitasi TPS3R (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
             <input type="file" name="justifikasi_TPS_peningkatan_edit" id="justifikasi_TPS_peningkatan_edit" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2756,7 +2756,7 @@
             <div class="form-label">SK Kepala Desa tentang Pembentukan KKP (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
             <input type="file" name="sk_desa_kpp_edit" id="sk_desa_kpp_edit" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
 
@@ -2764,7 +2764,7 @@
             <div class="form-label">As Build Drawing TPS3R Terbangun (*untuk rincian menu peningkatan/rehabilitasi TPS3R) :</div>
             <input type="file" name="abd_edit" id="abd_edit" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 300 MB.
+              File : PDF Max Size : 30 MB.
             </small>
           </div>
 
@@ -3312,7 +3312,7 @@
             <div class="form-label">Input File SPTJM :</div>
             <input type="file" name="sptjm" id="sptjm" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 10 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
         </div>
@@ -3342,7 +3342,7 @@
             <div class="form-label">Input File SSK :</div>
             <input type="file" name="ssk" id="ssk" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 10 MB.
+              File : PDF Max Size : 50 MB.
             </small>
           </div>
         </div>
@@ -3372,7 +3372,7 @@
             <div class="form-label">Input File BA Konsultasi Program :</div>
             <input type="file" name="ba" id="ba" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 10 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
         </div>
@@ -3403,7 +3403,7 @@
             <div class="form-label">Input File Komitmen SSK :</div>
             <input type="file" name="komitmen_SSK" id="komitmen_SSK" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 10 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
         </div>
@@ -3433,7 +3433,7 @@
             <div class="form-label">Input File SIMONI :</div>
             <input type="file" name="ba_simoni" id="ba_simoni" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 10 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
         </div>
@@ -3463,7 +3463,7 @@
             <div class="form-label">Input File Update SK Stunting :</div>
             <input type="file" name="stanting" id="stanting" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 10 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
         </div>
@@ -3493,7 +3493,7 @@
             <div class="form-label">Input File Surat Pernyataan Bappenas :</div>
             <input type="file" name="s_bappenas" id="s_bappenas" class="form-control" accept="application/pdf" />
             <small class="form-hint">
-              File : PDF Max Size : 10 MB.
+              File : PDF Max Size : 5 MB.
             </small>
           </div>
         </div>

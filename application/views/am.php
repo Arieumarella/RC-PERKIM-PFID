@@ -713,14 +713,14 @@
                             <small class="form-hint">
                               <b>Gambar design beserta skematik jaringan / RMK untuk kegiatan pemberdayaan masyarakat</b>
                               <br>
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 30 MB.
                             </small>
                           </div>
                           <div class="mb-3">
                             <div class="form-label">Rencana Anggaran Biaya (RAB) :</div>
                             <input type="file" name="rab" id="rab" class="form-control" accept="application/pdf" />
                             <small class="form-hint">
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 10 MB.
                             </small>
                           </div>
                           <div class="mb-3">
@@ -729,7 +729,7 @@
                             <small class="form-hint">
                               <b>Surat yang menyatakan bahwa lahan yang akan dipakai adalah milik Pemerintah desa/kab/kota yang tidak akan bermasalah pada saat pekerjaan dan untuk menu pembangunan baru SPAM JP, Peningkatan SPAM JP, & Perluasan SPAM bila ada pembangunan Komponen Reservoar</b>
                               <br>
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 5 MB.
                             </small>
                           </div>
                           <div class="mb-3">
@@ -738,7 +738,7 @@
                             <small class="form-hint">
                               <b>Daftar nama kepala keluarga penerima bantuan yang disahkan oleh PDAM/Dinas Terkait</b>
                               <br>
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 5 MB.
                             </small>
                           </div>
                           <div class="mb-3">
@@ -747,7 +747,7 @@
                             <small class="form-hint">
                               <b>Perjanjian kerja sama antar pemerintah Pusat/Provinsi/Kab/Kota dalam pembangunan SPAM dilampirkan dengan skema pembagian pendanaan Khusus untuk kegiatan SPAM Regional/SPAM PSN dan Menu JDU SPAM dan Perluasan SPAM Regional</b>
                               <br>
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 5 MB.
                             </small>
                           </div>
                           <div class="mb-3">
@@ -759,7 +759,7 @@
                                 2. SPAM Pedesaan dikeluarkan oleh KPSPAM bila sudah mempunyai KPSPAM (untuk kegiatan pengembangan/peningkatan)<br>
                               3. SPAM Pedesaan yang belum mempunyai KPSPAM dikeluarkan oleh Kepala Desa/Lurah yang isinya akan dilakukan pembentukan KPSPAM.</b>
                               <br>
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 5 MB.
                             </small>
                           </div>
                           <div class="mb-3">
@@ -767,6 +767,8 @@
                             <input type="file" name="kelayakan_justek" id="kelayakan_justek" class="form-control" accept="application/pdf" />
                             <small class="form-hint">
                               <b>Untuk kegiatan pembangunan dan peningkatan SPAM di atas 10 liter per detik</b>
+                              <br>
+                              File : PDF Max Size : 10 MB.
                             </small>
                           </div>
                         </div>
@@ -803,14 +805,14 @@
                             <small class="form-hint">
                               <b>Gambar design beserta skematik jaringan / RMK untuk kegiatan pemberdayaan masyarakat</b>
                               <br>
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 30 MB.
                             </small>
                           </div>
                           <div class="mb-3">
                             <div class="form-label">Rencana Anggaran Biaya (RAB) :</div>
                             <input type="file" name="rab_edit" id="rab_edit" class="form-control" accept="application/pdf" />
                             <small class="form-hint">
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 10 MB.
                             </small>
                           </div>
                           <div class="mb-3">
@@ -819,7 +821,7 @@
                             <small class="form-hint">
                               <b>Surat yang menyatakan bahwa lahan yang akan dipakai adalah milik Pemerintah desa/kab/kota yang tidak akan bermasalah pada saat pekerjaan dan untuk menu pembangunan baru SPAM JP, Peningkatan SPAM JP, & Perluasan SPAM bila ada pembangunan Komponen Reservoar</b>
                               <br>
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 5 MB.
                             </small>
                           </div>
                           <div class="mb-3">
@@ -828,7 +830,7 @@
                             <small class="form-hint">
                               <b>Daftar nama kepala keluarga penerima bantuan yang disahkan oleh PDAM/Dinas Terkait</b>
                               <br>
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 5 MB.
                             </small>
                           </div>
                           <div class="mb-3">
@@ -837,7 +839,7 @@
                             <small class="form-hint">
                               <b>Perjanjian kerja sama antar pemerintah Pusat/Provinsi/Kab/Kota dalam pembangunan SPAM dilampirkan dengan skema pembagian pendanaan Khusus untuk kegiatan SPAM Regional/SPAM PSN dan Menu JDU SPAM dan Perluasan SPAM Regional</b>
                               <br>
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 5 MB.
                             </small>
                           </div>
                           <div class="mb-3">
@@ -849,7 +851,7 @@
                                 2. SPAM Pedesaan dikeluarkan oleh KPSPAM bila sudah mempunyai KPSPAM (untuk kegiatan pengembangan/peningkatan)<br>
                               3. SPAM Pedesaan yang belum mempunyai KPSPAM dikeluarkan oleh Kepala Desa/Lurah yang isinya akan dilakukan pembentukan KPSPAM.</b>
                               <br>
-                              File : PDF Max Size : 300 MB.
+                              File : PDF Max Size : 5 MB.
                             </small>
                           </div>
                           <div class="mb-3">
@@ -857,6 +859,8 @@
                             <input type="file" name="kelayakan_justek_edit" id="kelayakan_justek_edit" class="form-control" accept="application/pdf" />
                             <small class="form-hint">
                               <b>Untuk kegiatan pembangunan dan peningkatan SPAM di atas 10 liter per detik</b>
+                              <br>
+                              File : PDF Max Size : 10 MB.
                             </small>
                           </div>
                         </div>
@@ -892,7 +896,7 @@
                           <small class="form-hint">
                             <b>Surat Pernyataan Tanggungjawab Mutlak (SPTJM)</b>
                             <br>
-                            File : PDF Max Size : 10 MB.
+                            File : PDF Max Size : 5 MB.
                           </small>
                         </div>
                       </div>
@@ -922,7 +926,7 @@
                           <div class="form-label">Input File RISPAM :</div>
                           <input type="file" name="rispam" id="rispam" class="form-control" accept="application/pdf" />
                           <small class="form-hint">
-                            File : PDF Max Size : 10 MB.
+                            File : PDF Max Size : 50 MB.
                           </small>
                         </div>
                       </div>
@@ -952,7 +956,7 @@
                           <div class="form-label">Input File Berita Acara Rencana Kegiatan :</div>
                           <input type="file" name="ba" id="ba" class="form-control" accept="application/pdf" />
                           <small class="form-hint">
-                            File : PDF Max Size : 10 MB.
+                            File : PDF Max Size : 5 MB.
                           </small>
                         </div>
                       </div>
@@ -985,7 +989,7 @@
                           <small class="form-hint">
                             <b>Bila sedang berjalan 2023 dapat dibuktikan dengan RKA Tahun 2023</b>
                             <br>
-                            File : PDF Max Size : 10 MB.
+                            File : PDF Max Size : 50 MB.
                           </small>
                         </div>
                       </div>
@@ -1015,7 +1019,7 @@
                           <div class="form-label">Input Upload Berita Acara Hasi Penilaian :</div>
                           <input type="file" name="ba_simoni" id="ba_simoni" class="form-control" accept="application/pdf" />
                           <small class="form-hint">
-                            File : PDF Max Size : 10 MB.
+                            File : PDF Max Size : 5 MB.
                           </small>
                         </div>
                       </div>
@@ -1045,7 +1049,7 @@
                           <div class="form-label">Input Upload Upload Dokumen Update Stunting SK Stanting :</div>
                           <input type="file" name="stunting" id="stunting" class="form-control" accept="application/pdf" />
                           <small class="form-hint">
-                            File : PDF Max Size : 10 MB.
+                            File : PDF Max Size : 5 MB.
                           </small>
                         </div>
                       </div>
@@ -1075,7 +1079,7 @@
                           <div class="form-label">Input File Surat Pernyataan Bappenas :</div>
                           <input type="file" name="s_bappenas" id="s_bappenas" class="form-control" accept="application/pdf" />
                           <small class="form-hint">
-                            File : PDF Max Size : 10 MB.
+                            File : PDF Max Size : 5 MB.
                           </small>
                         </div>
                       </div>
@@ -1105,7 +1109,7 @@
                           <div class="form-label">Input Upload Surat Komitmen Kepala Daerah :</div>
                           <input type="file" name="komiteKepalaDaerah" id="komiteKepalaDaerah" class="form-control" accept="application/pdf" />
                           <small class="form-hint">
-                            File : PDF Max Size : 10 MB.
+                            File : PDF Max Size : 5 MB.
                           </small>
                         </div>
                       </div>

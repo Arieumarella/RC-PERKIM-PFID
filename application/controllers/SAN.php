@@ -553,6 +553,17 @@ class SAN extends CI_Controller {
 			'justekPipa' => 'Justifikasi teknis untuk penambahan pipa pengumpul'
 		);
 
+		$dataArraySize = array(
+			'ded_ipal' => 30720,
+			'rab_ipal' => 10240,
+			'k_lahan_ipal' => 5120,
+			'penerima_manfaat_ipal' => 5120,
+			'k_lahan_dinas_ipal' => 5120,
+			'spesifikasi_ipal' => 5120,
+			'abd' => 30720,
+			'justekPipa' => 5120
+		);
+
 
 		$dataInsert = array(
 			'kdlokasi' => $kdlokasi,
@@ -608,7 +619,7 @@ class SAN extends CI_Controller {
 				$config['upload_path'] = $path;
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
-				$config['max_size'] = 300000;
+				$config['max_size'] = isset($dataArraySize[$key]) ? $dataArraySize[$key] : 300000;
 
 				$this->upload->initialize($config);
 
@@ -680,6 +691,17 @@ class SAN extends CI_Controller {
 			'justekPipa_edit' => 'Justifikasi teknis untuk penambahan pipa pengumpul'
 		);
 
+		$dataArraySize = array(
+			'ded_ipal_edit' => 30720,
+			'rab_ipal_edit' => 10240,
+			'k_lahan_ipal_edit' => 5120,
+			'penerima_manfaat_ipal_edit' => 5120,
+			'k_lahan_dinas_ipal_edit' => 5120,
+			'spesifikasi_ipal_edit' => 5120,
+			'abd_edit' => 30720,
+			'justekPipa_edit' => 5120
+		);
+
 
 		$dataInsert = array(
 			'updated_at' => date('Y-m-d H:i:s')
@@ -730,7 +752,7 @@ class SAN extends CI_Controller {
 				$config['upload_path'] = $path;
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
-				$config['max_size'] = 300000;
+				$config['max_size'] = isset($dataArraySize[$key]) ? $dataArraySize[$key] : 300000;
 				$keyValue ='';
 
 				$this->upload->initialize($config);
@@ -868,6 +890,27 @@ class SAN extends CI_Controller {
 			'sTrukTinja' => 'Spesifikasi Teknis dan Harga Supplier Truk Tinja'
 		);
 
+
+		$dataArraySize = array(
+			'penetapan_ipltx' => 5120,
+			'legalitas_ipltx' => 5120,
+			'ded_ipltx' => 30720,
+			'rab_ipltx' => 10240,
+			'justifikasi_ipltx' => 5120,
+			'audit_ipltx' => 5120,
+			'mp_ipltx' => 10240,
+			'lingkungan_ipltx' => 5120,
+			'kesiapan_ipltx' => 5120,
+			'kesiapan_biaya_ipltx' => 5120,
+			'mintatKepalaDaerah' => 5120,
+			'pernyataanBPPW' => 5120,
+			'businessPlanIPLT' => 10240,
+			'buktiKomitmenIPLT' => 5120,
+			'abd' => 30720,
+			'bpkp' => 5120,
+			'sTrukTinja' => 5120
+		);
+
 		$dataInsert = array(
 			'kdlokasi' => $kdlokasi,
 			'kdkabkota' => $kdkabkota,
@@ -922,7 +965,7 @@ class SAN extends CI_Controller {
 				$config['upload_path'] = $path;
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
-				$config['max_size'] = 300000;
+				$config['max_size'] = isset($dataArraySize[$key]) ? $dataArraySize[$key] : 300000;
 
 				$this->upload->initialize($config);
 
@@ -1003,6 +1046,27 @@ class SAN extends CI_Controller {
 			'sTrukTinja_edit' => 'Spesifikasi Teknis dan Harga Supplier Truk Tinja'
 		);
 
+
+		$dataArraySize = array(
+			'penetapan_ipltx_edit' => 5120,
+			'legalitas_ipltx_edit' => 5120,
+			'ded_ipltx_edit' => 30720,
+			'rab_ipltx_edit' => 10240,
+			'justifikasi_ipltx_edit' => 5120,
+			'mp_ipltx_edit' => 10240,
+			'lingkungan_ipltx_edit' => 5120,
+			'kesiapan_ipltx_edit' => 5120,
+			'mintatKepalaDaerah_edit' => 5120,
+			'pernyataanBPPW_edit' => 5120,
+			'businessPlanIPLT_edit' => 10240,
+			'buktiKomitmenIPLT_edit' => 5120,
+			'abd_edit' => 30720,
+			'bpkp_edit' => 5120,
+			'sTrukTinja_edit' => 5120
+		);
+
+
+
 		$dataInsert = array(
 			'updated_at' => date('Y-m-d H:i:s')
 		);
@@ -1052,7 +1116,7 @@ class SAN extends CI_Controller {
 				$config['upload_path'] = $path;
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
-				$config['max_size'] = 300000;
+				$config['max_size'] = isset($dataArraySize[$key]) ? $dataArraySize[$key] : 300000;
 				$keyValue = '';
 
 				$this->upload->initialize($config);
@@ -1246,6 +1310,21 @@ class SAN extends CI_Controller {
 			'abd' => 'As Build Drawing TPS3R Terbangun'
 		);
 
+		$dataArraySize = array(
+			'ded_pembangunanBaru' => 30720,
+			'rab_pembangunanBaru' => 10240,
+			'kesiapan_pembangunanBaru' => 5120,
+			'legalitas_pembangunanBaru' => 5120,
+			'bp_pembangunanBaru' => 10240,
+			'penerima_manfaat_pembangunanBaru' => 5120,
+			'ba_warga' => 5120,
+			'kesepakatan_oprasi_pemeliharan' => 5120,
+			'surat_dinas_hidup' => 5120,
+			'justifikasi_TPS_peningkatan' => 5120,
+			'sk_desa_kpp' => 5120,
+			'abd' => 30720
+		);
+
 		$dataInsert = array(
 			'kdlokasi' => $kdlokasi,
 			'kdkabkota' => $kdkabkota,
@@ -1300,7 +1379,7 @@ class SAN extends CI_Controller {
 				$config['upload_path'] = $path;
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
-				$config['max_size'] = 300000;
+				$config['max_size'] =  isset($dataArraySize[$key]) ? $dataArraySize[$key] : 300000;
 
 				$this->upload->initialize($config);
 
@@ -1379,6 +1458,21 @@ class SAN extends CI_Controller {
 			'abd_edit' => 'As Build Drawing TPS3R Terbangun'
 		);
 
+		$dataArraySize = array(
+			'ded_pembangunanBaru_edit' => 30720,
+			'rab_pembangunanBaru_edit' => 10240,
+			'kkesiapan_pembangunanBaru_edit' => 5120,
+			'legalitas_pembangunanBaru_edit' => 5120,
+			'bp_pembangunanBaru_edit' => 10240,
+			'penerima_manfaat_pembangunanBaru_edit' => 5120,
+			'ba_warga' => 5120,
+			'kesepakatan_oprasi_pemeliharan_edit' => 5120,
+			'surat_dinas_hidup_edit' => 5120,
+			'justifikasi_TPS_peningkatan_edit' => 5120,
+			'sk_desa_kpp_edit' => 5120,
+			'abd_edit' => 30720
+		);
+
 		$dataInsert = array(
 			'updated_at' => date('Y-m-d H:i:s')
 		);
@@ -1428,7 +1522,7 @@ class SAN extends CI_Controller {
 				$config['upload_path'] = $path;
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
-				$config['max_size'] = 300000;
+				$config['max_size'] = isset($dataArraySize[$key]) ? $dataArraySize[$key] : 300000;
 				$keyValue = '';
 
 				$this->upload->initialize($config);
@@ -2208,6 +2302,17 @@ class SAN extends CI_Controller {
 		);
 
 
+
+		$dataArraySize = array(
+			'sptjm' => 5120,
+			'ssk' => 512000,
+			'ba' => 5120,
+			'komitmen_SSK' => 5120,
+			'ba_simoni' => 5120,
+			'stanting' => 5120
+		);
+
+
 		foreach ($dataArray as $key => $value) {
 
 			if (!empty($_FILES[$key]['name'])) {
@@ -2246,7 +2351,7 @@ class SAN extends CI_Controller {
 				$config['upload_path'] = $path;
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_' . date('Y-m-d') . '_' . time() . '.' . $ext;
-				$config['max_size'] = 300000;
+				$config['max_size'] = isset($dataArraySize[$key]) ? $dataArraySize[$key] : 300000;
 
 				$this->upload->initialize($config);
 

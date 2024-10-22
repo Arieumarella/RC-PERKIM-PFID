@@ -108,6 +108,17 @@ class AM extends CI_Controller {
 			'kelayakan_justek' => 'Studi Kelayakan atau Feasibility Study (FS) atau Justifikasi Teknis (Justek)'
 		);
 
+
+		$dataArraySize = array(
+			'ded' => 30720,
+			'rab' => 10240,
+			'k_lahan' => 5120,
+			'penerima_manfaat' => 5120,
+			'k_lembaga' => 5120,
+			'pks' => 5120,
+			'kelayakan_justek' => 10240
+		);
+
 		$dataInsert = array(
 			'kdlokasi' => $kdlokasi,
 			'kdlokasi_penginput' => ($this->session->userdata('is_provinsi') == true) ? '00':null,
@@ -164,7 +175,7 @@ class AM extends CI_Controller {
 				$config['upload_path'] = $path;
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_'.date('Y-m-d').'_'.time().'.'.$ext;
-				$config['max_size'] = 300000;
+				$config['max_size'] = isset($dataArraySize[$key]) ? $dataArraySize[$key] : 300000;
 
 				$this->upload->initialize($config);
 
@@ -248,6 +259,16 @@ class AM extends CI_Controller {
 			'kelayakan_justek_edit' => 'Studi Kelayakan atau Feasibility Study (FS) atau Justifikasi Teknis (Justek)'
 		);
 
+		$dataArraySize = array(
+			'ded' => 30720,
+			'rab' => 10240,
+			'k_lahan' => 5120,
+			'penerima_manfaat' => 5120,
+			'k_lembaga' => 5120,
+			'pks' => 5120,
+			'kelayakan_justek' => 10240
+		);
+
 		$dataInsert = array(
 			
 			'updated_at' => date('Y-m-d H:i:s')
@@ -300,7 +321,7 @@ class AM extends CI_Controller {
 				$config['upload_path'] = $path;
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_'.date('Y-m-d').'_'.time().'.'.$ext;
-				$config['max_size'] = 300000;
+				$config['max_size'] = isset($dataArraySize[$key]) ? $dataArraySize[$key] : 300000;
 
 				$this->upload->initialize($config);
 
@@ -585,6 +606,16 @@ class AM extends CI_Controller {
 		);
 
 
+		$dataArraySize = array(
+			'sptjm' => 5120,
+			'rispam' => 51200,
+			'ba' => 5120,
+			'ba_simoni' => 5120,
+			'komiteKepalaDaerah' => 5120
+		);
+
+
+
 		foreach ($dataArray as $key => $value) {
 
 			if (!empty($_FILES[$key]['name'])) {
@@ -623,7 +654,7 @@ class AM extends CI_Controller {
 				$config['upload_path'] = $path;
 				$config['allowed_types'] = 'pdf';
 				$config['file_name'] = 'upload_time_'.date('Y-m-d').'_'.time().'.'.$ext;
-				$config['max_size'] = 300000;
+				$config['max_size'] = isset($dataArraySize[$key]) ? $dataArraySize[$key] : 300000;
 
 				$this->upload->initialize($config);
 
