@@ -59,7 +59,15 @@
      padding: 4px;
      word-wrap: break-word; /* Memaksa pemisahan kata jika teks terlalu panjang */
    }
- </style>
+
+   h6 {
+    text-align: justify; /* Rata kiri dan kanan */
+    font-size: 12px; /* Ukuran font seperti paragraf, sesuaikan sesuai kebutuhan */
+    line-height: 1.6; /* Memberikan jarak antar baris */
+    color: #333; /* Warna teks, bisa diubah sesuai kebutuhan */
+    font-weight: normal; /* Agar font lebih ringan seperti paragraf */
+  }
+</style>
 </head>
 <body>
   <h1>BERITA ACARA KONSULTASI PROGRAM DAK FISIK TA. <?= $ta; ?></h1>
@@ -345,7 +353,9 @@
 
 </tbody>
 </table>
-<h6>Berita Acara adalah bukti selesai pembahasan, finalisasi Rencana Kegiatan (RK) dapat disetejui apabila Pemerintah Daerah telah melakukan sign digital pada aplikasi Krisna DAK <?= $ta; ?></h6>
+<h6>Berita Acara adalah bukti selesai pembahasan, finalisasi Rencana Kegiatan (RK) dapat disetejui apabila Pemerintah Daerah telah melakukan sign digital pada aplikasi Krisna DAK <?= $ta; ?>.</h6>
+<h6 style="margin-top:-15px;">Pemerintah daerah mengupayakan pelaksanaan kegiatan fisik sesuai dengan target rencana output yang tercantum dalam Rencana Kegiatan serta spesifikasi dalam Readiness Criteria yang disampaikan.</h6>
+<h6 style="margin-top:-15px;">Apabila terdapat perubahan pada pelaksanaan kegiatan fisik, maka perubahan tersebut menjadi tanggung jawab pemerintah daerah; dan pemerintah daerah wajib melakukan justifikasi teknis sebagaimana mestinya; serta akan menjadi bahan evaluasi dalam penilaian DAK di tahun berikutnya.</h6>
 <table>
   <thead>
     <tr>

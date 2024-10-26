@@ -185,9 +185,309 @@ class PPKT extends CI_Controller {
 			'dataSAN' => $this->M_PPKT->getDataAMPPKTSan($id),
 			'dataRincianPrum' => $this->M_PPKT->getRincianPerum(),
 			'dataPperum' => $this->M_PPKT->getDataAMPPKTPerum($id),
+			'dataPenunjangAm' => $this->M_dinamis->add_all('t_kegiatan_ppkt_penunjang_am', '*', 'id', 'asc'),
+			'dataKegiatanPenunjang' => $this->M_PPKT->getDataAMPPKTPenunjangAm($id),
+			'dataPenunjangSan' => $this->M_dinamis->add_all('t_kegiatan_ppkt_penunjang_san', '*', 'id', 'asc'),
+			'dataKegiatanPenunjangSan' => $this->M_PPKT->getDataAMPPKTPenunjangSan($id),
+			'dataPenunjangPerum' => $this->M_dinamis->add_all('t_kegiatan_ppkt_penunjang_perum', '*', 'id', 'asc'),
+			'dataKegiatanPenunjangPerum' => $this->M_PPKT->getDataAMPPKTPenunjangPerum($id),
 		);
 
 		$this->load->view('tamplate/baseTamplate', $tmp);
+	}
+
+
+	public function SimpanPenunjangAM()
+	{
+		$idppktPenunjangAM = $this->input->post('idppktPenunjangAM');
+		$rincianKegiatanPenunjangAm = $this->input->post('rincianKegiatanPenunjangAm');
+		$catatanPenunjangAm = $this->input->post('catatanPenunjangAm');
+		$volumePenunjangAm = $this->input->post('volumePenunjangAm');
+		$harga_satuanPenunjangAm = $this->input->post('harga_satuanPenunjangAm');
+
+		$dataInsert = array(
+			'id_ppkt' => $idppktPenunjangAM,
+			'id_kegiatan_penunjang_ppkt_am' => $rincianKegiatanPenunjangAm,
+			'catatan' => $catatanPenunjangAm,
+			'volume' => $volumePenunjangAm,
+			'harga_satuan' => $harga_satuanPenunjangAm,
+			'created_at' => date('Y-m-d H:i:s')
+		);
+
+		$pros = $this->M_dinamis->save('t_ppkt_penunjang_am', $dataInsert);
+
+		if ($pros == true) {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Berhasil </strong> Data Berhasil Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+		} else {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Gagal </strong>Gagal Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+			
+		}
+
+		redirect('PPKT/detail/'.$idppktPenunjangAM, 'refresh');
+
+
+	}
+
+
+	public function SimpanPenunjangSan()
+	{
+		$idppktPenunjangSan = $this->input->post('idppktPenunjangSan');
+		$rincianKegiatanPenunjangSan = $this->input->post('rincianKegiatanPenunjangSan');
+		$catatanPenunjangSan = $this->input->post('catatanPenunjangSan');
+		$volumePenunjangSan = $this->input->post('volumePenunjangSan');
+		$harga_satuanPenunjangSan = $this->input->post('harga_satuanPenunjangSan');
+
+		$dataInsert = array(
+			'id_ppkt' => $idppktPenunjangSan,
+			'id_kegiatan_penunjang_ppkt_san' => $rincianKegiatanPenunjangSan,
+			'catatan' => $catatanPenunjangSan,
+			'volume' => $volumePenunjangSan,
+			'harga_satuan' => $harga_satuanPenunjangSan,
+			'created_at' => date('Y-m-d H:i:s')
+		);
+
+		$pros = $this->M_dinamis->save('t_ppkt_penunjang_san', $dataInsert);
+
+		if ($pros == true) {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Berhasil </strong> Data Berhasil Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+		} else {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Gagal </strong>Gagal Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+			
+		}
+
+		redirect('PPKT/detail/'.$idppktPenunjangSan, 'refresh');
+	}
+
+
+	public function SimpanPenunjangPerum()
+	{
+		$idppktPenunjangPerum = $this->input->post('idppktPenunjangPerum');
+		$rincianKegiatanPenunjangPerum = $this->input->post('rincianKegiatanPenunjangPerum');
+		$catatanPenunjangPerum = $this->input->post('catatanPenunjangPerum');
+		$volumePenunjangPerum = $this->input->post('volumePenunjangPerum');
+		$harga_satuanPenunjangPerum = $this->input->post('harga_satuanPenunjangPerum');
+
+		$dataInsert = array(
+			'id_ppkt' => $idppktPenunjangPerum,
+			'id_kegiatan_penunjang_ppkt_perum' => $rincianKegiatanPenunjangPerum,
+			'catatan' => $catatanPenunjangPerum,
+			'volume' => $volumePenunjangPerum,
+			'harga_satuan' => $harga_satuanPenunjangPerum,
+			'created_at' => date('Y-m-d H:i:s')
+		);
+
+		$pros = $this->M_dinamis->save('t_ppkt_penunjang_perum', $dataInsert);
+
+		if ($pros == true) {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Berhasil </strong> Data Berhasil Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+		} else {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Gagal </strong>Gagal Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+			
+		}
+
+		redirect('PPKT/detail/'.$idppktPenunjangPerum, 'refresh');
+	}
+
+
+	public function getDataByIdAMPenunjang()
+	{
+		$id = $this->input->post('id');
+
+		$data = $this->M_dinamis->getById('t_ppkt_penunjang_am', ['id' => $id]);
+
+		echo json_encode($data);
+
+	}
+
+	public function getDataByIdSanPenunjang()
+	{
+		$id = $this->input->post('id');
+
+		$data = $this->M_dinamis->getById('t_ppkt_penunjang_san', ['id' => $id]);
+
+		echo json_encode($data);
+
+	}
+
+
+	public function getDataByIdPerumPenunjang()
+	{
+		$id = $this->input->post('id');
+
+		$data = $this->M_dinamis->getById('t_ppkt_penunjang_perum', ['id' => $id]);
+
+		echo json_encode($data);
+
+	}
+
+	public function SimpanPenunjangAMEdit()
+	{
+		$idppktPenunjangAMEdit = $this->input->post('idppktPenunjangAMEdit');
+		$idEdit = $this->input->post('idEdit');
+		$rincianKegiatanPenunjangAmEdit = $this->input->post('rincianKegiatanPenunjangAmEdit');
+		$catatanPenunjangAmEdit = $this->input->post('catatanPenunjangAmEdit');
+		$volumePenunjangAmEdit = $this->input->post('volumePenunjangAmEdit');
+		$harga_satuanPenunjangAmEdit = $this->input->post('harga_satuanPenunjangAmEdit');
+
+		$editData = array(
+			'id_kegiatan_penunjang_ppkt_am' => $rincianKegiatanPenunjangAmEdit,
+			'catatan' => $catatanPenunjangAmEdit,
+			'volume' => $volumePenunjangAmEdit,
+			'harga_satuan' => $harga_satuanPenunjangAmEdit
+		);
+
+		$pros = $this->M_dinamis->update('t_ppkt_penunjang_am', $editData, ['id' => $idEdit]);
+
+		if ($pros == true) {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Berhasil </strong> Data Berhasil Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+		} else {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Gagal </strong>Gagal Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+			
+		}
+
+		redirect('PPKT/detail/'.$idppktPenunjangAMEdit, 'refresh');
+
+	}
+
+
+	public function SimpanPenunjangSanEdit()
+	{
+		$idppktPenunjangSanEdit = $this->input->post('idppktPenunjangSanEdit');
+		$idEditSan = $this->input->post('idEditSan');
+		$rincianKegiatanPenunjangSanEdit = $this->input->post('rincianKegiatanPenunjangSanEdit');
+		$catatanPenunjangSanEdit = $this->input->post('catatanPenunjangSanEdit');
+		$volumePenunjangSanEdit = $this->input->post('volumePenunjangSanEdit');
+		$harga_satuanPenunjangSanEdit = $this->input->post('harga_satuanPenunjangSanEdit');
+
+		$editData = array(
+			'id_kegiatan_penunjang_ppkt_san' => $rincianKegiatanPenunjangSanEdit,
+			'catatan' => $catatanPenunjangSanEdit,
+			'volume' => $volumePenunjangSanEdit,
+			'harga_satuan' => $harga_satuanPenunjangSanEdit
+		);
+
+		$pros = $this->M_dinamis->update('t_ppkt_penunjang_san', $editData, ['id' => $idEditSan]);
+
+		if ($pros == true) {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Berhasil </strong> Data Berhasil Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+		} else {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Gagal </strong>Gagal Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+			
+		}
+
+		redirect('PPKT/detail/'.$idppktPenunjangSanEdit, 'refresh');
+
+	}
+
+
+	public function SimpanPenunjangPerumEdit()
+	{
+		$idppktPenunjangPerumEdit = $this->input->post('idppktPenunjangPerumEdit');
+		$idEditPerum = $this->input->post('idEditPerum');
+		$rincianKegiatanPenunjangPerumEdit = $this->input->post('rincianKegiatanPenunjangPerumEdit');
+		$catatanPenunjangPerumEdit = $this->input->post('catatanPenunjangPerumEdit');
+		$volumePenunjangPerumEdit = $this->input->post('volumePenunjangPerumEdit');
+		$harga_satuanPenunjangPerumEdit = $this->input->post('harga_satuanPenunjangPerumEdit');
+
+		$editData = array(
+			'id_kegiatan_penunjang_ppkt_perum' => $rincianKegiatanPenunjangPerumEdit,
+			'catatan' => $catatanPenunjangPerumEdit,
+			'volume' => $volumePenunjangPerumEdit,
+			'harga_satuan' => $harga_satuanPenunjangPerumEdit
+		);
+
+		$pros = $this->M_dinamis->update('t_ppkt_penunjang_perum', $editData, ['id' => $idEditPerum]);
+
+		if ($pros == true) {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Berhasil </strong> Data Berhasil Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+		} else {
+
+			$this->session->set_flashdata('psn', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Gagal </strong>Gagal Disimpan.!
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>');
+			
+		}
+
+		redirect('PPKT/detail/'.$idppktPenunjangPerumEdit, 'refresh');
+
+	}
+
+
+	public function hapusAMPenunjang()
+	{
+		$id = $this->input->post('id');
+
+		$pros = $this->M_dinamis->delete('t_ppkt_penunjang_am', ['id' => $id]);
+
+		echo json_encode(['code' => ($pros) ? 200 : 500]);
+
+	}
+
+
+	public function hapusSanPenunjang()
+	{
+		$id = $this->input->post('id');
+
+		$pros = $this->M_dinamis->delete('t_ppkt_penunjang_san', ['id' => $id]);
+
+		echo json_encode(['code' => ($pros) ? 200 : 500]);
+
+	}
+
+
+	public function hapusPerumPenunjang()
+	{
+		$id = $this->input->post('id');
+
+		$pros = $this->M_dinamis->delete('t_ppkt_penunjang_perum', ['id' => $id]);
+
+		echo json_encode(['code' => ($pros) ? 200 : 500]);
+
 	}
 
 
@@ -947,7 +1247,10 @@ class PPKT extends CI_Controller {
 			'ttdSanitasi' => $ttdSanitasi,
 			'ditRuswa' => $ditRuswa,
 			'ttdRuswa' => $ttdRuswa,
-			'baKonsultasiProgram' => $baKonsultasiProgram
+			'baKonsultasiProgram' => $baKonsultasiProgram,
+			'dataKegiatanPenunjang' => $this->M_PPKT->getDataAMPPKTPenunjangAm($id),
+			'dataKegiatanPenunjangSan' => $this->M_PPKT->getDataAMPPKTPenunjangSan($id),
+			'dataKegiatanPenunjangPerum' => $this->M_PPKT->getDataAMPPKTPenunjangPerum($id)
 		);
 
 		

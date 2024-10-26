@@ -381,4 +381,29 @@ public function getNmDesa($kdlokasi, $kdkabkota, $kdkec, $kddesa)
 	return $this->db->query($qry)->row();
 }
 
+public function getDataAMPPKTPenunjangAm($id=null)
+{
+	$qry = "SELECT b.nama_kegiatan, b.satuan, a.* FROM (SELECT * FROM t_ppkt_penunjang_am WHERE id_ppkt=$id) AS a
+	LEFT JOIN t_kegiatan_ppkt_penunjang_am AS b ON a.id_kegiatan_penunjang_ppkt_am=b.id";
+
+	return $this->db->query($qry)->result();
+}
+
+public function getDataAMPPKTPenunjangSan($id=null)
+{
+	$qry = "SELECT b.nama_kegiatan, b.satuan, a.* FROM (SELECT * FROM t_ppkt_penunjang_san WHERE id_ppkt=$id) AS a
+	LEFT JOIN t_kegiatan_ppkt_penunjang_san AS b ON a.id_kegiatan_penunjang_ppkt_san=b.id";
+
+	return $this->db->query($qry)->result();
+}
+
+
+public function getDataAMPPKTPenunjangPerum($id=null)
+{
+	$qry = "SELECT b.nama_kegiatan, b.satuan, a.* FROM (SELECT * FROM t_ppkt_penunjang_perum WHERE id_ppkt=$id) AS a
+	LEFT JOIN t_kegiatan_ppkt_penunjang_perum AS b ON a.id_kegiatan_penunjang_ppkt_perum=b.id";
+
+	return $this->db->query($qry)->result();
+}
+
 }

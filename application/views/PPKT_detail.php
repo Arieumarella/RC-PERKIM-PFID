@@ -2729,10 +2729,10 @@
 <!-- tabel 7 -->
 <div class="row mt-2">
   <div class="row">  
-    <div class="col-2">  
-      <h4 class="text-start">BIDANG AIR MINUM</h4>
+    <div class="col-4">  
+      <h4 class="text-start">BIDANG AIR MINUM - KEGIATAN FISIK</h4>
     </div>
-    <div class="col-10 text-end">
+    <div class="col-8 text-end">
       <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
         <button class="btn  btn-success" onclick="showModalTambahAM()"><i class="fas fa-plus" style="margin-right:5px;"></i> TAMBAH DATA</button>
       <?php } ?>
@@ -2779,16 +2779,15 @@
     </table>
   </div>
 
-
-  <!-- tabel 8 -->
+  <!-- tabel penunjang am -->
   <div class="row mt-2">
     <div class="row">  
-      <div class="col-2">  
-        <h4 class="text-start">BIDANG SANITASI</h4>
+      <div class="col-4">  
+        <h4 class="text-start">BIDANG AIR MINUM - KEGIATAN PENUNJANG</h4>
       </div>
-      <div class="col-10 text-end">
+      <div class="col-8 text-end">
         <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
-          <button class="btn  btn-success" onclick="showModalTambahSAN()"><i class="fas fa-plus" style="margin-right:5px;"></i> TAMBAH DATA</button>
+          <button class="btn  btn-success" onclick="showModalTambahPenunjangAM()"><i class="fas fa-plus" style="margin-right:5px;"></i> TAMBAH DATA</button>
         <?php } ?>
       </div>
     </div>
@@ -2806,10 +2805,10 @@
         </tr>          
       </thead>
       <tbody>
-        <?php $hargasatuan=0; $volume=0; $no=1; foreach ($dataSAN as $key => $val) { ?>
+        <?php $hargasatuan=0; $volume=0; $no=1; $no=1; foreach ($dataKegiatanPenunjang as $key => $val) { ?>
           <tr>
             <td class="text-start"><?= $no++; ?></td>
-            <td class="text-start"><?= $val->rincianKegiatan; ?></td>
+            <td class="text-start"><?= $val->nama_kegiatan; ?></td>
             <td class="text-start"><?= $val->catatan; ?></td>
             <td class="text-end"><?= $val->volume; ?></td>
             <td class="text-start"><?= $val->satuan; ?></td>
@@ -2817,8 +2816,8 @@
             <td class="text-end"><?= $val->harga_satuan*$val->volume; ?></td>
             <td class="text-center">
               <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
-                <button class="btn btn-icon btn-danger" onclick="hpsSan('<?= $val->id; ?>')"><i class="fas fa-trash-alt"></i></button>
-                <button class="btn btn-icon btn-warning" onclick="editSan('<?= $val->id; ?>')"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-icon btn-danger" onclick="hpsAMPenunjang('<?= $val->id; ?>')"><i class="fas fa-trash-alt"></i></button>
+                <button class="btn btn-icon btn-warning" onclick="editsPenunjangAM('<?= $val->id; ?>')"><i class="fas fa-edit"></i></button>
               <?php } ?>
             </td>
           </tr>
@@ -2828,72 +2827,239 @@
       <tfoot>
         <tr>
           <th colspan="6" class="text-center">TOTAL</th>
-          <th colspan="
-          2" class="text-start"><?= $hargasatuan*$volume; ?></th>
+          <th colspan="2" class="text-start"><?= $hargasatuan*$volume; ?></th>
         </tr>
-      </tfoot>
-    </table>
-  </div>
-
-
-  <!-- tabel 9 -->
-  <div class="row mt-2">
-    <div class="row">  
-      <div class="col-2">  
-        <h4 class="text-start">BIDANG PERUMAHAN</h4>
-      </div>
-      <div class="col-10 text-end">
-        <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
-          <button class="btn  btn-success" onclick="showModalTambahPerum()"><i class="fas fa-plus" style="margin-right:5px;"></i> TAMBAH DATA</button>
-        <?php } ?>
-      </div>
+      </table>
     </div>
-    <table class="table table-bordered table-lg mt-2" style="border-color: black;" >
-      <thead class="text-center align-middle">
-        <tr class="fontTable">
-          <th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">No.</th>
-          <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Rincian Kegiatan</th>
-          <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Catatan</th>
-          <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Volume</th>
-          <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Satuan</th>
-          <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Harga Satuan</th>
-          <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Harga Total</th>
-          <th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">Aksi</th>
-        </tr>          
-      </thead>
-      <tbody>
-        <?php $hargasatuan=0; $volume=0; $no=1; foreach ($dataPperum as $key => $val) { ?>
-          <tr>
-            <td class="text-start"><?= $no++; ?></td>
-            <td class="text-start"><?= $val->rincianKegiatan; ?></td>
-            <td class="text-start"><?= $val->catatan; ?></td>
-            <td class="text-end"><?= $val->volume; ?></td>
-            <td class="text-start"><?= $val->satuan; ?></td>
-            <td class="text-end"><?= $val->harga_satuan; ?></td>
+
+
+    <!-- tabel 8 -->
+    <div class="row mt-2">
+      <div class="row">  
+        <div class="col-4">  
+          <h4 class="text-start">BIDANG SANITASI - KEGIATAN FISIK</h4>
+        </div>
+        <div class="col-8 text-end">
+          <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+            <button class="btn  btn-success" onclick="showModalTambahSAN()"><i class="fas fa-plus" style="margin-right:5px;"></i> TAMBAH DATA</button>
+          <?php } ?>
+        </div>
+      </div>
+      <table class="table table-bordered table-lg mt-2" style="border-color: black;" >
+        <thead class="text-center align-middle">
+          <tr class="fontTable">
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">No.</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Rincian Kegiatan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Catatan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Volume</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Satuan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Harga Satuan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Harga Total</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">Aksi</th>
+          </tr>          
+        </thead>
+        <tbody>
+          <?php $hargasatuan=0; $volume=0; $no=1; foreach ($dataSAN as $key => $val) { ?>
+            <tr>
+              <td class="text-start"><?= $no++; ?></td>
+              <td class="text-start"><?= $val->rincianKegiatan; ?></td>
+              <td class="text-start"><?= $val->catatan; ?></td>
+              <td class="text-end"><?= $val->volume; ?></td>
+              <td class="text-start"><?= $val->satuan; ?></td>
+              <td class="text-end"><?= $val->harga_satuan; ?></td>
+              <td class="text-end"><?= $val->harga_satuan*$val->volume; ?></td>
+              <td class="text-center">
+                <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+                  <button class="btn btn-icon btn-danger" onclick="hpsSan('<?= $val->id; ?>')"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn-icon btn-warning" onclick="editSan('<?= $val->id; ?>')"><i class="fas fa-edit"></i></button>
+                <?php } ?>
+              </td>
+            </tr>
             <?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
-            <td class="text-end"><?= $val->harga_satuan*$val->volume; ?></td>
-            <td class="text-center">
-              <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
-                <button class="btn btn-icon btn-danger" onclick="hpsPrum('<?= $val->id; ?>')"><i class="fas fa-trash-alt"></i></button>
-                <button class="btn btn-icon btn-warning" onclick="editPrum('<?= $val->id; ?>')"><i class="fas fa-edit"></i></button>
-              <?php } ?>
-            </td>
+          <?php } ?>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="6" class="text-center">TOTAL</th>
+            <th colspan="
+            2" class="text-start"><?= $hargasatuan*$volume; ?></th>
           </tr>
-        <?php } ?>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th colspan="6" class="text-center">TOTAL</th>
-          <th colspan="
-          2" class="text-start"><?= $hargasatuan*$volume; ?></th>
-        </tr>
-      </tfoot>
-    </table>
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- tabel Sanitasi Penunjang -->
+    <div class="row mt-2">
+      <div class="row">  
+        <div class="col-4">  
+          <h4 class="text-start">BIDANG SANITASI - KEGIATAN PENUNJANG</h4>
+        </div>
+        <div class="col-8 text-end">
+          <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+            <button class="btn  btn-success" onclick="showModalTambahSANPenunjang()"><i class="fas fa-plus" style="margin-right:5px;"></i> TAMBAH DATA</button>
+          <?php } ?>
+        </div>
+      </div>
+      <table class="table table-bordered table-lg mt-2" style="border-color: black;" >
+        <thead class="text-center align-middle">
+          <tr class="fontTable">
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">No.</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Rincian Kegiatan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Catatan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Volume</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Satuan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Harga Satuan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Harga Total</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">Aksi</th>
+          </tr>          
+        </thead>
+        <tbody>
+          <?php $hargasatuan=0; $volume=0; $no=1; $no=1; foreach ($dataKegiatanPenunjangSan as $key => $val) { ?>
+            <tr>
+              <td class="text-start"><?= $no++; ?></td>
+              <td class="text-start"><?= $val->nama_kegiatan; ?></td>
+              <td class="text-start"><?= $val->catatan; ?></td>
+              <td class="text-end"><?= $val->volume; ?></td>
+              <td class="text-start"><?= $val->satuan; ?></td>
+              <td class="text-end"><?= $val->harga_satuan; ?></td>
+              <td class="text-end"><?= $val->harga_satuan*$val->volume; ?></td>
+              <td class="text-center">
+                <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+                  <button class="btn btn-icon btn-danger" onclick="hpsSanPenunjang('<?= $val->id; ?>')"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn-icon btn-warning" onclick="editsPenunjangSan('<?= $val->id; ?>')"><i class="fas fa-edit"></i></button>
+                <?php } ?>
+              </td>
+            </tr>
+            <?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
+          <?php } ?>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="6" class="text-center">TOTAL</th>
+            <th colspan="
+            2" class="text-start"><?= $hargasatuan*$volume; ?></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+
+    <!-- tabel 9 -->
+    <div class="row mt-2">
+      <div class="row">  
+        <div class="col-4">  
+          <h4 class="text-start">BIDANG PERUMAHAN DAN PERMUKIMAN - KEGIATAN FISIK</h4>
+        </div>
+        <div class="col-8 text-end">
+          <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+            <button class="btn  btn-success" onclick="showModalTambahPerum()"><i class="fas fa-plus" style="margin-right:5px;"></i> TAMBAH DATA</button>
+          <?php } ?>
+        </div>
+      </div>
+      <table class="table table-bordered table-lg mt-2" style="border-color: black;" >
+        <thead class="text-center align-middle">
+          <tr class="fontTable">
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">No.</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Rincian Kegiatan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Catatan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Volume</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Satuan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Harga Satuan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Harga Total</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">Aksi</th>
+          </tr>          
+        </thead>
+        <tbody>
+          <?php $hargasatuan=0; $volume=0; $no=1; foreach ($dataPperum as $key => $val) { ?>
+            <tr>
+              <td class="text-start"><?= $no++; ?></td>
+              <td class="text-start"><?= $val->rincianKegiatan; ?></td>
+              <td class="text-start"><?= $val->catatan; ?></td>
+              <td class="text-end"><?= $val->volume; ?></td>
+              <td class="text-start"><?= $val->satuan; ?></td>
+              <td class="text-end"><?= $val->harga_satuan; ?></td>
+              <?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
+              <td class="text-end"><?= $val->harga_satuan*$val->volume; ?></td>
+              <td class="text-center">
+                <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+                  <button class="btn btn-icon btn-danger" onclick="hpsPrum('<?= $val->id; ?>')"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn-icon btn-warning" onclick="editPrum('<?= $val->id; ?>')"><i class="fas fa-edit"></i></button>
+                <?php } ?>
+              </td>
+            </tr>
+          <?php } ?>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="6" class="text-center">TOTAL</th>
+            <th colspan="
+            2" class="text-start"><?= $hargasatuan*$volume; ?></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+
+    <!-- tabel Perumahan Penunjang -->
+    <div class="row mt-2">
+      <div class="row">  
+        <div class="col-5">  
+          <h4 class="text-start">BIDANG SANITASI PERUMAHAN DAN PERMUKIMAN - KEGIATAN PENUNJANG</h4>
+        </div>
+        <div class="col-7 text-end">
+          <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+            <button class="btn  btn-success" onclick="showModalTambahPerumPenunjang()"><i class="fas fa-plus" style="margin-right:5px;"></i> TAMBAH DATA</button>
+          <?php } ?>
+        </div>
+      </div>
+      <table class="table table-bordered table-lg mt-2" style="border-color: black;" >
+        <thead class="text-center align-middle">
+          <tr class="fontTable">
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">No.</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Rincian Kegiatan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Catatan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Volume</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Satuan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Harga Satuan</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 16.7%;">Harga Total</th>
+            <th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">Aksi</th>
+          </tr>          
+        </thead>
+        <tbody>
+          <?php $hargasatuan=0; $volume=0; $no=1; $no=1; foreach ($dataKegiatanPenunjangPerum as $key => $val) { ?>
+            <tr>
+              <td class="text-start"><?= $no++; ?></td>
+              <td class="text-start"><?= $val->nama_kegiatan; ?></td>
+              <td class="text-start"><?= $val->catatan; ?></td>
+              <td class="text-end"><?= $val->volume; ?></td>
+              <td class="text-start"><?= $val->satuan; ?></td>
+              <td class="text-end"><?= $val->harga_satuan; ?></td>
+              <td class="text-end"><?= $val->harga_satuan*$val->volume; ?></td>
+              <td class="text-center">
+                <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+                  <button class="btn btn-icon btn-danger" onclick="hpsPerumPenunjang('<?= $val->id; ?>')"><i class="fas fa-trash-alt"></i></button>
+                  <button class="btn btn-icon btn-warning" onclick="editsPenunjangPerum('<?= $val->id; ?>')"><i class="fas fa-edit"></i></button>
+                <?php } ?>
+              </td>
+            </tr>
+            <?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
+          <?php } ?>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="6" class="text-center">TOTAL</th>
+            <th colspan="
+            2" class="text-start"><?= $hargasatuan*$volume; ?></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+
+    <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
+      <button class="btn btn-primary" style="float:right;" onclick="cetakBaPPKTShow()"><i class="fas fa-print" style="margin-right:10px;"></i> CETAK BA</button>
+    <?php } ?>
   </div>
-  <?php if($this->session->userdata('rkdak_user')=='perkimpfid'){ ?>
-    <button class="btn btn-primary" style="float:right;" onclick="cetakBaPPKTShow()"><i class="fas fa-print" style="margin-right:10px;"></i> CETAK BA</button>
-  <?php } ?>
-</div>
 </div>
 </div>
 </div>
@@ -3178,6 +3344,101 @@
 <!-- End Edit am -->
 
 
+<!-- Penunjang Am -->
+<div class="modal modal-blur fade" id="modalTambahPPPKTPenunjangAm" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Tambah Data Penunjang AIR MINUM</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= base_url(); ?>PPKT/SimpanPenunjangAM" method="POST">
+          <input type="hidden" name="idppktPenunjangAM" id="idppktPenunjangAM" value="<?= $id; ?>">
+
+          <div class="mb-3">
+            <div class="form-label">Pilih Rincian Kegiatan :</div>
+            <select class="form-select form-sm" name="rincianKegiatanPenunjangAm" required>
+              <option value="" selected disabled>-- Pilih Rincian Kegiatan --</option>
+              <?php foreach ($dataPenunjangAm as $key => $value) { ?>
+                <option value="<?= $value->id; ?>"><?= $value->nama_kegiatan; ?> - (<?= $value->satuan; ?>)</option>
+              <?php } ?>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Input Catatan :</div>
+            <textarea class="form-control" id="catatanInputAMPenunjangAm" name="catatanPenunjangAm" rows="6" placeholder="Content.." style="height: 179px;" required></textarea>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Input Volume :</div>
+            <input class="form-control" type="text" name="volumePenunjangAm" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Harga Satuan :</div>
+            <input class="form-control" type="text" name="harga_satuanPenunjangAm" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+        </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File" >Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Penunjang Am -->
+
+<!-- Edit Penunjang Am -->
+<div class="modal modal-blur fade" id="modalTambahPPPKTPenunjangAmEdit" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Edit Data Penunjang AIR MINUM</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= base_url(); ?>PPKT/SimpanPenunjangAMEdit" method="POST">
+          <input type="hidden" name="idppktPenunjangAMEdit" id="idppktPenunjangAMEdit" value="<?= $id; ?>">
+          <input type="hidden" name="idEdit" id="idEdit">
+          <div class="mb-3">
+            <div class="form-label">Pilih Rincian Kegiatan :</div>
+            <select class="form-select form-sm" name="rincianKegiatanPenunjangAmEdit" id="rincianKegiatanPenunjangAmEdit" required>
+              <option value="" selected disabled>-- Pilih Rincian Kegiatan --</option>
+              <?php foreach ($dataPenunjangAm as $key => $value) { ?>
+                <option value="<?= $value->id; ?>"><?= $value->nama_kegiatan; ?> - (<?= $value->satuan; ?>)</option>
+              <?php } ?>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Input Catatan :</div>
+            <textarea class="form-control" name="catatanPenunjangAmEdit" id="catatanPenunjangAmEdit" rows="6" placeholder="Content.." style="height: 179px;" required></textarea>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Input Volume :</div>
+            <input class="form-control" type="text" name="volumePenunjangAmEdit" id="volumePenunjangAmEdit" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Harga Satuan :</div>
+            <input class="form-control" type="text" name="harga_satuanPenunjangAmEdit" id="harga_satuanPenunjangAmEdit" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+        </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File" >Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Edit Penunjang Am -->
+
+
 
 <!-- SAN -->
 <div class="modal modal-blur fade" id="modalTambahPPKTSAN" tabindex="-1" role="dialog" aria-hidden="true">
@@ -3281,6 +3542,101 @@
 </div>
 <!-- End Edit SAN -->
 
+<!-- Penunjang SAN -->
+<div class="modal modal-blur fade" id="modalTambahPPPKTPenunjangSan" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Tambah Data Penunjang SANITASI</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= base_url(); ?>PPKT/SimpanPenunjangSan" method="POST">
+          <input type="hidden" name="idppktPenunjangSan" id="idppktPenunjangSan" value="<?= $id; ?>">
+
+          <div class="mb-3">
+            <div class="form-label">Pilih Rincian Kegiatan :</div>
+            <select class="form-select form-sm" name="rincianKegiatanPenunjangSan" required>
+              <option value="" selected disabled>-- Pilih Rincian Kegiatan --</option>
+              <?php foreach ($dataPenunjangSan as $key => $value) { ?>
+                <option value="<?= $value->id; ?>"><?= $value->nama_kegiatan; ?> - (<?= $value->satuan; ?>)</option>
+              <?php } ?>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Input Catatan :</div>
+            <textarea class="form-control" id="catatanPenunjangSan" name="catatanPenunjangSan" rows="6" placeholder="Content.." style="height: 179px;" required></textarea>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Input Volume :</div>
+            <input class="form-control" type="text" name="volumePenunjangSan" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Harga Satuan :</div>
+            <input class="form-control" type="text" name="harga_satuanPenunjangSan" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+        </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File" >Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Penunjang SAN -->
+
+
+<!-- Edit Penunjang SAN -->
+<div class="modal modal-blur fade" id="modalTambahPPPKTPenunjangSanEdit" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Edit Data Penunjang AIR MINUM</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= base_url(); ?>PPKT/SimpanPenunjangSanEdit" method="POST">
+          <input type="hidden" name="idppktPenunjangSanEdit" id="idppktPenunjangSanEdit" value="<?= $id; ?>">
+          <input type="hidden" name="idEditSan" id="idEditSan">
+          <div class="mb-3">
+            <div class="form-label">Pilih Rincian Kegiatan :</div>
+            <select class="form-select form-sm" name="rincianKegiatanPenunjangSanEdit" id="rincianKegiatanPenunjangSanEdit" required>
+              <option value="" selected disabled>-- Pilih Rincian Kegiatan --</option>
+              <?php foreach ($dataPenunjangSan as $key => $value) { ?>
+                <option value="<?= $value->id; ?>"><?= $value->nama_kegiatan; ?> - (<?= $value->satuan; ?>)</option>
+              <?php } ?>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Input Catatan :</div>
+            <textarea class="form-control" name="catatanPenunjangSanEdit" id="catatanPenunjangSanEdit" rows="6" placeholder="Content.." style="height: 179px;" required></textarea>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Input Volume :</div>
+            <input class="form-control" type="text" name="volumePenunjangSanEdit" id="volumePenunjangSanEdit" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Harga Satuan :</div>
+            <input class="form-control" type="text" name="harga_satuanPenunjangSanEdit" id="harga_satuanPenunjangSanEdit" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+        </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File" >Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Edit Penunjang SAN -->
+
 <!-- Perumahan -->
 <div class="modal modal-blur fade" id="modalTambahPPKTPerumahan" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -3332,7 +3688,7 @@
 </div>
 <!-- End Perumahan -->
 
-<!-- Edit SAN -->
+<!-- Edit Perumahan -->
 <div class="modal modal-blur fade" id="modalTambahPPKTPerumEdit" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -3381,7 +3737,103 @@
     </div>
   </div>
 </div>
-<!-- End Edit SAN -->
+<!-- End Edit Perumahan -->
+
+<!-- Penunjang Perumahan -->
+<div class="modal modal-blur fade" id="modalTambahPPPKTPenunjangPerum" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Tambah Data Penunjang Perumahan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= base_url(); ?>PPKT/SimpanPenunjangPerum" method="POST">
+          <input type="hidden" name="idppktPenunjangPerum" id="idppktPenunjangPerum" value="<?= $id; ?>">
+
+          <div class="mb-3">
+            <div class="form-label">Pilih Rincian Kegiatan :</div>
+            <select class="form-select form-sm" name="rincianKegiatanPenunjangPerum" required>
+              <option value="" selected disabled>-- Pilih Rincian Kegiatan --</option>
+              <?php foreach ($dataPenunjangPerum as $key => $value) { ?>
+                <option value="<?= $value->id; ?>"><?= $value->nama_kegiatan; ?> - (<?= $value->satuan; ?>)</option>
+              <?php } ?>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Input Catatan :</div>
+            <textarea class="form-control" id="catatanPenunjangPerum" name="catatanPenunjangPerum" rows="6" placeholder="Content.." style="height: 179px;" required></textarea>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Input Volume :</div>
+            <input class="form-control" type="text" name="volumePenunjangPerum" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Harga Satuan :</div>
+            <input class="form-control" type="text" name="harga_satuanPenunjangPerum" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+        </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File" >Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Penunjang Perumahan -->
+
+<!-- Edit Penunjang Perum -->
+<div class="modal modal-blur fade" id="modalTambahPPPKTPenunjangPerumEdit" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tittle_modal_dok_iplt">Form Edit Data Penunjang Perumahan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="<?= base_url(); ?>PPKT/SimpanPenunjangPerumEdit" method="POST">
+          <input type="hidden" name="idppktPenunjangPerumEdit" id="idppktPenunjangPerumEdit" value="<?= $id; ?>">
+          <input type="hidden" name="idEditPerum" id="idEditPerum">
+          <div class="mb-3">
+            <div class="form-label">Pilih Rincian Kegiatan :</div>
+            <select class="form-select form-sm" name="rincianKegiatanPenunjangPerumEdit" id="rincianKegiatanPenunjangPerumEdit" required>
+              <option value="" selected disabled>-- Pilih Rincian Kegiatan --</option>
+              <?php foreach ($dataPenunjangPerum as $key => $value) { ?>
+                <option value="<?= $value->id; ?>"><?= $value->nama_kegiatan; ?> - (<?= $value->satuan; ?>)</option>
+              <?php } ?>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <div class="form-label">Input Catatan :</div>
+            <textarea class="form-control" name="catatanPenunjangPerumEdit" id="catatanPenunjangPerumEdit" rows="6" placeholder="Content.." style="height: 179px;" required></textarea>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Input Volume :</div>
+            <input class="form-control" type="text" name="volumePenunjangPerumEdit" id="volumePenunjangPerumEdit" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+          <div class="mb-3">
+            <div class="form-label">Harga Satuan :</div>
+            <input class="form-control" type="text" name="harga_satuanPenunjangPerumEdit" id="harga_satuanPenunjangPerumEdit" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+          </div>
+        </div>
+        <div class="modal-footer text-end">
+          <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+            Cancel
+          </a>
+          <button type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Simpan File" >Simpan</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Edit Penunjang Perum -->
+
+
 
 
 
@@ -3560,6 +4012,83 @@
   }
 
 
+  editsPenunjangAM = function (id) {
+
+    $.ajax({
+      url: base_url()+'PPKT/getDataByIdAMPenunjang',
+      type: "post",
+      dataType: 'json',
+      data: {id},
+      success: function (res) {
+        console.log(res.catatan)
+        $('#idEdit').val(res.id);
+        $('#rincianKegiatanPenunjangAmEdit').val(res.id_kegiatan_penunjang_ppkt_am);
+        $('#catatanPenunjangAmEdit').val(res.catatan);
+        $('#volumePenunjangAmEdit').val(res.volume);
+        $('#harga_satuanPenunjangAmEdit').val(res.harga_satuan);
+
+        $('#modalTambahPPPKTPenunjangAmEdit').modal('show');
+
+
+      },error: function(jqXHR, textStatus, errorThrown) {
+        t_error('Ada yg error silakan hubungi developer');
+      }
+    });
+
+  }
+
+
+  editsPenunjangSan = function (id) {
+
+    $.ajax({
+      url: base_url()+'PPKT/getDataByIdSanPenunjang',
+      type: "post",
+      dataType: 'json',
+      data: {id},
+      success: function (res) {
+
+        $('#idEditSan').val(res.id);
+        $('#rincianKegiatanPenunjangSanEdit').val(res.id_kegiatan_penunjang_ppkt_san);
+        $('#catatanPenunjangSanEdit').val(res.catatan);
+        $('#volumePenunjangSanEdit').val(res.volume);
+        $('#harga_satuanPenunjangSanEdit').val(res.harga_satuan);
+
+        $('#modalTambahPPPKTPenunjangSanEdit').modal('show');
+
+
+      },error: function(jqXHR, textStatus, errorThrown) {
+        t_error('Ada yg error silakan hubungi developer');
+      }
+    });
+
+  }
+
+  editsPenunjangPerum = function (id) {
+
+    $.ajax({
+      url: base_url()+'PPKT/getDataByIdPerumPenunjang',
+      type: "post",
+      dataType: 'json',
+      data: {id},
+      success: function (res) {
+
+        $('#idEditPerum').val(res.id);
+        $('#rincianKegiatanPenunjangPerumEdit').val(res.id_kegiatan_penunjang_ppkt_perum);
+        $('#catatanPenunjangPerumEdit').val(res.catatan);
+        $('#volumePenunjangPerumEdit').val(res.volume);
+        $('#harga_satuanPenunjangPerumEdit').val(res.harga_satuan);
+
+        $('#modalTambahPPPKTPenunjangPerumEdit').modal('show');
+
+
+      },error: function(jqXHR, textStatus, errorThrown) {
+        t_error('Ada yg error silakan hubungi developer');
+      }
+    });
+
+  }
+
+
   hpsAM = function (id) {
 
     Swal.fire({
@@ -3596,10 +4125,132 @@
 
   }
 
+  hpsAMPenunjang = function (id) {
+
+    Swal.fire({
+      title: 'Anda Yakin ?',
+      text: "Data yg Telah Dihapus Tidak Bisa Dikembalikan!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ya Hapus !'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+       $.ajax({
+        url: base_url()+'PPKT/hapusAMPenunjang',
+        type: "post",
+        dataType: 'json',
+        data: {id},
+        success: function (res) {
+          if (res.code != 200 ){
+            t_error('Data gagal Dihapus.!');
+            return;
+          }
+          location.reload();
+
+        },error: function(jqXHR, textStatus, errorThrown) {
+          t_error('Ada yg error silakan hubungi developer');
+        }
+      });
+
+     }
+   });
+
+
+  }
+
+  hpsSanPenunjang = function (id) {
+
+    Swal.fire({
+      title: 'Anda Yakin ?',
+      text: "Data yg Telah Dihapus Tidak Bisa Dikembalikan!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ya Hapus !'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+       $.ajax({
+        url: base_url()+'PPKT/hapusSanPenunjang',
+        type: "post",
+        dataType: 'json',
+        data: {id},
+        success: function (res) {
+          if (res.code != 200 ){
+            t_error('Data gagal Dihapus.!');
+            return;
+          }
+          location.reload();
+
+        },error: function(jqXHR, textStatus, errorThrown) {
+          t_error('Ada yg error silakan hubungi developer');
+        }
+      });
+
+     }
+   });
+
+  }
+
+  hpsPerumPenunjang = function (id) {
+
+
+    Swal.fire({
+      title: 'Anda Yakin ?',
+      text: "Data yg Telah Dihapus Tidak Bisa Dikembalikan!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ya Hapus !'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+       $.ajax({
+        url: base_url()+'PPKT/hapusPerumPenunjang',
+        type: "post",
+        dataType: 'json',
+        data: {id},
+        success: function (res) {
+          if (res.code != 200 ){
+            t_error('Data gagal Dihapus.!');
+            return;
+          }
+          location.reload();
+
+        },error: function(jqXHR, textStatus, errorThrown) {
+          t_error('Ada yg error silakan hubungi developer');
+        }
+      });
+
+     }
+   });
+
+
+  }
+
   showModalTambahAM = function () {
 
     $('#modalTambahPPKTam').modal('show');
 
+  }
+
+  showModalTambahPenunjangAM = function () {
+
+    $('#modalTambahPPPKTPenunjangAm').modal('show');
+
+  }
+
+  showModalTambahSANPenunjang = function () {
+    $('#modalTambahPPPKTPenunjangSan').modal('show');
+  }
+
+  showModalTambahPerumPenunjang = function () {
+    $('#modalTambahPPPKTPenunjangPerum').modal('show');
   }
 
 

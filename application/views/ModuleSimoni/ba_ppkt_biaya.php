@@ -55,7 +55,7 @@
 
 </head>
 <body>
-	<h5><b>AIR MINUM</b></h5>
+	<h5><b>BIDANG AIR MINUM - KEGIATAN FISIK</b></h5>
 	<table style="margin-top: -15px;">
 		<thead class="text-center align-middle">
 			<tr class="fontTable">
@@ -95,7 +95,47 @@
 
 	<br>
 
-	<h5><b>SANITASI</b></h5>
+	<h5><b>BIDANG AIR MINUM - KEGIATAN PENUNJANG</b></h5>
+	<table style="margin-top: -15px;">
+		<thead class="text-center align-middle">
+			<tr class="fontTable">
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">No</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 15%;">Rincian Kegiatan</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">Catatan</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">VOLUME</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">SATUAN</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">HARGA SATUAN</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">HARGA TOTAL</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<?php $hargasatuan=0; $volume=0; $no=1; $no=1; foreach ($dataKegiatanPenunjang as $key => $val) { ?>
+				<tr>
+					<td><?= $no++; ?></td>
+					<td><?= $val->nama_kegiatan; ?></td>
+					<td><?= $val->catatan; ?></td>
+					<td><?= $val->volume; ?></td>
+					<td><?= $val->satuan; ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan,0,',','.'); ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan*$val->volume,0,',','.'); ?></td>
+				</tr>
+				<?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
+			<?php } ?>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="6">TOTAL</th>
+				<th>
+					Rp. <?= number_format($hargasatuan*$volume,0,',','.'); ?>
+				</th>
+			</tr>
+		</tfoot>
+	</table>
+
+	<br>
+
+	<h5><b>BIDANG SANITASI - KEGIATAN FISIK</b></h5>
 	<table style="margin-top: -15px;">
 		<thead class="text-center align-middle">
 			<tr class="fontTable">
@@ -136,7 +176,47 @@
 
 	<br>
 
-	<h5><b>PERUMAHAN</b></h5>
+	<h5><b>BIDANG SANITASI - KEGIATAN PENUNJANG</b></h5>
+	<table style="margin-top: -15px;">
+		<thead class="text-center align-middle">
+			<tr class="fontTable">
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">No</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 15%;">Rincian Kegiatan</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">Catatan</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">VOLUME</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">SATUAN</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">HARGA SATUAN</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">HARGA TOTAL</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<?php $hargasatuan=0; $volume=0; $no=1; $no=1; foreach ($dataKegiatanPenunjangSan as $key => $val) { ?>
+				<tr>
+					<td><?= $no++; ?></td>
+					<td><?= $val->nama_kegiatan; ?></td>
+					<td><?= $val->catatan; ?></td>
+					<td><?= $val->volume; ?></td>
+					<td><?= $val->satuan; ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan,0,',','.'); ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan*$val->volume,0,',','.'); ?></td>
+				</tr>
+				<?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
+			<?php } ?>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="6">TOTAL</th>
+				<th>
+					Rp. <?= number_format($hargasatuan*$volume,0,',','.'); ?>
+				</th>
+			</tr>
+		</tfoot>
+	</table>
+
+	<br>
+
+	<h5><b>BIDANG PERUMAHAN DAN PERMUKIMAN - KEGIATAN FISIK</b></h5>
 	<table style="margin-top: -15px;">
 		<thead class="text-center align-middle">
 			<tr class="fontTable">
@@ -155,6 +235,46 @@
 				<tr>
 					<td><?= $no++; ?></td>
 					<td><?= $val->rincianKegiatan; ?></td>
+					<td><?= $val->catatan; ?></td>
+					<td><?= $val->volume; ?></td>
+					<td><?= $val->satuan; ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan,0,',','.'); ?></td>
+					<td>Rp. <?= number_format($val->harga_satuan*$val->volume,0,',','.'); ?></td>
+				</tr>
+				<?php $hargasatuan += $val->harga_satuan; $volume += $val->volume; ?>
+			<?php } ?>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="6">TOTAL</th>
+				<th>
+					Rp. <?= number_format($hargasatuan*$volume,0,',','.'); ?>
+				</th>
+			</tr>
+		</tfoot>
+	</table>
+
+	<br>
+
+	<h5><b>BIDANG SANITASI PERUMAHAN DAN PERMUKIMAN - KEGIATAN PENUNJANG</b></h5>
+	<table style="margin-top: -15px;">
+		<thead class="text-center align-middle">
+			<tr class="fontTable">
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 1%;">No</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 15%;">Rincian Kegiatan</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">Catatan</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">VOLUME</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">SATUAN</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">HARGA SATUAN</th>
+				<th style="background-color: #f59f00; color: black; font-size: 12px; width: 20%;">HARGA TOTAL</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<?php $hargasatuan=0; $volume=0; $no=1; $no=1; foreach ($dataKegiatanPenunjangPerum as $key => $val) { ?>
+				<tr>
+					<td><?= $no++; ?></td>
+					<td><?= $val->nama_kegiatan; ?></td>
 					<td><?= $val->catatan; ?></td>
 					<td><?= $val->volume; ?></td>
 					<td><?= $val->satuan; ?></td>
