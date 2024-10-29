@@ -2001,8 +2001,7 @@
               </small>
             </div>
             <div class="mb-3">
-              <div class="form-label">Surat Pernyataan Kesiapan Pelaksanaan Kegiatan dari Dinas Kab/Kota
-              (Untuk menu Pengembangan dan Pembangunan Sistem Pengelolaan Air Limbah Domestik Terpusat (SPALD-T) - Penuntasan Pembangunan SR di IPALD Skala Kota) :</div>
+              <div class="form-label">Surat Pernyataan Kesiapan Lahan :</div>
               <input type="file" name="k_lahan_dinas_ipal" id="k_lahan_dinas_ipal" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 <b>Surat yang didalam isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>
@@ -2099,8 +2098,7 @@
               </small>
             </div>
             <div class="mb-3">
-              <div class="form-label">Surat Pernyataan Kesiapan Pelaksanaan Kegiatan dari Dinas Kab/Kota
-              (Untuk menu Pengembangan dan Pembangunan Sistem Pengelolaan Air Limbah Domestik Terpusat (SPALD-T) - Penuntasan Pembangunan SR di IPALD Skala Kota) :</div>
+              <div class="form-label">Surat Pernyataan Kesiapan Lahan :</div>
               <input type="file" name="k_lahan_dinas_ipal_edit" id="k_lahan_dinas_ipal_edit" class="form-control" accept="application/pdf" />
               <small class="form-hint">
                 <b>Surat yang didalam isinya terdapat kesiapan lahan dan kesiapan untuk melakukan pembentukan lembaga pengelola</b>

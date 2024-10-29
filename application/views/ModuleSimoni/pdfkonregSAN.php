@@ -637,7 +637,7 @@
       <td style="height: 40px;"></td>
     </tr>
     <tr style="text-align:left;">
-      <td rowspan="2" style="height: 40px;">Direktorat Air Minum Ditjen Cipta Karya</td>
+      <td rowspan="2" style="height: 40px;">Direktorat Sanitasi</td>
       <td style="height: 40px;"><?= $ck1; ?></td>
       <td style="height: 40px;"><?= $jabatanCk1; ?></td>
       <td style="height: 40px;"></td>

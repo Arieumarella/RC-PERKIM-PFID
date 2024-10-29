@@ -256,7 +256,7 @@
 
 	<br>
 
-	<h5><b>BIDANG SANITASI PERUMAHAN DAN PERMUKIMAN - KEGIATAN PENUNJANG</b></h5>
+	<h5><b>BIDANG PERUMAHAN DAN PERMUKIMAN - KEGIATAN PENUNJANG</b></h5>
 	<table style="margin-top: -15px;">
 		<thead class="text-center align-middle">
 			<tr class="fontTable">
