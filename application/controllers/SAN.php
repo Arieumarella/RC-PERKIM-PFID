@@ -1446,12 +1446,12 @@ class SAN extends CI_Controller {
 		$dataArray = array(
 			'ded_pembangunanBaru_edit' => 'DED',
 			'rab_pembangunanBaru_edit' => 'RAB',
-			'kkesiapan_pembangunanBaru_edit' => 'Surat Pernyataan Kesiapan Pelaksanaan Kegiatan',
+			'kesiapan_pembangunanBaru_edit' => 'Surat Pernyataan Kesiapan Pelaksanaan Kegiatan',
 			'legalitas_pembangunanBaru_edit' => 'Bukti legalitas lahan untuk TPS 3R',
 			'bp_pembangunanBaru_edit' => 'Konsep Business Plan pengelolaan TPS 3R pasca konstruksi',
 			'penerima_manfaat_pembangunanBaru_edit' => 'Daftar calon penerima manfaat TPS 3R minimal 200 KK',
 			'ba_warga' => 'Berita Acara Kesepakatan Warga',
-			'kesepakatan_oprasi_pemeliharan_edit' => 'Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan',
+			'kesepakatan_oprasi_pemeliharan' => 'Surat Pernyataan Kesiapan dan Dukungan Biaya Operasi dan Pemeliharaan',
 			'surat_dinas_hidup_edit' => 'Surat dukungan Dinas Lingkungan Hidup',
 			'justifikasi_TPS_peningkatan_edit' => 'Justifikasi Peningkatan atau Rehabilitasi TPS3R',
 			'sk_desa_kpp_edit' => 'SK Kepala Desa tentang Pembentukan KKP',
@@ -1461,12 +1461,12 @@ class SAN extends CI_Controller {
 		$dataArraySize = array(
 			'ded_pembangunanBaru_edit' => 30720,
 			'rab_pembangunanBaru_edit' => 10240,
-			'kkesiapan_pembangunanBaru_edit' => 5120,
+			'kesiapan_pembangunanBaru_edit' => 5120,
 			'legalitas_pembangunanBaru_edit' => 5120,
 			'bp_pembangunanBaru_edit' => 10240,
 			'penerima_manfaat_pembangunanBaru_edit' => 5120,
 			'ba_warga' => 5120,
-			'kesepakatan_oprasi_pemeliharan_edit' => 5120,
+			'kesepakatan_oprasi_pemeliharan' => 5120,
 			'surat_dinas_hidup_edit' => 5120,
 			'justifikasi_TPS_peningkatan_edit' => 5120,
 			'sk_desa_kpp_edit' => 5120,
@@ -1547,9 +1547,9 @@ class SAN extends CI_Controller {
 						$keyValue = 'rab_pembangunanBaru';
 					}
 
-					if ($key == 'kkesiapan_pembangunanBaru_edit') {
-						$dataInsert['kkesiapan_pembangunanBaru'] = $fullPath;
-						$keyValue = 'kkesiapan_pembangunanBaru';
+					if ($key == 'kesiapan_pembangunanBaru_edit') {
+						$dataInsert['kesiapan_pembangunanBaru'] = $fullPath;
+						$keyValue = 'kesiapan_pembangunanBaru';
 					}
 
 					if ($key == 'legalitas_pembangunanBaru_edit') {
@@ -1572,7 +1572,7 @@ class SAN extends CI_Controller {
 						$keyValue = 'ba_warga';
 					}
 
-					if ($key == 'kesepakatan_oprasi_pemeliharan_edit') {
+					if ($key == 'kesepakatan_oprasi_pemeliharan') {
 						$dataInsert['kesepakatan_oprasi_pemeliharan'] = $fullPath;
 						$keyValue = 'kesepakatan_oprasi_pemeliharan';
 					}
